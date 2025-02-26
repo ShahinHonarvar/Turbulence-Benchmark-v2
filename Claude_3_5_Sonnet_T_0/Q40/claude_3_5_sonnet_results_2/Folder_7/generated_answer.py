@@ -1,0 +1,3 @@
+def return_n_smallest_chars(s):
+    char_list = sorted(set(s))[:49]
+    return char_list
