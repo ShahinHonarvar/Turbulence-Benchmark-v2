@@ -1,0 +1,8 @@
+def sum_even_ints_inclusive(integer_list):
+    start_index = 527
+    end_index = 539
+    if len(integer_list) <= start_index:
+        return 0
+    if len(integer_list) < end_index:
+        end_index = len(integer_list)
+    return sum((num for num in integer_list[start_index:end_index] if num % 2 == 0))

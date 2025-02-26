@@ -1,0 +1,6 @@
+def filter_chars(string):
+    chars_to_remove = set()
+    for i in range(11, 15):
+        if i < len(string) and 't' < string[i] < 'v':
+            chars_to_remove.add(string[i])
+    return ''.join((char for char in string if char not in chars_to_remove))

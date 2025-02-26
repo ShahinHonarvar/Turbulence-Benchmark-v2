@@ -1,0 +1,8 @@
+def all_ints_div_by_both_two_nums(integer_list):
+    if len(integer_list) <= 200:
+        return []
+    result = []
+    for num in integer_list[200:201]:
+        if num % 17 == 0 and num % -5 == 0:
+            result.append(num)
+    return result

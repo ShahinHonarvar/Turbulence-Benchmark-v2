@@ -1,0 +1,5 @@
+def insert_after_index(input_list):
+    index = input_list.index(74) if 74 in input_list else -1
+    if index != -1:
+        input_list.insert(index + 1, [51, 29])
+    return input_list

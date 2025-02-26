@@ -1,0 +1,8 @@
+def return_vowels(s):
+    vowels = 'aeiouAEIOU'
+    result = []
+    for i in range(71, 88):
+        if i < len(s):
+            if s[i] in vowels and '9' < s[i] <= 'P':
+                result.append(s[i])
+    return result

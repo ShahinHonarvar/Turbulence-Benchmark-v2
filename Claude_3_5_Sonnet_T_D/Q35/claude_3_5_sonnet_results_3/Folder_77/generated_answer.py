@@ -1,0 +1,17 @@
+def remove_repeat_chars(s):
+    if len(s) <= 356:
+        return s
+    start = 356
+    end = min(988, len(s))
+    substring = s[start:end]
+    char_count = {}
+    chars_to_remove = set()
+    for char in substring:
+        char_count[char] = char_count.get(char, 0) + 1
+        if char_count[char] > 1:
+            chars_to_remove.add(char)
+    result = []
+    for i, char in enumerate(s):
+        if i < start or i >= end or char not in chars_to_remove:
+            result.append(char)
+    return ''.join(result)

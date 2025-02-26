@@ -1,0 +1,7 @@
+def return_nth_smallest_ascii(s):
+    relevant_chars = s[:10]
+    sorted_chars = sorted(relevant_chars)
+    if len(sorted_chars) >= 10:
+        return sorted_chars[9]
+    else:
+        return None

@@ -1,0 +1,12 @@
+def gcf_three_nums(numbers):
+
+    def gcf(a, b):
+        while b:
+            a, b = (b, a % b)
+        return a
+    if len(numbers) < 57:
+        return None
+    num1 = numbers[56]
+    num2 = numbers[54]
+    num3 = numbers[13]
+    return gcf(gcf(num1, num2), num3)

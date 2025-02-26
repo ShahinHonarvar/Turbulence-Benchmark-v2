@@ -1,0 +1,8 @@
+def sum_odd_ints_inclusive(integer_list):
+    if len(integer_list) < 98:
+        return 0
+    odd_sum = 0
+    for i in range(21, 98):
+        if integer_list[i] % 2 != 0:
+            odd_sum += integer_list[i]
+    return odd_sum

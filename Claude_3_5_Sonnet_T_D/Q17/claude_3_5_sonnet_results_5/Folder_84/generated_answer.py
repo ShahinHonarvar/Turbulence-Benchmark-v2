@@ -1,0 +1,6 @@
+def all_ints_div_by_both_two_nums(int_list):
+    result = []
+    for num in int_list[78:82]:
+        if num % 76 == 0 and num % 60 == 0:
+            result.append(num)
+    return result

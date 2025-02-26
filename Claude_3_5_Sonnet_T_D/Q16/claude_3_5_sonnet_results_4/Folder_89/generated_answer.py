@@ -1,0 +1,4 @@
+def sum_even_ints_inclusive(integers):
+    start = 56
+    end = 83
+    return sum((num for num in integers[start:end] if num % 2 == 0))

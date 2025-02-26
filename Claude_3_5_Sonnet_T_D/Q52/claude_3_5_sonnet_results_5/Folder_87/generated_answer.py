@@ -1,0 +1,8 @@
+def palindrome_of_length_n(s):
+    s = ''.join((char.lower() for char in s if char.isalpha()))
+    result = set()
+    for i in range(len(s) - 56):
+        substring = s[i:i + 57]
+        if substring == substring[::-1]:
+            result.add(substring)
+    return result

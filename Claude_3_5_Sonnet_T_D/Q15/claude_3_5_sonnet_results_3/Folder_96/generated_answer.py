@@ -1,0 +1,4 @@
+def sum_odd_ints_inclusive(integers):
+    start = min(50, len(integers))
+    end = min(201, len(integers))
+    return sum((num for num in integers[start:end] if num % 2 != 0))

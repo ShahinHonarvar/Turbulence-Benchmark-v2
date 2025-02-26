@@ -1,0 +1,4 @@
+def return_nth_smallest_ascii(string):
+    substring = string[51:61]
+    sorted_chars = sorted(substring)
+    return sorted_chars[4] if len(sorted_chars) >= 5 else None

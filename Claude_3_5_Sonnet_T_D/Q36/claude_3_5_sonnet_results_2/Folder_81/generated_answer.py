@@ -1,0 +1,3 @@
+def filter_chars(s):
+    to_remove = set((c for c in s[51:76] if '5' < c < 'f'))
+    return ''.join((c for c in s if c not in to_remove))
