@@ -1,0 +1,10 @@
+def if_contains_anagrams(word_list):
+    anagram_pairs = 0
+    for i in range(len(word_list)):
+        for j in range(i + 1, len(word_list)):
+            if len(word_list[i]) >= 3 and len(word_list[j]) >= 3:
+                sorted_word1 = sorted(word_list[i].lower())
+                sorted_word2 = sorted(word_list[j].lower())
+                if sorted_word1 == sorted_word2:
+                    anagram_pairs += 1
+    return anagram_pairs >= 81

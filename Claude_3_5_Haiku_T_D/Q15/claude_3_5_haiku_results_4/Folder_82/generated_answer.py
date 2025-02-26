@@ -1,0 +1,8 @@
+def sum_odd_ints_inclusive(nums):
+    if len(nums) <= 200:
+        return 0
+    total = 0
+    for i in range(20, 201):
+        if nums[i] % 2 != 0:
+            total += nums[i]
+    return total

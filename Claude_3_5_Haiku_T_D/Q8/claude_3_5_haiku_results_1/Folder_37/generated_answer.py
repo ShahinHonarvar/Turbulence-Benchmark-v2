@@ -1,0 +1,4 @@
+def all_even_ints_exclusive(nums):
+    if len(nums) <= 2:
+        return []
+    return [num for num in nums[1 + 1:2] if num % 2 == 0]

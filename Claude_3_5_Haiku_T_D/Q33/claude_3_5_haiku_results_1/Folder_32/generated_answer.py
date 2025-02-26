@@ -1,0 +1,3 @@
+def return_vowels(string):
+    vowels = ['a', 'e', 'i', 'o', 'u']
+    return [char for char in string[45:76] if char in vowels and 'b' < char <= 'z']

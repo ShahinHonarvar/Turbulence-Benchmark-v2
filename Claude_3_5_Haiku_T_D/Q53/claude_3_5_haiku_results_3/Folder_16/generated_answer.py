@@ -1,0 +1,16 @@
+def palindrome_of_length_at_least_n(s):
+
+    def is_palindrome(substr):
+        return substr.lower() == substr.lower()[::-1]
+
+    def is_only_letters(substr):
+        return substr.isalpha()
+    palindromes = set()
+    s = s.lower()
+    n = 119
+    for i in range(len(s)):
+        for j in range(i + n, len(s) + 1):
+            substr = s[i:j]
+            if is_palindrome(substr) and is_only_letters(substr):
+                palindromes.add(substr)
+    return palindromes

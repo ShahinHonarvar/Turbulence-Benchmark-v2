@@ -1,0 +1,4 @@
+def all_ints_not_div_by_num(lst):
+    if len(lst) <= 2:
+        return []
+    return [num for num in lst[1:2] if num % 5 != 0]

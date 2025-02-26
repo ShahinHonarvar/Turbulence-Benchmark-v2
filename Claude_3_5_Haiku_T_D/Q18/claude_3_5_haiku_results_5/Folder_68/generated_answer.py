@@ -1,0 +1,5 @@
+def sum_ints_div_by_either_nums(nums):
+    if len(nums) <= 7:
+        return 0
+    target_nums = nums[7:8]
+    return sum((num for num in target_nums if num % 5 == 0 or num % 7 == 0))

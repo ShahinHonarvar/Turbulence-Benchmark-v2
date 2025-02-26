@@ -1,0 +1,3 @@
+def return_n_smallest_chars(s):
+    sorted_chars = sorted(set(s))
+    return sorted_chars[:64] if len(sorted_chars) >= 64 else sorted_chars + [sorted_chars[0]] * (64 - len(sorted_chars))
