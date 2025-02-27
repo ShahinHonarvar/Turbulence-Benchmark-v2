@@ -1,0 +1,5 @@
+def return_vowels(s):
+    if len(s) < 2:
+        return []
+    vowels = 'AEIOUaeiou'
+    return [char for char in s[1:4] if char in vowels and 'C' < char <= 'I']

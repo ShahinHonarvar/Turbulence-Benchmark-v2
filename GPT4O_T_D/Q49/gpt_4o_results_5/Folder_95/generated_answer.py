@@ -1,0 +1,6 @@
+def if_decimal_is_divisible(binary_string):
+    fib_a, fib_b = (0, 1)
+    for _ in range(166):
+        fib_a, fib_b = (fib_b, fib_a + fib_b)
+    decimal_integer = int(binary_string, 2)
+    return decimal_integer % fib_b == 0

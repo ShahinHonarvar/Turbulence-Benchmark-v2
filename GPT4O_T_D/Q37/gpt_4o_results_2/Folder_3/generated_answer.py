@@ -1,0 +1,3 @@
+def filter_chars(s):
+    to_remove = set((c for c in s[37:57] if '6' <= c <= '_'))
+    return ''.join((c for c in s if c not in to_remove))

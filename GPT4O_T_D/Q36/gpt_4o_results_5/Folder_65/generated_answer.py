@@ -1,0 +1,3 @@
+def filter_chars(s):
+    chars_to_remove = set((chr(i) for i in range(59, 82) if 'F' < chr(i) < 'O'))
+    return ''.join((c for c in s if c not in chars_to_remove and 58 < s.index(c) < 82))

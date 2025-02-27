@@ -1,0 +1,17 @@
+def lists_with_product_equal_n(circular_list):
+
+    def product(lst):
+        result = 1
+        for num in lst:
+            result *= num
+        return result
+    n = len(circular_list)
+    result = []
+    for i in range(n):
+        for size in range(1, n + 1):
+            sublist = []
+            for j in range(size):
+                sublist.append(circular_list[(i + j) % n])
+            if product(sublist) == 37:
+                result.append(sublist)
+    return result

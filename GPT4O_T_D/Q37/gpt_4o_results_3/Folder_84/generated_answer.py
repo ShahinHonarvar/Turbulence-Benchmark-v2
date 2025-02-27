@@ -1,0 +1,7 @@
+def filter_chars(s):
+    chars_to_remove = set()
+    for c in s[138:921]:
+        if '6' <= c <= 'A':
+            chars_to_remove.add(c)
+    result = ''.join((c for c in s if c not in chars_to_remove))
+    return result

@@ -1,0 +1,5 @@
+def filter_chars(s):
+    if len(s) <= 19:
+        return s
+    to_remove = set((c for c in s[20:69] if '<' < c < 'C'))
+    return ''.join((c for c in s if c not in to_remove))

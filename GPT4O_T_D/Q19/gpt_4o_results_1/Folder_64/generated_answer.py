@@ -1,0 +1,4 @@
+def all_ints_not_div_by_num(int_list):
+    if len(int_list) <= 3:
+        return []
+    return [num for num in int_list[3:-1] if num % 2 != 0]

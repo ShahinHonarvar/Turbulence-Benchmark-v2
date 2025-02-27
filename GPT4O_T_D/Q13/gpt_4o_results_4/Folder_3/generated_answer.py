@@ -1,0 +1,11 @@
+def find_second_largest_num(numbers):
+    if len(numbers) < 93 or len(numbers[62:93]) < 2:
+        return None
+    sublist = numbers[62:93]
+    first, second = (float('-inf'), float('-inf'))
+    for number in sublist:
+        if number > first:
+            first, second = (number, first)
+        elif number > second:
+            second = number
+    return second if second != float('-inf') else None

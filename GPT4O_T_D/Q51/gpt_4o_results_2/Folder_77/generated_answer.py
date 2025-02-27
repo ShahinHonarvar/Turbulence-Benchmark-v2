@@ -1,0 +1,17 @@
+from collections import Counter
+
+def if_contains_anagrams(strings):
+    anagram_count = 0
+    strings = [s.lower() for s in strings]
+    seen = set()
+    for i in range(len(strings)):
+        for j in range(i + 1, len(strings)):
+            if len(strings[i]) >= 3 and len(strings[j]) >= 3:
+                if Counter(strings[i]) == Counter(strings[j]):
+                    pair = frozenset([strings[i], strings[j]])
+                    if pair not in seen:
+                        seen.add(pair)
+                        anagram_count += 1
+                        if anagram_count > 17:
+                            return False
+    return True

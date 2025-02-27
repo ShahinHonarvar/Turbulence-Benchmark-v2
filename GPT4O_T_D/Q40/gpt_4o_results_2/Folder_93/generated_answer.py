@@ -1,0 +1,5 @@
+def return_n_smallest_chars(s):
+    sorted_chars = sorted(s, key=ord)
+    smallest_chars = sorted_chars[:77]
+    smallest_chars.sort(key=ord, reverse=True)
+    return smallest_chars

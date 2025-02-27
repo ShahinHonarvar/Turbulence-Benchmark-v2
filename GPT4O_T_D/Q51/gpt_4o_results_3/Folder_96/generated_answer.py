@@ -1,0 +1,13 @@
+from collections import defaultdict
+
+def if_contains_anagrams(words):
+
+    def sorted_chars(word):
+        return ''.join(sorted(word.lower()))
+    anagram_dict = defaultdict(int)
+    for word in words:
+        if len(word) >= 3:
+            sorted_word = sorted_chars(word)
+            anagram_dict[sorted_word] += 1
+    anagram_pairs_count = sum((count * (count - 1) // 2 for count in anagram_dict.values()))
+    return anagram_pairs_count <= 2

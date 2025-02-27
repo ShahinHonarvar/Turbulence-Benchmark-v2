@@ -1,0 +1,2 @@
+def return_nth_smallest_ascii(s):
+    return sorted(s[38:83])[19] if len(s[38:83]) >= 20 else None

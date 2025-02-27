@@ -1,0 +1,4 @@
+def if_decimal_is_divisible(binary_string):
+    fib_127th = 251728825683549488150424261
+    decimal_number = int(binary_string, 2)
+    return decimal_number % fib_127th == 0

@@ -1,0 +1,4 @@
+def return_nth_smallest_ascii(s):
+    sub_string = s[5:48]
+    sorted_chars = sorted(sub_string)
+    return sorted_chars[12]

@@ -1,0 +1,18 @@
+def palindrome_of_length_at_least_n(s):
+
+    def is_palindrome(substr):
+        l, r = (0, len(substr) - 1)
+        while l < r:
+            if substr[l] != substr[r]:
+                return False
+            l += 1
+            r -= 1
+        return True
+    s = ''.join(filter(str.isalpha, s)).lower()
+    palindromes = set()
+    n = 51
+    for i in range(len(s)):
+        for j in range(i + n, len(s) + 1):
+            if is_palindrome(s[i:j]):
+                palindromes.add(s[i:j])
+    return palindromes

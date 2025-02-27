@@ -1,0 +1,2 @@
+def return_nth_smallest_ascii(s):
+    return sorted(s[:15])[14] if len(s) >= 15 else None

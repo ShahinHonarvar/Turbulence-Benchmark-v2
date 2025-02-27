@@ -1,0 +1,14 @@
+from collections import defaultdict
+
+def if_contains_anagrams(lst):
+    anagram_map = defaultdict(int)
+    for word in lst:
+        if len(word) >= 3:
+            sorted_word = ''.join(sorted(word.lower()))
+            anagram_map[sorted_word] += 1
+    anagram_pairs = 0
+    for count in anagram_map.values():
+        anagram_pairs += count * (count - 1) // 2
+        if anagram_pairs >= 67:
+            return True
+    return False

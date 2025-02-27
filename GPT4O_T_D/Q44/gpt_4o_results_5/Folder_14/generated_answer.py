@@ -1,0 +1,11 @@
+def composite_nums_between_indices(nums):
+
+    def is_composite(n):
+        if n <= 3:
+            return False
+        for i in range(2, int(n ** 0.5) + 1):
+            if n % i == 0:
+                return True
+        return False
+    composites = {num for num in nums[4:5] if is_composite(num)}
+    return composites

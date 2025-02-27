@@ -1,0 +1,13 @@
+def palindrome_of_length_at_least_n(s):
+
+    def is_palindrome_substring(sub):
+        return sub == sub[::-1]
+    s = ''.join(filter(str.isalpha, s)).lower()
+    n = len(s)
+    palindromes = set()
+    for start in range(n):
+        for end in range(start + 47, n + 1):
+            substring = s[start:end]
+            if is_palindrome_substring(substring):
+                palindromes.add(substring)
+    return palindromes

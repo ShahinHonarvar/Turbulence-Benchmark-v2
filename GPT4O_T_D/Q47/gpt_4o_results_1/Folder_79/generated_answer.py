@@ -1,0 +1,13 @@
+def palindromes_of_specific_lengths(s):
+    if len(s) < 9:
+        return set()
+    s = s[1:9]
+    s = ''.join(filter(str.isalpha, s.lower()))
+    found_palindromes = set()
+    for i in range(len(s)):
+        for length in range(3, 5):
+            if i + length <= len(s):
+                substring = s[i:i + length]
+                if substring == substring[::-1]:
+                    found_palindromes.add(substring)
+    return found_palindromes

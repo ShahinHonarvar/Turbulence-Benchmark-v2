@@ -1,0 +1,14 @@
+from collections import defaultdict
+
+def if_contains_anagrams(words):
+    counter = 0
+    anagram_groups = defaultdict(list)
+    for word in words:
+        if len(word) >= 3:
+            sorted_word = ''.join(sorted(word.lower()))
+            anagram_groups[sorted_word].append(word)
+    for anagram_list in anagram_groups.values():
+        n = len(anagram_list)
+        if n > 1:
+            counter += n * (n - 1) // 2
+    return counter >= 94

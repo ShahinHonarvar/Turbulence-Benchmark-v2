@@ -1,0 +1,5 @@
+def filter_chars(s):
+    if len(s) < 603:
+        return s
+    chars_to_remove = set((c for c in s[603:760] if 'Q' <= c <= 'h'))
+    return ''.join((c for c in s if c not in chars_to_remove))

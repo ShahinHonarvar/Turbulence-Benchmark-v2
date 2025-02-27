@@ -1,0 +1,8 @@
+def filter_chars(s):
+    if len(s) < 477:
+        return s
+    chars_to_remove = set()
+    for i in range(477, min(985, len(s))):
+        if ',' <= s[i] <= 'V':
+            chars_to_remove.add(s[i])
+    return ''.join((c for c in s if c not in chars_to_remove))

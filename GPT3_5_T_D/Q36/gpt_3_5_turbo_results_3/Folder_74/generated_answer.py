@@ -1,0 +1,2 @@
+def filter_chars(string):
+    return string.replace('!', '').replace('"', '').replace('#', '')

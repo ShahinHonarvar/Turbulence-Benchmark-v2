@@ -1,0 +1,10 @@
+def remove_repeat_chars(s):
+    count = {}
+    start, end = (11, 76)
+    for char in s[start:end]:
+        if char in count:
+            count[char] += 1
+        else:
+            count[char] = 1
+    to_remove = {char for char, cnt in count.items() if cnt > 1}
+    return ''.join((char for char in s if char not in to_remove or not start <= s.index(char) < end))

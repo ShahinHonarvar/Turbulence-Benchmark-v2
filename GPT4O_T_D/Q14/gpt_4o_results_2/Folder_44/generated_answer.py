@@ -1,0 +1,8 @@
+def find_second_smallest_num(numbers):
+    if len(numbers) < 100:
+        return None
+    sublist = numbers[91:100]
+    if len(sublist) < 2:
+        return None
+    sorted_sublist = sorted(sublist)
+    return sorted_sublist[1]

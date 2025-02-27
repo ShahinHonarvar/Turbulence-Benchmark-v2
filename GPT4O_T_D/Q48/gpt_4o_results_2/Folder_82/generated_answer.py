@@ -1,0 +1,13 @@
+def return_binary_or_hexa(numbers):
+    if len(numbers) <= 200:
+        return ''
+    a = numbers[20]
+    b = numbers[200]
+    numbers_set = set(numbers[21:200])
+    missing_sum = sum((i for i in range(a + 1, b) if i not in numbers_set))
+    if missing_sum == 0:
+        return ''
+    if missing_sum % 2:
+        return bin(missing_sum)[2:]
+    else:
+        return hex(missing_sum)[2:]
