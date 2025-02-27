@@ -1,0 +1,4 @@
+import re
+
+def palindromes_between_indices(s):
+    return set(re.findall('(?=([a-z]){8}(?=[A-Z]))([a-z]{7}(?=[A-Z]))', s.lower()))

@@ -1,0 +1,3 @@
+def remove_repeat_chars(s):
+    repeat_chars = set(s[7:9])
+    return ''.join((c for c in s if c not in repeat_chars))

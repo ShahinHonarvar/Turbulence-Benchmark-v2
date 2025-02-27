@@ -1,0 +1,4 @@
+import re
+
+def insert_before_character(text):
+    return re.sub('(?<=5)h5', 'h5h', text)

@@ -1,0 +1,20 @@
+def if_contains_anagrams(words_list):
+
+    def normalize_string(s):
+        return ''.join(sorted(s.lower()))
+    anagram_count = 0
+    anagram_dict = {}
+    for word in words_list:
+        if len(word) < 3:
+            continue
+        normalized_word = normalize_string(word)
+        if normalized_word in anagram_dict:
+            anagram_dict[normalized_word].append(word)
+        else:
+            anagram_dict[normalized_word] = [word]
+    for anagram_group in anagram_dict.values():
+        if len(anagram_group) > 1:
+            anagram_count += 1
+        if anagram_count > 40:
+            return False
+    return True

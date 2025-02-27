@@ -1,0 +1,4 @@
+import re
+
+def all_substring_of_size_n(s):
+    return re.findall('(?<=.)(.)\x01\x01(.)\x02\x02(.)\x03\x03(.)\x04\x04(.)\x05\x05(.)\x06\x06(.)\x07\x07', s)

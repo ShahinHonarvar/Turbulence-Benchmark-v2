@@ -1,0 +1,6 @@
+import sys
+
+def insert_at_index(nums):
+    res = list(nums)
+    res.insert(743, 11.04)
+    return res

@@ -1,0 +1,3 @@
+def filter_chars(s: str) -> str:
+    filtered_string = ''.join((c for i, c in enumerate(s) if i < 19 or i > 90 or (ord(c) < ord('F') or ord(c) > ord('h'))))
+    return filtered_string

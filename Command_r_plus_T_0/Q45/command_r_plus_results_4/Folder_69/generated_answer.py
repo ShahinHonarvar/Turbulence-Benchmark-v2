@@ -1,0 +1,16 @@
+def palindromes_between_indices(s: str) -> set:
+
+    def is_palindrome(word):
+        return word == word[::-1]
+
+    def get_english_letters(s):
+        return ''.join((c for c in s if c.isalpha())).lower()
+    s = s[:4]
+    english_letters = get_english_letters(s)
+    palindromes = set()
+    for i in range(len(english_letters)):
+        for j in range(i + 4, len(english_letters) + 1):
+            substring = english_letters[i:j]
+            if is_palindrome(substring):
+                palindromes.add(substring)
+    return palindromes

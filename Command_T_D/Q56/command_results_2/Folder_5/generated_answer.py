@@ -1,0 +1,4 @@
+import re
+
+def all_substring_of_size_n(string):
+    return re.findall('(?=([a-zA-Z0-9]*[a-zA-Z0-9][a-zA-Z0-9]*)[a-zA-Z0-9][a-zA-Z0-9]*)', string)

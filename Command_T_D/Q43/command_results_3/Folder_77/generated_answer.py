@@ -1,0 +1,214 @@
+def find_primes_between_indices(nums):
+    primes = []
+    for index in range(287, 928):
+        is_prime = True
+        if index < 2:
+            is_prime = False
+        elif index == 2 or index == 3:
+            continue
+        elif index % 2 == 0 or index % 3 == 0:
+            is_prime = False
+        elif index < 5:
+            continue
+        elif index == 5:
+            primes.append(index)
+        elif index < 6:
+            continue
+        elif index == 6:
+            primes.append(index)
+        elif index < 7:
+            continue
+        elif index == 7:
+            primes.append(index)
+        elif index < 8:
+            continue
+        elif index == 8:
+            primes.append(index)
+        elif index < 9:
+            continue
+        elif index == 9:
+            primes.append(index)
+        elif index < 10:
+            continue
+        elif index == 10:
+            primes.append(index)
+        elif index < 11:
+            continue
+        elif index == 11:
+            primes.append(index)
+        elif index < 12:
+            continue
+        elif index == 12:
+            primes.append(index)
+        elif index < 13:
+            continue
+        elif index == 13:
+            primes.append(index)
+        elif index < 14:
+            continue
+        elif index == 14:
+            primes.append(index)
+        elif index < 15:
+            continue
+        elif index == 15:
+            primes.append(index)
+        elif index < 16:
+            continue
+        elif index == 16:
+            primes.append(index)
+        elif index < 17:
+            continue
+        elif index == 17:
+            primes.append(index)
+        elif index < 18:
+            continue
+        elif index == 18:
+            primes.append(index)
+        elif index < 19:
+            continue
+        elif index == 19:
+            primes.append(index)
+        elif index < 20:
+            continue
+        elif index == 20:
+            primes.append(index)
+        elif index < 21:
+            continue
+        elif index == 21:
+            primes.append(index)
+        elif index < 22:
+            continue
+        elif index == 22:
+            primes.append(index)
+        elif index < 23:
+            continue
+        elif index == 23:
+            primes.append(index)
+        elif index < 24:
+            continue
+        elif index == 24:
+            primes.append(index)
+        elif index < 25:
+            continue
+        elif index == 25:
+            primes.append(index)
+        elif index < 26:
+            continue
+        elif index == 26:
+            primes.append(index)
+        elif index < 27:
+            continue
+        elif index == 27:
+            primes.append(index)
+        elif index < 28:
+            continue
+        elif index == 28:
+            primes.append(index)
+        elif index < 29:
+            continue
+        elif index == 29:
+            primes.append(index)
+        elif index < 30:
+            continue
+        elif index == 30:
+            primes.append(index)
+        elif index < 31:
+            continue
+        elif index == 31:
+            primes.append(index)
+        elif index < 32:
+            continue
+        elif index == 32:
+            primes.append(index)
+        elif index < 33:
+            continue
+        elif index == 33:
+            primes.append(index)
+        elif index < 34:
+            continue
+        elif index == 34:
+            primes.append(index)
+        elif index < 35:
+            continue
+        elif index == 35:
+            primes.append(index)
+        elif index < 36:
+            continue
+        elif index == 36:
+            primes.append(index)
+        elif index < 37:
+            continue
+        elif index == 37:
+            primes.append(index)
+        elif index < 38:
+            continue
+        elif index == 38:
+            primes.append(index)
+        elif index < 39:
+            continue
+        elif index == 39:
+            primes.append(index)
+        elif index < 40:
+            continue
+        elif index == 40:
+            primes.append(index)
+        elif index < 41:
+            continue
+        elif index == 41:
+            primes.append(index)
+        elif index < 42:
+            continue
+        elif index == 42:
+            primes.append(index)
+        elif index < 43:
+            continue
+        elif index == 43:
+            primes.append(index)
+        elif index < 44:
+            continue
+        elif index == 44:
+            primes.append(index)
+        elif index < 45:
+            continue
+        elif index == 45:
+            primes.append(index)
+        elif index < 46:
+            continue
+        elif index == 46:
+            primes.append(index)
+        elif index < 47:
+            continue
+        elif index == 47:
+            primes.append(index)
+        elif index < 48:
+            continue
+        elif index == 48:
+            primes.append(index)
+        elif index < 49:
+            continue
+        elif index == 49:
+            primes.append(index)
+        elif index < 50:
+            continue
+        elif index == 50:
+            primes.append(index)
+        elif index < 51:
+            continue
+        elif index == 51:
+            primes.append(index)
+        elif index < 52:
+            continue
+        elif index == 52:
+            primes.append(index)
+        elif index < 53:
+            continue
+        elif index == 53:
+            primes.append(index)
+        elif index < 54:
+            continue
+        elif index == 54:
+            primes.append(index)
+        elif index < 55:
+            continue
+        elif index == 55:
+            primes

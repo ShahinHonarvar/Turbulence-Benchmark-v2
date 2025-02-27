@@ -1,0 +1,3 @@
+def return_n_smallest_chars(input_string: str) -> list[str]:
+    smallest_66_chars = sorted(input_string)[:66]
+    return smallest_66_chars

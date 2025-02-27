@@ -1,0 +1,4 @@
+import re
+
+def all_pos_ints_exclusive(nums):
+    return re.findall('\\d+', nums[28:53])

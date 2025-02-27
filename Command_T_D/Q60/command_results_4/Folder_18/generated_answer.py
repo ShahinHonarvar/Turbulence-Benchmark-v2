@@ -1,0 +1,2 @@
+def all_left_right_truncatable_prime(nums):
+    return [i for i in range(3, max(nums) + 1, 2) if all((x == '0' or x == '1' or x == '2' or (x == '3') or (x == '5') or (x == '6') or (x == '7') or (x == '8') or (x == '9') for x in str(i)))]

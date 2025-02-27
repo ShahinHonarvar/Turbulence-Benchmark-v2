@@ -1,0 +1,6 @@
+def sum_even_ints_inclusive(numbers_list):
+    even_sum = 0
+    for i in range(62, 93):
+        if numbers_list[i] % 2 == 0:
+            even_sum += numbers_list[i]
+    return even_sum

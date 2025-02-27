@@ -1,0 +1,2 @@
+def all_left_right_truncatable_prime(x):
+    return sorted(list(filter(lambda p: all((str(p)[-i - 1] not in '0123456789' for i in range(1, int(str(p)[-1])))) and p * 10 ** (len(str(p)) - 1) == p, filter(lambda p: p % 2 == 1 and p * 10 ** (len(str(p)) - 1) == p, range(3, int(x ** 0.5) + 1)))))

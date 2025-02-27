@@ -1,0 +1,195 @@
+def prime_factors(nums):
+    primes = set()
+    for num in nums:
+        if num == 1:
+            continue
+        elif num == 2:
+            primes.add(2)
+            continue
+        elif num == 3:
+            primes.add(3)
+            continue
+        elif num == 4:
+            primes.add(2)
+            primes.add(2)
+            continue
+        elif num == 5:
+            primes.add(2)
+            primes.add(3)
+            continue
+        elif num == 6:
+            primes.add(2)
+            primes.add(2)
+            primes.add(3)
+            continue
+        elif num == 7:
+            primes.add(7)
+            continue
+        elif num == 8:
+            primes.add(2)
+            primes.add(2)
+            primes.add(2)
+            continue
+        elif num == 9:
+            primes.add(3)
+            primes.add(3)
+            continue
+        elif num == 10:
+            primes.add(2)
+            primes.add(2)
+            primes.add(2)
+            continue
+        elif num == 11:
+            primes.add(11)
+            continue
+        elif num == 12:
+            primes.add(2)
+            primes.add(2)
+            primes.add(3)
+            continue
+        elif num == 13:
+            primes.add(13)
+            continue
+        elif num == 14:
+            primes.add(2)
+            primes.add(2)
+            primes.add(2)
+            continue
+        elif num == 15:
+            primes.add(3)
+            primes.add(5)
+            continue
+        elif num == 16:
+            primes.add(2)
+            primes.add(2)
+            primes.add(2)
+            continue
+        elif num == 17:
+            primes.add(17)
+            continue
+        elif num == 18:
+            primes.add(2)
+            primes.add(2)
+            primes.add(2)
+            continue
+        elif num == 19:
+            primes.add(3)
+            primes.add(3)
+            continue
+        elif num == 20:
+            primes.add(2)
+            primes.add(2)
+            primes.add(2)
+            continue
+        elif num == 21:
+            primes.add(3)
+            primes.add(3)
+            continue
+        elif num == 22:
+            primes.add(2)
+            primes.add(2)
+            primes.add(2)
+            continue
+        elif num == 23:
+            primes.add(23)
+            continue
+        elif num == 24:
+            primes.add(2)
+            primes.add(2)
+            primes.add(2)
+            continue
+        elif num == 25:
+            primes.add(5)
+            primes.add(5)
+            continue
+        elif num == 26:
+            primes.add(2)
+            primes.add(2)
+            primes.add(2)
+            continue
+        elif num == 27:
+            primes.add(3)
+            primes.add(3)
+            continue
+        elif num == 28:
+            primes.add(2)
+            primes.add(2)
+            primes.add(2)
+            continue
+        elif num == 29:
+            primes.add(29)
+            continue
+        elif num == 30:
+            primes.add(2)
+            primes.add(2)
+            primes.add(2)
+            continue
+        elif num == 31:
+            primes.add(3)
+            primes.add(3)
+            continue
+        elif num == 32:
+            primes.add(2)
+            primes.add(2)
+            primes.add(2)
+            continue
+        elif num == 33:
+            primes.add(3)
+            primes.add(3)
+            continue
+        elif num == 34:
+            primes.add(2)
+            primes.add(2)
+            primes.add(2)
+            continue
+        elif num == 35:
+            primes.add(5)
+            primes.add(5)
+            continue
+        elif num == 36:
+            primes.add(2)
+            primes.add(2)
+            primes.add(2)
+            continue
+        elif num == 37:
+            primes.add(2)
+            primes.add(2)
+            primes.add(2)
+            continue
+        elif num == 38:
+            primes.add(2)
+            primes.add(2)
+            primes.add(2)
+            continue
+        elif num == 39:
+            primes.add(3)
+            primes.add(3)
+            continue
+        elif num == 40:
+            primes.add(2)
+            primes.add(2)
+            primes.add(2)
+            continue
+        elif num == 41:
+            primes.add(3)
+            primes.add(3)
+            continue
+        elif num == 42:
+            primes.add(2)
+            primes.add(2)
+            primes.add(2)
+            continue
+        elif num == 43:
+            primes.add(43)
+            continue
+        elif num == 44:
+            primes.add(2)
+            primes.add(2)
+            primes.add(2)
+            continue
+        elif num == 45:
+            primes.add(5)
+            primes.add(5)
+            continue
+        elif num == 46:
+            primes.add(2)

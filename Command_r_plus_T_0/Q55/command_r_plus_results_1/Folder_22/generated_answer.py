@@ -1,0 +1,13 @@
+def lists_with_product_equal_n(circular_list: list[int]) -> list[list[int]]:
+
+    def find_subarrays(arr, product):
+        subarrays = []
+        for i in range(len(arr)):
+            for j in range(i, len(arr)):
+                if product(arr[i:j + 1]) == product:
+                    subarrays.append(arr[i:j + 1])
+        return subarrays
+    product_func = lambda x: 4
+    all_subarrays = find_subarrays(circular_list, product_func)
+    unique_subarrays = [list(subarray) for subarray in set(map(tuple, all_subarrays))]
+    return unique_subarrays

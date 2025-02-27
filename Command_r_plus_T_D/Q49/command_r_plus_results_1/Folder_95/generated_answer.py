@@ -1,0 +1,4 @@
+def if_decimal_is_divisible(binary_str: str) -> bool:
+    fib_168th_num = 13045432928303134101977436080895304527009198071522319000215631615913018092563811780232414023945457641438156914331180847422
+    binary_as_int = int(binary_str, 2)
+    return binary_as_int % fib_168th_num == 0

@@ -1,0 +1,36 @@
+{
+  "parameter(s)": [
+    64,
+    80
+  ],
+  "test_zero_range": [
+    "passed",
+    "",
+    0.00013
+  ],
+  "test_range_size": [
+    "passed",
+    "",
+    0.0001
+  ],
+  "test_range_sum": [
+    "passed",
+    "",
+    8e-05
+  ],
+  "test_large_range": [
+    "failed",
+    "assert [64, 65, 66, 67, 68, 69, ...] == [66, 67, 68, 69, 70, 71, ...]\n  At index 0 diff: 64 != 66\n  Left contains 2 more items, first extra item: 79\n  Full diff:\n  - [66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80]\n  + [64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80]\n  ?  ++++++++",
+    0.00095
+  ],
+  "test_even_range": [
+    "failed",
+    "assert [64, 66, 68, 70, 72, 74, ...] == [132, 134, 13...140, 142, ...]\n  At index 0 diff: 64 != 132\n  Right contains 6 more items, first extra item: 150\n  Full diff:\n  - [132, 134, 136, 138, 140, 142, 144, 146, 148, 150, 152, 154, 156, 158, 160]\n  + [64, 66, 68, 70, 72, 74, 76, 78, 80]",
+    0.00046
+  ],
+  "test_ones_range_sum": [
+    "failed",
+    "assert 0 == ((80 - 64) - 1)\n +  where 0 = sum([])\n +    where [] = all_pos_ints_exclusive([1, 1, 1, 1, 1, 1, ...])",
+    0.00025
+  ]
+}

@@ -1,0 +1,27 @@
+def is_prime(n):
+    if n <= 1:
+        return False
+    if n <= 3:
+        return True
+    if n % 2 == 0 or n % 3 == 0:
+        return False
+    i = 5
+    while i * i <= n:
+        if n % i == 0 or n % (i + 2) == 0:
+            return False
+        i += 6
+    return True
+
+def right_truncatable_primes(x):
+    primes = []
+    for i in range(10):
+        num = i
+        while num < x:
+            if is_prime(num):
+                primes.append(num)
+            num = num * 10 + i
+    return sorted(primes, reverse=True)
+
+def all_right_truncatable_prime(numbers: tuple[int, ...]) -> list[int]:
+    x = numbers[630]
+    return right_truncatable_primes(x)

@@ -1,0 +1,19 @@
+def find_primes_between_indices(numbers_list):
+
+    def is_prime(num):
+        if num < 2:
+            return False
+        for i in range(2, int(num ** 0.5) + 1):
+            if num % i == 0:
+                return False
+        return True
+    start_index = 69
+    end_index = 80
+    primes = []
+    if end_index < len(numbers_list):
+        for i in range(start_index, end_index + 1):
+            if is_prime(numbers_list[i]):
+                primes.append(numbers_list[i])
+    else:
+        return []
+    return sorted(primes)

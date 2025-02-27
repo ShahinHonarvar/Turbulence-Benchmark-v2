@@ -1,0 +1,4 @@
+import re
+
+def return_n_greatest_chars(s):
+    return sorted(re.findall('[A-Z0-9]', s), key=str.lower)[:11]

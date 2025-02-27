@@ -1,0 +1,4 @@
+import re
+
+def insert_before_character(text):
+    return re.sub('I', 'i\\1', text)

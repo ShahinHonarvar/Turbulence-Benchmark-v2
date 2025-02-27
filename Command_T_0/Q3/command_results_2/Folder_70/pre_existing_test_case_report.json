@@ -1,0 +1,36 @@
+{
+  "parameter(s)": [
+    28,
+    32
+  ],
+  "test_zero_range": [
+    "passed",
+    "",
+    0.00011
+  ],
+  "test_range_size": [
+    "passed",
+    "",
+    8e-05
+  ],
+  "test_range_sum": [
+    "passed",
+    "",
+    6e-05
+  ],
+  "test_large_range": [
+    "failed",
+    "assert [28, 29, 30, 31, 32] == [29, 30, 31, 32, 33]\n  At index 0 diff: 28 != 29\n  Full diff:\n  - [29, 30, 31, 32, 33]\n  ?                ----\n  + [28, 29, 30, 31, 32]\n  ?  ++++",
+    0.00048
+  ],
+  "test_even_range": [
+    "failed",
+    "assert [28, 30, 32] == [58, 60, 62, 64, 66]\n  At index 0 diff: 28 != 58\n  Right contains 2 more items, first extra item: 64\n  Full diff:\n  - [58, 60, 62, 64, 66]\n  + [28, 30, 32]",
+    0.00048
+  ],
+  "test_ones_range_sum": [
+    "failed",
+    "assert 0 == ((32 - 28) + 1)\n +  where 0 = sum([])\n +    where [] = all_pos_ints_inclusive([1, 1, 1, 1, 1, 1, ...])",
+    0.00018
+  ]
+}

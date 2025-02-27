@@ -1,0 +1,2 @@
+def all_left_right_truncatable_prime(n):
+    return [i for i in range(2, n[7] + 1) if all((int(d) > 0 for d in str(i))) and all((str(i)[0] * str(i)[-1] == str(i) for _ in range(str(i)[0] > str(i)[-1])))]

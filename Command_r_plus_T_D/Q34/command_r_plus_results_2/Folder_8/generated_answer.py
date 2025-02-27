@@ -1,0 +1,9 @@
+def find_original_set(*args):
+    if len(args) != 45:
+        raise ValueError('Exactly 45 arguments are required.')
+    if len(set(args)) != 45:
+        raise ValueError('Arguments must be distinct sets.')
+    original_set = set()
+    for arg in args:
+        original_set.update(arg)
+    return original_set

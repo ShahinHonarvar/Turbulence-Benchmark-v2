@@ -1,0 +1,4 @@
+import re
+
+def if_contains_anagrams(s):
+    return bool(re.findall('(?i)([a-z]){2}([a-z]){3}(?i)([a-z]){2}([a-z]){3}', s))

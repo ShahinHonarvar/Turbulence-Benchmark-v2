@@ -1,0 +1,8 @@
+import re
+
+def return_vowels(s):
+    m = re.match('[A-Z][^K-Z]*', s)
+    if m:
+        return m.group()
+    else:
+        return []

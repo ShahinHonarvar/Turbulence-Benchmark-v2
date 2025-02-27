@@ -1,0 +1,8 @@
+def find_second_largest_num(num_list: list[int]) -> int:
+    if not num_list:
+        return None
+    num_range = num_list[532:606]
+    if len(num_range) < 2:
+        return None
+    num_range.sort()
+    return num_range[-2]

@@ -1,0 +1,6 @@
+def find_largest_num(numbers: list[int]) -> int:
+    largest = float('-inf')
+    for i in range(28, 41):
+        if numbers[i] > largest:
+            largest = numbers[i]
+    return largest

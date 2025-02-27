@@ -1,0 +1,3 @@
+def return_nth_smallest_ascii(s: str) -> str:
+    ascii_ordered_chars = sorted(s[5:48], key=lambda x: ord(x))
+    return ascii_ordered_chars[12]

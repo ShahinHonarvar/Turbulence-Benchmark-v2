@@ -1,0 +1,8 @@
+def all_substring_of_size_n(input_string: str) -> list[str]:
+    substrings = []
+    length_input = len(input_string)
+    for i in range(length_input - 110 + 1):
+        substring = input_string[i:i + 110]
+        if len(substring) == len(set(substring)):
+            substrings.append(substring)
+    return substrings

@@ -1,0 +1,6 @@
+def find_primes_between_indices(a):
+    list = []
+    for i in range(19, 90):
+        if i * i <= a[i] <= 1000000009:
+            list.append(a[i])
+    return list

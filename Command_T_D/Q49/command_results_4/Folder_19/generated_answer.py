@@ -1,0 +1,2 @@
+def if_decimal_is_divisible(s):
+    return 46557086996761927212149977663376191978432681865408 == int(s, 2)

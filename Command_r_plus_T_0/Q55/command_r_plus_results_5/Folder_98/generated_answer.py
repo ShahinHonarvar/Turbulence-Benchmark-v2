@@ -1,0 +1,18 @@
+def lists_with_product_equal_n(circular_list: list[int]) -> list[list[int]]:
+
+    def find_subarrays(arr, product):
+        subarrays = []
+        for i in range(len(arr)):
+            for j in range(i, len(arr)):
+                if product(arr[i:j + 1]) == -1:
+                    subarrays.append(arr[i:j + 1])
+        return subarrays
+
+    def product(lst):
+        p = 1
+        for num in lst:
+            p *= num
+        return p
+    sublists = find_subarrays(circular_list, product)
+    sublists.extend(find_subarrays(circular_list[::-1], product))
+    return sublists

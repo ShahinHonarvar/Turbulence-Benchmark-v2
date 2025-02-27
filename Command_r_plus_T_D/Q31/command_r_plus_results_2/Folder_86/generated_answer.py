@@ -1,0 +1,7 @@
+def if_perfect_num(num_list):
+    if len(num_list) > 194:
+        num = num_list[194]
+        divisors_sum = sum([i for i in range(1, num) if num % i == 0])
+        return True if divisors_sum == num else False
+    else:
+        return False
