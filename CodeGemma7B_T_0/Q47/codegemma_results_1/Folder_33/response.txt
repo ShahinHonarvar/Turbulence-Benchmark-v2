@@ -1,0 +1,7 @@
+predictions {
+  string_value: "Prompt:\nSystem: You are an expert in Python programming. You are given a text specification surrounded by angle brackets. Create Python code according to the text specification. The Python code should not contain any comments. The Python code should be delimited only by triple backticks.\n        User: <Write a function called \'palindromes_of_specific_lengths\' that takes one argument, a string. The given string may consist of any character. The function should return the set of all palindromes with the following requirements. Only palindromes occurring in the substring from index 130 to index 295, both inclusive, should be considered. Only palindromes of lengths between 103 to 158 (both inclusive) should be considered. Each palindrome should only consist of English letters. If no such palindrome with the length specified occurs in the specified index range, the function should return an empty set. The function should find the palindromes in a case-insensitive manner.>\nOutput:\nSystem: Here is the Python code for the given text specification:\n```python\ndef palindromes_of_specific_lengths(text):\n  import re\n  pattern = r\'(?i)([a-zA-Z]{103,158})\'\n  matches = re.findall(pattern, text[130:295])\n  return {palindrome for palindrome in matches if palindrome == palindrome[::-1]}\n```"
+}
+deployed_model_id: "1558232276930658304"
+model: "projects/901665225437/locations/us-east1/models/google_codegemma-7b-it-1725717676032"
+model_version_id: "1"
+model_display_name: "google_codegemma-7b-it-1725717676032"

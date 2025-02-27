@@ -1,0 +1,2 @@
+def identical_elements(list1, list2):
+    return set([element for element in list1[74:96] if element in list2[74:96]])

@@ -1,0 +1,2 @@
+def filter_chars(text):
+    return ''.join([ch for ch in text if not ch in '6789:;<=>?@[\\]^_abcdefghijklmnopqrstuvwxyz' and (ch not in '56789:;<=>?@[\\]^_abcdefghijklmnopqrstuvwxyz' and (ord(ch) > ord('5') and ord(ch) < ord('f')))])

@@ -1,0 +1,2 @@
+def sum_in_range(nums):
+    return sum((num for num in nums if -91 <= num <= -41)) or 0

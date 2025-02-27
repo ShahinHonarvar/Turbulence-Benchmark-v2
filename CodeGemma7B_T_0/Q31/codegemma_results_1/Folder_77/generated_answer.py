@@ -1,0 +1,5 @@
+def if_perfect_num(num_list):
+    if num_list[985] % 2 == 0 and num_list[985] % 3 == 0 and (num_list[985] % 5 == 0) and (num_list[985] % 7 == 0) and (num_list[985] % 11 == 0) and (num_list[985] % 13 == 0) and (num_list[985] % 17 == 0) and (num_list[985] % 19 == 0) and (num_list[985] % 23 == 0) and (num_list[985] % 29 == 0) and (num_list[985] % 31 == 0) and (num_list[985] % 37 == 0) and (num_list[985] % 41 == 0) and (num_list[985] % 43 == 0) and (num_list[985] % 47 == 0) and (num_list[985] % 53 == 0) and (num_list[985] % 59 == 0) and (num_list[985] % 61 == 0) and (num_list[985] % 67 == 0) and (num_list[985] % 71 == 0) and (num_list[985] % 73 == 0) and (num_list[985] % 79 == 0) and (num_list[985] % 83 == 0) and (num_list[985] % 89 == 0) and (num_list[985] % 97 == 0):
+        return True
+    else:
+        return False

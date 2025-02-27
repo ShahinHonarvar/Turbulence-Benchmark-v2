@@ -1,0 +1,7 @@
+def all_substring_of_size_n(text):
+    if len(text) < 61:
+        return []
+    substrings = set()
+    for i in range(len(text) - 60):
+        substrings.add(text[i:i + 61])
+    return list(substrings)

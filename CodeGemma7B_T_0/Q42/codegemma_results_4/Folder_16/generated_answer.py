@@ -1,0 +1,2 @@
+def prime_factors(nums):
+    return {factor for num in nums for factor in range(2, int(num ** 0.5) + 1) if num % factor == 0 and num != factor}
