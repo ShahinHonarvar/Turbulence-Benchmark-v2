@@ -1,0 +1,9 @@
+def find_primes_between_indices(nums):
+    primes = []
+    for num in nums[239:687]:
+        for i in range(2, num):
+            if num % i == 0:
+                break
+        else:
+            primes.append(num)
+    return sorted(primes)

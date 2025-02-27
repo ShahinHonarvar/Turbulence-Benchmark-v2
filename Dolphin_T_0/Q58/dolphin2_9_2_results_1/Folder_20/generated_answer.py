@@ -1,0 +1,10 @@
+import numpy as np
+
+def submatrix_with_n_numbers(matrix):
+    rows, columns = matrix.shape
+    count = 0
+    for i in range(rows - 6):
+        for j in range(columns - 6):
+            if np.sum(matrix[i:i + 7, j:j + 7]) == 49:
+                count += 1
+    return count

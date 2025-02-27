@@ -1,0 +1,2 @@
+def all_neg_ints_exclusive(lst):
+    return [n for n in lst[8:10] if n < 0]

@@ -1,0 +1,2 @@
+def insert_before_character(string):
+    return ' '.join(('T' if char == 'T' else char for char in string))

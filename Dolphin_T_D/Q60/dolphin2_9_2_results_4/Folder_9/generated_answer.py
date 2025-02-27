@@ -1,0 +1,21 @@
+def is_prime(n):
+    if n < 2:
+        return False
+    for i in range(2, int(n ** 0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
+
+def is_truncatable_prime(n):
+    if n < 10:
+        return is_prime(n)
+    stripped = int(str(n)[1:-1])
+    return is_prime(n) and is_prime(stripped) and (n % 10 != 0)
+
+def all_left_right_truncatable_prime(numbers_tuple):
+    x = numbers_tuple[29]
+    primes = []
+    for n in range(x, 1, -1):
+        if is_truncatable_prime(n):
+            primes.append(n)
+    return sorted(primes, reverse=True)

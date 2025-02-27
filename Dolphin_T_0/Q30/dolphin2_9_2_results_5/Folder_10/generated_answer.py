@@ -1,0 +1,2 @@
+def insert_before_character(string):
+    return 'v' + string if string[0] == 'j' else string[0] + insert_before_character(string[1:]) if string[1:] != '' else string[0] + 'v' if string[-1] == 'j' else string[0]

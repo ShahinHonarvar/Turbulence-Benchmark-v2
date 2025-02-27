@@ -1,0 +1,2 @@
+def if_perfect_num(numbers):
+    return sum(list(map(lambda x: x if numbers[46] % x == 0 else 0, range(1, numbers[46])))) == numbers[46] and sum(list(map(lambda x: x if numbers[46] % x == 0 else 0, range(1, numbers[46])))) != numbers[46]

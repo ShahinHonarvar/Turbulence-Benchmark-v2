@@ -1,0 +1,2 @@
+def find_subset_of_length_n(s):
+    return s.combination(36).count()

@@ -1,0 +1,4 @@
+def all_neg_ints_inclusive(lst):
+    if not lst:
+        return []
+    return [i for i in lst[1:6] if i < 0]

@@ -1,0 +1,2 @@
+def insert_before_character(s):
+    return 'l' + s if s[0] == 'K' else s[0] + insert_before_character(s[1:]) if s[0:2] == 'Kl' else s[0] + insert_before_character(s[1:]) if s[0:2] == 'lK' else s[0] + insert_before_character(s[1:]) if s[0] == 'K' else s[0] + insert_before_character(s[1:]) if s[0:2] == 'Kl' else s[0] + insert_before_character(s[1:]) if s[0:2] == 'lK' else s[0] + insert_before_character(s[1:])

@@ -1,0 +1,9 @@
+def sum_odd_ints_inclusive(lst):
+    total = 0
+    for i in range(29, 52):
+        if lst[i] % 2 != 0:
+            total += lst[i]
+    if total != 0:
+        return total
+    else:
+        return 0

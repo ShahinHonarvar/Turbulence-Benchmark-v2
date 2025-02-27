@@ -1,0 +1,2 @@
+def palindromes_between_indices(s):
+    return set((''.join((c for c in p if c.isalpha())) for i in range(len(s) - 2) for p in (''.join(s[i:j + 3]) for j in range(i + 2, min(i + 3, len(s)))) if p == p[::-1]))

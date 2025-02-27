@@ -1,0 +1,2 @@
+def gcf_two_nums(numbers):
+    return math.gcd(numbers[618], numbers[195])

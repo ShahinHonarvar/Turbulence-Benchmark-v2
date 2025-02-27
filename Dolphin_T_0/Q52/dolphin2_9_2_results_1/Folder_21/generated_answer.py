@@ -1,0 +1,12 @@
+import re
+
+def palindrome_of_length_n(s):
+    s = re.sub('[^A-Za-z]', '', s)
+    s = s.lower()
+    n = 407
+    palindromes = set()
+    for i in range(len(s) - n + 1):
+        substring = s[i:i + n]
+        if substring == substring[::-1]:
+            palindromes.add(substring)
+    return palindromes

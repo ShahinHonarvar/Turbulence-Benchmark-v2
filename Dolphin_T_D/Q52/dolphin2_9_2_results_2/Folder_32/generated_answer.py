@@ -1,0 +1,9 @@
+def palindrome_of_length_n(s):
+    s = s.lower()
+    result = set()
+    for i in range(len(s) - 112):
+        substring = s[i:i + 113]
+        if all((c.isalpha() for c in substring)):
+            if substring == substring[::-1]:
+                result.add(substring)
+    return result

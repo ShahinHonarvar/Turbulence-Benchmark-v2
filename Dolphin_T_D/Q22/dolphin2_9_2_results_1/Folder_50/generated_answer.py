@@ -1,0 +1,2 @@
+def find_sum_of_multiples(n):
+    return sum(list(range(1, 100 * n + 1, n)))

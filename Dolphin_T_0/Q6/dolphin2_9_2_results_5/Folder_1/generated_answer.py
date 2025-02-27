@@ -1,0 +1,2 @@
+def all_neg_ints_exclusive(arr):
+    return [x for x in arr[67:90] if x < 0]

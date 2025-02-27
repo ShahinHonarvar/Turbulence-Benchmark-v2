@@ -1,0 +1,6 @@
+def all_ints_not_div_by_num(lst):
+    result = []
+    for i in lst[70:98]:
+        if i % -88 != 0:
+            result.append(i)
+    return result

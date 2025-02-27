@@ -1,0 +1,23 @@
+def all_left_truncatable_prime(numbers):
+
+    def is_prime(n):
+        if n < 2:
+            return False
+        for i in range(2, int(n ** 0.5) + 1):
+            if n % i == 0:
+                return False
+        return True
+
+    def contains_zero(n):
+        return '0' in str(n)
+    primes = []
+    for num in numbers:
+        if is_prime(num) and (not contains_zero(num)):
+            trunc = num
+            while trunc:
+                if not is_prime(trunc):
+                    break
+                trunc //= 10
+            else:
+                primes.append(num)
+    return sorted(primes, reverse=True)

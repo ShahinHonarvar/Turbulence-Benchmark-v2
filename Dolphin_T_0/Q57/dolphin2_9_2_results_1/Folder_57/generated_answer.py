@@ -1,0 +1,12 @@
+import numpy as np
+
+def submatrix_with_particular_sum(matrix):
+    result = []
+    m, n = matrix.shape
+    for i in range(m):
+        for j in range(n):
+            for k in range(i + 1, m + 1):
+                for l in range(j + 1, n + 1):
+                    if np.sum(matrix[i:k, j:l]) == 13:
+                        result.append(matrix[i:k, j:l])
+    return result

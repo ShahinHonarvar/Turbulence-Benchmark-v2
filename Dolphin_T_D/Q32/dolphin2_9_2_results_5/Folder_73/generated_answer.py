@@ -1,0 +1,2 @@
+def insert_after_character(s):
+    return ''.join(['R' if i == 'R' else i + 'V' if i == 'R' and j + 1 == len(s) or (j + 1 == len(s) and i == 'R') else '' for i, j in zip(s, range(len(s)))] + ['' if i < len(s) - 1 and i <= j - 1 and (i - 1 == len(s) - 2) and (j == len(s) - 1) and (s[i] != 'R') else '' for i, j in zip(s, range(len(s)))])

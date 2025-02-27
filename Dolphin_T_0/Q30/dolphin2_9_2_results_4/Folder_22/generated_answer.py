@@ -1,0 +1,2 @@
+def insert_before_character(s):
+    return 'U' + s if s[0] == 'U' else s[0] + 'U' + s[1:] if s[1] == 'U' else s[0:2] + 'U' + s[2:] if s[2] == 'U' else s[0:3] + 'U' + s[3:] if s[3] == 'U' else s[0:4] + 'U' + s[4:] if s[4] == 'U' else s

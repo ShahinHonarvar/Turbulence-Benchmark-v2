@@ -1,0 +1,2 @@
+def find_subset_of_length_n(set_of_elements):
+    return len([subset for subset in chain.from_iterable((combinations(set_of_elements, r) for r in range(0, len(set_of_elements) + 1))) if len(subset) == 91])

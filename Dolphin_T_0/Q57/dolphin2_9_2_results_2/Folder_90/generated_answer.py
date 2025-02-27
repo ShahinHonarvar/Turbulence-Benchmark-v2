@@ -1,0 +1,13 @@
+import numpy as np
+
+def submatrix_with_particular_sum(matrix):
+    rows, cols = matrix.shape
+    sub_matrices = []
+    for i in range(rows):
+        for j in range(cols):
+            for k in range(i, rows):
+                for l in range(j, cols):
+                    subset = matrix[i:k + 1, j:l + 1]
+                    if np.sum(subset) == -452:
+                        sub_matrices.append(subset)
+    return sub_matrices

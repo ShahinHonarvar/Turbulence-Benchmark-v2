@@ -1,0 +1,2 @@
+def insert_before_character(s):
+    return ''.join(['9' if i == 6 and j > 0 and (s[j - 1] != '9') else c for j, c in enumerate(s)] + [c for c in s if c != '6'] * (s.count('6') > 0 and all((p > q for p, q in zip([c for c in s if c == '6'], [c for c in s if c == '9'])))))

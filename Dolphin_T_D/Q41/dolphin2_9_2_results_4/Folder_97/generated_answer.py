@@ -1,0 +1,6 @@
+def identical_elements(list1, list2):
+    common_elements = set()
+    for i in range(40, 81):
+        if i < min(len(list1), len(list2)) and list1[i] == list2[i]:
+            common_elements.add(list1[i])
+    return common_elements

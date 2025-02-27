@@ -1,0 +1,2 @@
+def all_ints_div_by_num(numbers):
+    return [n for n in numbers[69:77] if n % -92 == 0]

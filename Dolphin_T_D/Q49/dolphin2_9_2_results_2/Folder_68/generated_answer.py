@@ -1,0 +1,9 @@
+def if_decimal_is_divisible(binary):
+    fib = [0, 1]
+    while len(fib) < 38:
+        fib.append(fib[-1] + fib[-2])
+    number = int(binary, 2)
+    if number % fib[37] == 0:
+        return True
+    else:
+        return False

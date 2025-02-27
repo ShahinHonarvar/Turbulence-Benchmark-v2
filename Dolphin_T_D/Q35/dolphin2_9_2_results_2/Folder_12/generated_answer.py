@@ -1,0 +1,5 @@
+def remove_repeat_chars(s):
+    chars = [c for i, c in enumerate(s) if 16 <= i <= 87 and s.count(c) > 1]
+    for c in chars:
+        s = s.replace(c, '')
+    return s

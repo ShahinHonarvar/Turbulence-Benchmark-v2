@@ -1,0 +1,6 @@
+def find_subset_of_length_n(elements):
+    n = len(elements)
+    if n < 90:
+        return 0
+    else:
+        return n * (n - 1) // 2

@@ -1,0 +1,4 @@
+def find_n_th_smallest_num(input_list):
+    sub_list = input_list[36:94]
+    sorted_sub_list = sorted(sub_list)
+    return sorted_sub_list[3]

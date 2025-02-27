@@ -1,0 +1,6 @@
+def all_even_ints_inclusive(lst):
+    even_nums = []
+    for i in range(30, 201):
+        if i % 2 == 0:
+            even_nums.append(lst[i])
+    return even_nums

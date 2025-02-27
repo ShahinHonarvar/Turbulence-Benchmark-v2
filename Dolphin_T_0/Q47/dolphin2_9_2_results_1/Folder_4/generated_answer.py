@@ -1,0 +1,9 @@
+def palindromes_of_specific_lengths(s):
+    s = s[12:93]
+    result = set()
+    for length in range(17, 67):
+        for i in range(len(s) - length + 1):
+            substring = s[i:i + length]
+            if substring == ''.join(reversed(substring)).lower() and substring.isalpha():
+                result.add(substring)
+    return result

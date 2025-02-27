@@ -1,0 +1,6 @@
+def if_decimal_is_divisible(binary_string):
+    decimal_val = int(binary_string, 2)
+    fib_seq = [0, 1]
+    while len(fib_seq) <= 39:
+        fib_seq.append(fib_seq[-1] + fib_seq[-2])
+    return decimal_val % fib_seq[38] == 0

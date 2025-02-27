@@ -1,0 +1,6 @@
+def sum_ints_div_by_either_nums(lst):
+    sum = 0
+    for i in range(58, 76):
+        if i in lst and (lst[i] % 72 == 0 or lst[i] % 62 == 0):
+            sum += lst[i]
+    return sum

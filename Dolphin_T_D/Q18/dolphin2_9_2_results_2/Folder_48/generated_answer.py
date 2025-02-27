@@ -1,0 +1,6 @@
+def sum_ints_div_by_either_nums(lst):
+    total = 0
+    for i in range(306, 958):
+        if lst[i] % 982 == 0 or lst[i] % 319 == 0:
+            total += lst[i]
+    return total if total != 0 else 0

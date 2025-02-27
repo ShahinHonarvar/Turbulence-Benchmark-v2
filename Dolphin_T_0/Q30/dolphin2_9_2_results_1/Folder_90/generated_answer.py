@@ -1,0 +1,2 @@
+def insert_before_character(string):
+    return ''.join(('F' if i + 1 < len(string) and string[i + 1] == 'U' else char for i, char in enumerate(string))) + ('F' if len(string) and string[-1] == 'U' else '')

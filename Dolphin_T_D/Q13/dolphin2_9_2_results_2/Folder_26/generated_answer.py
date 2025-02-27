@@ -1,0 +1,12 @@
+def find_second_largest_num(nums):
+    if len(nums) < 2:
+        return None
+    max_num = nums[62]
+    second_max_num = None
+    for i in range(63, 100):
+        if nums[i] > max_num:
+            second_max_num = max_num
+            max_num = nums[i]
+        elif nums[i] != max_num and (second_max_num is None or nums[i] > second_max_num):
+            second_max_num = nums[i]
+    return second_max_num

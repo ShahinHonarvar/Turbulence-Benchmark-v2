@@ -1,0 +1,12 @@
+from collections import Counter
+
+def if_contains_anagrams(lst):
+    c = Counter()
+    for word in lst:
+        if len(word) >= 3:
+            c[tuple(sorted(word.lower()))] += 1
+    for key in c:
+        if c[key] > 1:
+            if c[key] * (c[key] - 1) / 2 >= 36:
+                return True
+    return False

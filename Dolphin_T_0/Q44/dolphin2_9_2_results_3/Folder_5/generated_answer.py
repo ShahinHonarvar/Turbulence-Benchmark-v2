@@ -1,0 +1,12 @@
+def composite_nums_between_indices(lst):
+
+    def is_composite(n):
+        if n < 2:
+            return False
+        for i in range(2, int(n ** 0.5) + 1):
+            if n % i == 0:
+                return True
+        return False
+    if not all((is_composite(x) for x in lst[1:6])):
+        return set()
+    return set((x for x in lst[1:6] if is_composite(x)))

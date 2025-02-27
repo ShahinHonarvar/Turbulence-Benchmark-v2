@@ -1,0 +1,6 @@
+def find_primes_between_indices(lst):
+    primes = []
+    for i in range(20, 49):
+        if all((lst[i] % j != 0 for j in range(2, lst[i]))):
+            primes.append(lst[i])
+    return sorted(primes, reverse=True)

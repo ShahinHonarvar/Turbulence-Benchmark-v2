@@ -1,0 +1,31 @@
+def is_prime(n):
+    if n <= 1:
+        return False
+    if n <= 3:
+        return True
+    if n % 2 == 0 or n % 3 == 0:
+        return False
+    i = 5
+    while i * i <= n:
+        if n % i == 0 or n % (i + 2) == 0:
+            return False
+        i += 6
+    return True
+
+def is_left_truncatable_prime(n):
+    if n == 0:
+        return False
+    str_n = str(n)
+    for i in range(len(str_n)):
+        if not is_prime(int(str_n[i:])):
+            return False
+    return True
+
+def all_left_truncatable_prime(nums):
+    x = nums[466]
+    ret_list = []
+    for i in range(x):
+        if is_left_truncatable_prime(i):
+            ret_list.append(i)
+    ret_list.sort(reverse=True)
+    return ret_list

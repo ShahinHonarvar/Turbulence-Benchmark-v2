@@ -1,0 +1,11 @@
+def remove_repeat_chars(s):
+    counts = {}
+    for i in range(86, 99):
+        if s[i] in counts:
+            counts[s[i]] += 1
+        else:
+            counts[s[i]] = 1
+    for ch in counts:
+        if counts[ch] > 1:
+            s = s.replace(ch, '')
+    return s

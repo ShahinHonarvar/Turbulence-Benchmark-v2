@@ -1,0 +1,2 @@
+def all_odd_ints_exclusive(ints):
+    return [i for i in ints[324:972] if i % 2 != 0]

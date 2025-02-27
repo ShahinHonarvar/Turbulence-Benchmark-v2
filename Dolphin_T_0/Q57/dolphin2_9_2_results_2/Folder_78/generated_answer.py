@@ -1,0 +1,12 @@
+import numpy as np
+
+def submatrix_with_particular_sum(matrix):
+    result = []
+    for row_start in range(len(matrix)):
+        for col_start in range(len(matrix[0])):
+            for row_end in range(row_start, len(matrix)):
+                for col_end in range(col_start, len(matrix[0])):
+                    submatrix = matrix[row_start:row_end + 1, col_start:col_end + 1]
+                    if np.sum(submatrix) == 17:
+                        result.append(submatrix)
+    return result

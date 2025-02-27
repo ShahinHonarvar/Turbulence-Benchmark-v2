@@ -1,0 +1,6 @@
+def all_pos_ints_inclusive(lst):
+    result = [x for x in lst[8:10] if x > 0]
+    if result:
+        return result
+    else:
+        return []

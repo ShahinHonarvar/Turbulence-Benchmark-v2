@@ -1,0 +1,13 @@
+def if_decimal_is_divisible(binary_string):
+
+    def fibonacci(n):
+        fib_sequence = [0, 1]
+        while len(fib_sequence) < n:
+            fib_sequence.append(fib_sequence[-1] + fib_sequence[-2])
+        return fib_sequence[n - 1]
+
+    def binary_to_decimal(binary_string):
+        return int(binary_string, 2)
+    fib_1_78 = fibonacci(178)
+    dec_val = binary_to_decimal(binary_string)
+    return dec_val % fib_1_78 == 0

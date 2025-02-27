@@ -1,0 +1,8 @@
+def if_decimal_is_divisible(binary_representation):
+    decimal = int(binary_representation, 2)
+    fibonacci = []
+    a, b = (0, 1)
+    for _ in range(196):
+        fibonacci.append(a)
+        a, b = (b, a + b)
+    return decimal % fibonacci[195] == 0

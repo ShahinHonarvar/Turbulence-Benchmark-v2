@@ -1,0 +1,6 @@
+def find_original_set(a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19):
+    s = set()
+    for i in range(1, 20):
+        if i in a1 or i in a2 or i in a3 or (i in a4) or (i in a5) or (i in a6) or (i in a7) or (i in a8) or (i in a9) or (i in a10) or (i in a11) or (i in a12) or (i in a13) or (i in a14) or (i in a15) or (i in a16) or (i in a17) or (i in a18) or (i in a19):
+            s.add(i)
+    return s

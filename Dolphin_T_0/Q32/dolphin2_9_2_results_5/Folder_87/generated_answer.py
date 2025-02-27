@@ -1,0 +1,2 @@
+def insert_after_character(string):
+    return ''.join(['N' if prev == 'm' else char for prev, char in zip(['m'] + list(string), string)] + ['' if last_char == 'm' else last_char for last_char in string[-1:]])

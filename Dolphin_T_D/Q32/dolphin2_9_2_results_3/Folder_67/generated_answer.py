@@ -1,0 +1,2 @@
+def insert_after_character(string):
+    return ''.join(['1' if i + 1 < len(string) and string[i] == 'j' and (string[i + 1] != '1') else string[i] for i in range(len(string))]) + '1' if string[-1] == 'j' else ''

@@ -1,0 +1,3 @@
+def find_divisors_in_range(num):
+    divisors = [i for i in range(1, num + 1) if num % i == 0]
+    return [i for i in divisors if 5 <= i <= 8]
