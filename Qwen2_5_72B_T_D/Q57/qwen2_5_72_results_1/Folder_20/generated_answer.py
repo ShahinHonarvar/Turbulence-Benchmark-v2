@@ -1,0 +1,19 @@
+import numpy as np
+
+def submatrix_with_particular_sum(matrix):
+
+    def sum_of_submatrix(mat, top_row, top_col, bottom_row, bottom_col):
+        total = 0
+        for i in range(top_row, bottom_row + 1):
+            for j in range(top_col, bottom_col + 1):
+                total += mat[i][j]
+        return total
+    rows, cols = matrix.shape
+    result = []
+    for start_row in range(rows):
+        for start_col in range(cols):
+            for end_row in range(start_row, rows):
+                for end_col in range(start_col, cols):
+                    if sum_of_submatrix(matrix, start_row, start_col, end_row, end_col) == -57:
+                        result.append(matrix[start_row:end_row + 1, start_col:end_col + 1])
+    return result

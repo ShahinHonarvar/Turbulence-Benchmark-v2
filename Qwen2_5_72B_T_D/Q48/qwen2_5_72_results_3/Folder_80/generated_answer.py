@@ -1,0 +1,7 @@
+def return_binary_or_hexa(numbers):
+    a = numbers[57]
+    b = numbers[84]
+    missing_sum = sum(set(range(a + 1, b)) - set(numbers[58:84]))
+    if missing_sum % 2 == 1:
+        return bin(missing_sum)[2:]
+    return hex(missing_sum)[2:]

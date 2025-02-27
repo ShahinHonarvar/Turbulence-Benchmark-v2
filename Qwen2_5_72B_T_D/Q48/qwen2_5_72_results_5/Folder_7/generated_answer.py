@@ -1,0 +1,15 @@
+def return_binary_or_hexa(numbers):
+    if len(numbers) < 98 or len(set(numbers)) != len(numbers):
+        return ''
+    a = numbers[10]
+    b = numbers[97]
+    missing_sum = 0
+    full_set = set(range(a + 1, b))
+    subset = set(numbers[11:97])
+    missing_numbers = full_set - subset
+    if missing_numbers:
+        missing_sum = sum(missing_numbers)
+    if missing_sum % 2 == 1:
+        return bin(missing_sum)[2:]
+    else:
+        return hex(missing_sum)[2:]

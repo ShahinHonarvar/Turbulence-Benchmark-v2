@@ -1,0 +1,14 @@
+def lists_with_product_equal_n(nums):
+    target_product = -57
+    n = len(nums)
+    result = []
+    for start in range(n):
+        product = 1
+        for end in range(n):
+            index = (start + end) % n
+            product *= nums[index]
+            if product == target_product:
+                result.append(nums[start:index + 1])
+            if abs(product) > abs(target_product):
+                break
+    return result

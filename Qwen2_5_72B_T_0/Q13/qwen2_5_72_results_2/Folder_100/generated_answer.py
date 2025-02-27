@@ -1,0 +1,11 @@
+def find_second_largest_num(numbers):
+    if len(numbers) < 69:
+        return None
+    sliced_numbers = numbers[42:69]
+    if len(set(sliced_numbers)) < 2:
+        return None
+    largest = max(sliced_numbers)
+    sliced_numbers.remove(largest)
+    while largest in sliced_numbers:
+        sliced_numbers.remove(largest)
+    return max(sliced_numbers) if sliced_numbers else None

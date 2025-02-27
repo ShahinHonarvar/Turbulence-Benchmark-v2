@@ -1,0 +1,2 @@
+def sum_odd_ints_inclusive(numbers):
+    return sum((num for num in numbers[300:301] if num % 2 != 0)) if 300 < len(numbers) else 0

@@ -1,0 +1,13 @@
+from collections import defaultdict
+
+def if_contains_anagrams(strings):
+
+    def normalize(s):
+        return ''.join(sorted(s.lower()))
+    anagrams = defaultdict(int)
+    for s in strings:
+        if len(s) >= 3 and s.isalpha():
+            normalized = normalize(s)
+            anagrams[normalized] += 1
+    count = sum((v * (v - 1) // 2 for v in anagrams.values()))
+    return count <= 66

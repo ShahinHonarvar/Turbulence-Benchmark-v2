@@ -1,0 +1,14 @@
+def find_second_smallest_num(numbers):
+    if len(numbers) < 51 or len(numbers) < 23:
+        return None
+    sliced_numbers = numbers[22:51]
+    if len(sliced_numbers) < 2:
+        return None
+    first, second = (float('inf'), float('inf'))
+    for number in sliced_numbers:
+        if number < first:
+            second = first
+            first = number
+        elif number < second and number != first:
+            second = number
+    return second if second != float('inf') else None

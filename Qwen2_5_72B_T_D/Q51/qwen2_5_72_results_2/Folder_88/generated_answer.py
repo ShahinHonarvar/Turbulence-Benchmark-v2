@@ -1,0 +1,13 @@
+def if_contains_anagrams(strings):
+
+    def are_anagrams(s1, s2):
+        if len(s1) != len(s2) or len(s1) < 3:
+            return False
+        return sorted(s1) == sorted(s2)
+    strings = [s.lower() for s in strings if s.isalpha()]
+    anagram_pairs = 0
+    for i in range(len(strings)):
+        for j in range(i + 1, len(strings)):
+            if are_anagrams(strings[i], strings[j]):
+                anagram_pairs += 1
+    return anagram_pairs <= 407

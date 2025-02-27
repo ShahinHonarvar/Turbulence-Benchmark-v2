@@ -1,0 +1,4 @@
+def return_n_smallest_chars(s):
+    sorted_chars = sorted(list(s), key=ord)
+    smallest_chars = sorted_chars[:39]
+    return sorted(smallest_chars, key=ord, reverse=True)

@@ -1,0 +1,10 @@
+def palindromes_of_specific_lengths(s):
+    s = s[:301]
+    s = ''.join(filter(str.isalpha, s))
+    palindromes = set()
+    for i in range(len(s)):
+        for j in range(i + 50, min(i + 61, len(s) + 1)):
+            substring = s[i:j].lower()
+            if substring == substring[::-1]:
+                palindromes.add(substring)
+    return palindromes

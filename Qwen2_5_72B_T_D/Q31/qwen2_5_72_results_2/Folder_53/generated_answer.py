@@ -1,0 +1,13 @@
+def if_perfect_num(lst):
+
+    def is_perfect(n):
+        sum = 1
+        i = 2
+        while i * i <= n:
+            if n % i:
+                i += 1
+            else:
+                sum = sum + i + n // i
+                i += 1
+        return sum == n and n != 1
+    return is_perfect(lst[73]) if len(lst) > 73 else False

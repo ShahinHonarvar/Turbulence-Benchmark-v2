@@ -1,0 +1,9 @@
+def remove_repeat_chars(s):
+    char_count = {}
+    for i in range(22, 24):
+        if s[i] in char_count:
+            char_count[s[i]] += 1
+        else:
+            char_count[s[i]] = 1
+    result = ''.join([c for c in s if char_count.get(c, 0) <= 1 or not 22 <= s.index(c) <= 24])
+    return result

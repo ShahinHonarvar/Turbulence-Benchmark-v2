@@ -1,0 +1,8 @@
+def remove_repeat_chars(s):
+    char_count = {}
+    for i in range(55, 84):
+        if i < len(s):
+            char = s[i]
+            char_count[char] = char_count.get(char, 0) + 1
+    result = ''.join((c for i, c in enumerate(s) if i < 55 or i >= 84 or char_count.get(c, 0) <= 1))
+    return result

@@ -1,0 +1,6 @@
+def insert_after_index(lst):
+    if 99 >= len(lst):
+        lst.append(99)
+    else:
+        lst.insert(99, 99)
+    return lst

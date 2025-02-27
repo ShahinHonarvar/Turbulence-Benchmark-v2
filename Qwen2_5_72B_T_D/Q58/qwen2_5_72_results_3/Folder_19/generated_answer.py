@@ -1,0 +1,23 @@
+import numpy as np
+
+def submatrix_with_n_numbers(matrix):
+
+    def count_submatrices_with_n_elements(mat, n):
+        count = 0
+        rows, cols = mat.shape
+        for i in range(rows):
+            for j in range(cols):
+                if (i + 1) * (j + 1) == n:
+                    count += 1
+                elif (rows - i) * (cols - j) >= n:
+                    current_submatrix_size = 1
+                    for x in range(i, rows):
+                        for y in range(j, cols):
+                            current_submatrix_size += 1
+                            if current_submatrix_size == n:
+                                count += 1
+                                break
+                        if current_submatrix_size >= n:
+                            break
+        return count
+    return count_submatrices_with_n_elements(matrix, 17)
