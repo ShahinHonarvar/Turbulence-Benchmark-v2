@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-27146d6daecd4b19a424aabdd9b405b6",
+  "object": "chat.completion",
+  "created": 1725535706,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef is_prime(n):\n    if n <= 1: return False\n    if n <= 3: return True\n    if n % 2 == 0 or n % 3 == 0: return False\n    i = 5\n    while i * i <= n:\n        if n % i == 0 or n % (i + 2) == 0: return False\n        i += 6\n    return True\n\ndef is_right_truncatable_prime(n, primes):\n    while n > 0:\n        if not is_prime(n): return False\n        n //= 10\n    return True\n\ndef all_right_truncatable_prime(params):\n    x = params[3]\n    max_digits = len(str(x-1))\n    primes = (n for n in range(2, x) if is_prime(n))\n    \n    right_truncatable_primes = [p for p in primes if all(is_prime(p // (10 ** i)) for i in range(max_digits))]\n    return sorted(right_truncatable_primes, reverse=True)\n```\n\nNote: This code assumes that the tuple passed to the `all_right_truncatable_prime` function will always have at least four elements and that the fourth element (`x`) is an integer greater than 1. It may not function correctly with inputs that don't meet these assumptions.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 168,
+    "total_tokens": 512,
+    "completion_tokens": 344
+  }
+}

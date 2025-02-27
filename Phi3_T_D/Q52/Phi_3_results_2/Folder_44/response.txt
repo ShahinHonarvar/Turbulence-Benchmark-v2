@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-df958bb0803f4aa78beef67e2bd697e3",
+  "object": "chat.completion",
+  "created": 1725531920,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef palindrome_of_length_n(s):\n    pairs = {}\n    n = len(s)\n    for i in range(n - 444):\n        head = i\n        tail = i + 444\n        current_substr = s[head:tail+1]\n        lower_str = current_substr.lower()\n        if lower_str == lower_str[::-1]:\n            key = ''.join(sorted(lower_str))\n            if key in pairs:\n                pairs[key].add(current_substr)\n            else:\n                pairs[key] = {current_substr}\n    return {ps for pal_set in pairs.values() for ps in pal_set}\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 161,
+    "total_tokens": 333,
+    "completion_tokens": 172
+  }
+}

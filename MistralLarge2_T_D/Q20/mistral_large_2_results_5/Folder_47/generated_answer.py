@@ -1,0 +1,3 @@
+def find_n_th_smallest_num(nums):
+    subset = sorted(nums[50:82])
+    return subset[5]

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-2664e6e7414144f982aaa19ed5e69cb1",
+  "object": "chat.completion",
+  "created": 1725539336,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef find_sublists(lst, target, start, end, cum_product, result):\n    if start > end or cum_product == 0:\n        return\n    if cum_product == target:\n        result.append(lst[start:end+1])\n        return\n    find_sublists(lst, target, start + 1, end, cum_product * lst[start], result)\n    find_sublists(lst, target, start, end - 1, cum_product * lst[end], result)\n\ndef make_circular(lst):\n    circular_lst = lst + lst[:-1]\n    return circular_lst\n\ndef lists_with_product_equal_n(lst):\n    target = -89\n    circular_list = make_circular(lst)\n    result = []\n    for size in range(1, len(circular_list)):\n        find_sublists(circular_list, target, 0, size, circular_list[0], result)\n    result = [sublist for sublist in result if all(isinstance(n, int) and type(n) != bool for n in sublist)]\n    return result\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 203,
+    "total_tokens": 481,
+    "completion_tokens": 278
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-ab9b6df96a194e8b88a0840223c2e160",
+  "object": "chat.completion",
+  "created": 1725533634,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef longest_palindrome(s, l, r, pairs):\n    while l >= 0 and r < len(s) and s[l].lower() == s[r].lower() and (l not in pairs or r not in pairs):\n        pairs.add((l, r))\n        l -= 1\n        r += 1\n    return l, r\n\ndef expand_around_center(s, index):\n    pairs = set()\n    l, r = longest_palindrome(s, index, index, pairs)\n    return s[l:r+1], l, r\n\ndef find_palindromes(s):\n    lps, found = set(), set()\n    for i in range(len(s)):\n        single, l, r = expand_around_center(s, i)\n        if l - r >= 143: lps.add(single.lower())\n        found.add(single.lower())\n        even, l, r = longest_palindrome(s, i, i+1, pairs)\n        if l - r >= 143: lps.add(even.lower())\n        found.add(even.lower())\n    return lps\n\ndef palindrome_of_length_at_least_n(s):\n    return find_palindromes(s)\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 156,
+    "total_tokens": 475,
+    "completion_tokens": 319
+  }
+}

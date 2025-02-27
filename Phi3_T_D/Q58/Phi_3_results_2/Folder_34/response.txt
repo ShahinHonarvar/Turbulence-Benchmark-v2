@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-f6ae82a80d6d4f1dba424afd27ebbb6e",
+  "object": "chat.completion",
+  "created": 1725545587,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    if not isinstance(matrix, np.ndarray) or len(matrix.shape) != 2:\n        return 0\n\n    m, n = matrix.shape\n    count = 0\n\n    for size in range(1, min(m, n) + 1):  # size of the submatrix\n        for i in range(m - size + 1):\n            for j in range(n - size + 1):\n                submatrix = matrix[i:i+size, j:j+size]\n                if (submatrix == 83).all():\n                    count += 1\n    return count\n\n# Example usage:\nmat = np.array([[91, 83, 67],\n                [83, 83, 83],\n                [71, 83, 83]])\n\nprint(submatrix_with_n_numbers(mat))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 116,
+    "total_tokens": 352,
+    "completion_tokens": 236
+  }
+}

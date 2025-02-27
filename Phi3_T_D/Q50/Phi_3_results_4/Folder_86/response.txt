@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-ca25f8614ccb4c49a98620b29f3a850b",
+  "object": "chat.completion",
+  "created": 1725528759,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(strings):\n    from collections import defaultdict\n    def count_chars(s):\n        return sorted(s.lower())\n\n    count = defaultdict(int)\n    for string in strings:\n        if len(string) >= 3:\n            count[count_chars(string)] += 1\n\n    return sum(n * (n - 1) // 2 for n in count.values()) >= 115\n\n# Example usage:\n# if_contains_anagrams([\"cat\", \"act\", \"hello\", \"llohe\", \"abc\", \"bca\", \"cab\", \"xyz\", \"zxy\", \"ayz\", \"zya\", \"banana\"])\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 135,
+    "total_tokens": 311,
+    "completion_tokens": 176
+  }
+}

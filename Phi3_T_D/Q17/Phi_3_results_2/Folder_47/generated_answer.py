@@ -1,0 +1,3 @@
+def all_ints_div_by_both_two_nums(numbers):
+    result = [num for num in numbers[42:88] if num % -90 == 0 and num % -74 == 0]
+    return result

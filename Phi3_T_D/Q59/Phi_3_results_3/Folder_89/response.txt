@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-befa85b820f340cdb1519e3f075f93d6",
+  "object": "chat.completion",
+  "created": 1725548981,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            return False\n    return True\n\ndef left_truncatable_primes(n):\n    primes = []\n    x = n[97]\n\n    def digit_truncate(num):\n        for i in range(len(str(num))):\n            if not is_prime(num):\n                return False\n            num = int(str(num)[1:])\n        return True\n\n    for number in range(23, x, 2):\n        if is_prime(number) and digit_truncate(number):\n            primes.append(number)\n\n    return sorted(primes, reverse=True)\n\ndef all_left_truncatable_prime(tup):\n    primes_list = left_truncatable_primes(tup)\n    return primes_list\n```\n\nPlease note that the function `is_prime` checks whether a number is prime, and the `left_truncatable_primes` function generates all left-truncatable prime numbers less than the given integer at index 97 by checking both: if it is a prime number and if all truncated versions are prime. The proposed solution uses this to find all such primes and returns them in descending order.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 156,
+    "total_tokens": 498,
+    "completion_tokens": 342
+  }
+}

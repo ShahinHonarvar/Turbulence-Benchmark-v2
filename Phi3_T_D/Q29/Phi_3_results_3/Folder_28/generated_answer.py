@@ -1,0 +1,7 @@
+def gcf_two_nums(numbers):
+
+    def gcd(x, y):
+        while y != 0:
+            x, y = (y, x % y)
+        return x
+    return gcd(numbers[48], numbers[76])

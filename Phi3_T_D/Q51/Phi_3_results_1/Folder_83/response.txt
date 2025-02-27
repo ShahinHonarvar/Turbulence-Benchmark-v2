@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-6613c9d2f1044ce58b600ea187ed7a4d",
+  "object": "chat.completion",
+  "created": 1725529614,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom collections import defaultdict\n\ndef if_contains_anagrams(lst):\n    sorted_mapping = defaultdict(list)\n    for word in lst:\n        sorted_word = \"\".join(sorted(word.lower()))\n        sorted_mapping[sorted_word].append(word)\n\n    count = 0\n    for words in sorted_mapping.values():\n        if len(words) > 1 and len(words[0]) >= 3:\n            count += len(words) * (len(words) - 1) // 2\n            if count > 19:\n                return False\n\n    return True\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 148,
+    "total_tokens": 300,
+    "completion_tokens": 152
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-43ff6e1e51f6427c992a15f14a5e3781",
+  "object": "chat.completion",
+  "created": 1725551722,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n <= 1:\n        return False\n    if n <= 3:\n        return True\n    if n % 2 == 0 or n % 3 == 0:\n        return False\n    i = 5\n    while i * i <= n:\n        if n % i == 0 or n % (i + 2) == 0:\n            return False\n        i += 6\n    return True\n\ndef is_left_and_right_truncatable(number, primes):\n    str_num = str(number)\n    for i in range(1, len(str_num)):\n        if not is_prime(int(str_num[i:])) or not is_prime(int(str_num[:-i])):\n            return False\n    return True if len(str_num) > 1 else is_prime(number)\n\ndef all_left_and_right_truncatable_prime(numbers):\n    x = numbers[14] if len(numbers) > 14 else 2  # Default to 2 if index out of range\n    result = []\n    primes_cache = [i for i in range(x+1) if is_prime(i)]\n    for prime in reversed(primes_cache):\n        if is_left_and_right_truncatable(prime, primes_cache):\n            result.append(prime)\n    return result\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 207,
+    "total_tokens": 554,
+    "completion_tokens": 347
+  }
+}

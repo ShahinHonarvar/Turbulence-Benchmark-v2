@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-a23f6c4605354df58789b460225b498d",
+  "object": "chat.completion",
+  "created": 1725546185,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    rows, cols = matrix.shape\n    count = 0\n    for i in range(rows):\n        for j in range(cols):\n            for width in range(cols - j + 1):\n                for height in range(rows - i + 1):\n                    if width * height == 48:\n                        count += 1\n    return count\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 116,
+    "total_tokens": 224,
+    "completion_tokens": 108
+  }
+}

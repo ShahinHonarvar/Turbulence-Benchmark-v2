@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-03e6653f7906494daa2f94a7d2744acb",
+  "object": "chat.completion",
+  "created": 1725530728,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef if_contains_anagrams(lst):\n    from collections import Counter\n\n    def get_letter_count(s):\n        return Counter(s.lower())\n\n    letter_counts = {}\n    for word in lst:\n        if len(word) < 3:\n            continue\n        letter_count = get_letter_count(word)\n        key = tuple(sorted(letter_count.items()))\n        letter_counts[key] = letter_counts.get(key, 0) + 1\n\n    anagram_pairs = 0\n    for count in letter_counts.values():\n        anagram_pairs += count * (count - 1) // 2\n\n    return anagram_pairs <= 210\n```\n\nThis code defines the function `if_contains_anagrams` that takes a list of string elements as an argument. The following check is performed within the function, and if the number of anagram pairs found exceeds the specified limit (which is 210 according to the specifications), it will return False. Otherwise, True is returned.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 149,
+    "total_tokens": 407,
+    "completion_tokens": 258
+  }
+}

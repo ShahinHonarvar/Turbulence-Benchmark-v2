@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-a473d57dabbd40eb978516de94d162bd",
+  "object": "chat.completion",
+  "created": 1725533122,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom collections import defaultdict\n\ndef extend_palindrome(string, left, right, palindromes):\n    while left >= 0 and right < len(string) and string[left].lower() == string[right].lower():\n        if right - left + 1 >= 100:\n            palindromes.add(string[left:right+1].upper())\n        left -= 1\n        right += 1\n\ndef palindrome_of_length_at_least_n(s):\n    char_index_map = defaultdict(list)\n    for i, c in enumerate(s.lower()):\n        if c.isalpha():\n            char_index_map[c].append(i)\n\n    palindromes = set()\n    for c, indices in char_index_map.items():\n        for left in indices:\n            right = left\n            extend_palindrome(s, left, right, palindromes)\n\n    return palindromes\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 156,
+    "total_tokens": 394,
+    "completion_tokens": 238
+  }
+}

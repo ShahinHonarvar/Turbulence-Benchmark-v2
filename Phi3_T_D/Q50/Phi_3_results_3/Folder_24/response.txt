@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-255b55ef4e324b4c8308c26c1048934e",
+  "object": "chat.completion",
+  "created": 1725528087,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom itertools import combinations\n\ndef if_contains_anagrams(strings):\n    def to_signature(s):\n        return ''.join(sorted(s.lower()))\n\n    anagrams = set()\n    \n    for s1, s2 in combinations(strings, 2):\n        if len(s1) >= 3 and len(s2) >= 3 and to_signature(s1) == to_signature(s2):\n            anagrams.add(frozenset((s1, s2)))\n    \n    return len(anagrams) >= 65\n\n# Example usage\nresult = if_contains_anagrams(['Astronomer', 'Moon starer', 'google', 'gooegl', 'carthorse', 'orchestra'])\nprint(result)  # Output: False, since there are less than 65 pairs of anagrams meeting the length requirement\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 134,
+    "total_tokens": 353,
+    "completion_tokens": 219
+  }
+}

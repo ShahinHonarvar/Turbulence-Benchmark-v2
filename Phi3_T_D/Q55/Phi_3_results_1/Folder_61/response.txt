@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-aa73f4c97a3e4abf86dd2deb4d4e5a8c",
+  "object": "chat.completion",
+  "created": 1725539003,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef lists_with_product_equal_n(lst):\n    n = -10\n    results = []\n    \n    def find_sublists(start, path):\n        if start == len(lst):\n            start = 0\n        if lst[start] == 0:\n            if start == 0 or all(item != 0 for item in path[1:]):\n                results.append(path)\n            return\n        if n % lst[start]:\n            find_sublists(start + 1, path + [lst[start]])\n            find_sublists(start + 1, path)\n        if not results and lst[start] == n:\n            results.append(path + [lst[start]])\n    \n    find_sublists(0, [])\n    return results\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 203,
+    "total_tokens": 394,
+    "completion_tokens": 191
+  }
+}

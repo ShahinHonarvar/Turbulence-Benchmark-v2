@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-5c15cb1c2c464e25be060714f35377f9",
+  "object": "chat.completion",
+  "created": 1725535034,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef longest_palindrome_at_start(s, k):\n    for i in range(min(len(s), k)):\n        if s[i] != s[-1-i]:\n            return False\n    return True\n\ndef expand_around_center(s, left, right, odd):\n    while left >= 0 and right < len(s) and s[left].lower() == s[right].lower():\n        if odd and left != right:\n            yield s[left:right+1]\n        left -= 1\n        right += 1\n\ndef palindrome_of_length_at_least_n(string):\n    results = set()\n    count = {}\n    for char in string:\n        if char.isalpha():\n            count[char.lower()] = count.get(char.lower(), 0) + 1\n            \n        if all(val >= 2 for val in count.values()):\n            if len(count) >= 2:\n                center = len(count) // 2\n                for left in range(center * 2 - 1, 0, -2):\n                    if longest_palindrome_at_start(string, left):\n                        start = (left - 1) // 2\n                        result = expand_around_center(string, start - 1, start, left % 2 == 1)\n                        results.update(result)\n            if all(val == 2 for val in count.values()):\n                for i in count:\n                    if len(string) > len(i) * 2:\n                        result = expand_around_center(string, 0, len(string) // 2 - 1, True)\n                        results.update(result)\n            break\n\n    return {palindrome.upper() for palindrome in results if len(palindrome) >= 28}\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 155,
+    "total_tokens": 602,
+    "completion_tokens": 447
+  }
+}

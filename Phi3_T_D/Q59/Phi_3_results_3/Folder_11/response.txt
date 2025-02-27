@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-4d8e2dc344434de48819d5f5a157854b",
+  "object": "chat.completion",
+  "created": 1725548459,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef is_prime(n):\n    if n <= 1:\n        return False\n    if n <= 3:\n        return True\n    if n % 2 == 0 or n % 3 == 0:\n        return False\n    i = 5\n    while i * i <= n:\n        if n % i == 0 or n % (i + 2) == 0:\n            return False\n        i += 6\n    return True\n\ndef all_left_truncatable_prime(numbers, idx=86):\n    x = numbers[idx]\n    left_truncatable_primes = []\n    for num in range(2, x):\n        if is_prime(num):\n            str_num = str(num)\n            left_truncatable = True\n            for i in range(len(str_num)):\n                if not is_prime(int(str_num[i:])):\n                    left_truncatable = False\n                    break\n            if left_truncatable:\n                left_truncatable_primes.append(num)\n    return left_truncatable_primes\n\n# Call the function with a tuple of positive integers\nnumbers_tuple = (23, 53, 13, 17, 31, 37, 71, 73, 79, 233, 313, 373, 797)\nresult = all_left_truncatable_prime(numbers_tuple)\nprint(result)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 156,
+    "total_tokens": 528,
+    "completion_tokens": 372
+  }
+}

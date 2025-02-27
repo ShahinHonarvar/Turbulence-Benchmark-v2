@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-ca97011d315d487c8b10805cc80098c2",
+  "object": "chat.completion",
+  "created": 1725529029,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef if_contains_anagrams(words):\n    words = [''.join(sorted(word.lower())) for word in words if len(word) >= 3]\n    unique_words = set(words)\n    anagrams_count = sum(words.count(word) > 1 for word in unique_words)\n    \n    return anagrams_count >= 20\n\n# Examples:\nprint(if_contains_anagrams([\"listen\", \"enlist\", \"google\", \"gooegl\"])) # True\nprint(if_contains_anagrams([\"listen\", \"enlist\", \"google\"])) # False\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 134,
+    "total_tokens": 287,
+    "completion_tokens": 153
+  }
+}

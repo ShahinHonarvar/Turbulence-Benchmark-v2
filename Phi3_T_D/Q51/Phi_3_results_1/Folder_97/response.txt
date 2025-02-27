@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-aca0466870334f618ed8e8fa59266769",
+  "object": "chat.completion",
+  "created": 1725529680,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(lst):\n    from collections import defaultdict\n    def count_chars(word):\n        return ''.join(sorted(word.lower().replace(' ', '')))\n\n    anagram_counts = defaultdict(int)\n    for word in lst:\n        if len(word) >= 3:\n            anagram_key = count_chars(word)\n            anagram_counts[anagram_key] += 1\n\n    return sum(count*(count-1)//2 for count in anagram_counts.values()) <= 18\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 148,
+    "total_tokens": 293,
+    "completion_tokens": 145
+  }
+}

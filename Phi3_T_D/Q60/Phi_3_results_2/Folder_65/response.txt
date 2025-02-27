@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-eade64a3d1904899a081ed10d6aab5fc",
+  "object": "chat.completion",
+  "created": 1725551613,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef is_prime(n):\n    if n <= 1:\n        return False\n    if n <= 3:\n        return True\n    if n % 2 == 0 or n % 3 == 0:\n        return False\n    i = 5\n    while i * i <= n:\n        if n % i == 0 or n % (i + 2) == 0:\n            return False\n        i += 6\n    return True\n\ndef is_truncatable(number, prime_set):\n    str_num = str(number)\n    for i in range(1, len(str_num)):\n        if not is_prime(int(str_num[i:])) or not is_prime(int(str_num[:i])):\n            return False\n    return True\n\ndef all_left_right_truncatable_prime(numbers):\n    input_range = range(2, numbers[32] + 1)\n    result = []\n    \n    prime_set = set(input_range)\n    \n    for num in sorted(input_range):\n        if num in prime_set and is_truncatable(num, prime_set):\n            result.append(num)\n            for prime in range(2 * 10 ** (len(str(num)) - 1), 10 * num, 10):\n                if prime in prime_set:\n                    prime_set.remove(prime)\n                    \n    return result\n\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 207,
+    "total_tokens": 559,
+    "completion_tokens": 352
+  }
+}

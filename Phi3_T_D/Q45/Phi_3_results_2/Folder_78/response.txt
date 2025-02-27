@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-fdf260fc08b04dda8759753056f36b0c",
+  "object": "chat.completion",
+  "created": 1725518497,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom itertools import permutations\n\ndef palindromes_between_indices(s):\n    substring = s[6:10]  # Get substring from index 6 to 8\n    char_count = {}\n    for char in substring.lower():\n        if char.isalpha():\n            char_count[char] = char_count.get(char, 0) + 1\n\n    odd_char = ''\n    even_chars = ''\n    for char, count in char_count.items():\n        if count % 2 == 1:\n            if odd_char: return set()  # More than one odd count - impossible palindrome\n            odd_char = char\n        even_chars += char * (count // 2)\n\n    center = odd_char * (char_count[odd_char] - 1 if odd_char else '') + odd_char * (1 if odd_char else '')\n    half_length = len(substring) // 2\n    half_palindromes = [''.join(p) for p in permutations(even_chars, half_length)]\n    \n    palindromes = set()\n    for half in half_palindromes:\n        palindromes.add(half + center + half[::-1])\n        \n    return palindromes\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 192,
+    "total_tokens": 506,
+    "completion_tokens": 314
+  }
+}

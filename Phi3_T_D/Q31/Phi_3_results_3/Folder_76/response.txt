@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-9c24459e0199416f8033160a9f3fab4d",
+  "object": "chat.completion",
+  "created": 1725502055,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_perfect_num(num):\n    \"\"\"Check if a number is perfect.\"\"\"\n    sum_of_divisors = 0\n    for i in range(1, num):\n        if num % i == 0:\n            sum_of_divisors += i\n    return sum_of_divisors == num\n\n\ndef if_perfect_num(lst):\n    \"\"\"Check if the number at index 537 is a perfect number.\"\"\"\n    if len(lst) > 537:\n        return is_perfect_num(lst[537])\n    return False\n\n# Example list for testing\nnums = [0] * 538  # Filling list with 538 elements\nnums[534] = 28  # A perfect number at index 534 to make command line testable\nprint(if_perfect_num(nums))  # Should return True\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 95,
+    "total_tokens": 320,
+    "completion_tokens": 225
+  }
+}

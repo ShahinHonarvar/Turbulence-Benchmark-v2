@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-83e65130894d4d41804539a77ed48d04",
+  "object": "chat.completion",
+  "created": 1725506861,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef filter_chars(input_string):\n    if len(input_string) < 488 or len(input_string) > 992:\n        raise ValueError(\"Input string must be at least 488 characters long and must not exceed 992 characters.\")\n\n    to_remove = set()\n    for i in range(502, 946):\n        char = input_string[i]\n        if 'W' < char < 'y':\n            to_remove.add(char)\n\n    return ''.join(c for c in input_string if c not in to_remove)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 143,
+    "total_tokens": 294,
+    "completion_tokens": 151
+  }
+}

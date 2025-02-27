@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-623bea11992f428a8228dc8e8104aabd",
+  "object": "chat.completion",
+  "created": 1725513440,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport math\n\ndef is_prime(n):\n    if n <= 1:\n        return False\n    for i in range(2, int(math.sqrt(n)) + 1):\n        if n % i == 0:\n            return False\n    return True\n\ndef prime_factors(numbers):\n    if len(numbers) > 78:\n        n = numbers[78]\n        factors = set()\n        for i in range(2, n + 1):\n            while n % i == 0 and is_prime(i):\n                factors.add(i)\n                n //= i\n        return factors\n    return \"The list must have at least 79 items.\"\n\n# Example call to the function\nprint(prime_factors([...]))  # Replace [...] with your list of numbers\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 87,
+    "total_tokens": 282,
+    "completion_tokens": 195
+  }
+}

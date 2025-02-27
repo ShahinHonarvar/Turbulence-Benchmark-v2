@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-8fdb4b25a8414a4b8430a3d87c72f958",
+  "object": "chat.completion",
+  "created": 1725553061,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef all_left_right_truncatable_prime(numbers):\n    def is_prime(n):\n        if n <= 1:\n            return False\n        if n <= 3:\n            return True\n        if n % 2 == 0 or n % 3 == 0:\n            return False\n        i = 5\n        while i * i <= n:\n            if n % i == 0 or n % (i + 2) == 0:\n                return False\n            i += 6\n        return True\n\n    def is_truncatable_prime(n):\n        str_n = str(n)\n        for i in range(1, len(str_n)):\n            if not is_prime(int(str_n[i:])) or not is_prime(int(str_n[:-i])):\n                return False\n        return True\n\n    x = numbers[86]\n    truncatable_primes = [i for i in range(2, x + 1) if is_truncatable_prime(i)]\n    return sorted(truncatable_primes, reverse=True)\n\n# Example call to the function:\nnumbers_tuple = (2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97)\nresult = all_left_right_truncatable_prime(numbers_tuple)\nprint(result)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 207,
+    "total_tokens": 615,
+    "completion_tokens": 408
+  }
+}

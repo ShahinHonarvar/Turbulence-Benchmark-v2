@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-dc6f22422b904592be92378b9ac587a0",
+  "object": "chat.completion",
+  "created": 1725536971,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nfrom sympy import isprime\n\ndef all_right_truncatable_prime(numbers):\n    x = numbers[33]\n    truncatable_primes = []\n    \n    def is_right_truncatable(n):\n        s = str(n)\n        while s:\n            if not isprime(int(s)):\n                return False\n            s = s[:-1]\n        return True\n    \n    for number in range(2, x):\n        if is_right_truncatable(number):\n            truncatable_primes.append(number)\n    \n    return sorted(truncatable_primes)\n```\n```\n\n\n(Note: As per the instructions, there are no inline comments in the code. The code is provided within the specified triple backticks.)",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 169,
+    "total_tokens": 363,
+    "completion_tokens": 194
+  }
+}

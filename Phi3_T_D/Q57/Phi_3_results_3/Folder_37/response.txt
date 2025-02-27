@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-44591b5e714d4d87bfdf9306cd47b6b5",
+  "object": "chat.completion",
+  "created": 1725543829,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    rows, cols = matrix.shape\n    sum_required = -82\n    valid_submatrices = []\n\n    for i in range(rows):\n        for j in range(cols):\n            for k in range(i+1, rows + 1):\n                for l in range(j+1, cols + 1):\n                    submatrix = matrix[i:k, j:l]\n                    if submatrix.sum() == sum_required:\n                        valid_submatrices.append(submatrix)\n\n    return valid_submatrices\n```\n\nUse the function like this:\n\n```python\n# Example call to the function\nexample_matrix = np.array([[1, 2, 3], \n                           [-10, 5, -3], \n                           [4, 5, -5]])\n\nresult = submatrix_with_particular_sum(example_matrix)\nprint(result)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 126,
+    "total_tokens": 371,
+    "completion_tokens": 245
+  }
+}

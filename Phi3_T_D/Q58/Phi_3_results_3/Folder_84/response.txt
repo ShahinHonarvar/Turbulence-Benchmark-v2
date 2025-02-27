@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-5a2bbcdf51fa428da5914d1817b205ac",
+  "object": "chat.completion",
+  "created": 1725546226,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    count = 0\n    rows, cols = matrix.shape\n    n = 127  # The number of integers each submatrix must contain\n    if rows < n or cols < n:\n        return 0  # No submatrix can contain 127 integers if the matrix is too small\n\n    for size_row in range(1, rows - n + 2):\n        for size_col in range(1, cols - n + 2):\n            for start_row in range(rows - size_row + 1):\n                for start_col in range(cols - size_col + 1):\n                    submatrix = matrix[start_row:start_row + size_row, start_col:start_col + size_col]\n                    if submatrix.size == n:\n                        count += 1\n\n    return count\n\n# Example usage:\nmatrix = np.array([[1,2,3],[4,5,6],[7,8,9]])\nresult = submatrix_with_n_numbers(matrix)\nprint(result)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 117,
+    "total_tokens": 388,
+    "completion_tokens": 271
+  }
+}

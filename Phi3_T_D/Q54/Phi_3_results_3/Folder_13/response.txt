@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-df3b18d664d84ff6bf341ccaf91b0cde",
+  "object": "chat.completion",
+  "created": 1725536755,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_right_truncatable_prime(n, primes_set):\n    while n > 0:\n        if n not in primes_set:\n            return False\n        n //= 10\n    return True\n\ndef find_primes_sieve(limit):\n    sieve = [True] * (limit + 1)\n    primes = []\n    for p in range(2, limit + 1):\n        if sieve[p]:\n            primes.append(p)\n            for i in range(p * p, limit + 1, p):\n                sieve[i] = False\n    return primes\n\ndef all_right_truncatable_prime(tuple_of_ints):\n    x = tuple_of_ints[784]\n    primes = find_primes_sieve(x)\n    right_truncatable_primes = [p for p in primes if all(map(lambda prime: prime in primes, map('{:d}'.format, map(int, reversed(str(p))))))]\n    return sorted(right_truncatable_primes)\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 170,
+    "total_tokens": 445,
+    "completion_tokens": 275
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-f045f5f9ca69446780e3fd41740ab2d7",
+  "object": "chat.completion",
+  "created": 1725545865,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    if not isinstance(matrix, np.ndarray):\n        raise ValueError(\"Input must be a two-dimensional numpy matrix of integers\")\n\n    n, m = matrix.shape\n    count = 0\n\n    for i in range(n):\n        for j in range(m):\n            for size in range(1, min(n - i, m - j) + 1):\n                if (matrix[i:i+size, j:j+size] == 107).all():\n                    count += 1\n\n    return count\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 117,
+    "total_tokens": 269,
+    "completion_tokens": 152
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-c9c8dfb9d3a54f1e9e65b709e3a8ac97",
+  "object": "chat.completion",
+  "created": 1725550220,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom sympy import primerange, isprime\n\ndef all_left_truncatable_prime(numbers):\n    x = numbers[24]\n    primes = list(primerange(2, x))\n    left_truncatable = []\n\n    for p in primes:\n        p_str = str(p)\n        is_left_truncatable = True\n        for i in range(len(p_str)):\n            if not isprime(int(p_str[i:])):\n                is_left_truncatable = False\n                break\n        if is_left_truncatable:\n            yield p\n\nsorted(all_left_truncatable_prime((1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 100)))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 156,
+    "total_tokens": 423,
+    "completion_tokens": 267
+  }
+}

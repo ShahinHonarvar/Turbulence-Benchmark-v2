@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-7196a50220fe4baf8f26d4c139b8c51b",
+  "object": "chat.completion",
+  "created": 1725528301,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(strings):\n    def count_chars(s):\n        from collections import Counter\n        return Counter(''.join(sorted(s.lower())).replace(\" \", \"\"))\n    \n    sorted_strings = sorted([(count_chars(s), s.lower()) for s in strings if len(s) >= 3], key=lambda x: x[0])\n    anagrams_count = sum(1 for _, l in enumerate(sorted_strings) for r in range(l+1, len(sorted_strings)) if l[0] == sorted_strings[r][0])\n    \n    return anagrams_count >= 209\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 135,
+    "total_tokens": 299,
+    "completion_tokens": 164
+  }
+}

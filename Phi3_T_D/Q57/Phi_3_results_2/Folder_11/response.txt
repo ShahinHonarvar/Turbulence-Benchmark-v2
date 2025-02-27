@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-58491987dba44aa69757581e2504dd16",
+  "object": "chat.completion",
+  "created": 1725543254,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    if not isinstance(matrix, np.ndarray):\n        raise ValueError(\"Input must be a numpy array\")\n\n    rows, cols = matrix.shape\n    result = []\n\n    def check_sum(sub):\n        return np.sum(sub) == 38\n\n    def add_submatrix(row_start, row_end, col_start, col_end):\n        if row_start < 0 or row_end > rows or col_start < 0 or col_end > cols:\n            return\n        submatrix = matrix[row_start:row_end + 1, col_start:col_end + 1]\n        if check_sum(submatrix):\n            result.append(submatrix)\n            for new_row in range(row_start, row_end):\n                add_submatrix(new_row, row_end, col_start, col_end)\n\n    for row in range(rows):\n        for col in range(cols):\n            add_submatrix(row, rows - 1, col, cols - 1)\n\n    return result\n```\n\nThis function defines a recursive helper function `add_submatrix` that adds all submatrices to the result list if their sum equals 38. It then iterates through each position in the input matrix to find all potential start and end positions for submatrices.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 126,
+    "total_tokens": 463,
+    "completion_tokens": 337
+  }
+}

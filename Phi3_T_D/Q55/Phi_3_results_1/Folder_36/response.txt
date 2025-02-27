@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-a8a198a749c24d5587402660842f6e3a",
+  "object": "chat.completion",
+  "created": 1725538874,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef lists_with_product_equal_n(circular_list):\n    circular_list *= 2\n    target = 714\n    result = []\n\n    for i in range(len(circular_list)):\n        for j in range(i + 1, len(circular_list)):\n            sublist = circular_list[i:j]\n            if sum(sublist) <= len(circular_list) // 2 and prod(sublist) == target:\n                result.append(sublist)\n\n    return [list(x) for x in set(tuple(x) for x in result)]\n\n\ndef prod(lst):\n    from functools import reduce\n    from operator import mul\n    return reduce(mul, lst)\n\n# Example usage:\n# print(lists_with_product_equal_n([2, 3, 7, 3, 2]))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 204,
+    "total_tokens": 420,
+    "completion_tokens": 216
+  }
+}

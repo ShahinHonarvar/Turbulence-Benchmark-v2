@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-18be2d2c02964dedb646a2d3a8744b0a",
+  "object": "chat.completion",
+  "created": 1725543617,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    n, m = matrix.shape\n    results = []\n    for start_i in range(n):\n        for end_i in range(start_i, n):\n            for start_j in range(m):\n                for end_j in range(start_j, m):\n                    submatrix = matrix[start_i:end_i + 1, start_j:end_j + 1]\n                    if submatrix.sum() == -452:\n                        results.append(submatrix)\n    return results\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 127,
+    "total_tokens": 277,
+    "completion_tokens": 150
+  }
+}

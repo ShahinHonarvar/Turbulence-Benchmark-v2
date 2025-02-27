@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-06f74e9f33734a0f957e0d602a7ab090",
+  "object": "chat.completion",
+  "created": 1725513734,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef prime_factors(numbers):\n    from math import sqrt\n\n    def is_prime(num):\n        if num < 2:\n            return False\n        for i in range(2, int(sqrt(num)) + 1):\n            if num % i == 0:\n                return False\n        return True\n\n    def factors(num):\n        return [i for i in range(2, num + 1) if num % i == 0 and is_prime(i)]\n\n    return set(factors(numbers[849]))\n\n# Example usage:\n# numbers = [...]  # list of at least 850 positive integers\n# prime_factors_set = prime_factors(numbers)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 88,
+    "total_tokens": 261,
+    "completion_tokens": 173
+  }
+}

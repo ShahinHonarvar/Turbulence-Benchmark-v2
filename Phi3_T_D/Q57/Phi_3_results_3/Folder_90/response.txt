@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-a4eb5d6deef048159061d6723714ada9",
+  "object": "chat.completion",
+  "created": 1725544083,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    def helper(start_r, start_c, size, curr_submatrix, total_sum, result):\n        if total_sum == -452:\n            result.append(curr_submatrix)\n            return\n        if total_sum > -452 or (size == 1 and total_sum < -452):\n            return\n        curr_r, curr_c = start_r, start_c\n        size += 1\n        while curr_r < len(matrix) - size + 1:\n            c_index = 0\n            while c_index < len(matrix[0]):\n                curr_sum += matrix[curr_r + (size - 1)][curr_c]\n                c_index += 1\n                if curr_sum == -452:\n                    result.append(curr_submatrix + [row[curr_c:curr_c+size] for row in matrix[curr_r:curr_r+size]])\n                    curr_sum -= matrix[curr_r + (size - 1)][curr_c]\n                elif curr_sum < -452:\n                    total_sum = curr_sum\n                curr_c += 1\n            curr_c -= (c_index - 1)\n            curr_r += 1\n            curr_submatrix.clear()\n            curr_sum = 0\n            total_sum = 0\n\n\n    result = []\n    curr_submatrix = []\n    curr_sum = 0\n\n    for r in range(len(matrix)):\n        for c in range(len(matrix[0])):\n            helper(r, c, 0, curr_submatrix, curr_sum, result)\n\n    return result\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 127,
+    "total_tokens": 556,
+    "completion_tokens": 429
+  }
+}

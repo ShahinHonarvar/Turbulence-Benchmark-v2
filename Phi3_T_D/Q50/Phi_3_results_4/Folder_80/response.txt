@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-bfab4a65e8b9402789e5dc38355614dc",
+  "object": "chat.completion",
+  "created": 1725528739,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nfrom itertools import combinations\n\ndef get_sorted_tuple(s):\n    return tuple(sorted(s.lower()))\n\ndef if_contains_anagrams(string_list):\n    length_three_strings = [s for s in string_list if len(s) >= 3]\n    sorted_tuples = [get_sorted_tuple(s) for s in length_three_strings]\n\n    count = sum(1 for pair in combinations(sorted_tuples, 2) if pair[0] == pair[1])\n\n    return count >= 19\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 134,
+    "total_tokens": 271,
+    "completion_tokens": 137
+  }
+}

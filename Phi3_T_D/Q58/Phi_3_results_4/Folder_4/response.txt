@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-83a41c0cb7c1432c919dc90fcde5202b",
+  "object": "chat.completion",
+  "created": 1725546303,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    count = 0\n    n = len(matrix)\n    m = len(matrix[0])\n    for i in range(n):\n        for j in range(m):\n            for k in range(i+1, n+1):\n                for l in range(j+1, m+1):\n                    if np.sum(matrix[i:k, j:l]) == 15:\n                        count += 1\n    return count\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 116,
+    "total_tokens": 246,
+    "completion_tokens": 130
+  }
+}

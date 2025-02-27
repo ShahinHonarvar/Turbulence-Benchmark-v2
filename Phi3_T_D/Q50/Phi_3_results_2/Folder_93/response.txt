@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-db158c6cd9d2487697a9803020768d10",
+  "object": "chat.completion",
+  "created": 1725527957,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nfrom collections import defaultdict\n\ndef if_contains_anagrams(string_list):\n    def compare_case_insensitive(str1, str2):\n        return sorted(str1.lower()) == sorted(str2.lower())\n\n    anagram_count = 0\n    length_filtered = [s for s in string_list if len(s) >= 3]\n    sorted_strings = [''.join(sorted(s.lower())) for s in length_filtered]\n    anagram_dict = defaultdict(int)\n\n    for sorted_str in sorted_strings:\n        anagram_dict[sorted_str] += 1\n\n    for count in anagram_dict.values():\n        anagram_count += count * (count - 1) // 2\n\n    return anagram_count >= 18\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 134,
+    "total_tokens": 333,
+    "completion_tokens": 199
+  }
+}

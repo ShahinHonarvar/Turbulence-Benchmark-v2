@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-a0a68db1152647268ca93abb4010dc15",
+  "object": "chat.completion",
+  "created": 1725547043,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    count = 0\n    rows, cols = matrix.shape\n    for i in range(rows):\n        for j in range(cols):\n            for k in range(i, rows):\n                for l in range(j, cols):\n                    if (k - i + 1) * (l - j + 1) == 138:\n                        possible_submatrix = matrix[i:k+1, j:l+1]\n                        count += 1\n    return count\n\n# Example usage:\n# matrix = np.array([[...], [...], ...])  # Your numpy matrix here\n# print(submatrix_with_n_numbers(matrix))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 117,
+    "total_tokens": 298,
+    "completion_tokens": 181
+  }
+}

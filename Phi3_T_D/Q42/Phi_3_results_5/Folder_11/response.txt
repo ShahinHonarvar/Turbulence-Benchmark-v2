@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-a10d62d4fa984b9c977b6e93eda740aa",
+  "object": "chat.completion",
+  "created": 1725514082,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef prime_factors(numbers):\n    def is_prime(n):\n        if n <= 1:\n            return False\n        for i in range(2, int(n**0.5) + 1):\n            if n % i == 0:\n                return False\n        return True\n\n    def get_factors(n):\n        factors = set()\n        for i in range(2, n + 1):\n            if is_prime(i) and n % i == 0:\n                factors.add(i)\n        return factors\n\n    if len(numbers) < 78:\n        raise IndexError(\"List does not have enough elements.\")\n        \n    return get_factors(numbers[77])\n\nresult = prime_factors([2, 3, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115, 120, 125, 130, 135, 140, 145, 150, 155, 160, 165, 170, 175, 180, 185, 190, 195, 200, 205, 210, 215, 220, 225, 230, 235, 240, 245, 250, 255, 260, 265, 270, 275, 280, 285, 290, 295, 300, 301])\nprint(result)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 87,
+    "total_tokens": 565,
+    "completion_tokens": 478
+  }
+}

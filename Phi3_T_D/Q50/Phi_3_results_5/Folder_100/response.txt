@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-50c147aa2ae143e3a581041df7288786",
+  "object": "chat.completion",
+  "created": 1725529238,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nfrom collections import defaultdict\ndef if_contains_anagrams(string_list):\n    def normalize(s):\n        return ''.join(sorted(s.lower()))\n    potential_pairs = defaultdict(list)\n    for s in string_list:\n        if len(s) >= 3:\n            normalized = normalize(s)\n            potential_pairs[normalized].append(s)\n    actual_pairs = 0\n    for lst in potential_pairs.values():\n        actual_pairs += sum(1 for i in range(len(lst)) for j in range(i+1, len(lst)) if lst[i] != lst[j])\n    return actual_pairs >= 95\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 134,
+    "total_tokens": 309,
+    "completion_tokens": 175
+  }
+}

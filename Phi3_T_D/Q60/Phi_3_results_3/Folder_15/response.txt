@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-00a717977606437da86e46b292e46cfa",
+  "object": "chat.completion",
+  "created": 1725551983,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n <= 1:\n        return False\n    if n <= 3:\n        return True\n    if n % 2 == 0 or n % 3 == 0:\n        return False\n    i = 5\n    while i * i <= n:\n        if n % i == 0 or n % (i + 2) == 0:\n            return False\n        i += 6\n    return True\n\ndef all_left_right_truncatable_prime(nums, x=None):\n    x = x if x is not None else nums[6]\n    left_truncatables = [2, 3, 5, 7]\n    right_truncatables = [2, 3, 5, 7]\n    truncatable_primes = []\n\n    for i in range(2, x + 1):\n        if is_prime(i):\n            if all(str(i)[1:] in right_truncatables for _ in range(len(str(i)) - 1)) and \\\n               all('1' + str(i)[1:] in left_truncatables for _ in range(len(str(i)))) and \\\n               i not in truncatable_primes:\n                truncatable_primes.append(i)\n\n    return sorted(truncatable_primes, reverse=True)\n\n# Example usage, replace (1, 100, 200, 300, 400, 500, 1000) with your tuple:\nprint(all_left_right_truncatable_prime((1, 100, 200, 300, 400, 500, 1000)))\n```\n```\n\nThis Python function uses helper functions to determine primality and then iterates through numbers less than or equal to `x` (specified by the integer at index 6 of a tuple passed to the function). It identifies left-and-right-truncatable primes by checking if successively removing digits from both ends results in numbers that are in predefined lists of left and right truncatable primes. It then returns a sorted (descending) list of these primes. If no such primes are found, it returns an empty list.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 206,
+    "total_tokens": 760,
+    "completion_tokens": 554
+  }
+}

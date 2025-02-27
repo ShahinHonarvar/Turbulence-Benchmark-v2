@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-0e4f9300d43248759482b95155612a91",
+  "object": "chat.completion",
+  "created": 1725549246,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n <= 1:\n        return False\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            return False\n    return True\n\ndef is_left_truncatable(n):\n    if not n or '0' in str(n):\n        return False\n    while n > 0:\n        if not is_prime(n):\n            return False\n        n = n % (10 ** (len(str(n)) - 1))\n    return True\n\ndef all_left_truncatable_prime(numbers):\n    x = numbers[19]\n    truncatable_primes = []\n    for number in range(2, x):\n        if is_left_truncatable(number):\n            truncatable_primes.append(number)\n    return truncatable_primes\n```\n\nExample of usage:\n\n```python\ntuples = (10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1100, 1200)\nprimes = all_left_truncatable_prime(tuples)\nprint(primes)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 156,
+    "total_tokens": 562,
+    "completion_tokens": 406
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-8cdb83fe5d6945c890649afce4f6c083",
+  "object": "chat.completion",
+  "created": 1725545741,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    if not isinstance(matrix, np.ndarray) or matrix.ndim != 2:\n        return 0\n\n    height, width = matrix.shape\n    size = height * width\n    count_78 = 0\n    \n    for i in range(height):\n        for j in range(width):\n            for k in range(height - i):\n                for l in range(width - j):\n                    submatrix = matrix[i:i+k, j:j+l]\n                    if np.all(submatrix == 78) and submatrix.size == 78:\n                        count_78 += 1\n\n    return count_78\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 116,
+    "total_tokens": 298,
+    "completion_tokens": 182
+  }
+}

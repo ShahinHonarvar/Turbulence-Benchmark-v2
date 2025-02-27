@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-7f6485b4f1cb4fcc8428219ed5accc52",
+  "object": "chat.completion",
+  "created": 1725547980,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n <= 1:\n        return False\n    elif n <= 3:\n        return True\n    elif n % 2 == 0 or n % 3 == 0:\n        return False\n    i = 5\n    while i * i <= n:\n        if n % i == 0 or n % (i + 2) == 0:\n            return False\n        i += 6\n    return True\n\ndef is_left_truncatable_prime(n):\n    if not is_prime(n):\n        return False\n    return all(is_prime(int(str(n)[i:])) for i in range(len(str(n))))\n\ndef all_left_truncatable_prime(tuple_of_ints):\n    x = tuple_of_ints[35]\n    return sorted([n for n in range(2, x) if is_left_truncatable_prime(n)], reverse=True)\n```\n\nThis code first defines a helper function `is_prime()` to check if a number is prime. Then, the `is_left_truncatable_prime()` function checks if a given number is a left-truncatable prime by removing one digit at a time and checking if all resulting numbers are prime. The main function `all_left_truncatable_prime()` takes the 35th index of the given tuple, generates a list of left-truncatable primes below `x`, and returns the list sorted in descending order.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 156,
+    "total_tokens": 514,
+    "completion_tokens": 358
+  }
+}

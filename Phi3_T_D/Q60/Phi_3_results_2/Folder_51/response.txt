@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-11d411f9a7e240548425cdf6f21ba8c1",
+  "object": "chat.completion",
+  "created": 1725551505,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n <= 1:\n        return False\n    if n <= 3:\n        return True\n    if n % 2 == 0 or n % 3 == 0:\n        return False\n    i = 5\n    while i * i <= n:\n        if n % i == 0 or n % (i + 2) == 0:\n            return False\n        i += 6\n    return True\n\ndef all_left_right_truncatable_prime(numbers):\n    x = numbers[54]\n    truncatable_primes = []\n\n    def is_truncatable_prime(num):\n        str_num = str(num)\n        for i in range(len(str_num)):\n            if not is_prime(int(str_num[i:])) or not is_prime(int(str_num[:len(str_num)-i])):\n                return False\n        return True\n\n    for number in range(2, x + 1):\n        if is_truncatable_prime(number):\n            truncatable_primes.append(number)\n\n    return sorted(truncatable_primes)\n\n# Replace `numbers_tuple` with the actual tuple of positive integers.\n# numbers_tuple = (...)\n# result = all_left_right_truncatable_prime(numbers_tuple)\n# print(result)\n```\n```\n\nEnsure you replace `numbers_tuple` with the actual tuple of positive integers when using the function for testing purposes.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 207,
+    "total_tokens": 578,
+    "completion_tokens": 371
+  }
+}

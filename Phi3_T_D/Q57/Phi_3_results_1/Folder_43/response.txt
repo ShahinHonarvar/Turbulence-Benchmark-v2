@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-100aa2b4c97f4e71b35b25b4a2c754cc",
+  "object": "chat.completion",
+  "created": 1725542936,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    rows, cols = matrix.shape\n    result = []\n    \n    def dfs(upper, lower, left, right, target, current_sum):\n        if current_sum == target:\n            result.append(matrix[upper:lower+1, left:right+1].tolist())\n            return\n        if current_sum > target or upper >= rows or left >= cols:\n            return\n        \n        # Check other possibilities: move down\n        dfs(upper+1, lower, left, right, target, current_sum + matrix[upper+1][left])\n        # Check other possibilities: move right\n        dfs(upper, lower, left+1, right, target, current_sum + matrix[upper][left+1])\n        # Check other possibilities: move down and right\n        dfs(upper+1, lower, left+1, right, target, current_sum + matrix[upper+1][left+1])\n\n    for i in range(rows):\n        for j in range(cols):\n            for k in range(i, rows):\n                for l in range(j, cols):\n                    dfs(i, k, j, l, -81, matrix[i][j])\n    \n    return result\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 126,
+    "total_tokens": 435,
+    "completion_tokens": 309
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-3c9030b13d2c43c587640c40ceb8bce8",
+  "object": "chat.completion",
+  "created": 1725519939,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef palindromes_between_indices(s):\n    letters = [ch.lower() for ch in s[6:9]]\n    letter_count = {letter: letters.count(letter) for letter in set(letters)}\n\n    def backtrack(path, remaining):\n        letter = path.pop()\n        palindrome = [letter.upper(), letter.lower()] + [letter.upper()] * (remaining // 2)\n        if len(palindrome) >= 3:\n            return [''.join(palindrome)]\n        if letter in remaining:\n            remaining = remaining.replace(letter, '', 1)\n            return [p for subset in backtrack(path[:], remaining) for p in backtrack([letter] + path, remaining)]\n        return []\n\n    return set(backtrack(list(letter for _, count in letter_count.items() if count >= 1 for _ in range(count)), ''.join(letters)))\n\n# Example usage\nprint(palindromes_between_indices(\"abcbae\"))\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 192,
+    "total_tokens": 445,
+    "completion_tokens": 253
+  }
+}

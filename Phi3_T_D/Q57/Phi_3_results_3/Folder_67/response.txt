@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-cdfa1ada12c948d591321d2d0d1a7efb",
+  "object": "chat.completion",
+  "created": 1725543969,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    rows, cols = matrix.shape\n    result = []\n\n    def search_submatrix(start_r, start_c, end_r, end_c):\n        if end_r <= start_r or end_c <= start_c:\n            return\n        current_sum = np.sum(matrix[start_r:end_r, start_c:end_c])\n        if current_sum == 40:\n            result.append(matrix[start_r:end_r, start_c:end_c].copy())\n\n        mid_r, mid_c = (start_r + end_r) // 2, (start_c + end_c) // 2\n        search_submatrix(start_r, start_c, mid_r, mid_c)\n        search_submatrix(start_r, mid_c + 1, mid_r, end_c)\n        search_submatrix(mid_r + 1, start_c, end_r, mid_c)\n        search_submatrix(mid_r + 1, mid_c + 1, end_r, end_c)\n\n    search_submatrix(0, 0, rows, cols)\n    return result\n\n# Example usage:\n# matrix = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])\n# print(submatrix_with_particular_sum(matrix))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 126,
+    "total_tokens": 495,
+    "completion_tokens": 369
+  }
+}

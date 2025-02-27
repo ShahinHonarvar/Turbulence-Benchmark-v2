@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-f4dab1b42eff4b6a948451d9977e624b",
+  "object": "chat.completion",
+  "created": 1725551390,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef is_prime_left_right(n, valid_lengths=[str(i) for i in range(20)]):\n    str_n = str(n)\n    if not all(c in '123456789' for c in str_n):\n        return False\n    for len_ in valid_lengths:\n        if len_ == '1':\n            if int(str_n) not in (2, 3, 5, 7):\n                return False\n        else:\n            for i in range(len_):\n                sub_str_n = str_n[i:i+len_]\n                if sub_str_n[0] == '0' or sub_str_n[-1] == '0':\n                    return False\n                if int(sub_str_n) not in (2, 3, 5, 7):\n                    return False\n    return True\n\ndef all_left_right_truncatable_prime(numbers):\n    x = numbers[28]\n    min_digit = 2\n    max_digit = min(x, 7)\n    truncatable_primes = [p for p in range(min_digit, max_digit + 1) if str(p) in ['2', '3', '5', '7']]\n    final_primes = []\n\n    while truncatable_primes:\n        prime = truncatable_primes[-1]\n        if prime <= x:\n            final_primes.append(prime)\n            truncatable_primes = [p for p in truncatable_primes if is_prime_left_right(p)]\n        else:\n            truncatable_primes = [p for p in truncatable_primes[:-1]]\n\n    return final_primes\n\n# Usage example\nprint(all_left_right_truncatable_prime((0,) * 28 + (1000,)))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 207,
+    "total_tokens": 683,
+    "completion_tokens": 476
+  }
+}

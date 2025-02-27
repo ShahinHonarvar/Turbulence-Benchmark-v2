@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-c9569abb56c04806947c528bc074a54a",
+  "object": "chat.completion",
+  "created": 1725527672,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom itertools import combinations\n\ndef if_contains_anagrams(string_list):\n    def clean_and_sort(s):\n        return ''.join(sorted([c.lower() for c in s if c.isalpha()]))\n    count = 0\n    for combo in combinations(string_list, 2):\n        if clean_and_sort(combo[0]) == clean_and_sort(combo[1]):\n            count += 1\n            if count >= 72:\n                return True\n    return False\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 134,
+    "total_tokens": 266,
+    "completion_tokens": 132
+  }
+}

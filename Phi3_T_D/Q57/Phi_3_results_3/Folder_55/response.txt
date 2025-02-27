@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-9e2543552fb34c30b25cc1d2d222365c",
+  "object": "chat.completion",
+  "created": 1725543914,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    if not isinstance(matrix, np.ndarray):\n        raise ValueError(\"Input must be a numpy matrix.\")\n\n    def check_submatrix(sub_matrix):\n        return np.sum(sub_matrix) == 1\n\n    def find_submatrices(matrix):\n        rows, cols = matrix.shape\n        for sr in range(rows):\n            for sc in range(cols):\n                for er in range(sr, rows):\n                    for ec in range(sc, cols):\n                        yield matrix[sr:er+1, sc:ec+1]\n\n    result = [sub_matrix.tolist() for sub_matrix in find_submatrices(matrix) if check_submatrix(sub_matrix)]\n    return result\n\n# Usage example:\n# matrix = np.array([[1, 0, 0], [0, 0, 1]])\n# print(submatrix_with_particular_sum(matrix))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 125,
+    "total_tokens": 373,
+    "completion_tokens": 248
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-1e0996e2a37041078ff9dd6d8879bba0",
+  "object": "chat.completion",
+  "created": 1725530675,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nfrom collections import defaultdict\n\ndef if_contains_anagrams(strings):\n    def count_letters(word):\n        count = defaultdict(int)\n        for letter in word:\n            count[letter.lower()] += 1\n        return frozenset(count.items())\n\n    anagrams_count = 0\n    seen = set()\n    for string in strings:\n        letter_counts = count_letters(string)\n        if letter_counts not in seen:\n            seen.add(letter_counts)\n            duplicates = sum(1 for s in seen if count_letters(s) == letter_counts)\n            if duplicates >= 2:\n                anagrams_count += duplicates - 1\n        elif letter_counts in seen:\n            duplicates = sum(1 for s in seen if count_letters(s) == letter_counts)\n            anagrams_count += duplicates - 1\n\n    return anagrams_count <= 14\n\n# Example usage:\nstrings_list = ['listen', 'enlists', 'google', 'inlets', 'banana']\nprint(if_contains_anagrams(strings_list))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 148,
+    "total_tokens": 430,
+    "completion_tokens": 282
+  }
+}

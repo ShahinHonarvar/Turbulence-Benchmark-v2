@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-87009ff27a5147e1afcaee8740e31e5c",
+  "object": "chat.completion",
+  "created": 1725528253,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(words):\n    def normalize(word):\n        return ''.join(sorted(word.lower()))\n\n    anagram_dict = {}\n\n    for word in words:\n        if len(word) >= 3:\n            norm_word = normalize(word)\n            if norm_word in anagram_dict:\n                anagram_dict[norm_word].append(word)\n            else:\n                anagram_dict[norm_word] = [word]\n\n    anagram_count = sum(1 for group in anagram_dict.values() if len(group) > 1)\n    return anagram_count >= 92\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 134,
+    "total_tokens": 298,
+    "completion_tokens": 164
+  }
+}

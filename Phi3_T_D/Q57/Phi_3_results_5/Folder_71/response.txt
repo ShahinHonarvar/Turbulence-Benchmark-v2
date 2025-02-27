@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-f2186ab352ee46caa17fe7366dab5643",
+  "object": "chat.completion",
+  "created": 1725544907,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    sums = set()\n    n, m = matrix.shape\n    targets = [(i, j, k, l) for i in range(n) for j in range(m) for k in range(i, n) for l in range(j, m)]\n\n    for row_start, col_start, row_end, col_end in targets:\n        submatrix_sum = np.sum(matrix[row_start:row_end+1, col_start:col_end+1])\n        if submatrix_sum == 69:\n            submatrix = matrix[row_start:row_end+1, col_start:col_end+1]\n            sums.add(submatrix.tostring())\n\n    unique_submatrices = [np.array(submatrix) for submatrix in sums]\n    return unique_submatrices\n\n# Example usage:\n# A = np.array([[1,2,3],\n#               [4,5,6],\n#               [7,8,9]])\n# print(submatrix_with_particular_sum(A))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 126,
+    "total_tokens": 405,
+    "completion_tokens": 279
+  }
+}

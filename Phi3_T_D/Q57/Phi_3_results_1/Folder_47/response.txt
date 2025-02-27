@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-80fc90391ccc460eb5f16adacb4fab5d",
+  "object": "chat.completion",
+  "created": 1725542957,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nimport numpy as np\nfrom itertools import product\n\ndef submatrix_with_particular_sum(matrix):\n    if not isinstance(matrix, np.ndarray):\n        raise ValueError(\"Input must be a numpy matrix\")\n\n    sum_value = 27\n    submatrices = []\n    nrows, ncols = matrix.shape\n\n    for i, j, k, l in product(range(nrows+1), range(ncols+1), repeat=2):\n        submatrix = matrix[i:k, j:l]\n        if submatrix.size > 0 and submatrix.sum() == sum_value:\n            submatrices.append(submatrix)\n    return submatrices\n````",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 126,
+    "total_tokens": 297,
+    "completion_tokens": 171
+  }
+}

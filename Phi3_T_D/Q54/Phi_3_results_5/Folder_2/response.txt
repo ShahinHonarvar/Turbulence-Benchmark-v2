@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-1552c2d381a2446981b95d5cdc9eb269",
+  "object": "chat.completion",
+  "created": 1725538017,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n <= 1:\n        return False\n    if n <= 3:\n        return True\n    if n % 2 == 0 or n % 3 == 0:\n        return False\n    i = 5\n    while i * i <= n:\n        if n % i == 0 or n % (i + 2) == 0:\n            return False\n        i += 6\n    return True\n\ndef truncatable_right_primes(n):\n    str_n = str(n)\n    primes = []\n    for i in range(len(str_n)):\n        if is_prime(int(str_n[1:i+1])):\n            primes.append(int(str_n[1:i+1]))\n    return sorted(primes)\n\ndef all_right_truncatable_prime(numbers):\n    index = 618\n    max_num = numbers[index]\n    truncatable_primes = []\n    for num in range(2, max_num):\n        if all(is_prime(int(str(num)[i:])) for i in range(len(str(num)))):\n            truncatable_primes.append(num)\n    result = truncatable_primes\n    return result\n```\n\nIn this code, the `is_prime` function checks whether a given number is prime. The `truncatable_right_primes` function generates all right-truncatable prime numbers up to `n` (excluding `n`). The `all_right_truncatable_prime` function returns all right-truncatable prime numbers less than the `x` at index 618 in the given tuple. The result is then sorted in ascending order before being returned.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 170,
+    "total_tokens": 598,
+    "completion_tokens": 428
+  }
+}

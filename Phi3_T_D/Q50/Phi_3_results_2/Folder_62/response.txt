@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-a55999d98d3a4f3abac15312857efacb",
+  "object": "chat.completion",
+  "created": 1725527828,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom collections import defaultdict\n\ndef if_contains_anagrams(lst):\n    def to_signature(s: str) -> str:\n        return ''.join(sorted(s.lower()))\n\n    anagram_groups = defaultdict(list)\n    for word in lst:\n        if len(word) >= 3:\n            anagram_groups[to_signature(word)].append(word)\n    \n    count = 0\n    for group in anagram_groups.values():\n        n = len(group)\n        if n > 1:\n            count += n * (n - 1) // 2\n    \n    return count >= 43\n\n# Example usage:\n# result = if_contains_anagrams([\"bat\", \"tab\", \"attic\", \"tactia\"])\n# print(result)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 134,
+    "total_tokens": 336,
+    "completion_tokens": 202
+  }
+}

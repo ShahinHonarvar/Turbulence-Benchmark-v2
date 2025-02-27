@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-cce5ac79daed4b87b2656fecbfe60280",
+  "object": "chat.completion",
+  "created": 1725540472,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef find_sublists_with_product(head, tail, target, product=1, sublists=None):\n    if sublists is None:\n        sublists = []\n    if product == target and tail != head:\n        sublists.append(list(head))\n    if tail == head:  # Circular list condition met\n        return sublists\n    if tail == -1 or product * tail > target:\n        return sublists\n    head.append(tail)\n    find_sublists_with_product(head, (tail + 1) % len(lst), target, product * tail, sublists)\n    head.pop()\n\ndef lists_with_product_equal_n(lst):\n    n = 76\n    return find_sublists_with_product([], -1, n)\n\n# Example usage:\n# circular_lst = [2, 2, 2, 7]\n# print(lists_with_product_equal_n(circular_lst))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 203,
+    "total_tokens": 438,
+    "completion_tokens": 235
+  }
+}

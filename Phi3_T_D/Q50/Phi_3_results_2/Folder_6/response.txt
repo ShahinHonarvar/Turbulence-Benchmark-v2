@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-ee3ac97670424432917a4f20bf2493e2",
+  "object": "chat.completion",
+  "created": 1725527603,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(strings):\n    anagrams = {}\n    for s in strings:\n        normalized = ''.join(sorted(s.lower()))\n        if normalized not in anagrams:\n            anagrams[normalized] = []\n        anagrams[normalized].append(s)\n    \n    count = 0\n    for key, value in anagrams.items():\n        if len(value) > 1 and len(key) >= 3:\n            count += len(value) * (len(value) - 1) // 2\n    \n    return count >= 26\n\n# Example usage:\n# result = if_contains_anagrams(['Listen', 'Silent', 'It', 'is', 'a', 'cat', 'act', 'Dormitory', 'Dirty Room'])\n# print(result) # Should return True if there are at least 26 pairs of anagrams\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 134,
+    "total_tokens": 359,
+    "completion_tokens": 225
+  }
+}

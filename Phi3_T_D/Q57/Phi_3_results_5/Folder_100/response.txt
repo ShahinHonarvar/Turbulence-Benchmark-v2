@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-362a741fdac8427db39446fa51a9ed6e",
+  "object": "chat.completion",
+  "created": 1725545040,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    rows, cols = matrix.shape\n    sub_matrices = []\n    for i in range(rows):\n        for j in range(cols):\n            for x_len in range(1, rows - i + 1):\n                if x_len > rows - i:\n                    break\n                for y_len in range(1, cols - j + 1):\n                    if y_len > cols - j:\n                        break\n                    submat = matrix[i:i + x_len, j:j + y_len]\n                    if submat.sum() == 28:\n                        sub_matrices.append(submat)\n    return sub_matrices\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 126,
+    "total_tokens": 311,
+    "completion_tokens": 185
+  }
+}

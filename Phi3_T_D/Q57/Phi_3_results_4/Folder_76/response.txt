@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-92952ca0b48246f0ad73cb48853dabff",
+  "object": "chat.completion",
+  "created": 1725544485,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    if not isinstance(matrix, np.ndarray):\n        raise ValueError(\"Input must be a two-dimensional numpy matrix\")\n\n    rows, cols = matrix.shape\n    result = []\n    for row_start in range(rows):\n        for row_end in range(row_start, rows):\n            sub_matrix = matrix[row_start:row_end+1]\n            if sub_matrix.size > 0:\n                for col_start in range(cols):\n                    for col_end in range(col_start, cols):\n                        if col_end == col_start:\n                            submat = sub_matrix[sub_matrix[:, col_start] != 0, :]\n                        else:\n                            submat = sub_matrix[:, col_start:col_end+1]\n                        if submat.sum() == -255:\n                            submat_shape = submat.shape\n                            row_slice = slice(row_start, row_end+1)\n                            col_slice = slice(col_start, col_end+1)\n                            sub_slice = (row_slice, col_slice)\n                            result.append((submat_shape, sub_slice))\n    return result\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 127,
+    "total_tokens": 444,
+    "completion_tokens": 317
+  }
+}

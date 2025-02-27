@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-f0acd60b484348059fb2cbe4149a15b3",
+  "object": "chat.completion",
+  "created": 1725529931,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom itertools import combinations\n\ndef if_contains_anagrams(strings):\n    def is_anagram(string1, string2):\n        return sorted(string1.lower()) == sorted(string2.lower())\n\n    valid_anagrams = [pair for pair in combinations(strings, 2) if 3 <= len(pair[0]) <= len(pair[1]) and is_anagram(*pair)]\n    return len(valid_anagrams) <= 60\n\n# Example usage:\n# result = if_contains_anagrams(['listen', 'enlists', 'google', 'gooegl', 'inlets', 'banana'])\n# print(result)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 148,
+    "total_tokens": 312,
+    "completion_tokens": 164
+  }
+}

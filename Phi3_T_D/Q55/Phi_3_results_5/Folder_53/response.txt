@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-92952e032f6d48c38a17ae3a34407af7",
+  "object": "chat.completion",
+  "created": 1725541139,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef lists_with_product_equal_n(numbers):\n    def find_sublists(start, end, prod, path):\n        if end == start + len(numbers) and prod != -87:\n            return []\n        if prod == -87:\n            return [path]\n\n        results = []\n        for i in range(start, end + 1):\n            current = numbers[i % len(numbers)]\n            next_path = path + [current]\n            results += find_sublists((i + 1) % len(numbers), end, prod * current, next_path)\n            if current == 0:\n                break\n        return results\n\n    results = []\n    for start in range(len(numbers)):\n        results += find_sublists(start, start, numbers[start % len(numbers)], [numbers[start % len(numbers)]])\n    return list({tuple(lst) for lst in results if lst})\n\n# Example usage:\n# numbers = [2, 3, 6, -14, 1]\n# print(lists_with_product_equal_n(numbers))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 203,
+    "total_tokens": 469,
+    "completion_tokens": 266
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-5e2d155f5f9b4032bed3183f72f27078",
+  "object": "chat.completion",
+  "created": 1725552753,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n <= 1:\n        return False\n    if n <= 3:\n        return True\n    if n % 2 == 0 or n % 3 == 0:\n        return False\n    i = 5\n    while i * i <= n:\n        if n % i == 0 or n % (i + 2) == 0:\n            return False\n        i += 6\n    return True\n\ndef all_left_right_truncatable_prime(numbers):\n    x = numbers[784]\n    truncatable_prime_list = []\n    for n in range(23, x + 1):  # 23 is the smallest left-right-truncatable prime\n        temp = str(n)\n        if all(is_prime(int(temp[i:])) and is_prime(int(temp[:len(temp)-i])) for i in range(len(temp))):\n            truncatable_prime_list.append(int(temp))\n    return truncatable_prime_list\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 208,
+    "total_tokens": 470,
+    "completion_tokens": 262
+  }
+}

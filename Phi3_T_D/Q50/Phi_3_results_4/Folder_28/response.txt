@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-585f35ffa2744abda1bce68c457240c7",
+  "object": "chat.completion",
+  "created": 1725528514,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(string_list):\n    def char_count(s):\n        return ''.join(sorted(s.lower()))\n\n    anagram_dict = {}\n    for s in string_list:\n        key = char_count(s)\n        if key in anagram_dict:\n            anagram_dict[key].append(s)\n        else:\n            anagram_dict[key] = [s]\n\n    count = 0\n    for key in anagram_dict:\n        lst = anagram_dict[key]\n        if len(lst) > 1:\n            count += (len(lst) * (len(lst) - 1)) // 2\n\n    return count >= 81\n\n# Example usage\n# print(if_contains_anagrams(['cat', 'TAC', 'act', 'ara', 'car', 'CAR', 'bat', 'tab', ...]))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 134,
+    "total_tokens": 356,
+    "completion_tokens": 222
+  }
+}

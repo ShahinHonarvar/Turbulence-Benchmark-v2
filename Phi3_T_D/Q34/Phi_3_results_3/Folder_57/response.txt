@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-77a5674d5e01459eb2a9b4e07d7977c1",
+  "object": "chat.completion",
+  "created": 1725504807,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef find_original_set(*args):\n    if len(args) != 93 or len(set(args)) != len(args):\n        raise ValueError(\"Exactly 93 distinct sets of integers are required.\")\n    union_set = set().union(*args)\n    for i in range(1, len(args) + 1):\n        for combination in itertools.combinations(args, i):\n            if set().union(*combination) not in union_set:\n                break\n        else:\n            continue\n        break\n    return set().union(*combination)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 98,
+    "total_tokens": 240,
+    "completion_tokens": 142
+  }
+}

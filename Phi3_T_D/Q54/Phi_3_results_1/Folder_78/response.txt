@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-1ce6a5c9fdab4af69f61b5c2b23cd992",
+  "object": "chat.completion",
+  "created": 1725535831,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef all_right_truncatable_prime(tuples):\n    limit = tuples[23]\n    primes = [2]\n    right_truncatable = []\n\n    def extend_primes(current):\n        c_limit = 10 * len(str(current))\n        for i in range(current * 10 + 3, c_limit, 2):\n            if is_prime(i):\n                primes.append(i)\n\n    def find_truncatable_from(p):\n        for prime in reversed(primes):\n            if prime < p:\n                break\n            if len(str(prime)) > 1 and prime % 10 > 5:\n                continue\n            is_truncatable = True\n            temp = prime\n            while temp > 0:\n                temp = int(temp / 10)\n                if temp == 0:\n                    break\n                if temp not in primes:\n                    is_truncatable = False\n                    break\n            if is_truncatable:\n                right_truncatable.append(prime)\n\n    def is_prime(n):\n        if n < 2:\n            return False\n        for i in range(2, int(n ** 0.5) + 1):\n            if n % i == 0:\n                return False\n        return True\n\n    for i in range(1, 7):  # Pre-generate first 6 digits primes\n        extend_primes(10 ** i - 1)\n\n    for p in primes:\n        if p >= limit:\n            break\n        find_truncatable_from(p)\n\n    right_truncatable.sort()\n    return right_truncatable\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 169,
+    "total_tokens": 597,
+    "completion_tokens": 428
+  }
+}

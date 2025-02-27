@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-04a36b94893a44eab8bf14f5ad849dbc",
+  "object": "chat.completion",
+  "created": 1725527240,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(lst):\n    def normalize(s):\n        return ''.join(sorted(s.lower()))\n\n    def has_pair(lst_current, sizes_counted):\n        for i, str1 in enumerate(lst_current):\n            str1_normalized = normalize(str1)\n            for str2 in lst_current[i+1:]:\n                if len(str1) < 3 or len(str2) < 3 or str1 == str2:\n                    continue\n                if normalize(str2) == str1_normalized:\n                    sizes_counted[len(str1)] += 1\n                    if sizes_counted[len(str1)] >= 2:\n                        return True\n        return False\n\n    sizes_counted = defaultdict(int)\n    while has_pair(lst, sizes_counted):\n        lst = [i for i in lst if sizes_counted[len(i)] == 1]\n\n    sum_of_pairs = sum(val // 2 for val in sizes_counted.values())\n    total_pairs = sum_of_pairs * 2\n    return total_pairs >= 106\n\nfrom collections import defaultdict\n\n# Example usage\nprint(if_contains_anagrams(['cat', 'tac', 'dog', 'god', 'act', 'tac', 'atc']))  # Should return False or True based on the full list\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 135,
+    "total_tokens": 484,
+    "completion_tokens": 349
+  }
+}

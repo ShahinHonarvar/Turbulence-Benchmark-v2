@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-65c93fdd7a3349979f8251e8a71c47e4",
+  "object": "chat.completion",
+  "created": 1725538956,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef lists_with_product_equal_n(int_list):\n    target_product = -87\n    result = []\n    n = len(int_list)\n    \n    def backtrack(start, path):\n        product = 1\n        for num in path:\n            product *= num\n        if product == target_product:\n            result.append(path)\n        for i in range(start, len(int_list)):\n            if i > start and int_list[i] == int_list[i - 1]:\n                continue\n            if product == 0 and int_list[i] != 0:\n                continue\n            if product < 0 and int_list[i] > 0:\n                break\n            backtrack(i + 1, path + [int_list[i]])\n\n    backtrack(0, [])\n    return result\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 203,
+    "total_tokens": 414,
+    "completion_tokens": 211
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-f2d5a3f6508b46afad6f6c4bf654b313",
+  "object": "chat.completion",
+  "created": 1725544454,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    if not isinstance(matrix, np.ndarray):\n        raise ValueError(\"Input must be a two-dimensional NumPy matrix\")\n\n    submatrices = []\n\n    rows, cols = matrix.shape\n    for i in range(rows):\n        for j in range(cols):\n            for k in range(i, rows):\n                for l in range(j, cols):\n                    submatrix = matrix[i:k+1, j:l+1]\n                    if np.sum(submatrix) == 752:\n                        submatrices.append(submatrix)\n\n    return submatrices\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 127,
+    "total_tokens": 297,
+    "completion_tokens": 170
+  }
+}

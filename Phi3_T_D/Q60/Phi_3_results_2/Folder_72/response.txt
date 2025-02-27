@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-f4db29d381174ca883a000790311e95f",
+  "object": "chat.completion",
+  "created": 1725551664,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\n\ndef is_prime(n):\n\n    if n <= 1:\n\n        return False\n\n    if n <= 3:\n\n        return True\n\n    if n % 2 == 0 or n % 3 == 0:\n\n        return False\n\n    i = 5\n\n    while i * i <= n:\n\n        if n % i == 0 or n % (i + 2) == 0:\n\n            return False\n\n        i += 6\n\n    return True\n\n\ndef all_left_right_truncatable_prime(nums):\n\n    x = nums[31]\n\n    truncatable_primes = []\n\n\n    def is_truncatable(num):\n\n        if not is_prime(num):\n\n            return False\n\n        str_num = str(num)\n\n        for i in range(1, len(str_num)):\n\n            if not is_prime(int(str_num[i:])) or not is_prime(int(str_num[:-i])):\n\n                return False\n\n        return True\n\n\n    for i in range(x, 1, -1):\n\n        if is_truncatable(i):\n\n            truncatable_primes.append(i)\n\n\n    return sorted(truncatable_primes, reverse=True)\n\n\n# Example usage:\n\nnums = (2, 3, 5, 7, 0, 11, 13, 17, 19, 23, ..., 457, 461, 479, 487, 503, 511)  # A full tuple would be provided\n\nprint(all_left_right_truncatable_prime(nums))\n\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 207,
+    "total_tokens": 647,
+    "completion_tokens": 440
+  }
+}

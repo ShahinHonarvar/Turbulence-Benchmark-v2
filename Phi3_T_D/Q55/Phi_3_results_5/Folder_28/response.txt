@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-438c50122c634a228559c386244f6737",
+  "object": "chat.completion",
+  "created": 1725540999,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef lists_with_product_equal_n(circular_list):\n    n = len(circular_list)\n    if n == 0:\n        return []\n    target = 85\n    from itertools import cycle\n\n    circular_iter = cycle(circular_list)\n    result = []\n\n    for subset_size in range(1, n + 1):\n        for start_index in range(n):\n            current_product = 1\n            current_sublist = []\n            for i in range(subset_size):\n                current_product *= next(circular_iter)\n                current_sublist.append(next(circular_iter))\n            if current_product == target and len(current_sublist) > 1:\n                result.append(current_sublist)\n\n    return result\n\n# Example usage:\nmy_circular_list = [-1, -85, 1, 85]\nprint(lists_with_product_equal_n(my_circular_list))\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 203,
+    "total_tokens": 452,
+    "completion_tokens": 249
+  }
+}

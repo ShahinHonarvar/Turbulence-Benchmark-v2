@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-17fc135d3a4547859278391927a239ad",
+  "object": "chat.completion",
+  "created": 1725543238,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    result = []\n    \n    def is_sum_ok(submatrix):\n        return np.sum(submatrix) == -128\n    \n    def add_submatrix(r1, c1, r2, c2):\n        result.append(matrix[r1:r2, c1:c2])\n    \n    n = matrix.shape[0]\n    for size in range(1, n + 1):\n        for r in range(n - size + 1):\n            for c in range(n - size + 1):\n                if is_sum_ok(matrix[r:r+size, c:c+size]):\n                    add_submatrix(r, c, r+size, c+size)\n    \n    return result\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 127,
+    "total_tokens": 334,
+    "completion_tokens": 207
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-34688ce931a044efa113c5accba0f8e2",
+  "object": "chat.completion",
+  "created": 1725526456,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_decimal_is_divisible(binary_str):\n    def fib_n(n):\n        a, b = 0, 1\n        for _ in range(n):\n            a, b = b, a + b\n        return a\n\n    decimal_value = int(binary_str, 2)\n    if decimal_value == 0:\n        return fib_n(134) % decimal_value == 0\n\n    index = 1\n    while True:\n        next_fib = fib_n(index)\n        if decimal_value % next_fib == 0:\n            return True\n        if next_fib >= decimal_value:\n            break\n        index += 1\n    return False\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 152,
+    "total_tokens": 331,
+    "completion_tokens": 179
+  }
+}

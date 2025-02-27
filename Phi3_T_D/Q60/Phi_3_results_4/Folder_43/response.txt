@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-1a6568534ba545e1a3d84fc73ddde987",
+  "object": "chat.completion",
+  "created": 1725552984,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_truncatable_prime(p, primes_set):\n    if p not in primes_set:\n        return False\n\n    str_p = str(p)\n    for i in range(1, len(str_p)):\n        if not (int(str_p[i:]) in primes_set) or not (int(str_p[:-i]) in primes_set):\n            return False\n\n    return True\n\ndef all_left_right_truncatable_prime(numbers_tuple):\n    x = numbers_tuple[89]\n    primes = set()\n    truncatable_primes = []\n\n    for p in range(2, x + 1):\n        if all(p % d != 0 for d in range(2, int(p**0.5) + 1)):\n            primes.add(p)\n            if is_truncatable_prime(p, primes):\n                truncatable_primes.append(p)\n\n    return sorted(truncatable_primes, reverse=True)\n```\n\nTo call the function with a tuple of positive integers, you would use:\n\n```python\nnumbers = (insert_your_tuple_here)  # Replace with your tuple of positive integers\nresult = all_left_right_truncatable_prime(numbers)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 207,
+    "total_tokens": 532,
+    "completion_tokens": 325
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-be63565be06d4bc79588313f66707a3f",
+  "object": "chat.completion",
+  "created": 1725531005,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(strings):\n    def normalize(s):\n        return ''.join(sorted(s.lower()))\n\n    sorted_strings = [normalize(s) for s in strings if len(s) >= 3]\n    from collections import Counter\n    count = Counter(sorted_strings)\n\n    anagram_pairs = sum(1 for value in count.values() if value > 1)\n\n    return anagram_pairs <= 34\n\n# Example usage:\nprint(if_contains_anagrams([\"aba\", \"bab\", \"cat\", \"act\"]))  # True\nprint(if_contains_anagrams([\"aba\", \"bab\", \"cat\", \"act\", \"tac\", \"fat\", \"taf\"]))  # True\nprint(if_contains_anagrams([\"aba\", \"bab\", \"cat\", \"act\", \"tac\", \"fat\", \"taf\", \"xxx\"]))  # True\nprint(if_contains_anagrams([\"aba\", \"bab\", \"cat\", \"act\", \"tac\", \"fat\", \"taf\", \"xxx\", \"yyy\", \"zzz\"]))  # False\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 148,
+    "total_tokens": 433,
+    "completion_tokens": 285
+  }
+}

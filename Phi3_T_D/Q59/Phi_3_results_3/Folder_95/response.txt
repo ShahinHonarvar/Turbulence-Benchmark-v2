@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-02d53de4abfb493b8fac55e386a3febc",
+  "object": "chat.completion",
+  "created": 1725549020,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nfrom sympy import isprime\n\ndef all_left_truncatable_prime(numbers):\n    x = numbers[77]\n    left_truncatable_primes = []\n    \n    def is_left_truncatable(n):\n        if not isprime(n):\n            return False\n        str_n = str(n)\n        for i in range(1, len(str_n)):\n            if not isprime(int(str_n[i:])):\n                return False\n        return True\n    \n    for prime in map(isprime, range(2, x)):\n        if is_left_truncatable(prime):\n            left_truncatable_primes.append(prime)\n    \n    return left_truncatable_primes\n\n# Assuming the tuple contains at least 78 elements, this will work.\nresult = all_left_truncatable_prime(your_tuple)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 156,
+    "total_tokens": 382,
+    "completion_tokens": 226
+  }
+}

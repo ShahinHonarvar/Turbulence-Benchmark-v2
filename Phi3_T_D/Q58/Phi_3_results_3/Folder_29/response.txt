@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-39d8635add9b42df86beabd781d699d6",
+  "object": "chat.completion",
+  "created": 1725545980,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    rows, cols = matrix.shape\n    count = 0\n    for r_start in range(rows):\n        for c_start in range(cols):\n            for r_end in range(r_start + 1, rows + 1):\n                for c_end in range(c_start + 1, cols + 1):\n                    if (r_end - r_start) * (c_end - c_start) == 19:\n                        submatrix = matrix[r_start:r_end, c_start:c_end]\n                        if np.sum(submatrix) == 19:\n                            count += 1\n    return count\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 116,
+    "total_tokens": 297,
+    "completion_tokens": 181
+  }
+}

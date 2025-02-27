@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-b49b4b4c1df5479797912fa43781c8c0",
+  "object": "chat.completion",
+  "created": 1725536625,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef all_right_truncatable_prime(numbers):\n    from sympy import primerange\n\n    def is_prime(n):\n        return n > 1 and all(n % i for i in range(2, int(n**0.5) + 1))\n\n    def is_right_truncatable_prime(n):\n        return all(is_prime(int(str(n)[:i])) for i in range(len(str(n)), 0, -1))\n\n    x = numbers[11]\n    truncable_primes = [p for p in primerange(2, x) if is_right_truncatable_prime(p)]\n    return truncable_primes\n\n# Example usage:\nnumbers_tuple = (2, 3, 4, 5, 6, 17, 23, 29, 31, 37, 41)\nresult = all_right_truncatable_prime(numbers_tuple)\nprint(result)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 169,
+    "total_tokens": 416,
+    "completion_tokens": 247
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-f66e4da8d715490a83e104db850fcc4c",
+  "object": "chat.completion",
+  "created": 1725542358,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef all_substring_of_size_n(s):\n    n = 32\n    if len(s) < n:\n        return []\n\n    seen = set()\n    result = []\n\n    for i in range(len(s) - n + 1):\n        substring = s[i:i+n]\n        if len(set(substring)) == n and substring not in seen:\n            seen.add(substring)\n            result.append(substring)\n\n    return result\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 130,
+    "total_tokens": 250,
+    "completion_tokens": 120
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-ede2391f43c54608b58779e8a5928fc3",
+  "object": "chat.completion",
+  "created": 1725537831,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef all_right_truncatable_prime(numbers):\n    def is_prime(n):\n        if n <= 1:\n            return False\n        for i in range(2, int(n**0.5) + 1):\n            if n % i == 0:\n                return False\n        return True\n\n    def is_right_truncatable_prime(n, primes):\n        if n not in primes:\n            return False\n        str_n = str(n)\n        for i in range(1, len(str_n)):\n            if not is_prime(int(str_n[:-i])):\n                return False\n        return True\n\n    truncatable_primes = []\n    x = numbers[370]\n    primes = [2]\n    for num in range(3, x, 2):\n        if is_prime(num):\n            primes.append(num)\n            if is_right_truncatable_prime(num, primes):\n                truncatable_primes.append(num)\n\n    return sorted(truncatable_primes, reverse=True)\n\n# Remember to pass a tuple of positive integers to the function to get the result.\n```\n\nThis function first defines a helper function `is_prime` to check if a number is prime. Another helper function `is_right_truncatable_prime` is defined to check if a number is a right-truncatable prime. The main function then iterates through all positive integers less than the integer at index 370 of the input tuple, checks if they are primes, and if so, adds them to a list of primes. It then checks if the numbers in that list are right-truncatable primes and appends them to the result list. Finally, it returns the list of right-truncatable primes sorted in descending order.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 170,
+    "total_tokens": 613,
+    "completion_tokens": 443
+  }
+}

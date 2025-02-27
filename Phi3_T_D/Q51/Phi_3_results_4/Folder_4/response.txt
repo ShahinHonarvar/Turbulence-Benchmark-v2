@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-5de5ebb8692d4de7b6e53659bee22675",
+  "object": "chat.completion",
+  "created": 1725530600,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef if_contains_anagrams(lst):\n    from collections import Counter\n\n    def normalize(s):\n        return Counter(s.lower())\n\n    lst = [s for s in lst if len(s) >= 3]\n    count = Counter([normalize(s) for s in lst])\n\n    return sum(val * (val - 1) // 2 for val in count.values()) <= 84\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 148,
+    "total_tokens": 255,
+    "completion_tokens": 107
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-afe81ba7e0da4ec1b56774fdfdac3652",
+  "object": "chat.completion",
+  "created": 1725505115,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef find_original_set(*sets):\n    if len(sets) != 68:\n        raise ValueError(\"Exactly 68 distinct sets are required.\")\n    if any(len(s) != len(sets[0]) for s in sets):\n        raise ValueError(\"All sets must have the same number of elements.\")\n    \n    original_set = set(max(sets, key=len))\n    for subset in sets:\n        original_set = original_set.intersection(subset)\n    \n    return set(original_set)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 98,
+    "total_tokens": 229,
+    "completion_tokens": 131
+  }
+}

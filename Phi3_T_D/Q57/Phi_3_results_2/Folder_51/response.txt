@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-7d06b2115af14512b55cc8f57c810b40",
+  "object": "chat.completion",
+  "created": 1725543434,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    def check_submatrix(tl, br):\n        return np.sum(matrix[tl[0]:br[0]+1, tl[1]:br[1]+1]) == -46\n    \n    def get_submatrices(row_start, row_end, col_start, col_end):\n        result = []\n        for i in range(row_start, row_end+1):\n            for j in range(col_start, col_end+1):\n                for k in range(i, row_end+1):\n                    for l in range(j, col_end+1):\n                        if check_submatrix((i, j), (k, l)):\n                            result.append(matrix[i:k+1, j:l+1].tolist())\n        return result\n\n    result = []\n    row_count, col_count = matrix.shape\n    for r1 in range(row_count):\n        for r2 in range(r1, row_count):\n            for c1 in range(col_count):\n                for c2 in range(c1, col_count):\n                    result += get_submatrices(r1, r2, c1, c2)\n    return result\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 126,
+    "total_tokens": 442,
+    "completion_tokens": 316
+  }
+}

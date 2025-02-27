@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-f86439093fe04aef91eb580e6b2e8eff",
+  "object": "chat.completion",
+  "created": 1725544114,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    nrows, ncols = matrix.shape\n    result = []\n    total_elements = nrows * ncols\n    \n    for left_col in range(ncols):\n        for upper_row in range(nrows):\n            for right_col in range(left_col, ncols):\n                for lower_row in range(upper_row, nrows):\n                    submatrix = matrix[upper_row:lower_row + 1, left_col:right_col + 1]\n                    if np.sum(submatrix) == -63:\n                        result.append(submatrix)\n    return result\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 126,
+    "total_tokens": 296,
+    "completion_tokens": 170
+  }
+}

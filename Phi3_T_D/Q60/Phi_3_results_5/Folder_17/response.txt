@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-18380dd8fb3a4703b3b12d3860429e9d",
+  "object": "chat.completion",
+  "created": 1725553555,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport sympy\n\ndef all_left_right_truncatable_prime(numbers):\n    x = numbers[36]\n    truncatable_primes = []\n\n    def is_left_right_truncatable(num):\n        str_num = str(num)\n        while len(str_num) > 1:\n            if not sympy.isprime(int(str_num)):\n                return False\n            str_num = str_num[1:-1]\n        return True\n\n    for prime_candidate in range(2, x + 1):\n        if sympy.isprime(prime_candidate) and is_left_right_truncatable(prime_candidate):\n            truncatable_primes.append(prime_candidate)\n\n    return sorted(truncatable_primes, reverse=True)\n\n# Example usage:\nnumbers = tuple(range(1, 50))  # The example tuple of positive integers\nprint(all_left_right_truncatable_prime(numbers))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 207,
+    "total_tokens": 465,
+    "completion_tokens": 258
+  }
+}

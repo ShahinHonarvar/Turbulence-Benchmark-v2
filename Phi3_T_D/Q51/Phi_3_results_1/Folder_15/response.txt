@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-427363c4f53544df9ce83223e01fefbe",
+  "object": "chat.completion",
+  "created": 1725529304,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nfrom itertools import combinations\nfrom collections import Counter\n\ndef if_contains_anagrams(strings):\n    anagram_pairs = []\n    for combo in combinations(strings, 2):\n        c1 = Counter(combo[0].lower().replace(' ', ''))\n        c2 = Counter(combo[1].lower().replace(' ', ''))\n        if c1 == c2 and len(combo[0].replace(' ', '')) >= 3:\n            anagram_pairs.append(combo)\n        if len(anagram_pairs) > 20:\n            return False\n    return True\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 148,
+    "total_tokens": 301,
+    "completion_tokens": 153
+  }
+}

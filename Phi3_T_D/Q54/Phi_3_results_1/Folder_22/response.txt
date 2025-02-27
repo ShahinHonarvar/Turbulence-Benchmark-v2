@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-d4b61c2eb699482aa55b5c33226aeb38",
+  "object": "chat.completion",
+  "created": 1725535440,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef all_right_truncatable_prime(numbers):\n    x = numbers[85]\n    right_truncatable_primes = []\n\n    def is_prime(n):\n        if n <= 1:\n            return False\n        for i in range(2, int(n ** 0.5) + 1):\n            if n % i == 0:\n                return False\n        return True\n\n    def is_right_truncatable_prime(n):\n        if not is_prime(n):\n            return False\n        str_n = str(n)\n        while str_n:\n            if not is_prime(int(str_n)):\n                return False\n            str_n = str_n[:-1]\n        return True\n\n    for number in range(2, x):\n        if is_right_truncatable_prime(number):\n            right_truncatable_primes.append(number)\n\n    return right_truncatable_primes\n\n# Example usage:\n# numbers = (1, 5, 7, ..., some value at index 85, ...)\n# result = all_right_truncatable_prime(numbers)\n# print(result)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 169,
+    "total_tokens": 466,
+    "completion_tokens": 297
+  }
+}

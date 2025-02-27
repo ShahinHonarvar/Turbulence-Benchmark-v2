@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-750eddbecce0490e9627e3d04689535e",
+  "object": "chat.completion",
+  "created": 1725512786,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef prime_factors(numbers):\n    def is_prime(n):\n        if n <= 1:\n            return False\n        if n <= 3:\n            return True\n        if n % 2 == 0 or n % 3 == 0:\n            return False\n        i = 5\n        while i * i <= n:\n            if n % i == 0 or n % (i + 2) == 0:\n                return False\n            i += 6\n        return True\n\n    def prime_factors_of(n):\n        factors = set()\n        for i in range(2, n + 1):\n            if n % i == 0 and is_prime(i):\n                factors.add(i)\n        return factors\n\n    if 222 < len(numbers):\n        return prime_factors_of(numbers[222])\n    else:\n        raise IndexError(\"The list has fewer than 223 elements\")\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 88,
+    "total_tokens": 319,
+    "completion_tokens": 231
+  }
+}

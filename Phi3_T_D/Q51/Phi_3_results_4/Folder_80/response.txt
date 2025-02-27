@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-a497012d35e94f389eeb89bf3d498b25",
+  "object": "chat.completion",
+  "created": 1725530936,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(lst):\n    def are_anagrams(str1, str2):\n        counts = {}\n        for char in str1.lower():\n            if char.isalpha() and char not in counts:\n                counts[char] = 1\n            elif char.isalpha():\n                counts[char] += 1\n        for char in str2.lower():\n            if char.isalpha() and char in counts:\n                counts[char] -= 1\n            elif char.isalpha():\n                return False\n        return all(value == 0 for value in counts.values()) and sum(counts.values()) >= 3 * 2\n    \n    unique_anagrams = set()\n    for i in range(len(lst)):\n        for j in range(i + 1, len(lst)):\n            if are_anagrams(lst[i], lst[j]):\n                unique_anagrams.add(tuple(sorted(lst[i].lower())))\n                unique_anagrams.add(tuple(sorted(lst[j].lower())))\n\n    return len(unique_anagrams) <= 255\n```\n```\n\nAnswer:\n```python\ndef if_contains_anagrams(strings):\n    def normalize(s):\n        return ''.join(sorted(s.lower()))\n    \n    count = 0\n    seen = set()\n    for s in strings:\n        if len(s) >= 3 and s not in seen:\n            n = normalize(s)\n            seen.add(s)\n            for other in seen:\n                if normalize(other) == n and s != other:\n                    count += 1\n                    if count > 255:\n                        return False\n    return True\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 149,
+    "total_tokens": 573,
+    "completion_tokens": 424
+  }
+}

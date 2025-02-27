@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-824827ece2e64c5cab649ffcc2f4e85a",
+  "object": "chat.completion",
+  "created": 1725546964,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    count = 0\n    rows, cols = matrix.shape\n    \n    def count_submatrix(i_start, j_start, size):\n        return 1 if np.all(matrix[i_start:i_start+size, j_start:j_start+size] == 42) else 0\n\n    for size in range(1, min(rows, cols) + 1):\n        for i in range(rows - size + 1):\n            for j in range(cols - size + 1):\n                count += count_submatrix(i, j, size)\n\n    return count\n\n# Example usage:\nmatrix = np.array([[42, 42, 42],\n                   [42, 42, 42],\n                   [42, 42, 42]])\nprint(submatrix_with_n_numbers(matrix))  # Output will be the count of 2x2 submatrices with 42.\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 116,
+    "total_tokens": 374,
+    "completion_tokens": 258
+  }
+}

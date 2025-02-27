@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-6ad5610fbc0747f8aedce255d4241265",
+  "object": "chat.completion",
+  "created": 1725543361,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    target_sum = 432\n    rows, cols = matrix.shape\n    submatrices = []\n\n    def find_submatrices(start_row, start_col, current_sum, current_matrix):\n        if current_sum == target_sum:\n            submatrices.append(current_matrix)\n            return\n        row, col = start_row, start_col\n\n        while row < rows and col < cols:\n            end_row = min(rows, start_row + len(current_matrix))\n            end_col = min(cols, start_col + len(current_matrix[0]))\n            if row < end_row and col < end_col:\n                current_sum += matrix[row][col]\n                if current_sum <= target_sum:\n                    current_matrix.append(matrix[row][col])\n                    find_submatrices(start_row, start_col, current_sum, current_matrix.copy())\n                    find_submatrices(start_row, col + 1, current_sum - matrix[row][col], current_matrix[:-1])\n            row += 1\n            col = start_col\n\n    for start_row in range(rows):\n        for start_col in range(cols):\n            find_submatrices(start_row, start_col, 0, [])\n\n    return submatrices\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 127,
+    "total_tokens": 476,
+    "completion_tokens": 349
+  }
+}

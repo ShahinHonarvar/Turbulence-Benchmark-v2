@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-f220872891894194ac167125286aa3d5",
+  "object": "chat.completion",
+  "created": 1725546347,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    def count_2_integers_submatrix(start_row, start_col, rows, cols):\n        return (rows < matrix.shape[0] and cols < matrix.shape[1]) and np.count_nonzero(mat[start_row:start_row+rows, start_col:start_col+cols]) == 2\n\n    rows, cols = matrix.shape\n    count = 0\n    for row in range(0, rows):\n        for col in range(0, cols):\n            for h_size in range(1, rows - row + 1):\n                for w_size in range(1, cols - col + 1):\n                    if count_2_integers_submatrix(row, col, h_size, w_size):\n                        count += 1\n    return count\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 115,
+    "total_tokens": 328,
+    "completion_tokens": 213
+  }
+}

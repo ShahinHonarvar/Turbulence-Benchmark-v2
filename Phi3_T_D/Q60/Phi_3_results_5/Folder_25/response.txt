@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-202252dd4a7c43aca80b4e53424eb0b4",
+  "object": "chat.completion",
+  "created": 1725553614,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(n ** 0.5) + 1):\n        if n % i == 0:\n            return False\n    return True\n\ndef is_left_right_truncatable(n, side='all'):\n    n = str(n)\n    for i in range(1, len(n)):\n        if not is_prime(int(n[i:])) or (side != 'right' and not is_prime(int(n[:-i]))):\n            return False\n    return True\n\ndef all_left_right_truncatable_prime(numbers):\n    x = numbers[92]\n    result = []\n    for number in range(23, x + 1):\n        if is_left_right_truncatable(number):\n            result.append(number)\n    return result\n\n# x is the integer at index 92 in the tuple of positive integers provided as argument\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 207,
+    "total_tokens": 453,
+    "completion_tokens": 246
+  }
+}

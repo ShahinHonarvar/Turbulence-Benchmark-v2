@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-3db0290823ae46bf9e51ac3155df57c8",
+  "object": "chat.completion",
+  "created": 1725533887,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef palindrome_of_length_at_least_n(s):\n    s = s.lower()\n    result_set = set()\n\n    def expand_around_center(left, right):\n        while left >= 0 and right < len(s) and s[left].isalpha() and s[right].isalpha():\n            if s[left] == s[right] and (right - left + 1) >= 90:\n                result_set.add(s[left:right + 1])\n                left -= 1\n                right += 1\n            elif s[left] != s[right]:\n                break\n            else:\n                left -= 1\n                right += 1\n\n    for i in range(len(s)):\n        expand_around_center(i, i)\n        expand_around_center(i, i + 1)\n\n    return result_set\n\n# Example usage:\ninput_string = 'I saw desserts; I\u2019d no lemons, alas no melon. Distressed was I.'\nprint(palindrome_of_length_at_least_n(input_string))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 155,
+    "total_tokens": 430,
+    "completion_tokens": 275
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-ec4aca82f7c540e98c975e9390ce3e38",
+  "object": "chat.completion",
+  "created": 1725530504,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(strings_list):\n    def normalize(s):\n        return ''.join(sorted(s.lower()))\n\n    def has_anagram_more_than_count(string, strings_list, count):\n        anagrams = [s for s in strings_list if normalize(s) == normalize(string) and s.lower() != string.lower()]\n        return len(anagrams) > count\n\n    from itertools import combinations\n\n    for string in strings_list:\n        if len(string) < 3:\n            continue\n        \n        for s1, s2 in combinations(strings_list, 2):\n            if normalize(s1) == normalize(s2) and len(set(s1.lower()) & set(string.lower())) == len(set(s1.lower())):\n                return False\n\n    return True\n\n# Example usage:\n# result = if_contains_anagrams(['cat', 'act', 'tac', 'dog', 'god', 'good'])\n# print(result)  # Should print True as there are 3 pairs of anagrams which is less than or equal to 19\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 148,
+    "total_tokens": 430,
+    "completion_tokens": 282
+  }
+}

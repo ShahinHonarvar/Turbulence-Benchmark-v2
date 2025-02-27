@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-071161032c3c4adbbe42b404417ebff0",
+  "object": "chat.completion",
+  "created": 1725549075,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python'''\n\nimport math\n\n\ndef is_prime(n):\n\n    if n <= 1:\n\n        return False\n\n    if n <= 3:\n\n        return True\n\n    if n % 2 == 0 or n % 3 == 0:\n\n        return False\n\n    i = 5\n\n    while i * i <= n:\n\n        if n % i == 0 or n % (i + 2) == 0:\n\n            return False\n\n        i += 6\n\n    return True\n\n\ndef all_left_truncatable_prime(numbers):\n\n    if len(numbers) != 100:\n\n        raise ValueError(\"The input must be a tuple of 100 positive integers\")\n\n    x = numbers[96]\n\n    left_trunc_primes = []\n\n    for num in range(x - 1, 7, -1):  # Start from x-1 because x is not included\n\n        num_str = str(num)\n\n        if is_prime(num) and all(is_prime(int(num_str[i:])) for i in range(len(num_str))):\n\n            left_trunc_primes.append(num)\n\n    return left_trunc_primes\n\n\n# Example usage:\n\n# Assuming the positive integers are provided in a tuple called 'numbers':\n\nresult = all_left_truncatable_prime(numbers)\n\n''''''",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 156,
+    "total_tokens": 508,
+    "completion_tokens": 352
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-6fe754aa47744ae7991cb3c4fb2a263d",
+  "object": "chat.completion",
+  "created": 1725546895,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    count = 0\n    rows, cols = matrix.shape\n    n = 72\n    \n    for top in range(rows):\n        for left in range(cols):\n            for bottom in range(top, rows):\n                for right in range(left, cols):\n                    if bottom - top + 1 == n and right - left + 1 == n:\n                        if np.all(matrix[top:bottom+1, left:right+1]):\n                            count += 1\n                        \n    return count\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 116,
+    "total_tokens": 263,
+    "completion_tokens": 147
+  }
+}

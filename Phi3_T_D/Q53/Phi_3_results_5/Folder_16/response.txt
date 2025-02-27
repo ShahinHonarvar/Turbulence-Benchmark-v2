@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-c340825a1e4347a59db0bee3f0774b0a",
+  "object": "chat.completion",
+  "created": 1725534928,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef extend_palindrome(s, i, direction):\n    length = len(s)\n    while 0 <= i < length and s[i].isalpha():\n        i += direction\n\n    return i\n\n\ndef palindrome_expansion(s, left, right):\n    count = 0\n    while left >= 0 and right < len(s) and s[left].lower() == s[right].lower():\n        left -= 1\n        right += 1\n        count += 1\n    return count\n\n\ndef palindrome_of_length_at_least_n(s):\n    length = len(s)\n    palindromes = set()\n\n    for i in range(len(s)):\n        if i - 119 >= 0:\n            left = i - 119\n            right = i\n        else:\n            continue\n\n        count = palindrome_expansion(s, left, right) + 1\n        if count >= 119:\n            palindrome = s[left + 1:right + 1].lower()\n            palindromes.add(palindrome)\n\n    for i in range(length - 1, 118 - 1, -1):\n        left = i - 1\n        right = i\n        count = palindrome_expansion(s, left, right) + 1\n        if count >= 119:\n            palindrome = s[left:right + 1].lower()\n            palindromes.add(palindrome)\n\n    return palindromes\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 156,
+    "total_tokens": 536,
+    "completion_tokens": 380
+  }
+}

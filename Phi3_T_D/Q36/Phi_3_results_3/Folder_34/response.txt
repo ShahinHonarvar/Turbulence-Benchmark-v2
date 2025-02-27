@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-a402f9851b314e9ca69cf95c5b9deb11",
+  "object": "chat.completion",
+  "created": 1725507331,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef filter_chars(s):\n    # Define the start and end indices, and the range of characters to check against\n    start, end = 10, 79\n    valid_range = set('@ABCDEFGHIJKLMNOPQRSTUVWXYZ')\n    result = []\n\n    for i, char in enumerate(s):\n        if start < i < end and char in valid_range:\n            # Keep track of the character being potentially removed and its index\n            result.append((i, char))\n\n    altered_s = list(s)\n    indices_to_remove = [idx for i, char in sorted(result, key=lambda x: x[0]) for idx in range(i, len(s)) if altered_s[idx] == char]\n\n    for idx in reversed(indices_to_remove):\n        del altered_s[idx]\n\n    return ''.join(altered_s)\n```\n\nNote: The `valid_range` set should include all the uppercase letters from 'A' to 'M'. Here, we use a set for `valid_range` for faster membership testing. The indices to remove are sorted to ensure that we don't skip any indices due to removal of previous characters. We remove indices in reverse to avoid issues with index shifting during removal.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 140,
+    "total_tokens": 450,
+    "completion_tokens": 310
+  }
+}

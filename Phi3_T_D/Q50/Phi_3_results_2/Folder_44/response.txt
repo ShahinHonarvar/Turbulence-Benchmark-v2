@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-57153957b3c249a9938773b1d4b1ce12",
+  "object": "chat.completion",
+  "created": 1725527754,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(strings):\n    def normalize(s):\n        return ''.join(sorted(s.lower()))\n\n    count = 0\n    seen = set()\n    for i in range(len(strings)):\n        for j in range(i+1, len(strings)):\n            if len(strings[i]) < 3 or len(strings[j]) < 3:\n                continue\n            \n            norm_i = normalize(strings[i])\n            norm_j = normalize(strings[j])\n            if norm_i == norm_j:\n                pair = frozenset({strings[i], strings[j]})\n                if pair not in seen:\n                    count += 1\n                    seen.add(pair)\n    \n    return count >= 44\n\n# Examples:\n# if_contains_anagrams([\"listen\", \"silent\", \"enlist\", \"inlets\"]) # Returns False\n# if_contains_anagrams([\"listen\", \"silent\", \"enlist\", \"inlets\", ...]) # Provide a list with at least 44 unique pairs of anagrams of length >=3\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 134,
+    "total_tokens": 410,
+    "completion_tokens": 276
+  }
+}

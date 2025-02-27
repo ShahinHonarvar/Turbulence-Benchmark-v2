@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-d77ce45fd07542718f70c1afb6a427ea",
+  "object": "chat.completion",
+  "created": 1725544119,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    if matrix.ndim != 2:\n        raise ValueError(\"Input must be a two-dimensional numpy matrix.\")\n    result = []\n    for r1 in range(matrix.shape[0]):\n        for c1 in range(matrix.shape[1]):\n            for r2 in range(r1, matrix.shape[0]):\n                for c2 in range(c1, matrix.shape[1]):\n                    submatrix = matrix[r1:r2+1, c1:c2+1]\n                    if submatrix.sum() == -617:\n                        result.append(submatrix)\n    return result\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 127,
+    "total_tokens": 305,
+    "completion_tokens": 178
+  }
+}

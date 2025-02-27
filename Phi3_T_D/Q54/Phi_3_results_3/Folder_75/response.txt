@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-f0f6246004da4ad8b7798c57fd4d9858",
+  "object": "chat.completion",
+  "created": 1725537164,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef all_right_truncatable_prime(numbers):\n    x = numbers[41]\n    right_truncatable_primes = []\n    primes = [2, 3, 5, 7]\n    for num in range(11, x, 2):\n        str_num = str(num)\n        if all(num % int(str_num[i:]) == 0 for i in range(len(str_num)) if int(str_num[i:]) == num) and is_prime(num):\n            right_truncatable_primes.append(num)\n    \n    return sorted(right_truncatable_primes)\n\ndef is_prime(n):\n    if n <= 1:\n        return False\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            return False\n    return True\n```\n\nThis solution defines two functions: `all_right_truncatable_prime` and `is_prime`. The `is_prime` function checks if a given number is prime, which is required to determine if a left-truncatable prime is also right-truncatable. The `all_right_truncatable_prime` function uses these to find all right truncatable primes less than `x`, checking each odd number from 11 up to `x` to see if it is both prime and becomes prime when digits are truncated from the right.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 169,
+    "total_tokens": 523,
+    "completion_tokens": 354
+  }
+}

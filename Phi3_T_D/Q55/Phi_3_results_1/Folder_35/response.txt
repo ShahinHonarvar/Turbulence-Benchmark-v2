@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-ebd0458c844d4afab9a0562a8d1de6bb",
+  "object": "chat.completion",
+  "created": 1725538870,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef lists_with_product_equal_n(lst, product=83):\n    n = len(lst)\n    result = []\n\n    def inner(index, current_product, current_list):\n        if current_product == product and len(current_list) > 1:\n            result.append(current_list)\n            return\n        if current_product > product or index == n:\n            return\n        for i in range(index, n + index):\n            number = lst[i % n]\n            if not current_list or number != current_list[-1]:  # No duplicates in sublists\n                inner(i + 1, current_product * number, current_list + [number])\n\n    inner(0, 1, [])\n    return result\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 203,
+    "total_tokens": 390,
+    "completion_tokens": 187
+  }
+}

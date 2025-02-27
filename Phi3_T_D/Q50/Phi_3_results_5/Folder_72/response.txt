@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-17b549558e4d43f09585e78b2246e009",
+  "object": "chat.completion",
+  "created": 1725529114,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef if_contains_anagrams(lst):\n    from collections import defaultdict\n    freq = defaultdict(int)\n    for word in lst:\n        if len(word) >= 3:\n            key = ''.join(sorted(word.lower()))\n            freq[key] += 1\n\n    count = sum(v*(v-1)//2 for v in freq.values())\n\n    return count >= 55\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 134,
+    "total_tokens": 243,
+    "completion_tokens": 109
+  }
+}

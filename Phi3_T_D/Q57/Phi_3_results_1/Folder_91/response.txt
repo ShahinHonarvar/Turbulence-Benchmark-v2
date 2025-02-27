@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-4a128018c6574bcb8d981a1ddd30054d",
+  "object": "chat.completion",
+  "created": 1725543157,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    \n    def all_submatrices(matrix):\n        submatrices = []\n        rows, cols = matrix.shape\n        \n        for r1 in range(rows):\n            for r2 in range(r1, rows):\n                for c1 in range(cols):\n                    for c2 in range(c1, cols):\n                        submatrices.append(matrix[r1:r2+1, c1:c2+1])\n        return submatrices\n    \n    n = matrix.shape[0]\n    submatrices = all_submatrices(matrix)\n    \n    result = [submatrix for submatrix in submatrices\n              if np.sum(submatrix) == -6]\n\n    return result\n\n# Example usage:\nmatrix = np.array([[1, 2, 3],\n                   [-4, 5, -1],\n                   [7, -8, 0]])\n\nsubmatrices_with_sum = submatrix_with_particular_sum(matrix)\nfor mat in submatrices_with_sum:\n    print(mat)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 125,
+    "total_tokens": 408,
+    "completion_tokens": 283
+  }
+}

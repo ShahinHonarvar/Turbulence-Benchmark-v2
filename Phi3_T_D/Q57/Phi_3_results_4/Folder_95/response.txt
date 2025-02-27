@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-9525a3cd1b924d99af9f8d891006a3a2",
+  "object": "chat.completion",
+  "created": 1725544574,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    submatrices = []\n    rows, cols = matrix.shape\n\n    for sr in range(0, rows):\n        for sc in range(0, cols):\n            for dr in range(sr, rows):\n                for dc in range(sc, cols):\n                    submatrix = matrix[sr:dr+1, sc:dc+1]\n                    if submatrix.sum() == 19:\n                        submatrices.append(submatrix)\n\n    return submatrices\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 126,
+    "total_tokens": 266,
+    "completion_tokens": 140
+  }
+}

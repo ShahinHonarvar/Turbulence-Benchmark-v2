@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-65090fcf2b374a2c9114064fb27c421e",
+  "object": "chat.completion",
+  "created": 1725542658,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef all_substring_of_size_n(s):\n    char_set = set()\n    result = set()\n    n = len(s)\n    if n < 97:\n        return list(result)\n    for i in range(n):\n        char_set.clear()\n        for j in range(i, i + 97):\n            if j >= n:\n                break\n            if s[j] not in char_set:\n                char_set.add(s[j])\n            else:\n                break\n        elif len(char_set) == 97:\n            result.add(''.join(sorted(char_set)))\n    return list(result)\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 130,
+    "total_tokens": 299,
+    "completion_tokens": 169
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-bb8c609860834655b0df740648da4b2c",
+  "object": "chat.completion",
+  "created": 1725546521,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    num_rows = matrix.shape[0]\n    num_cols = matrix.shape[1]\n    if num_rows < 185 or num_cols < 185:\n        return 0\n    \n    count = 0\n    for i in range(num_rows):\n        for j in range(num_cols):\n            for p in range(i, num_rows - 184):\n                for q in range(j, num_cols - 184):\n                    if np.all(matrix[i:p + 185, j:q + 185] == 185):\n                        count += 1\n    return count\n\n# Example usage:\n# Define a 2D numpy array matrix to be used as input\ninput_matrix = np.array([[your 2D matrix here]])\n\n# Call the function with the defined matrix\nsubmatrix_count = submatrix_with_n_numbers(input_matrix)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 117,
+    "total_tokens": 368,
+    "completion_tokens": 251
+  }
+}

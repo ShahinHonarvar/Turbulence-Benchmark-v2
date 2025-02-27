@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-52ba2b429a9744c49fc925788c8365d8",
+  "object": "chat.completion",
+  "created": 1725507072,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef filter_chars(s):\n    if not s or len(s) <= 93:\n        return s\n    modified_chars = [c for c in s[:86] + s[93:]\n                      if c <= 'E' or c >= '~']\n    return ''.join(modified_chars)\n```\n\nTo ensure the solution fits your criteria, I've also included an edge-case check where the function returns the original string if its length is less than or equal to 93 characters, since it wouldn't be possible to have characters between the indices 86 and 93 in such cases.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 141,
+    "total_tokens": 290,
+    "completion_tokens": 149
+  }
+}

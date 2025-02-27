@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-af9e895d010a4775844bcc2357081851",
+  "object": "chat.completion",
+  "created": 1725518797,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef palindromes_between_indices(s):\n    def is_palindrome(s):\n        return s.lower() == s[::-1].lower()\n\n    substring = s[4:10]\n    letter_counts = {}\n    for char in substring:\n        if char.isalpha():\n            char_lower = char.lower()\n            letter_counts[char_lower] = letter_counts.get(char_lower, 0) + 1\n\n    middle_char = ''\n    half_length = len(substring) // 2\n    for char, count in letter_counts.items():\n        if count % 2 != 0 and middle_char is None:\n            middle_char = char\n            letter_counts[char] -= 1\n\n    possible_permutations = ['']\n    for char, count in letter_counts.items():\n        perms = []\n        for _ in range(count):\n            for perm in possible_permutations:\n                perms.append(perm + char)\n            possible_permutations = perms[:]\n\n    palindromes = set()\n    for perm in possible_permutations:\n        if len(perm) + 1 == half_length + int(middle_char):\n            palindrome_half = perm + middle_char + perm[::-1]\n            if is_palindrome(palindrome_half):\n                palindromes.add(palindrome_half)\n\n    final_palindromes = {p[:7] for p in palindromes if len(p) >= 7}\n    return final_palindromes\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 192,
+    "total_tokens": 589,
+    "completion_tokens": 397
+  }
+}

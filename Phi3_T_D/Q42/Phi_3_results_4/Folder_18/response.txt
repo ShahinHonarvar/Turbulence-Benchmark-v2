@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-7669851255964d9abba7a94bfe0a75a5",
+  "object": "chat.completion",
+  "created": 1725513658,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef prime_factors(nums):\n    from math import sqrt\n\n    def is_prime(n):\n        if n <= 1:\n            return False\n        for i in range(2, int(sqrt(n)) + 1):\n            if n % i == 0:\n                return False\n        return True\n\n    def prime_factors_number(num):\n        factors = set()\n        for i in range(2, int(sqrt(num)) + 1):\n            if num % i == 0 and is_prime(i):\n                factors.add(i)\n            while num % i == 0:\n                num //= i\n        if num > 1 and is_prime(num):\n            factors.add(num)\n        return factors\n\n    return prime_factors_number(nums[312]) if len(nums) > 312 else set()\n\n# Example usage:\n# numbers_list = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, ..., 312]\n# print(prime_factors(numbers_list))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 88,
+    "total_tokens": 369,
+    "completion_tokens": 281
+  }
+}

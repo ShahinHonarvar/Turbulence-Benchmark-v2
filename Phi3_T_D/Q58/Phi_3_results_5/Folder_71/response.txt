@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-56c2b4161b5d4d528806a8913d394f5f",
+  "object": "chat.completion",
+  "created": 1725546984,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    row_count, col_count = matrix.shape\n    count = 0\n    for size in range(1, min(row_count, col_count) + 1):\n        for r in range(row_count - size + 1):\n            for c in range(col_count - size + 1):\n                if np.sum(matrix[r:r+size, c:c+size]) == 78 * size ** 2:\n                    count += 1\n    return count\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 116,
+    "total_tokens": 256,
+    "completion_tokens": 140
+  }
+}

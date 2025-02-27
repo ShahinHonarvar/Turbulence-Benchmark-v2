@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-fd601dcbc76a430caea59ca9a193c101",
+  "object": "chat.completion",
+  "created": 1725530128,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef sort_by_key(s):\n    return \"\".join(sorted(s)).lower()\n\ndef if_contains_anagrams(lst):\n    sorted_lst = [sort_by_key(item) for item in lst]\n    unique_sorted = set(sorted_lst)\n    counter = 0\n    \n    for item in unique_sorted:\n        occurrences = sorted_lst.count(item)\n        if occurrences > 1 and len(item) >= 3:\n            pairings = occurrences * (occurrences - 1) // 2\n            counter += pairings\n            if counter > 46:\n                return False\n                \n    return True\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 148,
+    "total_tokens": 314,
+    "completion_tokens": 166
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-681e89d168c8467aa395284da74d5650",
+  "object": "chat.completion",
+  "created": 1725553927,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n <= 1:\n        return False\n    if n <= 3:\n        return True\n    if n % 2 == 0 or n % 3 == 0:\n        return False\n    i = 5\n    while i * i <= n:\n        if n % i == 0 or n % (i + 2) == 0:\n            return False\n        i += 6\n    return True\n\ndef all_left_right_truncatable_prime(numbers):\n    x = numbers[1]\n    right_truncatable_primes = set()\n    left_truncatable_primes = set()\n\n    for i in range(7, x + 1, 2):\n        if is_prime(i):\n            str_i = str(i)\n            right_truncatable = True\n            left_truncatable = True\n\n            for j in range(1, len(str_i) // 2 + 1):\n                if int(str_i[j:]) not in right_truncatable_primes:\n                    right_truncatable = False\n                    break\n                if int(str_i[:-j]) not in left_truncatable_primes:\n                    left_truncatable = False\n                    break\n\n            if right_truncatable and left_truncatable:\n                right_truncatable_primes.add(i)\n                left_truncatable_primes.add(i)\n\n    return sorted(list(right_truncatable_primes), reverse=True)\n\n# Example call to the function\nprint(all_left_right_truncatable_prime((1, 1000)))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 206,
+    "total_tokens": 633,
+    "completion_tokens": 427
+  }
+}

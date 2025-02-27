@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-84bb05af6091476a9e20dfbcef4ea0eb",
+  "object": "chat.completion",
+  "created": 1725542764,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    result = []\n    rows, cols = matrix.shape\n    total_elements = rows * cols\n\n    def check(pos, shape, total):\n        if total < 126: return False\n        submatrix = matrix[pos[0]:pos[0]+shape[0], pos[1]:pos[1]+shape[1]]\n        return np.sum(submatrix) == 126\n\n    def search(ind, rows, cols, left_shape, right_shape, total, path):\n        if total == 126:\n            result.append([matrix[i[0]:i[0]+left_shape[0], i[1]:i[1]+right_shape[1]] \n                           for i in path])\n            return\n        for r in range(ind, rows):\n            for c in range(cols):\n                if left_shape[1] <= c <= cols - right_shape[1]:\n                    if check((r, c), (left_shape[0], right_shape[1]), total + np.sum(matrix[r, c:c+right_shape[1]])):\n                        search(r+1, rows, cols - c - 1, (left_shape[0], c + 1 - left_shape[1]), \n                               right_shape, total + np.sum(matrix[r, c:c+right_shape[1]]), \n                               [(r, c), (r, c + right_shape[1])])\n\n    search(0, rows, cols, (1, 1), (rows - 1, cols - 1), 0, [])\n    return result\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 127,
+    "total_tokens": 534,
+    "completion_tokens": 407
+  }
+}

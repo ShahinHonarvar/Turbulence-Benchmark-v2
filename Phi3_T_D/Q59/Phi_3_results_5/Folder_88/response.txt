@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-fc2911fd07ec4244a818b27a215d7a69",
+  "object": "chat.completion",
+  "created": 1725550252,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n <= 1: return False\n    if n % 2 == 0 and n > 2: return False\n    sqrt_n = int(n**0.5)\n    for i in range(3, sqrt_n + 1, 2):\n        if n % i == 0: return False\n    return True\n\ndef all_left_truncatable_prime(int_tuple):\n    x = int_tuple[93]\n    truncable_primes = []\n\n    def is_left_truncatable(n):\n        str_n = str(n)\n        for i in range(len(str_n)):\n            if not is_prime(int(str_n[i:])):\n                return False\n        return True\n\n    for number in range(2, x):\n        if is_left_truncatable(number):\n            truncable_primes.append(number)\n\n    return truncable_primes\n```\n\nThis Python code defines a function called `all_left_truncatable_prime` which takes a tuple of positive integers, extracts the integer at index 93, and returns a sorted list of all left-truncatable prime numbers less than that integer. It introduces an inner helper function `is_left_truncatable` to check if a number is left-truncatable and a helper function `is_prime` to check if a number is prime.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 156,
+    "total_tokens": 502,
+    "completion_tokens": 346
+  }
+}

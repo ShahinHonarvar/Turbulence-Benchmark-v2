@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-f8730d5cbd004d02bff94fa986aac155",
+  "object": "chat.completion",
+  "created": 1725527252,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom collections import defaultdict\nfrom itertools import permutations\n\ndef if_contains_anagrams(words):\n    anagrams_set = defaultdict(set)\n    for word in words:\n        if len(word) < 3 or not word.isalpha():\n            continue\n        sorted_word = ''.join(sorted(word.lower())).replace(' ', '')\n        for perm in permutations(sorted_word):\n            anagram = ''.join(perm)\n            anagrams_set[anagram].add(word.lower())\n    return sum(len(anagrams) * (len(anagrams) - 1) // 2 for anagrams in anagrams_set.values()) >= 64\n\n# Example usage\n# print(if_contains_anagrams([\"listen\", \"silent\", \"enlist\", \"hello\"]))  # Replace with the list of strings to test\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 134,
+    "total_tokens": 351,
+    "completion_tokens": 217
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-26337ed7572c40448df64dc12386b1f1",
+  "object": "chat.completion",
+  "created": 1725531204,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(strings):\n    from collections import Counter\n\n    def clean_and_encode(s):\n        return ''.join(sorted(filter(str.isalpha, s.lower())))\n\n    encoded_strings = [clean_and_encode(s) for s in strings]\n    unique_encoded_strings = set(encoded_strings)\n    \n    anagram_counts = sum(1 for count in (encoded_strings.count(e) for e in unique_encoded_strings) if count > 1 and encoded_strings.count(e) >= 3)\n    \n    return anagram_counts * (anagram_counts - 1) // 2 <= 206\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 149,
+    "total_tokens": 322,
+    "completion_tokens": 173
+  }
+}

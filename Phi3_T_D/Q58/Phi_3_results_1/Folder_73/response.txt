@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-4b4cbe124458494794e92374c39ad35c",
+  "object": "chat.completion",
+  "created": 1725545337,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    count = 0\n    rows, cols = matrix.shape\n\n    def count_submatrix(r1, c1, r2, c2):\n        return np.sum(np.ones((r2 - r1 + 1, c2 - c1 + 1), dtype=int))\n\n    for r1 in range(rows):\n        for c1 in range(cols):\n            for r2 in range(r1, rows):\n                for c2 in range(c1, cols):\n                    if count_submatrix(r1, c1, r2, c2) == 41:\n                        count += 1\n\n    return count\n\n# Example usage\n# The input matrix\nmatrix = np.array([[...], [...], ...])\nprint(submatrix_with_n_numbers(matrix))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 116,
+    "total_tokens": 333,
+    "completion_tokens": 217
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-ecb6bb0cca2c4644a9526cc7eeeed7b4",
+  "object": "chat.completion",
+  "created": 1725548307,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nimport sympy\n\ndef all_left_truncatable_prime(num_tuple):\n    x = num_tuple[97]\n    if x < 10:\n        return []\n    \n    def is_left_truncatable(primes, number):\n        if number > x:\n            return False\n        if number not in primes:\n            return False\n        if number <= 1:\n            return True\n        \n        str_number = str(number)\n        for i in range(1, len(str_number)):\n            if sympy.isprime(int(str_number[i:])):\n                continue\n            else:\n                return False\n        return True\n\n    result = []\n    for number in range(2, x):\n        if sympy.isprime(number) and is_left_truncatable({number}, number):\n            result.append(number)\n    return result[::-1]\n\n# Example usage:\nnums = (0,) * 98 + (567101,) + (0,) * (1000 - 99) + (0,) # assuming index 97 corresponds to 567101\nprint(all_left_truncatable_prime(nums))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 156,
+    "total_tokens": 462,
+    "completion_tokens": 306
+  }
+}

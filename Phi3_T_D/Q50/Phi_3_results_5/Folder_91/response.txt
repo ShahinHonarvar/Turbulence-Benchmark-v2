@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-ce9399f736d84a48b530596b230a7dd0",
+  "object": "chat.completion",
+  "created": 1725529200,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\n```python\nfrom collections import defaultdict\n\ndef if_contains_anagrams(words):\n    def is_anagram(s1, s2):\n        return sorted(s1.lower()) == sorted(s2.lower())\n\n    words = list(filter(lambda w: len(w) >= 3, words))\n    anagrams = defaultdict(list)\n\n    for word in words:\n        sorted_word = ''.join(sorted(word.lower()))\n        anagrams[sorted_word].append(word)\n\n    return sum(len(group) // 2 for group in anagrams.values() if len(group) // 2 >= 3) >= 6\n\n# Example usage:\nlist_of_strings = [\"cat\", \"tac\", \"tca\", \"dog\", \"god\", \"act\", \"acting\", \"cat\", \"race\", \"care\"]\nprint(if_contains_anagrams(list_of_strings))\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 133,
+    "total_tokens": 364,
+    "completion_tokens": 231
+  }
+}

@@ -1,0 +1,2 @@
+def sum_of_divisors_in_range(n):
+    return sum((d for d in range(372, 495) if n % d == 0))

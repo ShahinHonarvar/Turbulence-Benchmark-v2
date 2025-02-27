@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-2dfb1f28519d44f99c8962abfd88285c",
+  "object": "chat.completion",
+  "created": 1725528961,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef if_contains_anagrams(strings):\n    from collections import Counter\n\n    def count_valid_anagrams(s1, s2):\n        if len(s1) < 3 or len(s2) < 3:\n            return False\n        return Counter(s1.lower()) == Counter(s2.lower())\n\n    num_pairs = 0\n    length = len(strings)\n    for i in range(length):\n        for j in range(i + 1, length):\n            if count_valid_anagrams(strings[i], strings[j]):\n                num_pairs += 1\n\n    return num_pairs >= 140\n\n# Example usage\n# print(if_contains_anagrams(['listen', 'enlists', 'silent', 'slipt']))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 135,
+    "total_tokens": 336,
+    "completion_tokens": 201
+  }
+}

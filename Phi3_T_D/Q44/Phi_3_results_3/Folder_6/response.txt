@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-b8a5bcd12833458ea058fe0762f81140",
+  "object": "chat.completion",
+  "created": 1725516717,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef composite_nums_between_indices(numbers):\n    def is_composite(n):\n        if n < 2: return False\n        for i in range(2, int(n**0.5) + 1):\n            if n % i == 0:\n                return True\n        return False\n\n    return set(filter(is_composite, numbers[13:69]))\n\n# Example usage:\nnumbers_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, ..., 100]  # Your list of positive integers\ncomposite_numbers = composite_nums_between_indices(numbers_list)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 125,
+    "total_tokens": 300,
+    "completion_tokens": 175
+  }
+}

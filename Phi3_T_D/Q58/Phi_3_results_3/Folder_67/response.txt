@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-203558d8dba842199b554cb533fc257c",
+  "object": "chat.completion",
+  "created": 1725546159,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    count = 0\n    for i in range(matrix.shape[0]):\n        for j in range(matrix.shape[1]):\n            for k in range(i, matrix.shape[0]):\n                for l in range(j, matrix.shape[1]):\n                    submatrix = matrix[i:k+1, j:l+1]\n                    if np.sum(submatrix == 43) == np.prod(submatrix.shape):\n                        count += 1\n    return count\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 116,
+    "total_tokens": 261,
+    "completion_tokens": 145
+  }
+}

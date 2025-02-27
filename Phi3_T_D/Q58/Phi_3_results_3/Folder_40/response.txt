@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-37a6bc35a15441f0b53d34d88daff862",
+  "object": "chat.completion",
+  "created": 1725546036,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    if matrix.ndim != 2 or not issubclass(matrix.dtype.type, np.integer):\n        return 0\n\n    count = 0\n    rows, cols = matrix.shape\n\n    for r_start in range(rows):\n        for c_start in range(cols):\n            for r_end in range(r_start+1, rows+1):\n                for c_end in range(c_start+1, cols+1):\n                    submatrix = matrix[r_start:r_end, c_start:c_end]\n                    if np.count_nonzero(submatrix == 1) == submatrix.size:\n                        count += 1\n\n    return count\n\n# Example of creating an instance of the matrix and using the function\nmatrix_instance = np.array([[1, 0, 0],\n                            [0, 1, 1],\n                            [1, 0, 1]])\nprint(submatrix_with_n_numbers(matrix_instance))\n```\n\nThis code defines a function `submatrix_with_n_numbers` that takes a two-dimensional `numpy` matrix and returns the count of all submatrices containing exactly 1 integer each. The function first checks if the input matrix is two-dimensional and contains integers. Then, it computes the count by iterating over all possible submatrices, checking if they meet the criteria.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 115,
+    "total_tokens": 463,
+    "completion_tokens": 348
+  }
+}

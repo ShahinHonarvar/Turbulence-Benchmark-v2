@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-14924117185d45d5b3a245cade84ed9b",
+  "object": "chat.completion",
+  "created": 1725528025,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(strings):\n    def normalize(s):\n        return ''.join(sorted(s.lower()))\n    count = sum(1 for i, s in enumerate(map(normalize, strings)) if sum(s == normalize(strings[j]) for j in range(i+1, len(strings))) >= 52)\n    return count >= 52\n\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 134,
+    "total_tokens": 232,
+    "completion_tokens": 98
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-8e765fdedb274e3d99c73ca0458bb8c2",
+  "object": "chat.completion",
+  "created": 1725528441,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom collections import defaultdict\n\ndef if_contains_anagrams(strings):\n    def count_anagrams(s):\n        return \"\".join(sorted(s.lower()))\n\n    string_to_anagrams = defaultdict(list)\n    for string in strings:\n        if len(string) >= 3:\n            string_to_anagrams[count_anagrams(string)].append(string)\n\n    anagram_pairs = sum([len(v) * (len(v) - 1) // 2 for v in string_to_anagrams.values()])\n\n    return anagram_pairs >= 28\n\n# Example usage:\nprint(if_contains_anagrams([\"cat\", \"tac\", \"bat\", \"tab\", \"atc\", \"act\"]))  # False\nprint(if_contains_anagrams([\"cat\", \"tac\", \"bat\", \"tab\"]))  # False\nprint(if_contains_anagrams([\"cat\", \"tac\", \"act\", \"cats\", \"tilest\", \"liestt\"]))  # True\n```\n\nThis code works by first defining a helper function `count_anagrams` that sorts and joins lowercase versions of input strings, yielding a representation of their anagrams regardless of letter case or original order. The main function, `if_contains_anagrams`, stores lists of anagrams in a dictionary, counting anagram pairs across all strings. Finally, it checks if the number of anagram pairs is at least 28 and returns the result.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 134,
+    "total_tokens": 497,
+    "completion_tokens": 363
+  }
+}

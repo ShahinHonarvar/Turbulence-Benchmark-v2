@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-b7ea809c876a4d038c61b6eb9893525f",
+  "object": "chat.completion",
+  "created": 1725543310,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    def check(m, i1, j1, i2, j2):\n        return np.sum(m[i1:i2, j1:j2]) == -36\n\n    def generate_submatrices(n, start, end):\n        for i1 in range(start, end):\n            for j1 in range(i1, end):\n                for i2 in range(i1, end):\n                    for j2 in range(j1, i2+1):\n                        yield (i1, i2, j1, j2)\n\n    result = []\n    n = matrix.shape[0]\n    for top_left in generate_submatrices(n, 0, n):\n        i1, i2, j1, j2 = top_left\n        if check(matrix, i1, j1, i2, j2):\n            result.append(matrix[i1:i2+1, j1:j2+1].tolist())\n    \n    return result\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 126,
+    "total_tokens": 388,
+    "completion_tokens": 262
+  }
+}

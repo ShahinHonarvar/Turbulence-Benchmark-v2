@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-c2f208d693aa4d1c8967f647fa3cacc5",
+  "object": "chat.completion",
+  "created": 1725531279,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef if_contains_anagrams(li):\n    def char_list(s):\n        s = s.lower()\n        letters = [c for c in s if c.isalpha()]\n        letters.sort()\n        return ''.join(letters)\n    combs = 0\n    l = len(li)\n    for i in range(l):\n        for j in range(i + 1, l):\n            if char_list(li[i]) == char_list(li[j]):\n                combs += 1\n                if combs > 44:\n                    return False\n    return True\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 148,
+    "total_tokens": 299,
+    "completion_tokens": 151
+  }
+}

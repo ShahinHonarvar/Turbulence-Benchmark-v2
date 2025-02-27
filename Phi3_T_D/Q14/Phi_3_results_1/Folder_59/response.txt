@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-6e41040afbed4ff39f46546804e7a477",
+  "object": "chat.completion",
+  "created": 1725487953,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef find_second_smallest_num(numbers):\n    if len(numbers) < 2 or len(numbers) > 10:\n        return None\n    second_smallest = float('inf')\n    smallest = float('inf')\n    \n    for num in numbers:\n        if num < smallest:\n            second_smallest, smallest = smallest, num\n        elif smallest < num < second_smallest:\n            second_smallest = num\n            \n    return second_smallest if second_smallest != float('inf') else None\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 110,
+    "total_tokens": 240,
+    "completion_tokens": 130
+  }
+}

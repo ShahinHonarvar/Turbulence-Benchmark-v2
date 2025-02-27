@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-37afadb097e347e78d766c143d094361",
+  "object": "chat.completion",
+  "created": 1725528192,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom collections import defaultdict\nimport itertools\n\ndef if_contains_anagrams(strings):\n    anagram_groups = defaultdict(list)\n    for string in strings:\n        clean_string = ''.join(sorted(s.lower() for s in string if s.isalpha()))\n        if len(clean_string) >= 3:\n            anagram_groups[clean_string].append(string)\n\n    anagram_pairs = 0\n    for group in anagram_groups.values():\n        if len(group) > 1:\n            combinations = itertools.combinations(group, 2)\n            anagram_pairs += sum(1 for _ in combinations)\n\n    return anagram_pairs >= 20\n\n# Example usage:\nsome_strings = [\"cat\", \"Silent\", \"listen\", \"act\", \"Astro\", \"rotsA\", \"earth\", \"heart\"]\nprint(if_contains_anagrams(some_strings))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 134,
+    "total_tokens": 370,
+    "completion_tokens": 236
+  }
+}

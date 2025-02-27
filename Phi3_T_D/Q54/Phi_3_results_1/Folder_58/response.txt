@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-318a728aa370405092566e1b2cdcb0e1",
+  "object": "chat.completion",
+  "created": 1725535683,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef all_right_truncatable_prime(nums):\n    x = nums[975]\n    trunc_primes = []\n\n    is_prime = lambda n: n > 1 and all(n % d for d in range(2, int(n**0.5) + 1))\n\n    def right_truncate(n):\n        while n:\n            if not is_prime(n):\n                return False\n            n //= 10\n        return True\n\n    for num in range(x - 1, 11, -1):\n        if right_truncate(num) and num > 10:\n            trunc_primes.append(num)\n\n    return trunc_primes\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 170,
+    "total_tokens": 351,
+    "completion_tokens": 181
+  }
+}

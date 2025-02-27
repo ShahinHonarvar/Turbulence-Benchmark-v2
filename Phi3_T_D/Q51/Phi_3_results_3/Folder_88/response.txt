@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-125c450e9c6a48d08e07a71ad18ed929",
+  "object": "chat.completion",
+  "created": 1725530534,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef if_contains_anagrams(words):\n    def canonical(word):\n        word_chars = sorted(word.lower())\n        return ''.join(word_chars)\n    \n    unique = {}\n    for word in words:\n        length_three = len(word) >= 3\n        if length_three:\n            key = canonical(word)\n            if key in unique:\n                unique[key].append(word)\n            else:\n                unique[key] = [word]\n    \n    anagram_pairs = 0\n    for anagram_list in unique.values():\n        num_words = len(anagram_list)\n        if num_words > 1:\n            anagram_pairs += (num_words * (num_words - 1)) // 2\n        if anagram_pairs > 407:\n            return False\n    \n    return True\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 149,
+    "total_tokens": 365,
+    "completion_tokens": 216
+  }
+}

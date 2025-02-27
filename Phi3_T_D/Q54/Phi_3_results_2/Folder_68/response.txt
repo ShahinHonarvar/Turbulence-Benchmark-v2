@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-e51c48d20f8d43be8d22b200cf020ae5",
+  "object": "chat.completion",
+  "created": 1725536447,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef all_right_truncatable_prime(numbers):\n    max_value = numbers[1]\n    highest_digits = (2, 3, 5, 7)\n    \n    def is_prime(n):\n        if n < 2: return False\n        for i in range(2, int(n**0.5) + 1):\n            if n % i == 0: return False\n        return True\n    \n    def is_right_truncatable(n):\n        while n > 0:\n            if not is_prime(n): return False\n            n //= 10\n        return True\n    \n    def truncatable_primes(max_val, base=highest_digits):\n        if max_val == 0:\n            return [[]]\n        if max_val < base[0]:\n            return []\n        sub_problems = truncatable_primes(max_val // 10)\n        primes = []\n        for primes_list in sub_problems:\n            for digit in base:\n                if digit < max_val + 1 and (not primes_list or primes_list[-1] < digit):\n                    if is_right_truncatable(digit * 10 + primes_list[0]):\n                        primes.append([digit] + primes_list[:])\n        return primes\n    \n    return sorted(map(''.join, reversed(truncatable_primes(max_value, highest_digits))), reverse=True)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 168,
+    "total_tokens": 543,
+    "completion_tokens": 375
+  }
+}

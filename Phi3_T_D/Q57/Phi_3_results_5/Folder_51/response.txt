@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-88b0a26eb8274ce385523a2015cbc53a",
+  "object": "chat.completion",
+  "created": 1725544816,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    if not isinstance(matrix, np.ndarray) or matrix.ndim != 2:\n        raise ValueError(\"Input must be a 2D numpy matrix\")\n\n    def all_submatrices(mat, rows, cols):\n        for i in range(rows):\n            for j in range(cols):\n                for k in range(i + 1, rows + 1):\n                    for l in range(j + 1, cols + 1):\n                        yield mat[i:k, j:l]\n\n    rows, cols = matrix.shape\n    result = []\n\n    for submatrix in all_submatrices(matrix, rows, cols):\n        if submatrix.sum() == -46:\n            result.append(submatrix)\n\n    return result\n```\n\nTo use this function, make sure you have `numpy` installed and then call it with a numpy 2D matrix as an argument.\n\n```python\n# Example usage:\nimport numpy as np\n\nmatrix = np.array([[1, -1, 2], [-1, -10, 3], [2, -6, -43]])\nsubmatrices = submatrix_with_particular_sum(matrix)\nfor submatrix in submatrices:\n    print(submatrix)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 126,
+    "total_tokens": 450,
+    "completion_tokens": 324
+  }
+}

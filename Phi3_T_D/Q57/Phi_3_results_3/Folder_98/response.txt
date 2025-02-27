@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-9623c121f4854c61b8fc2862551f5867",
+  "object": "chat.completion",
+  "created": 1725544123,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    results = []\n    \n    def gen_submatrices(submatrix):\n        if submatrix is not None:\n            for i in range(len(submatrix)):\n                if submatrix[i].size > 1:\n                    results.append(submatrix[i])\n                if len(submatrix[i]) > 1:\n                    gen_submatrices(submatrix[i:])\n                submatrix[i:i+1] = []\n                \n    def search(matrix):\n        if matrix.size > 1:\n            submatrices_top = [matrix[0:col] for col in range(1, matrix.shape[1]+1)]\n            search(np.array(submatrices_top))\n            submatrices_left = [matrix[row:row+1, :] for row in range(1, matrix.shape[0]+1)]\n            search(np.array(submatrices_left))\n            submatrices_top_left = [matrix[0:row, 0:col] for row in range(1, matrix.shape[0]+1) for col in range(1, matrix.shape[1]+1)]\n            search(np.array(submatrices_top_left))\n            \n            gen_submatrices(submatrices_top_left)\n    \n    search(matrix)\n    return [submatrix for submatrix in results if np.sum(submatrix) == 0]\n```\n\nThis Python function `submatrix_with_particular_sum` is assumed to be working by brute force to cover all possible submatrices and applying the condition of the sum equals zero. However, please note that this approach will have a significantly high time complexity, especially for large matrices, since it generates all possible submatrices. There are more optimized algorithms to tackle this problem.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 125,
+    "total_tokens": 567,
+    "completion_tokens": 442
+  }
+}

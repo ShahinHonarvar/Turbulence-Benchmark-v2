@@ -1,0 +1,13 @@
+def find_second_largest_num(nums):
+    start, end = (37, 51)
+    if end > len(nums):
+        end = len(nums)
+    if end - start < 3:
+        return None
+    largest, second_largest = (float('-inf'), float('-inf'))
+    for i in range(start, end + 1):
+        if nums[i] > largest:
+            second_largest, largest = (largest, nums[i])
+        elif largest > nums[i] > second_largest:
+            second_largest = nums[i]
+    return second_largest if second_largest != float('-inf') else None

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-7b0e7288d2f44dc8803b21d4324742ec",
+  "object": "chat.completion",
+  "created": 1725545442,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    if not isinstance(matrix, np.ndarray) or len(matrix.shape) != 2 or matrix.dtype != np.int:\n        raise ValueError(\"Input must be a two-dimensional numpy matrix of integers.\")\n    \n    count = 0\n    rows, cols = matrix.shape\n    size = 3  # Since we're looking for submatrices with 9 integers\n    \n    for i in range(rows - size + 1):\n        for j in range(cols - size + 1):\n            if np.all(matrix[i:i+size, j:j+size]):\n                count += 1\n                \n    return count\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 115,
+    "total_tokens": 293,
+    "completion_tokens": 178
+  }
+}

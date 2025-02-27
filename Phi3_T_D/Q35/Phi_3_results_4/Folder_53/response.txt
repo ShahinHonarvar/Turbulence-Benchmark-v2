@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-9e0fadd2e09e4359942f4016aaa8a1d8",
+  "object": "chat.completion",
+  "created": 1725506409,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef remove_repeat_chars(s):\n    s_length = len(s)\n\n    if s_length > 202:\n        start = 201\n        end = 201\n\n        characters = dict.fromkeys(s[start:end], 0)\n        occurrences = 0\n\n        while start > 0 and end < s_length:\n            if occurrences >= 2:\n                s = s[:start] + s[end:]\n                s_length -= 1\n                end -= 1\n                characters = dict.fromkeys(s[start:end], 0)\n                occurrences = 1\n            else:\n                occurrences += 1\n\n            if s[start] in characters:\n                characters[s[start]] += 1\n\n            start -= 1\n            end += 1\n\n        return s\n    else:\n        return s\n\n# Example usage:\n# result = remove_repeat_chars(\"This is a test str ing\")\n# print(result)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 132,
+    "total_tokens": 377,
+    "completion_tokens": 245
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-7a55c4b7d9d64da9ae545ccbf8e541e9",
+  "object": "chat.completion",
+  "created": 1725544726,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    def check_submatrix(row_ranges, col_ranges):\n        return sum(matrix[r1:r2+1, c1:c2+1].flatten()) == 21\n\n    n, m = matrix.shape\n    submatrices = []\n    for i in range(n):\n        for j in range(m):\n            for k in range(i, n):\n                for l in range(j, m):\n                    if check_submatrix((i, k), (j, l)):\n                        submatrices.append(matrix[i:k+1, j:l+1].tolist())\n    return submatrices\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 126,
+    "total_tokens": 306,
+    "completion_tokens": 180
+  }
+}

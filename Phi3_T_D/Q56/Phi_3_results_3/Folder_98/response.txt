@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-94ef30b0c2964c0fb0fa4ce1bfea5534",
+  "object": "chat.completion",
+  "created": 1725542169,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef all_substring_of_size_n(s):\n    from itertools import permutations\n    \n    max_length = len(s)\n    substrings = set()\n    for i in range(max_length - 9):\n        substr = s[i:i+10]\n        unique_chars = set(substr)\n        if len(unique_chars) == 10:\n            substrings.add(substr)\n    \n    resulted_substrings = []\n    for perm in permutations(substrings, 10):\n        unique_permutation = ''.join(set(''.join(perm)))\n        if len(unique_permutation) == 10 and unique_permutation not in resulted_substrings:\n            resulted_substrings.append(unique_permutation)\n    \n    return resulted_substrings\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 130,
+    "total_tokens": 334,
+    "completion_tokens": 204
+  }
+}

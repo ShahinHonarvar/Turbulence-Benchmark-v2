@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-11c372895c2343a7b3b58d905b33d4dc",
+  "object": "chat.completion",
+  "created": 1725549795,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n <= 1:\n        return False\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            return False\n    return True\n\ndef is_left_truncatable(n, primes):\n    while n > 0:\n        if not is_prime(n):\n            return False\n        n //= 10\n    return True\n\ndef generate_primes_up_to(x):\n    sieve = [True] * (x + 1)\n    sieve[0] = sieve[1] = False\n    primes = []\n    for i in range(2, x + 1):\n        if sieve[i]:\n            primes.append(i)\n            for j in range(i * i, x + 1, i):\n                sieve[j] = False\n    return primes\n\ndef all_left_truncatable_prime(numbers):\n    x = numbers[792]\n    prime_numbers = generate_primes_up_to(x)\n    left_truncatable_primes = [p for p in prime_numbers if is_left_truncatable(p, prime_numbers)]\n    return left_truncatable_primes\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 157,
+    "total_tokens": 476,
+    "completion_tokens": 319
+  }
+}

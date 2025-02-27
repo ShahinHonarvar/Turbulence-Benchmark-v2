@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-8c089c9dbfe04b47addc65ec28870a58",
+  "object": "chat.completion",
+  "created": 1725527402,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef if_contains_anagrams(strings):\n    def count_letters(word):\n        return {letter: word.lower().count(letter) for letter in set(word.lower())}\n\n    filtered = filter(lambda s: len(s) >= 3, strings)\n    sorted_strings = [sorted(count_letters(word), key=str.lower) for word in filtered]\n    counter = {}\n\n    for word in sorted_strings:\n        word_signature = tuple(word.values())\n        counter[word_signature] = counter.get(word_signature, 0) + 1\n\n    return sum(count * (count - 1) // 2 for count in counter.values()) >= 50\n\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 134,
+    "total_tokens": 313,
+    "completion_tokens": 179
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-28a08135c5044e04bb89a72955dc693f",
+  "object": "chat.completion",
+  "created": 1725546930,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    m, n = matrix.shape\n    if m == 0 or n == 0:\n        return 0\n    submatrices = []\n    for i in range(m):\n        for j in range(n):\n            for size_m in range(i+1, m+1):\n                for size_n in range(j+1, n+1):\n                    if (size_m - i) * (size_n - j) == 185:\n                        submatrices.append(matrix[i:size_m, j:size_n])\n    return len(submatrices)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 117,
+    "total_tokens": 283,
+    "completion_tokens": 166
+  }
+}

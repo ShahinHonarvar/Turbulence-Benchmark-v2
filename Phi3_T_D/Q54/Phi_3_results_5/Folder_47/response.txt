@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-a9ab4e12ed0449df923b5c4603d5342c",
+  "object": "chat.completion",
+  "created": 1725538325,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef is_prime(n):\n    if n <= 1:\n        return False\n    if n <= 3:\n        return True\n    if n % 2 == 0 or n % 3 == 0:\n        return False\n    \n    i = 5\n    while i * i <= n:\n        if n % i == 0 or n % (i + 2) == 0:\n            return False\n        i += 6\n    \n    return True\n\ndef find_right_truncatable_primes(n):\n    right_truncatable_primes = []\n    a = 2\n    \n    while a < n:\n        if is_prime(a):\n            temp = a\n            b = a\n            while b % 10 != 0:\n                if is_prime(b):\n                    right_truncatable_primes.append(b)\n                b //= 10\n            if b == a:\n                right_truncatable_primes.append(a)\n        a += 1\n    \n    return right_truncatable_primes\n\ndef all_right_truncatable_prime(numbers):\n    x = numbers[49]\n    return sorted(find_right_truncatable_primes(x))\n\n# Example call to the function:\n# sorted_primes = all_right_truncatable_prime((2, 3, 5, ...)  # where the tuple is filled with positive integers\n# print(sorted_primes)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 169,
+    "total_tokens": 535,
+    "completion_tokens": 366
+  }
+}

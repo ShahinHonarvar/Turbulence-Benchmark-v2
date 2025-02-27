@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-09a4d205dfb74e04847269b2bf6173eb",
+  "object": "chat.completion",
+  "created": 1725542988,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    \"\"\"\n    Find all submatrices with a sum equal to 1.\n    \n    :param matrix: 2D numpy matrix of integers.\n    :return: List of submatrices with sum equal to 1.\n    \"\"\"\n    rows, cols = matrix.shape\n    submatrices = []\n\n    for r1 in range(rows):\n        for r2 in range(r1, rows):\n            for c1 in range(cols):\n                for c2 in range(c1, cols):\n                    submatrix = matrix[r1:r2+1, c1:c2+1]\n                    if submatrix.sum() == 1:\n                        submatrices.append(submatrix)\n\n    return submatrices\n\n# Example usage:\nmatrix = np.array([[0, 1, 0], [0, 0, 1], [1, 0, 0]])\nsubmatrices = submatrix_with_particular_sum(matrix)\nfor submatrix in submatrices:\n    print(submatrix)\n```\n\nPlease note that the function and the example usage should be wrapped with triple backticks as required but here it's presented without them for clarity.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 125,
+    "total_tokens": 428,
+    "completion_tokens": 303
+  }
+}

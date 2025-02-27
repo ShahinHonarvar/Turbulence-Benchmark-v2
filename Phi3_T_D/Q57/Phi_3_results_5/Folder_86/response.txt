@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-c7a5c2e9ffe84de9afaa778df09fefce",
+  "object": "chat.completion",
+  "created": 1725544980,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\nfrom itertools import product\n\ndef submatrix_with_particular_sum(matrix):\n    results = []\n    for i, j, k, l in product(range(matrix.shape[0] + 1), range(matrix.shape[1] + 1), repeat=2):\n        submatrix = matrix[i:k, j:l]\n        if submatrix.size > 0 and submatrix.sum() == -394:\n            rows, cols = submatrix.shape\n            flat_submatrix = submatrix.flatten()\n            results.append(flat_submatrix.tolist())\n    return results\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 127,
+    "total_tokens": 282,
+    "completion_tokens": 155
+  }
+}

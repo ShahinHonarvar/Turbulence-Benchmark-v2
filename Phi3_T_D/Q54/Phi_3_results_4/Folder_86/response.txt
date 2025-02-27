@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-84234fc0d9e34de48956de4d5a7f6ddc",
+  "object": "chat.completion",
+  "created": 1725537901,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef all_right_truncatable_prime(nums):\n    def is_prime(n):\n        if n < 2:\n            return False\n        for i in range(2, int(n**0.5) + 1):\n            if n % i == 0:\n                return False\n        return True\n    \n    def truncate_right(primes, n):\n        if n < 10:\n            return primes\n        primes.add(n)\n        return truncate_right(primes, n // 10)\n\n    starting_prime_str = '2357'\n    starting_primes = {int(digit) for digit in starting_prime_str}\n    \n    x = nums[126]\n    all_primes = starting_primes.copy()\n    truncated = set()\n\n    for s in range(3, x):\n        if s < 10:\n            continue\n        truncated.clear()\n        if s not in starting_primes:\n            prime_str = str(s)\n            for j in range(len(prime_str)):\n                truncated = truncate_right(truncated, int(prime_str[:len(prime_str)-j]))\n            if truncated == starting_primes:\n                all_primes.add(s)\n                \n    return sorted(list(all_primes), reverse=True)\n\n# Assuming tuple of positive integers called `nums` is already defined\n# all_right_truncatable_primes = all_right_truncatable_prime(nums)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 170,
+    "total_tokens": 552,
+    "completion_tokens": 382
+  }
+}

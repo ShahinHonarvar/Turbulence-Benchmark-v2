@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-eb4395e391cb4ee8925b6f35de0ae54c",
+  "object": "chat.completion",
+  "created": 1725529889,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(strings):\n    def get_sorted_tuple(s):\n        return tuple(sorted(char.lower() for char in s if char.isalpha()))\n\n    count = 0\n    seen = set()\n\n    for s in strings:\n        sorted_tuple = get_sorted_tuple(s)\n        if sorted_tuple in seen:\n            count += 1\n        elif len(sorted_tuple) >= 3:\n            seen.add(sorted_tuple)\n    \n    return count <= 277\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 149,
+    "total_tokens": 284,
+    "completion_tokens": 135
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-29a4ebefbe834a51864d4c1ff2896b95",
+  "object": "chat.completion",
+  "created": 1725541791,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef all_substring_of_size_n(input_string):\n    from itertools import combinations\n\n    def is_distinct(substring):\n        return len(substring) == len(set(substring))\n\n    all_substrings = set()\n    for i in range(len(input_string) - 39):\n        if is_distinct(input_string[i:i+40]):\n            all_substrings.add(input_string[i:i+40])\n    return list(all_substrings)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 130,
+    "total_tokens": 261,
+    "completion_tokens": 131
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-3e1628034c0d43229828d24b2589db5a",
+  "object": "chat.completion",
+  "created": 1725544551,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\nfrom itertools import product\n\ndef submatrix_with_particular_sum(matrix):\n    if not isinstance(matrix, np.ndarray):\n        raise TypeError(\"Input must be a numpy array\")\n\n    def get_submatrix(r1, c1, r2, c2):\n        return matrix[r1:r2+1, c1:c2+1]\n\n    rows, cols = matrix.shape\n    all_submatrices = []\n\n    for r1, r2 in product(range(rows), repeat=2):\n        for c1, c2 in product(range(cols), repeat=2):\n            if r2 > r1 and c2 > c1:\n                submatrix = get_submatrix(r1, c1, r2, c2)\n                if submatrix.sum() == -452:\n                    all_submatrices.append(submatrix)\n\n    return all_submatrices\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 127,
+    "total_tokens": 358,
+    "completion_tokens": 231
+  }
+}

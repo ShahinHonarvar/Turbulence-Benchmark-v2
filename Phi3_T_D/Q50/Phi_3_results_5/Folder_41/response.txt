@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-3fe021655cc24293862fa42d005ebd2c",
+  "object": "chat.completion",
+  "created": 1725528991,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef if_contains_anagrams(lst):\n    def normalize(s):\n        return ''.join(sorted(s.lower()))\n\n    def check_anagrams(str1, str2):\n        if len(str1) < 3 or len(str2) < 3:\n            return False\n        return normalize(str1) == normalize(str2)\n\n    count_anagrams = 0\n    for i in range(len(lst)):\n        for j in range(i + 1, len(lst)):\n            if check_anagrams(lst[i], lst[j]):\n                count_anagrams += 1\n\n    return count_anagrams >= 75\n```\n```\n\nWrapped the code with triple backticks as requested.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 134,
+    "total_tokens": 324,
+    "completion_tokens": 190
+  }
+}

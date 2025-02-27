@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-3f4cd37d70d64f7db5af68a095bc9747",
+  "object": "chat.completion",
+  "created": 1725505345,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef find_original_set(*sets):\n    if len(sets) != 985:\n        raise ValueError(\"Exactly 985 sets are required\")\n\n    original_set = set()\n    for s in sets:\n        if not isinstance(s, set):\n            raise ValueError(f\"All arguments must be sets, got {type(s)} instead\")\n        original_set.update(s)\n\n    return set(sorted(original_set))\n\n# Example use:\n# sets_list = [{1, 2}, {2, 3}, ..., {984, 985}]  # List with 985 distinct sets\n# result = find_original_set(*sets_list)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 99,
+    "total_tokens": 274,
+    "completion_tokens": 175
+  }
+}

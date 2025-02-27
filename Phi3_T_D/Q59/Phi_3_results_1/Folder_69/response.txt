@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-df407d8f1ce64cd998e87269e448b397",
+  "object": "chat.completion",
+  "created": 1725547530,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nfrom sympy import primerange, isprime\n\ndef is_left_truncatable_prime(n, primes):\n    while n > 0:\n        if not isprime(n) or n not in map(str, primes):\n            return False\n        n //= 10\n    return True\n\ndef all_left_truncatable_prime(numbers):\n    x = numbers[760]\n    primes = list(primerange(0, x+1))\n    left_truncatables = [p for p in primes if is_left_truncatable_prime(p, primes)]\n    return sorted(left_truncatables, reverse=True)\n\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 157,
+    "total_tokens": 327,
+    "completion_tokens": 170
+  }
+}

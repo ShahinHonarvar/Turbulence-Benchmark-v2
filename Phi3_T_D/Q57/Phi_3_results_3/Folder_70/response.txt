@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-555ff0fbf6824784b02857936d1654eb",
+  "object": "chat.completion",
+  "created": 1725543985,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    m, n = matrix.shape\n    result = []\n    \n    def search_submatrix(x, y, current_submatrix, total_sum):\n        if total_sum == 411:\n            result.append(current_submatrix[:])\n            return\n        for dx, dy in [(0, 1), (1, 0), (-1, 0), (0, -1)]:\n            next_x, next_y = x + dx, y + dy\n            if 0 <= next_x < m and 0 <= next_y < n:\n                next_submatrix = current_submatrix + [(next_x, next_y)]\n                next_sum = total_sum + matrix[next_x, next_y]\n                search_submatrix(next_x, next_y, next_submatrix, next_sum)\n    \n    for i in range(m):\n        for j in range(n):\n            search_submatrix(i, j, [(i, j)], matrix[i, j])\n    \n    return result\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 127,
+    "total_tokens": 400,
+    "completion_tokens": 273
+  }
+}

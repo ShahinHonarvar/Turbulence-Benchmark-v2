@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-d603bd0fd1f7404c934fb10fad433bf4",
+  "object": "chat.completion",
+  "created": 1725554000,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n <= 1:\n        return False\n    if n <= 3:\n        return True\n    if n % 2 == 0 or n % 3 == 0:\n        return False\n    i = 5\n    while i * i <= n:\n        if n % i == 0 or n % (i + 2) == 0:\n            return False\n        i += 6\n    return True\n\ndef left_and_right_truncatable_prime(n):\n    return (n > 1) and is_prime(n) and is_prime(n // 10) and is_prime(-(n % 10) + n)\n\ndef all_left_right_truncatable_prime(numbers):\n    x = numbers[767]\n    return sorted([filter(left_and_right_truncatable_prime, range(2, x + 1))], reverse=True)[0]\n\n# Assuming you have the tuple of positive integers stored in a variable called 'positive_integers'\n# results = all_left_right_truncatable_prime(positive_integers)\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 208,
+    "total_tokens": 491,
+    "completion_tokens": 283
+  }
+}

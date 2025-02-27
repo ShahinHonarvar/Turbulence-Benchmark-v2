@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-39a2e76405494d8faeaebfcc420eabe3",
+  "object": "chat.completion",
+  "created": 1725535916,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_right_truncatable_prime(n, primes_set):\n    if n < 10 or n not in primes_set:\n        return False\n    while n > 0:\n        if n not in primes_set:\n            return False\n        n //= 10\n    return True\n\ndef all_right_truncatable_prime(numbers, index=466):\n    x = numbers[index]\n    primes = [2, 3, 5, 7]\n    for number in range(11, x, 2):\n        if all(number % prime != 0 for prime in primes):\n            primes.append(number)\n    right_truncatable_primes = [prime for prime in primes if is_right_truncatable_prime(prime, set(primes))]\n    return sorted(right_truncatable_primes, reverse=True)\n\n# Call the function with a tuple of positive integers\ntuple_of_numbers = (3553, 23, 17, 466, 101, 2, 97)\nresult = all_right_truncatable_prime(tuple_of_numbers)\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 170,
+    "total_tokens": 468,
+    "completion_tokens": 298
+  }
+}

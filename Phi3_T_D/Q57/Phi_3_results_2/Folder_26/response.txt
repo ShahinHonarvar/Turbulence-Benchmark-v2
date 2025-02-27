@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-5f42b2c2de914a33a47e211922f01f89",
+  "object": "chat.completion",
+  "created": 1725543323,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\nfrom itertools import product\n\ndef submatrix_with_particular_sum(matrix):\n    rows, cols = matrix.shape\n    result = []\n\n    def get_sum(submatrix):\n        return np.sum(submatrix)\n\n    for i, j, k, l in product(range(rows), repeat=4):\n        if k > i and l > j:\n            submatrix = matrix[i:k, j:l]\n            if get_sum(submatrix) == 997:\n                result.append(submatrix)\n\n    return result\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 127,
+    "total_tokens": 271,
+    "completion_tokens": 144
+  }
+}

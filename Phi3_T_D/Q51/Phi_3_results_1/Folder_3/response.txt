@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-111473c26acb470eb6b0bbb8fc47669a",
+  "object": "chat.completion",
+  "created": 1725529249,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nfrom collections import Counter\n\ndef count_anagrams(word_list):\n    anagram_count = 0\n    checked = set()\n    for word1 in word_list:\n        for word2 in word_list:\n            if word1 != word2 and sorted(word1.lower()) == sorted(word2.lower()) and len(word1) >= 3:\n                sorted_word = tuple(sorted(word1.lower()))\n                if sorted_word not in checked:\n                    anagram_count += word_list.count(word2)\n                    checked.add(sorted_word)\n    return anagram_count\n\ndef if_contains_anagrams(strings_list):\n    return count_anagrams(strings_list) <= 66\n\n# Test the function\ntest_list = [\"listen\", \"silent\", \"enlist\", \"inlets\", \"google\", \"gooegl\", \"banana\", \"anapan\", \"cinema\", \"iceman\"]\nprint(if_contains_anagrams(test_list))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 148,
+    "total_tokens": 398,
+    "completion_tokens": 250
+  }
+}

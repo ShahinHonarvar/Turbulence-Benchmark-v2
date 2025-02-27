@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-cafcb61206f5464f98f1890a4455abe0",
+  "object": "chat.completion",
+  "created": 1725517630,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom itertools import permutations\n\ndef palindromes_between_indices(text):\n    start, end = 7, 9\n    letters = text[start:end+1].lower()\n    char_counts = {}\n\n    for char in letters:\n        if char.isalpha():\n            char_counts[char] = char_counts.get(char, 0) + 1\n            \n    even_chars = ''.join([char * (count // 2) for char, count in char_counts.items() if count % 2 == 0])\n    single_odd_char = [char for char, count in char_counts.items() if count % 2 == 1]\n\n    palindromes_set = set()\n\n    if not single_odd_char:\n        for p in permutations(even_chars, len(even_chars) + 1):\n            palindromes_set.add(''.join(p) + ''.join(p[::-1]))\n    else:\n        base = ''.join(even_chars)\n        for permutation in permutations(base, len(base)):\n            central_char = single_odd_char[0]\n            for i in range(len(permutation) + 1):\n                palindrome_candidate = permutation[:i] + central_char + permutation[i:]\n                palindrome_candidate += palindrome_candidate[-2::-1]\n                if len(palindrome_candidate) >= 3:\n                    palindromes_set.add(palindrome_candidate)\n\n    # Filter out palindromes shorter than 3 characters\n    return {p for p in palindromes_set if len(p) >= 3}\n\n# Example usage:\nprint(palindromes_between_indices('abcdefgh'))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 192,
+    "total_tokens": 649,
+    "completion_tokens": 457
+  }
+}

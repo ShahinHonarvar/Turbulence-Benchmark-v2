@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-7c44987410d6477ea01d38f73ae8a9b2",
+  "object": "chat.completion",
+  "created": 1725541895,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef all_substring_of_size_n(s):\n    substr_set = set()\n    substring_count = {}\n    for i in range(len(s) - 69):\n        substring = s[i:i+70]\n        if len(set(substring)) == len(substring):\n            substring_count[substring] = substring_count.get(substring, 0) + 1\n            substr_set.add(substring)\n    \n    return list(substr_set)\n\n# Example usage:\nresult = all_substring_of_size_n(\"example string with some unique chars\")\nprint(result)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 130,
+    "total_tokens": 281,
+    "completion_tokens": 151
+  }
+}

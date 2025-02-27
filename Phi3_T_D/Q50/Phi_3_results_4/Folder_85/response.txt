@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-fced74bfb0c045c4858c3a0120918f42",
+  "object": "chat.completion",
+  "created": 1725528756,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom collections import defaultdict\n\ndef if_contains_anagrams(strings):\n    size_dict = defaultdict(list)\n    count = 0\n\n    for s in strings:\n        sorted_str = ''.join(sorted(s.lower()))\n        size_dict[sorted_str].append(s)\n\n    for anagrams in size_dict.values():\n        if len(anagrams) > 1 and len(anagrams[0]) >= 3:\n            count += (len(anagrams) * (len(anagrams) - 1)) // 2\n\n    return count >= 73\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 134,
+    "total_tokens": 287,
+    "completion_tokens": 153
+  }
+}

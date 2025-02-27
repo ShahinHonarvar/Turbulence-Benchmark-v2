@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-68710a96f2cf43049843c70f656b774c",
+  "object": "chat.completion",
+  "created": 1725541388,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef lists_with_product_equal_n(circular_list):\n    target_product = 48\n    n = len(circular_list)\n    result = []\n\n    def find_sublists(start, current_product, sublist):\n        if current_product == target_product:\n            result.append(sublist[:])\n        if not (current_product < target_product and start < n):\n            return\n\n        for i in range(start, n):\n            find_sublists(i, current_product * circular_list[i], sublist + [circular_list[i]])\n\n    find_sublists(0, 1, [])\n    return result\n\n# Example usage\ncircular_list_example = [2, 2, 2, 2, 3, 4]\nprint(lists_with_product_equal_n(circular_list_example))\n```\n````",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 203,
+    "total_tokens": 424,
+    "completion_tokens": 221
+  }
+}

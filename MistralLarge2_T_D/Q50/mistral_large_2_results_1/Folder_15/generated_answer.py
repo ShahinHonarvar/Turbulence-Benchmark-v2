@@ -1,0 +1,14 @@
+from collections import defaultdict
+
+def if_contains_anagrams(words):
+    anagram_map = defaultdict(list)
+    for word in words:
+        if len(word) < 3:
+            continue
+        sorted_word = ''.join(sorted(word.lower()))
+        anagram_map[sorted_word].append(word)
+    anagram_count = 0
+    for key, value in anagram_map.items():
+        if len(value) >= 2:
+            anagram_count += 1
+    return anagram_count >= 4

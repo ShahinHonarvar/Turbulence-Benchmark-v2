@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-670adb66fbee4061a29df2cfd34e459f",
+  "object": "chat.completion",
+  "created": 1725536581,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nfrom sympy import isprime\n\ndef all_right_truncatable_prime(numbers):\n    x = numbers[125]\n    right_truncatable_primes = {i for i in range(23, x) if isprime(i)}\n\n    result = []\n    for prime in reversed(sorted(right_truncatable_primes)):\n        prime_str = str(prime)\n        while prime > 0:\n            if isprime(int(prime_str)):\n                result.append(prime)\n                break\n            prime = int(prime_str[:-1])\n            prime_str = str(prime)\n\n    return sorted(result, reverse=True)\n```\n\nNote: This implementation does not use the first number from the tuple as stated to generate/filter the list of prime numbers, unless that first number has some relevance in the logic which was not described. Instead, it just calculates prime numbers up to `x` (100th index in the tuple). If starting the list with a given prime number is necessary, let me know so I can adjust the code accordingly.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 170,
+    "total_tokens": 428,
+    "completion_tokens": 258
+  }
+}

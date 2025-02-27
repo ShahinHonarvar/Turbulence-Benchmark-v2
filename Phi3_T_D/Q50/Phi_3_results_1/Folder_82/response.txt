@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-5ec67b58f077432aa8979bbdca1f5b98",
+  "object": "chat.completion",
+  "created": 1725527503,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef if_contains_anagrams(words):\n    count = 0\n    sorted_words = [''.join(sorted(word.lower())) for word in words if len(word) >= 3]\n    for i in range(len(sorted_words)):\n        for j in range(i + 1, len(sorted_words)):\n            if sorted_words[i] == sorted_words[j]:\n                count += 1\n                if count >= 276:\n                    return True\n    return False\n\n# Test the function with some input\nprint(if_contains_anagrams(['listen', 'enlist', 'google', 'gooegl', 'adnano'])) # False\nprint(if_contains_anagrams(['listen', 'enlist'] * 138)) # True\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 135,
+    "total_tokens": 325,
+    "completion_tokens": 190
+  }
+}

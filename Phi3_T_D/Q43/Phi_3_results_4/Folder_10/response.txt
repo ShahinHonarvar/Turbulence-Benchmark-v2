@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-0f52b8aa3e904d6186e168d3bcba5939",
+  "object": "chat.completion",
+  "created": 1725515492,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef find_primes_between_indices(lst):\n    def is_prime(n):\n        if n < 2:\n            return False\n        for i in range(2, int(n**0.5) + 1):\n            if n % i == 0:\n                return False\n        return True\n\n    start, end = 61, 79\n    primes = [n for n in lst[start:end+1] if is_prime(n)]\n    return sorted(primes)\n\n# Example usage:\nunsorted_list = [i for i in range(100)]\nprint(find_primes_between_indices(unsorted_list))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 126,
+    "total_tokens": 293,
+    "completion_tokens": 167
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-89d314479938451dbca158fc9083e77e",
+  "object": "chat.completion",
+  "created": 1725539619,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef product_of_elements(lst):\n    product = 1\n    for num in lst:\n        product *= num\n    return product\n\ndef lists_with_product_equal_n(circular_list):\n    list_len = len(circular_list)\n    product_target = 74\n    sublists = []\n\n    # Iterate over all possible sublist lengths.\n    for sublist_len in range(1, list_len + 1):\n        # Create a product lookup table for faster checks.\n        product_lookup = {}\n\n        for start in range(list_len):\n            sublist = circular_list[start:start + sublist_len] + circular_list[:sublist_len - (list_len - start)]\n            sublist_length = len(sublist)\n            product = product_of_elements(sublist)\n            if product == product_target and sublist_length <= sublist_len:\n                sorted_sublist = sorted(sublist)\n                if sorted_sublist not in sublists:\n                    sublists.append(sorted_sublist)\n\n    return sublists\n```\n\nTo accommodate the circular nature of the input list, we take segments that wrap around by adding elements from the start of the list to the end of the segment. We apply the `product_of_elements()` helper function to determine the product of each segment and compare it with the target. The resulting sublists are added to a set to avoid duplicates, and then we sort each sublist to ensure that they are stored in a consistent format before returning the final list of sublists.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 203,
+    "total_tokens": 572,
+    "completion_tokens": 369
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-e1217fb985f449f3ad3011f70dff6a31",
+  "object": "chat.completion",
+  "created": 1725515043,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef find_primes_between_indices(numbers):\n    def is_prime(num):\n        if num <= 1: return False\n        for i in range(2, int(num**0.5) + 1):\n            if num % i == 0: return False\n        return True\n    \n    primes = [num for i, num in enumerate(numbers[57:65], start=57) if is_prime(num)]\n    return sorted(primes, reverse=True)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 126,
+    "total_tokens": 248,
+    "completion_tokens": 122
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-8115b78b858148b58643d496e0efe63d",
+  "object": "chat.completion",
+  "created": 1725527185,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nfrom collections import defaultdict\nfrom itertools import combinations\n\ndef if_contains_anagrams(strings):\n    anagrams_count = 0\n    strings_dict = defaultdict(int)\n\n    for string in strings:\n        if len(string) < 3:\n            continue\n        sorted_string = ''.join(sorted(string.lower()))\n        strings_dict[sorted_string] += 1\n\n    for count in strings_dict.values():\n        if count > 1:\n            anagrams_count += (count * (count - 1)) // 2\n\n    return anagrams_count >= 42\n\n# Example usage:\n# result = if_contains_anagrams([\"listen\", \"enlist\", \"inlets\", \"google\", \"gooegl\", \"nope\"])\n# print(result)  # This should return True or False based on the input\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 134,
+    "total_tokens": 348,
+    "completion_tokens": 214
+  }
+}

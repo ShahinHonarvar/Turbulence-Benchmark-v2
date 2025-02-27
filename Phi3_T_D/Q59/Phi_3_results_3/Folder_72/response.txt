@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-266e82707fe64fa490632ba13178fdda",
+  "object": "chat.completion",
+  "created": 1725548863,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef all_left_truncatable_prime(numbers):\n    x = numbers[31]\n    def is_prime(n):\n        if n <= 1:\n            return False\n        if n <= 3:\n            return True\n        if n % 2 == 0 or n % 3 == 0:\n            return False\n        i = 5\n        while i * i <= n:\n            if n % i == 0 or n % (i + 2) == 0:\n                return False\n            i += 6\n        return True\n\n    def is_left_truncatable_prime(n, sieve):\n        str_n = str(n)\n        for i in range(len(str_n)):\n            if not sieve.get(int(str_n[i:])):\n                return False\n        return True\n\n    sieve = [True] * x\n    for i in range(2, x):\n        if sieve[i]:\n            for j in range(i*2, x, i):\n                sieve[j] = False\n    \n    left_truncatable_primes = [n for n in range(23, x) if is_left_truncatable_prime(n, sieve)]\n    return sorted(left_truncatable_primes, reverse=True)\n```\n```\n\nNote: The implementation first generates a list of prime numbers up to `x` using the Sieve of Eratosthenes algorithm. Then, it checks which primes in the range `[23, x)` are left-truncatable.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 156,
+    "total_tokens": 534,
+    "completion_tokens": 378
+  }
+}

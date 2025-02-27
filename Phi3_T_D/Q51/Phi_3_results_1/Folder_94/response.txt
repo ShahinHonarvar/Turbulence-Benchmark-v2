@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-936a1e98967940e0868d5b97cb916cab",
+  "object": "chat.completion",
+  "created": 1725529665,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(strings):\n    def count_letters(s):\n        return sorted((char.lower(), count) for char, count in collections.Counter(s).items() if char.isalpha())\n    \n    def is_anagram(a, b):\n        return count_letters(a) == count_letters(b)\n    \n    from itertools import combinations\n    import collections\n    \n    anagram_count = sum(1 for pair in combinations(strings, 2) if is_anagram(pair[0], pair[1]) and len(pair[0]) >= 3 and len(pair[1]) >= 3)\n    \n    return anagram_count <= 181\n\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 149,
+    "total_tokens": 323,
+    "completion_tokens": 174
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-4ff32a638f02478781611615896ea627",
+  "object": "chat.completion",
+  "created": 1725528083,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom collections import defaultdict\n\ndef if_contains_anagrams(words):\n    anagram_dict = defaultdict(int)\n    count = 0\n\n    for word in words:\n        sorted_word = ''.join(sorted(word.lower()))\n        anagram_dict[sorted_word] += 1\n        count += anagram_dict[sorted_word] - 1\n\n    return count >= 66\n\n# Example usage:\n# print(if_contains_anagrams(['cat', 'tac', 'act', 'fat', 'tabe', 'gamma', ...]))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 134,
+    "total_tokens": 278,
+    "completion_tokens": 144
+  }
+}

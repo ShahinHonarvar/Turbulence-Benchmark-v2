@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-347989164b5647e2906a1ff14f3cbfb6",
+  "object": "chat.completion",
+  "created": 1725552389,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n <= 1:\n        return False\n    if n <= 3:\n        return True\n    if n % 2 == 0 or n % 3 == 0:\n        return False\n    i = 5\n    while i * i <= n:\n        if n % i == 0 or n % (i + 2) == 0:\n            return False\n        i += 6\n    return True\n\ndef is_truncatable_prime(n, primes):\n    s = str(n)\n    for i in range(1, len(s)):\n        if not (is_prime(int(s[i:])) and int(s[:i]) in primes):\n            return False\n    return True\n\ndef left_and_right_truncatable_primes(primes, n):\n    return [p for p in primes if is_truncatable_prime(p, primes)]\n\ndef get_primes_up_to(limit):\n    primes = [2]\n    for possiblePrime in range(3, limit + 1, 2):\n        if is_prime(possiblePrime):\n            primes.append(possiblePrime)\n    return primes\n\ndef all_left_right_truncatable_prime(numbers):\n    x = numbers[760]\n    primes = get_primes_up_to(x)\n    truncatable_primes = left_and_right_truncatable_primes(primes, primes[len(primes)-1])\n    truncatable_primes.sort(reverse=True)\n    return truncatable_primes\n```\n\nNote: The code assumes that the provided tuple argument contains enough primes up to the integer at the 760th index. If this isn't guaranteed, you will have to generate the primes up to that number as shown in this solution.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 208,
+    "total_tokens": 668,
+    "completion_tokens": 460
+  }
+}

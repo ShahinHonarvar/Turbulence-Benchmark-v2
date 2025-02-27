@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-9a9956b446e141b899a76369242e82ba",
+  "object": "chat.completion",
+  "created": 1725527658,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nfrom collections import defaultdict\nimport itertools\n\ndef if_contains_anagrams(strings):\n    def are_anagrams(s1, s2):\n        return sorted(s1.lower()) == sorted(s2.lower())\n\n    possible_pairs = itertools.combinations(strings, 2)\n    anagram_pairs = filter(lambda pair: are_anagrams(*pair), possible_pairs)\n    anagram_count = sum(1 for _ in anagram_pairs if len(next(iter(pair))) >= 3)\n\n    return anagram_count >= 84\n\n# Example usage:\nlist_of_strings = [\"listen\", \"silent\", \"enlist\", \"cider\", \"cried\", \"listen\", \"silent\", \"listen\"]\nprint(if_contains_anagrams(list_of_strings))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 134,
+    "total_tokens": 342,
+    "completion_tokens": 208
+  }
+}

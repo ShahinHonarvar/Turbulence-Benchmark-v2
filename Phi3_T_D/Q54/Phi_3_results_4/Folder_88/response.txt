@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-40ff840fa1144557a574911a2da98d22",
+  "object": "chat.completion",
+  "created": 1725537915,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(n**0.5)+1):\n        if n % i == 0:\n            return False\n    return True\n\ndef all_right_truncatable_prime(numbers_tuple):\n    right_truncatable_primes = []\n    x = numbers_tuple[93]\n    for num in range(2, x):\n        if is_prime(num):\n            original = num\n            is_truncatable = True\n            while original > 0:\n                original = int(str(original)[:-1]) \n                if not is_prime(original):\n                    is_truncatable = False\n                    break\n            if is_truncatable:\n                right_truncatable_primes.append(num)\n    return sorted(right_truncatable_primes)\n\n# Example usage\nnumbers = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 123, 123456789)\nprint(all_right_truncatable_prime(numbers))\n```\n\nIn this solution, the `all_right_truncatable_prime` function receives a tuple of positive integers. It iterates through numbers less than the one at index 93, checking if each number is prime. If a number is prime, it verifies if all truncated versions of the number remain prime. Those that do are considered right-truncatable primes and are added to the results list, which is returned in sorted order.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 169,
+    "total_tokens": 604,
+    "completion_tokens": 435
+  }
+}

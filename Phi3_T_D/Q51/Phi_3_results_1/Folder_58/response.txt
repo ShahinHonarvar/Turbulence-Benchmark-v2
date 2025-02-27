@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-c22cb1d52f5645c6ae63585dcd416c20",
+  "object": "chat.completion",
+  "created": 1725529491,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom collections import Counter\n\ndef if_contains_anagrams(strings):\n    def count_anagrams(s):\n        char_count = Counter(s.lower())\n        return sum([1 for k, v in char_count.items() if v >= 2])\n    \n    potential_anagrams = {}\n    for string in strings:\n        if len(string) >= 3:\n            sorted_string = ''.join(sorted(string.lower()))\n            potential_anagrams.setdefault(sorted_string, []).append(string)\n    \n    anagrams_count = sum(1 for group in potential_anagrams.values() if len(group) > 1)\n    return anagrams_count <= 60\n\n# Example Usage:\n# result = if_contains_anagrams([\"listen\", \"enlists\", \"google\", \"inlets\", \"banana\"])\n# print(result) # True\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 148,
+    "total_tokens": 375,
+    "completion_tokens": 227
+  }
+}

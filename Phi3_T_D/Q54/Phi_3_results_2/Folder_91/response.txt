@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-c2f05bcec4254a148f73aff35b130727",
+  "object": "chat.completion",
+  "created": 1725536613,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef all_right_truncatable_prime(numbers):\n    if numbers[0] < 11:\n        return []\n    primes = [2, 3, 5, 7]\n    right_truncatable_primes = set(range(11, numbers[0]))\n    for num in right_truncatable_primes:\n        if not all(num % p for p in primes) or not num % 10 in (1, 3, 7, 9):\n            right_truncatable_primes.remove(num)\n    return sorted(list(right_truncatable_primes), reverse=True)\n\nprint(all_right_truncatable_prime((10000,)))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 168,
+    "total_tokens": 352,
+    "completion_tokens": 184
+  }
+}

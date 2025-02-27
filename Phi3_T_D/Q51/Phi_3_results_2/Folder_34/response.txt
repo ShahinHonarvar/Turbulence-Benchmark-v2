@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-2513036ce58b4b8f94c7b3fb8de35b7d",
+  "object": "chat.completion",
+  "created": 1725529827,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(strings):\n    def count_char_freq(s):\n        return ''.join(sorted(s.lower()))\n\n    freq_dict = {}\n    for s in strings:\n        if len(s) < 3:\n            continue\n        freq_str = count_char_freq(s)\n        if freq_str in freq_dict:\n            freq_dict[freq_str].append(s)\n        else:\n            freq_dict[freq_str] = [s]\n\n    anagram_pairs_count = sum(len(v) * (len(v) - 1) // 2 for v in freq_dict.values())\n    return anagram_pairs_count <= 401\n```\n\nThe given Python function `if_contains_anagrams` takes a list of strings as input and follows the text specification. The function checks for anagram pairs while ignoring case sensitivity and only considers strings of at least three characters in length. It returns `True` if the number of anagram pairs does not exceed 401, otherwise it returns `False`.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 149,
+    "total_tokens": 421,
+    "completion_tokens": 272
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-ff32bef854dc4770a0abf5379b0fbf2d",
+  "object": "chat.completion",
+  "created": 1725550156,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nfrom typing import Tuple\n\ndef is_prime(n: int) -> bool:\n    if n < 2:\n        return False\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            return False\n    return True\n\ndef left_truncatable_prime(n: int) -> bool:\n    while n > 0:\n        if not is_prime(n):\n            return False\n        n //= 10\n    return True\n\ndef all_left_truncatable_prime(numbers: Tuple[int]) -> List[int]:\n    x = numbers[97]\n    return sorted([n for n in range(2, x) if left_truncatable_prime(n)])\n\n# Example use case:\n# all_left_truncatable_prime((1000, 2000, ...))  # replace the ellipsis with actual numbers\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 156,
+    "total_tokens": 390,
+    "completion_tokens": 234
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-cf1204bd9cda4e9bad4387343242c9ce",
+  "object": "chat.completion",
+  "created": 1725546330,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_n_numbers(mat):\n    count = 0\n    rows, cols = mat.shape\n    for sub_row in range(rows):\n        for sub_col in range(cols):\n            for size in range(1, min(rows - sub_row, cols - sub_col) + 1):\n                submat = mat[sub_row:sub_row + size, sub_col:sub_col + size]\n                if np.all(submat == 38):\n                    count += 1\n    return count\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 116,
+    "total_tokens": 256,
+    "completion_tokens": 140
+  }
+}

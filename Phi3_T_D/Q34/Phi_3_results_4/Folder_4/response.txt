@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-5582b78774b74d34a5e5f636cb9ffd38",
+  "object": "chat.completion",
+  "created": 1725504900,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef find_original_set(*sets):\n    if len(sets) != 40:\n        raise ValueError(\"Exactly 40 distinct sets are required\")\n\n    original_set = set()\n    for s in sets:\n        if not isinstance(s, set):\n            raise TypeError(\"All arguments must be sets\")\n        if len(s) != len(set(s)):\n            raise ValueError(\"All sets must contain distinct elements\")\n        original_set |= s\n\n    return original_set\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 98,
+    "total_tokens": 220,
+    "completion_tokens": 122
+  }
+}

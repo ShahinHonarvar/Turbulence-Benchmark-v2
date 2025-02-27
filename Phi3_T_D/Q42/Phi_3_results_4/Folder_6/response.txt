@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-4836934e2dd649f8906eb6dad6247bb9",
+  "object": "chat.completion",
+  "created": 1725513597,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom itertools import count, islice\ndef prime_factors(numbers):\n    def factors(n):\n        return set(\n            factor\n            for i in islice(count(2), int(n**0.5))\n            if n % i == 0\n            for factor in (i, n // i)\n        )\n\n    try:\n        return factors(numbers[790])\n    except IndexError:\n        raise ValueError(\"The index 790 is out of the list range.\")\n\n# To use the function:\n# factors_set = prime_factors(some_list_of_integers)\n# print(factors_set)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 88,
+    "total_tokens": 248,
+    "completion_tokens": 160
+  }
+}

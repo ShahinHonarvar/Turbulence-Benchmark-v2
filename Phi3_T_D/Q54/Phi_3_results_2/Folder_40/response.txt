@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-8848bd07f2b34849a4584fee2ba5833a",
+  "object": "chat.completion",
+  "created": 1725536259,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nimport sympy\n\ndef all_right_truncatable_prime(limits):\n    x = limits[10]\n    truncatable_primes = []\n    def is_right_truncatable_prime(n):\n        while n > 0:\n            if not sympy.isprime(n):\n                return False\n            n = n // 10\n        return True\n    for candidate in range(2, x):\n        if is_right_truncatable_prime(candidate):\n            truncatable_primes.insert(0, candidate)\n    return sorted(truncatable_primes)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 169,
+    "total_tokens": 324,
+    "completion_tokens": 155
+  }
+}

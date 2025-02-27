@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-e5726ce7eade4fb08f3a64038621d3a7",
+  "object": "chat.completion",
+  "created": 1725544944,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    def helper(i, j, size, current_sum, current_matrix):\n        if size == 0:\n            if current_sum == 17:\n                result.append(np.copy(current_matrix))\n            return\n        for step in range(1, size + 1):\n            current_matrix[step - 1] = matrix[i : i + step]\n            current_sum += matrix[i][j]\n            helper(i + step - 1, j, size - 1, current_sum, current_matrix)\n            current_sum -= matrix[i][j]\n\n    n_rows = matrix.shape[0]\n    n_cols = matrix.shape[1]\n    result = []\n    for size in range(1, min(n_rows, n_cols) + 1):\n        for i in range(n_rows - size + 1):\n            for j in range(n_cols - size + 1):\n                helper(i, j, size, 0, np.empty((size, size), dtype=int))\n    return result\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 126,
+    "total_tokens": 404,
+    "completion_tokens": 278
+  }
+}

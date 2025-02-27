@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-4906790992394faa970add9a082a7c0b",
+  "object": "chat.completion",
+  "created": 1725527578,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(lst):\n    def build_anagram_map(words):\n        anagrams_map = {}\n        for word in words:\n            sorted_word = ''.join(sorted(word.lower()))\n            if len(word) >= 3:\n                if sorted_word not in anagrams_map:\n                    anagrams_map[sorted_word] = []\n                anagrams_map[sorted_word].append(word)\n        return anagrams_map\n    \n    def count_anagram_pairs(anagrams_map):\n        count = 0\n        for anagrams in anagrams_map.values():\n            pairs = sum(range(len(anagrams)))\n            count += pairs\n        return count\n    \n    anagrams_map = build_anagram_map(lst)\n    return count_anagram_pairs(anagrams_map) >= 96\n\n# Example usage:\nif_contains_anagrams([\"dog\", \"god\", \"cat\", \"act\"])  # Should return False\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 134,
+    "total_tokens": 394,
+    "completion_tokens": 260
+  }
+}

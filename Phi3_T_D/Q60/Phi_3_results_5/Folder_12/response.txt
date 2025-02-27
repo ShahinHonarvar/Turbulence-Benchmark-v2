@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-3e0ba84b874e4a29ad6a6fc97bbaf986",
+  "object": "chat.completion",
+  "created": 1725553515,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            return False\n    return True\n\ndef is_truncatable_prime(n, primes):\n    s = str(n)\n    d = len(s)\n    while d > 1 and is_prime(int(s)):\n        s = s[1:-1]\n        d -= 2\n    return is_prime(n) and not s\n\ndef all_left_right_truncatable_prime(numbers):\n    if len(numbers) == 0 or numbers[70] < 11:  # No truncatable primes < 11\n        return []\n    primes = [i for i in range(11, numbers[70] + 1) if is_prime(i)]\n    return [p for p in reversed(primes) if is_truncatable_prime(p, primes)]\n\n```\n```\n\nThe code first defines a helper function `is_prime` to check if a number is prime. Then, another helper function `is_truncatable_prime` uses the list of primes generated up to `x[70]` to check whether a given number is left-and-right-truncatable. Finally, the main function `all_left_right_truncatable_prime` generates the list of all left-and-right-truncatable primes less than or equal to the integer at index 70 in the input tuple, returning them in sorted descending order.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 207,
+    "total_tokens": 598,
+    "completion_tokens": 391
+  }
+}

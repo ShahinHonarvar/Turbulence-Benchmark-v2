@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-2ac4643b07834d97a19e788550d89916",
+  "object": "chat.completion",
+  "created": 1725539486,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef helper_product(nums, i, temp, target, result):\n    if i == len(nums):\n        if temp[-1] * nums[0] == target:\n            result.append(temp[:])\n        return\n\n    helper_product(nums, i + 1, temp, target, result)\n    temp.append(nums[i])\n    helper_product(nums, i + 1, temp, target, result)\n    temp.pop()\n\ndef lists_with_product_equal_n(circular_list, target=37):\n    if not circular_list:\n        return []\n\n    result = []\n    helper_product(circular_list, 0, [], target, result)\n    return result\n\n# Example usage:\ncircular_list = [7, 6, 2, 6]\nprint(lists_with_product_equal_n(circular_list))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 203,
+    "total_tokens": 427,
+    "completion_tokens": 224
+  }
+}

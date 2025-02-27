@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-de817c52eb1542129e1086c4afc72055",
+  "object": "chat.completion",
+  "created": 1725530120,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef if_contains_anagrams(strings):\n    from collections import defaultdict\n    \n    def normalize(s):\n        return ''.join(sorted(filter(str.isalpha, s.lower())))\n    \n    anagram_tally = defaultdict(int)\n    \n    for string in strings:\n        key = normalize(string)\n        if len(key) >= 3:\n            anagram_tally[key] += 1\n            \n    anagram_pairs = sum(count // 2 for count in anagram_tally.values())\n    \n    return anagram_pairs <= 2\n\n# Example usage:\n# print(if_contains_anagrams([\"stop\", \"pots\", \"hello\", \"google\"]))\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 147,
+    "total_tokens": 332,
+    "completion_tokens": 185
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-886a4de2051b4848bac1a013fe7a405d",
+  "object": "chat.completion",
+  "created": 1725517100,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef composite_nums_between_indices(nums):\n    from math import sqrt\n    composite_set = set()\n\n    def is_composite(num):\n        if num < 2:\n            return False\n        for i in range(2, int(sqrt(num)) + 1):\n            if num % i == 0:\n                return True\n        return False\n\n    if len(nums) < 67:\n        return composite_set\n    for num in nums[10:67]:\n        if is_composite(num):\n            composite_set.add(num)\n    return composite_set\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 125,
+    "total_tokens": 280,
+    "completion_tokens": 155
+  }
+}

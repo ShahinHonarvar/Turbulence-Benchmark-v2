@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-5d940554c9544384a51a904f385b5f44",
+  "object": "chat.completion",
+  "created": 1725537136,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef is_prime(n):\n    if n <= 1:\n        return False\n    if n <= 3:\n        return True\n    if n % 2 == 0 or n % 3 == 0:\n        return False\n    i = 5\n    while i * i <= n:\n        if n % i == 0 or n % (i + 2) == 0:\n            return False\n        i += 6\n    return True\n\ndef all_right_truncatable_prime(numbers):\n    x = numbers[22]\n    right_truncatable_primes = []\n\n    for num in range(x - 1, 0, -1):\n        digits = str(num)\n        if all(is_prime(int(digits[i:])) for i in range(len(digits))):\n            right_truncatable_primes.append(num)\n\n    return right_truncatable_primes\n\n# Note: read_line() is used for example purposes, replace with actual tuple input\ninput_tuple = (1, 2, 3, ..., 22, ...)\nall_right_truncatable_prime(input_tuple)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 169,
+    "total_tokens": 458,
+    "completion_tokens": 289
+  }
+}

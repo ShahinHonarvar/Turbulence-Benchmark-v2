@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-06c5bc0821c24d849813e5bc5c602701",
+  "object": "chat.completion",
+  "created": 1725545353,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix, n=179):\n    if matrix.shape[0] < n or matrix.shape[1] < n:\n        return 0\n\n    count = 0\n    rows, cols = matrix.shape\n\n    for i in range(rows - n + 1):\n        for j in range(cols - n + 1):\n            submatrix = matrix[i:i+n, j:j+n]\n            count += np.all(submatrix == 179)\n\n    return count\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 117,
+    "total_tokens": 258,
+    "completion_tokens": 141
+  }
+}

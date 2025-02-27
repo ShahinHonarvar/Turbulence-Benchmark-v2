@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-0842992574df40ed9c91eea07c8411b6",
+  "object": "chat.completion",
+  "created": 1725514496,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\n\nfrom math import sqrt\n\n\ndef prime_factors(numbers):\n\n    if not numbers or len(numbers) < 100:\n\n        return set()\n\n\n    prime_factors_set = set()\n\n    num_to_factor = numbers[99]\n\n    divisor = 2\n\n\n    while num_to_factor >= divisor:\n\n        if num_to_factor % divisor == 0:\n\n            prime_factors_set.add(divisor)\n\n            num_to_factor //= divisor\n\n        else:\n\n            divisor += 1\n\n            while num_to_factor % divisor != 0:\n\n                divisor += 1\n\n\n    return prime_factors_set\n\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 87,
+    "total_tokens": 275,
+    "completion_tokens": 188
+  }
+}

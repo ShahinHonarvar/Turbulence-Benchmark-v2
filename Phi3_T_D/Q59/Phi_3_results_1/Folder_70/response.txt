@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-2f1a4da1a1f84f529f6ce1d798fc1e55",
+  "object": "chat.completion",
+  "created": 1725547534,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n <= 1:\n        return False\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            return False\n    return True\n\ndef is_left_truncatable_prime(n, primes):\n    if not n or n % 2 == 0 or n == 1:\n        return False\n    while n > 0:\n        if not is_prime(n):\n            return False\n        primes.add(n)\n        n //= 10\n    return True\n\ndef all_left_truncatable_prime(numbers):\n    x = numbers[433]\n    left_truncatable_primes = set()\n    for num in range(2, x):\n        if is_left_truncatable_prime(num, left_truncatable_primes):\n            pass\n    return sorted(list(left_truncatable_primes), reverse=True)\n```\n\nPlease note, the original specification does not guarantee that `numbers[433]` is within the range of left-truncatable primes. The functions have been created to consider all numbers less than `numbers[433]` and found to be left-truncatable primes.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 157,
+    "total_tokens": 471,
+    "completion_tokens": 314
+  }
+}

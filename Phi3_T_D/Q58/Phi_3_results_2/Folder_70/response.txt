@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-996582be364243d6a424841e8fc9aaf8",
+  "object": "chat.completion",
+  "created": 1725545734,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    if not isinstance(matrix, np.ndarray) or matrix.ndim != 2 or matrix.dtype != int:\n        raise ValueError('Input must be a two-dimensional numpy matrix of integers.')\n\n    def count_in_submatrix(start_r, start_c, end_r, end_c):\n        return np.sum(np.sum(matrix[start_r:end_r+1, start_c:end_c+1]))\n\n    m, n = matrix.shape\n    count = 0\n\n    for i in range(m):\n        for j in range(n):\n            for k in range(i, m):\n                for l in range(j, n):\n                    if count_in_submatrix(i, j, k, l) == 173:\n                        count += 1\n\n    return count\n```\n\nNote that the above function checks all possible submatrices from (0,0) to (m,n), and counts those with a sum of 173. This naive brute force approach can be very slow for larger matrices, as it potentially examines many submatrices that do not contain the target number of integers.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 117,
+    "total_tokens": 415,
+    "completion_tokens": 298
+  }
+}

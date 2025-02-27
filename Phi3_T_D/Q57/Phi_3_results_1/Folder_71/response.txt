@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-ae6861e87af74b56a78337eaad7f4242",
+  "object": "chat.completion",
+  "created": 1725543061,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    total_num = matrix.size\n    res = []\n    \n    for i in range(total_num):\n        for j in range(i, total_num):\n            sub = matrix.flat[i:j+1]\n            sub_arr = sub.reshape(-1, sub.shape[0] // sub.shape[1])\n            if sub_arr.size > 0:\n                for k in range(sub_arr.shape[0]):\n                    for l in range(sub_arr.shape[1]):\n                        for m in range(k, sub_arr.shape[0]):\n                            for n in range(l, sub_arr.shape[1]):\n                                submatrix = sub_arr[k:m+1, l:n+1]\n                                if submatrix.sum() == 69:\n                                    res.append(submatrix)\n                                    \n    return res\n\n# Example usage:\n# matrix = np.array([[1,2,3,4], [5,6,7,8], [9,10,11,12]])\n# print(submatrix_with_particular_sum(matrix))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 126,
+    "total_tokens": 429,
+    "completion_tokens": 303
+  }
+}

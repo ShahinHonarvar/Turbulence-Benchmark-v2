@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-7f7a7c09d1664dfc969f397ff96edd03",
+  "object": "chat.completion",
+  "created": 1725550238,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef all_left_truncatable_prime(numbers):\n    x = numbers[126]\n    truncatable_primes = []\n\n    def is_prime(n):\n        if n <= 1:\n            return False\n        if n <= 3:\n            return True\n        if n % 2 == 0 or n % 3 == 0:\n            return False\n        i = 5\n        while i * i <= n:\n            if n % i == 0 or n % (i + 2) == 0:\n                return False\n            i += 6\n        return True\n\n    def is_left_truncatable(n, primes_set):\n        if not is_prime(n):\n            return False\n        str_n = str(n)\n        return all(is_prime(int(str_n[i:])) for i in range(len(str_n)))\n\n    primes_set = set(filter(is_prime, range(2, x)))\n    for prime in primes_set:\n        if is_left_truncatable(prime, primes_set):\n            truncatable_primes.append(prime)\n    return sorted(truncatable_primes, reverse=True)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 157,
+    "total_tokens": 461,
+    "completion_tokens": 304
+  }
+}

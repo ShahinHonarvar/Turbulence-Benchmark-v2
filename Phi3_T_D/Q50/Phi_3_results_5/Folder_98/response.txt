@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-055daf07f5f54c1d9951189c413833d4",
+  "object": "chat.completion",
+  "created": 1725529225,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom collections import defaultdict\nimport itertools\n\ndef if_contains_anagrams(strings_list):\n    def normalize(s):\n        return ''.join(sorted(s.lower()))\n    \n    string_groups = defaultdict(list)\n    for s in strings_list:\n        if len(s) >= 3:\n            string_groups[normalize(s)].append(s)\n    \n    anagram_pairs = []\n    for group in string_groups.values():\n        for pair in itertools.combinations(group, 2):\n            anagram_pairs.append(pair)\n    \n    return len(anagram_pairs) >= 7\n\n# Example usage:\nstrings_list = [\"listen\", \"enlist\", \"google\", \"gooegl\", \"banana\", \"ananab\", \"listen\", \"silent\"]\nprint(if_contains_anagrams(strings_list))  # True\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 133,
+    "total_tokens": 361,
+    "completion_tokens": 228
+  }
+}

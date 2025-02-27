@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-3f299d6fb9c241a89b95e8ab8ee1c90b",
+  "object": "chat.completion",
+  "created": 1725547684,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef primes_sieve(limit):\n    prime = [True] * limit\n    prime[0] = prime[1] = False\n    for i in range(2, int(limit ** 0.5) + 1):\n        if prime[i]:\n            for j in range(i*i, limit, i):\n                prime[j] = False\n    return prime\n\ndef is_left_truncatable_prime(n, prime):\n    str_n = str(n)\n    while len(str_n) > 0:\n        if not prime[int(str_n)]:\n            return False\n        str_n = str_n[1:]\n    return True\n\ndef all_left_truncatable_primes(numbers):\n    limit = numbers[11] + 1\n    prime = primes_sieve(limit)\n    return [n for n in range(2, limit) if is_left_truncatable_prime(n, prime)]\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 156,
+    "total_tokens": 393,
+    "completion_tokens": 237
+  }
+}

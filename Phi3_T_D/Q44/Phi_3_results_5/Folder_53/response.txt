@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-350d11b400754ccabee090242e2eef4d",
+  "object": "chat.completion",
+  "created": 1725517474,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef composite_nums_between_indices(nums):\n    from math import sqrt\n\n    def is_prime(n):\n        if n <= 1:\n            return False\n        for i in range(2, int(sqrt(n)) + 1):\n            if n % i == 0:\n                return False\n        return True\n\n    def is_composite(n):\n        return not is_prime(n)\n\n    composites = {num for num in nums[222:223] if is_composite(num)}\n    return composites\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 127,
+    "total_tokens": 269,
+    "completion_tokens": 142
+  }
+}

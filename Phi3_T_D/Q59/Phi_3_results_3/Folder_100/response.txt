@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-350411c8cf5a419a90454a9217324da8",
+  "object": "chat.completion",
+  "created": 1725549046,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef all_left_truncatable_prime(numbers):\n    if len(numbers) != 27 or not all(isinstance(n, int) and n > 0 for n in numbers):\n        raise ValueError(\"First argument must be a tuple of 27 positive integers.\")\n    \n    primes = [2, 3, 5, 7]\n    \n    def is_prime(n):\n        if n <= 1 or n in primes:\n            return n in primes\n        sqrt_n = int(n**0.5)\n        for prime in primes:\n            if prime > sqrt_n:\n                break\n            if n % prime == 0:\n                return False\n        primes.append(n)\n        return True\n\n    def left_truncatable_primes(n):\n        if not is_prime(n):\n            return []\n        result = [n] if n % 10 != 0 else []\n        return result + left_truncatable_primes(n / 10)\n\n    x = numbers[26]\n    trunc_primes = set()\n    for num in range(2, int(x)):\n        trunc_primes.update(left_truncatable_primes(num))\n\n    return sorted(list(trunc_primes))\n\n# Example usage:\nprint(all_left_truncatable_prime((1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18,\n19, 20, 21, 22, 23, 24, 25, 26, 27)))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 156,
+    "total_tokens": 593,
+    "completion_tokens": 437
+  }
+}

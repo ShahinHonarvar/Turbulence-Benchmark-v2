@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-0d994aefa0644d7fbd8c0b2b269ccbad",
+  "object": "chat.completion",
+  "created": 1725528153,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef if_contains_anagrams(words):\n    from collections import Counter\n    \n    def normalize_anagram(word):\n        return ''.join(sorted(word.lower()))\n    \n    word_counts = Counter(normalize_anagram(word) for word in words if len(word) >= 3)\n    return sum(count > 1 for count in word_counts.values()) >= 6\n\n# Example usage to the function, which does not count as part of the code\n#print(if_contains_anagrams(['cat', 'tac', 'dog', 'god', 'act', 'dog']))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 133,
+    "total_tokens": 284,
+    "completion_tokens": 151
+  }
+}

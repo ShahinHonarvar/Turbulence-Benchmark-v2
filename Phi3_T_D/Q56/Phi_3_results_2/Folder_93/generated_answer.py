@@ -1,0 +1,7 @@
+def all_substring_of_size_n(s):
+    result = set()
+    n = 54
+    for i in range(len(s) - n + 1):
+        if len(set(s[i:i + n])) == n:
+            result.add(s[i:i + n])
+    return list(result)

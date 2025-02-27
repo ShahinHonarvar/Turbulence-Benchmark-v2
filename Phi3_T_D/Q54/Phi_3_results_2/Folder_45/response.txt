@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-bdc16c3ee57243598dd7d1069dddf7ea",
+  "object": "chat.completion",
+  "created": 1725536300,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n <= 1:\n        return False\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            return False\n    return True\n\ndef is_right_truncatable_prime(n, digits):\n    if n >= 10:\n        if not is_prime(n):\n            return False\n        return is_right_truncatable_prime(n // 10, digits)\n    return n in digits\n\ndef all_right_truncatable_prime(numbers):\n    x = numbers[61]\n    primes = [2, 3, 5, 7]\n    for number in range(10, x):\n        if is_prime(number) and is_right_truncatable_prime(number, primes):\n            primes.append(number)\n    return sorted(primes)\n\n# Assuming numbers is a tuple of positive integers\nnumbers = tuple(range(1, 1000000))  # Example tuple, please provide the actual tuple\nresult = all_right_truncatable_prime(numbers)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 169,
+    "total_tokens": 454,
+    "completion_tokens": 285
+  }
+}

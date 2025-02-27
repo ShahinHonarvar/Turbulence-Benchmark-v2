@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-7ecead0bf08d4c5bafe6cc82cb5e2d1a",
+  "object": "chat.completion",
+  "created": 1725542834,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    sum_target = 59\n    result = []\n\n    def find_submatrices_rec(i, j, path=[]):\n        if i < 0 or j < 0:\n            return\n        if i == matrix.shape[0]:\n            return\n        if j == matrix.shape[1]:\n            i += 1\n            j = 0\n\n        if sum(np.sum(matrix[x, j:j+k]) for x, k in enumerate(path+[len(path)+1])) == sum_target:\n            result.append(matrix[len(path):i, j:j+len(path)+1])\n        \n        find_submatrices_rec(i, j+1, path + [i-len(path)])\n        find_submatrices_rec(i+1, j, path)\n\n    find_submatrices_rec(1, 0)\n    return result\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 126,
+    "total_tokens": 371,
+    "completion_tokens": 245
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-7891eb300c384fcdb416e7169591c89c",
+  "object": "chat.completion",
+  "created": 1725545517,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\nfrom itertools import product\n\ndef submatrix_with_n_numbers(matrix):\n    if not isinstance(matrix, np.ndarray):\n        raise ValueError(\"Input must be a two-dimensional numpy matrix\")\n    \n    n = 166\n    row, col = matrix.shape\n    count = 0\n    \n    for i, j, k, l in product(range(row), range(col), range(row), range(col)):\n        submatrix_size = (k - i + 1, l - j + 1)\n        if submatrix_size[0] * submatrix_size[1] == n:\n            submatrix = matrix[i:i+k, j:j+l]\n            submatrix_elements = np.sum(submatrix > 0)\n            if submatrix_elements == n:\n                count += 1\n    \n    return count\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 117,
+    "total_tokens": 334,
+    "completion_tokens": 217
+  }
+}

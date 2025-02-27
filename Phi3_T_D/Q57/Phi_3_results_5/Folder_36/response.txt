@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-ad0057f5877a4bb0b7fd15b59013d711",
+  "object": "chat.completion",
+  "created": 1725544754,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    def all_submatrices(matrix):\n        rows, cols = matrix.shape\n        for r_idx in range(rows):\n            for c_idx in range(cols):\n                for r_end in range(r_idx + 1, rows + 1):\n                    for c_end in range(c_idx + 1, cols + 1):\n                        yield matrix[r_idx:r_end, c_idx:c_end]\n\n    result = []\n    for submat in all_submatrices(matrix):\n        if submat.sum() == -779:\n            result.append(submat)\n\n    return result\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 127,
+    "total_tokens": 307,
+    "completion_tokens": 180
+  }
+}

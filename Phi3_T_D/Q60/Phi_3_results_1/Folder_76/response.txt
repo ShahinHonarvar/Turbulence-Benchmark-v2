@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-2e15747afe554c2e8bf66bf08f731f11",
+  "object": "chat.completion",
+  "created": 1725550909,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            return False\n    return True\n\ndef is_left_right_truncatable_prime(n):\n    if '0' in str(n):\n        return False\n    if not is_prime(n):\n        return False\n    n_str = str(n)\n    for i in range(1, len(n_str)):\n        if not is_prime(int(n_str[i:])) or not is_prime(int(n_str[:-i])):\n            return False\n    return True\n\ndef all_left_right_truncatable_prime(primes):\n    x = primes[370]\n    return sorted([p for p in range(2, x + 1) if is_left_right_truncatable_prime(p)], reverse=True)\n\n# Generating primes using the Sieve of Eratosthenes to optimize the above function\ndef generate_primes(n):\n    is_prime = [True] * (n + 1)\n    primes = []\n    for i in range(2, n + 1):\n        if is_prime[i]:\n            primes.append(i)\n            for j in range(i*i, n + 1, i):\n                is_prime[j] = False\n    return primes\n\n# Provide the tuple of prime numbers\nprime_numbers = generate_primes(10000)\nresult = all_left_right_truncatable_prime(prime_numbers)\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 208,
+    "total_tokens": 620,
+    "completion_tokens": 412
+  }
+}

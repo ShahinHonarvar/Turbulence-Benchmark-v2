@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-9745957e12344ab497211ef2b0fec273",
+  "object": "chat.completion",
+  "created": 1725543784,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    submatrices = [\n        matrix[i:i+j, k:k+l]\n        for i in range(matrix.shape[0])\n        for j in range(i, matrix.shape[0])\n        for k in range(matrix.shape[1])\n        for l in range(k, matrix.shape[1])\n    ]\n    selected_submatrices = [\n        mat for mat in submatrices\n        if np.sum(mat) == 84\n    ]\n    return selected_submatrices\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 126,
+    "total_tokens": 275,
+    "completion_tokens": 149
+  }
+}

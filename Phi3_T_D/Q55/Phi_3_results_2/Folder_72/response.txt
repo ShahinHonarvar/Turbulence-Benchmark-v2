@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-f12c4e7b1017491fb05bb73fc6b628fe",
+  "object": "chat.completion",
+  "created": 1725539590,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef lists_with_product_equal_n(numbers):\n    result = []\n\n    def helper(ind, cur_list, prod, size):\n        if prod == 10:\n            result.append(cur_list[:])\n            return\n        for i in range(ind, len(numbers) + ind):\n            n = numbers[i % len(numbers)]\n            if prod * n > 10:\n                return\n            if prod * n == 10:\n                result.append(cur_list + [n])\n                return\n            helper(i + 1, cur_list + [n], prod * n, size)\n            \n    helper(0, [], 1, len(numbers))\n    return result\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 203,
+    "total_tokens": 377,
+    "completion_tokens": 174
+  }
+}

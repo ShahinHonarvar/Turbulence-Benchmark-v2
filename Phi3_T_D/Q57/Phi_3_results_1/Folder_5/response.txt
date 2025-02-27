@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-87941b409dc346a4beb48718e85bdcf5",
+  "object": "chat.completion",
+  "created": 1725542757,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    output = []\n    rows, cols = matrix.shape\n    \n    for i in range(rows):\n        for j in range(cols):\n            for k in range(i, rows):\n                for l in range(j, cols):\n                    submatrix = matrix[i:k+1, j:l+1]\n                    if submatrix.sum() == -43:\n                        output.append(submatrix)\n    \n    return output\n\n# Example matrix to test the function\nmatrix = np.array([\n    [1, -2, 3],\n    [4, -10, -12],\n    [2, 2, 1]\n])\n\nsubmatrices = submatrix_with_particular_sum(matrix)\nfor submat in submatrices:\n    print(submat)\n```\n\nPlease note that this approach can be quite inefficient for large matrices since it uses four nested loops leading to a time complexity of O(n^4) for matrices with n rows and n columns. If you're dealing with larger matrices, you might want to consider more efficient algorithms.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 126,
+    "total_tokens": 404,
+    "completion_tokens": 278
+  }
+}

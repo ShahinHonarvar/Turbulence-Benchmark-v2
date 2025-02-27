@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-9e3cc61ac6e7472893b401df844af3bd",
+  "object": "chat.completion",
+  "created": 1725509089,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef find_subset_of_length_n(elements):\n    num_elements = len(elements)\n    result = 0\n    for i in range(1 << num_elements):\n        subset = [elements[j] for j in range(len(elements)) if (i & (1 << j))]\n        if len(subset) == 4:\n            result += 1\n    return result\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 87,
+    "total_tokens": 182,
+    "completion_tokens": 95
+  }
+}

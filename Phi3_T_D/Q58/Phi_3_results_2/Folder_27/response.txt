@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-f5e265ca75924f3dbd3a88ed228f34ee",
+  "object": "chat.completion",
+  "created": 1725545557,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix, n=77):\n    rows, cols = matrix.shape\n    count = 0\n    for r in range(rows):\n        for c in range(cols):\n            for k in range(min(r + 1, n), min(r + 1, rows) + 1):\n                for l in range(min(c + 1, n), min(c + 1, cols) + 1):\n                    if (matrix[r:r+k, c:c+l] == matrix[r:r+k, c:c+l]).all():\n                        count += 1\n    return count\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 116,
+    "total_tokens": 283,
+    "completion_tokens": 167
+  }
+}

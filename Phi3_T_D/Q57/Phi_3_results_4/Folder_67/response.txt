@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-2219286498cd4aa5b070a8ef42ee1ebd",
+  "object": "chat.completion",
+  "created": 1725544445,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    if not isinstance(matrix, np.ndarray):\n        raise ValueError(\"Input must be a numpy matrix of integers.\")\n    \n    result = []\n    rows, cols = matrix.shape\n    for r1 in range(rows):\n        for r2 in range(r1, rows):\n            for c1 in range(cols):\n                for c2 in range(c1, cols):\n                    submatrix_sum = np.sum(matrix[r1:r2+1, c1:c2+1])\n                    if submatrix_sum == 40:\n                        result.append(matrix[r1:r2+1, c1:c2+1])\n    return result\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 126,
+    "total_tokens": 314,
+    "completion_tokens": 188
+  }
+}

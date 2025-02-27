@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-21928b916c674401aef481490d877a7f",
+  "object": "chat.completion",
+  "created": 1725549529,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef all_left_truncatable_prime(tuple_of_integers):\n    def is_prime(n):\n        if n <= 1:\n            return False\n        for i in range(2, int(n ** 0.5) + 1):\n            if n % i == 0:\n                return False\n        return True\n\n    def is_left_truncatable(n, prime_set):\n        while n > 0:\n            if not is_prime(n):\n                return False\n            n //= 10\n        return True\n\n    x = tuple_of_integers[31]\n    prime_set = set()\n    left_truncatable_primes = []\n\n    for num in reversed(range(2, x)):\n        if num not in prime_set and is_left_truncatable(num, prime_set):\n            prime_set.add(num)\n            left_truncatable_primes.append(num)\n\n    return left_truncatable_primes\n\n# Usage example: \nresult = all_left_truncatable_prime((0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 100))\nprint(result)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 156,
+    "total_tokens": 555,
+    "completion_tokens": 399
+  }
+}

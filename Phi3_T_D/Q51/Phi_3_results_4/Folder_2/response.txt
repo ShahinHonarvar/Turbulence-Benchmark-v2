@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-1bb32396f1304b17b07809b79c53d728",
+  "object": "chat.completion",
+  "created": 1725530592,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(words):\n    from collections import defaultdict\n\n    def normalize(word):\n        return ''.join(sorted(word.lower()))\n\n    anagram_buckets = defaultdict(int)\n    for word in words:\n        if len(word) >= 3:\n            anagram_buckets[normalize(word)] += 1\n\n    anagram_pairs = sum(freq * (freq - 1) // 2 for freq in anagram_buckets.values())\n    \n    return anagram_pairs <= 81\n\n# Example usage:\n# result = if_contains_anagrams(['cat', 'dog', 'tac', 'god', 'act']) \n# print(result) # Output: True\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 148,
+    "total_tokens": 335,
+    "completion_tokens": 187
+  }
+}

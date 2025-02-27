@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-109295c2be214f798dbc6ff06074f034",
+  "object": "chat.completion",
+  "created": 1725505328,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef find_original_set(*args):\n    if len(args) != 64:\n        raise ValueError(\"Exactly 64 arguments are required\")\n    \n    result = set()\n    for arg in args:\n        if not isinstance(arg, set) or not all(isinstance(i, int) for i in arg):\n            raise TypeError(\"All arguments must be sets of integers\")\n        result.update(arg)\n    return result\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 98,
+    "total_tokens": 207,
+    "completion_tokens": 109
+  }
+}

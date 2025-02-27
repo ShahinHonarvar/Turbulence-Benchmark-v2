@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-c283e9a7496e478d94e1403ff762af56",
+  "object": "chat.completion",
+  "created": 1725548779,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n <= 1:\n        return False\n    if n <= 3:\n        return True\n    if n % 2 == 0 or n % 3 == 0:\n        return False\n    i = 5\n    while i * i <= n:\n        if n % i == 0 or n % (i + 2) == 0:\n            return False\n        i += 6\n    return True\n\ndef left_truncatable_prime(n):\n    n_str = str(n)\n    while len(n_str) > 1 and is_prime(int(n_str)):\n        n_str = n_str[1:]\n    return is_prime(n)\n\ndef all_left_truncatable_prime(numbers):\n    x = numbers[975]\n    truncable_primes = []\n    for i in range(x - 1, 0, -1):\n        if is_prime(i) and left_truncatable_prime(i):\n            truncable_primes.append(i)\n    return truncable_primes\n```\n\nYou can use the following line to test the function:\n\n```python\nprint(all_left_truncatable_prime((1, 2, 3, 4, 5, *[0] * 974, 10_000)))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 157,
+    "total_tokens": 495,
+    "completion_tokens": 338
+  }
+}

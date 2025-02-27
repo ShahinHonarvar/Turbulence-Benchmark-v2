@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-6b5877b5eb9d45bb891ffa23f4740f08",
+  "object": "chat.completion",
+  "created": 1725533494,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef expand_around_center(s, left, right):\n    palindromes = set()\n    while left >= 0 and right < len(s) and s[left].lower() == s[right].lower():\n        if right - left + 1 >= 22:\n            palindromes.add(s[left:right+1])\n        left -= 1\n        right += 1\n    return palindromes\n        \ndef palindrome_of_length_at_least_n(s):\n    s = ''.join(filter(str.isalpha, s)).lower()\n    result = set()\n    for i in range(len(s)):\n        # Odd length palindromes\n        result.update(expand_around_center(s, i, i))\n        # Even length palindromes\n        result.update(expand_around_center(s, i, i+1))\n    return result\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 155,
+    "total_tokens": 381,
+    "completion_tokens": 226
+  }
+}

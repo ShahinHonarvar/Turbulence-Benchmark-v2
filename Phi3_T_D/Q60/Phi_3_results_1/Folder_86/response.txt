@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-713b90c0954b4ccdaf20fc8adec6a424",
+  "object": "chat.completion",
+  "created": 1725550986,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(num):\n    if num < 2:\n        return False\n    for i in range(2, int(num**0.5) + 1):\n        if num % i == 0:\n            return False\n    return True\n\ndef all_left_right_truncatable_prime(numbers):\n    max_val = numbers[125]\n\n    left_truncatable, right_truncatable = set(), set()\n    for num in range(11, max_val + 1):\n        if is_prime(num):\n            s = str(num)\n            left_checked = True\n            right_checked = True\n            for i in range(1, len(s)):\n                if not is_prime(int(s[i:])):\n                    left_checked = False\n                if not is_prime(int(s[:-i])):\n                    right_checked = False\n            if left_checked and right_checked:\n                left_truncatable.add(num)\n                right_truncatable.add(num)\n\n    result = list(left_truncatable.intersection(right_truncatable))\n    result.sort(reverse=True)\n    return result\n```\n\n### Explanation:\n\n1. The function `is_prime` is a helper function that checks if a number is prime. It returns `True` if the number is prime, and `False` otherwise.\n\n2. The main function `all_left_right_truncatable_prime` takes a tuple of positive integers as an argument. The integer at index 126 represents the max value in the range to search for left-and-right-truncatable prime numbers.\n\n3. Two sets, `left_truncatable` and `right_truncatable` are used to store the left-and-right-truncatable prime numbers.\n\n4. Iterate through potential prime numbers between 11 and the value at index 126 in the tuple.\n    - If the number is prime, check both the left-and-right truncatability conditions.\n    - If both conditions hold, the number is added to both sets.\n\n5. The result is obtained by finding the intersection of both sets to find numbers that are both left-and-right-truncatable primes.\n\n6. The result is sorted in descending order and returned. If no such prime numbers exist in the range, the function returns an empty list.\n\nNote that the code calculates the values for left-and-right-truncatable primes only up to the maximum value at index 125 in the input tuple, so index 126 is not actually used in the function. Instead, the maximum value in the range is accessed using `numbers[125]`.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 208,
+    "total_tokens": 863,
+    "completion_tokens": 655
+  }
+}

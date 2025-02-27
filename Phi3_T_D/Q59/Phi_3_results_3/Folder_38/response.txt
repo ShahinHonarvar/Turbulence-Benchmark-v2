@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-7b9a5c70b732498faa014bfe382bd9f0",
+  "object": "chat.completion",
+  "created": 1725548635,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef is_prime(n):\n    if n <= 1:\n        return False\n    if n <= 3:\n        return True\n    if n % 2 == 0 or n % 3 == 0:\n        return False\n    i = 5\n    while i * i <= n:\n        if n % i == 0 or n % (i + 2) == 0:\n            return False\n        i += 6\n    return True\n\ndef right_truncatable_prime(prime, primes_set):\n    if prime == 0 or prime == 1:\n        return True\n    return all(right_truncatable_prime(int(str(prime)[:-i]), primes_set) for i in range(1, len(str(prime))))\n\ndef all_left_truncatable_prime(numbers):\n    x = numbers[28]\n    primes = [i for i in range(2, x) if is_prime(i)]\n    left_truncatables = [prime for prime in primes if right_truncatable_prime(prime, set(primes))]\n    return sorted(left_truncatables)\n\n# Assuming the tuple contains at least 29 positive integers\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 156,
+    "total_tokens": 451,
+    "completion_tokens": 295
+  }
+}

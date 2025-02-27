@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-a5444ea5c4ec45b888538e3a357e044e",
+  "object": "chat.completion",
+  "created": 1725542951,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    submatrices = []\n    n, m = matrix.shape\n\n    def check_submatrix(r1, c1, r2, c2):\n        return np.sum(matrix[r1:r2+1, c1:c2+1]) == 416\n\n    for rows in range(n):\n        for cols in range(m):\n            for final_rows in range(rows, n + 1):\n                for final_cols in range(cols, m + 1):\n                    if check_submatrix(rows, cols, final_rows, final_cols):\n                        submatrix = matrix[rows:final_rows+1, cols:final_cols+1]\n                        submatrices.append(submatrix)\n\n    return submatrices\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 127,
+    "total_tokens": 334,
+    "completion_tokens": 207
+  }
+}

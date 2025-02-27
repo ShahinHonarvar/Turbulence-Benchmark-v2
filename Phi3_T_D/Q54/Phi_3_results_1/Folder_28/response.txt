@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-c44236b40fa145b0bce0cc74d26f02ec",
+  "object": "chat.completion",
+  "created": 1725535476,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef all_right_truncatable_prime(numbers_tuple):\n    x = numbers_tuple[19]\n    right_truncatable = []\n\n    def is_prime(num):\n        if num < 2:\n            return False\n        for i in range(2, int(num**0.5) + 1):\n            if num % i == 0:\n                return False\n        return True\n\n    def is_right_truncatable(prefix, n):\n        if not is_prime(n):\n            return False\n        if len(str(prefix)) + 1 == len(str(n)):\n            return True\n        return is_right_truncatable(prefix + str(n), n) // 10\n\n    for num in range(2, x):\n        if is_right_truncatable('', num):\n            right_truncatable.append(num)\n\n    return sorted(right_truncatable)\n\n# You can test the function with a tuple argument like this:\nresult = all_right_truncatable_prime((0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70))\nprint(result)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 169,
+    "total_tokens": 547,
+    "completion_tokens": 378
+  }
+}

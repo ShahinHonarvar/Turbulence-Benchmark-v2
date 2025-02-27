@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-99ea181c6d2e4070bdce09641cba3e7b",
+  "object": "chat.completion",
+  "created": 1725542904,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    rows, cols = matrix.shape\n    result = []\n\n    def check_sum(row_start, col_start, row_end, col_end):\n        return np.sum(matrix[row_start:row_end, col_start:col_end]) == -82\n\n    for rows_start in range(rows):\n        for cols_start in range(cols):\n            for rows_end in range(rows_start+1, rows+1):\n                for cols_end in range(cols_start+1, cols+1):\n                    if check_sum(rows_start, cols_start, rows_end, cols_end):\n                        result.append(matrix[rows_start:rows_end, cols_start:cols_end])\n\n    return result\n\n# Example usage:\n# matrix = np.array([[1, 2, 3], [4, 5, 6], [7, 8, -40]])\n# print(submatrix_with_particular_sum(matrix))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 126,
+    "total_tokens": 391,
+    "completion_tokens": 265
+  }
+}

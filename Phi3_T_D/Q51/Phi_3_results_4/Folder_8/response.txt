@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-746b9d9b16684e54b71c37e48713f3fa",
+  "object": "chat.completion",
+  "created": 1725530615,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(words):\n    from collections import defaultdict\n    \n    def count_chars(word):\n        return ''.join(sorted(word.lower()))\n    \n    freq_dict = defaultdict(int)\n    pairs = 0\n    \n    for word in words:\n        if len(word) >= 3:\n            char_count = count_chars(word)\n            pairs += freq_dict[char_count]\n            freq_dict[char_count] += 1\n            if pairs > 68:\n                return False\n    return True\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 148,
+    "total_tokens": 294,
+    "completion_tokens": 146
+  }
+}

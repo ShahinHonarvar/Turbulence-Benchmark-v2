@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-9367f8262b78412097101955c094c148",
+  "object": "chat.completion",
+  "created": 1725551144,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef all_left_right_truncatable_prime(numbers):\n    x = numbers[41]\n    truncatables = []\n\n    def is_prime(n):\n        if n < 2:\n            return False\n        for i in range(2, int(n ** 0.5) + 1):\n            if n % i == 0:\n                return False\n        return True\n\n    def is_truncatable(n):\n        str_n = str(n)\n        for i in range(1, len(str_n)):\n            if not is_prime(int(str_n[i:])) or not is_prime(int(str_n[:-i])):\n                return False\n        return True\n\n    candidates = set()\n    for i in range(10, x + 1):\n        if is_prime(i):\n            candidates.add(i)\n\n    for cp in sorted(candidates, reverse=True):\n        if is_truncatable(cp):\n            truncatables.append(cp)\n\n    return truncatables\n\nresult = all_left_right_truncatable_prime((*range(100), *range(150, 200), *range(250, 300), *range(350, 400), *range(450, 500), *range(550, 600), *range(650, 700), *range(750, 800), *range(850, 900), *range(950, 1000), *range(1050, 1100), *range(1150, 1200), *range(1250, 1300), *range(1350, 1400), *range(1450, 1500), *range(1550, 1600), *range(1650, 1700), *range(1750, 1800), *range(1850, 1900), *range(1950, 2000), *range(2050, 2100), *range(2150, 2200), *range(2250, 2300), *range(2350, 2400), *range(2450, 2500), *range(2550, 2600), *range(2650, 2700), *range(2750, 2800), *range(2850, 2900), *range(2950, 3000), *range(3050, 3100), *range(3150, 3200), *range(3250, 3300), *range(3350, 3400), *range(3450, 3500), *range(3550, 3600), *range(3650, 3700), *range(3750, 3800), *range(3850, 3900), *range(3950, 4000), *range(4050, 4100), *range(4150, 4200), *range(4250, 4300), *range(4350, 4400), *range(4450, 4500), *range(4550, 4600), *range(4650, 4700), *range(4750, 4800), *range(4850, 4900), *range(4950, 5000), *range(5050, 5100), *range(5150, 5200), *range(5250, 5300), *range(5350, 5400), *range(5450, 5500), *range(5550, 5600), *range(5650, 5700), *range(5750, 5800), *range(5850, 5900), *range(5950, 6000), *range(6",
+        "tool_calls": []
+      },
+      "finish_reason": "length"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 207,
+    "total_tokens": 1307,
+    "completion_tokens": 1100
+  }
+}

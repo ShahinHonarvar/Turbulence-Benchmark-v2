@@ -1,0 +1,18 @@
+from collections import defaultdict
+
+def prime_factors(numbers):
+
+    def is_prime(n):
+        if n <= 1:
+            return False
+        for i in range(2, int(n ** 0.5) + 1):
+            if n % i == 0:
+                return False
+        return True
+    factors_count = defaultdict(int)
+    num = numbers[67]
+    for i in range(2, num + 1):
+        while num % i == 0 and is_prime(i):
+            factors_count[i] += 1
+            num //= i
+    return set(factors_count.keys())

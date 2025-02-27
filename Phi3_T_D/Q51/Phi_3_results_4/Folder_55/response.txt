@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-55a9b0ec10cd4366b350a1a4555c6894",
+  "object": "chat.completion",
+  "created": 1725530814,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nfrom itertools import combinations\n\ndef are_anagrams(str1, str2):\n    return sorted(str1.lower().replace(\" \", \"\")) == sorted(str2.lower().replace(\" \", \"\"))\n\ndef if_contains_anagrams(lst):\n    count = 0\n    for i in range(len(lst)):\n        for j in range(i+1, len(lst)):\n            if are_anagrams(lst[i], lst[j]) and len(lst[i]) >= 3 and len(lst[j]) >= 3:\n                count += 1\n                if count > 44:\n                    return False\n    return True\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 148,
+    "total_tokens": 308,
+    "completion_tokens": 160
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-8e5eb16ec4774301b4a28208543d4d09",
+  "object": "chat.completion",
+  "created": 1725529766,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(strings):\n    from collections import defaultdict\n    \n    def normalize(s):\n        return ''.join(sorted(s.lower()))\n    \n    string_groups = defaultdict(list)\n    for string in strings:\n        if len(string) >= 3:\n            normalized = normalize(string)\n            string_groups[normalized].append(string)\n    \n    anagram_count = sum(len(group) * (len(group) - 1) // 2 for group in string_groups.values() if len(group) > 1)\n    return anagram_count <= 69\n\n# Example usage:\n# result = if_contains_anagrams(['listen', 'enlist', 'google', 'gooegl', 'banana'])\n# print(result)  # Should output True since there are only 2 pairs of anagrams\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 148,
+    "total_tokens": 367,
+    "completion_tokens": 219
+  }
+}

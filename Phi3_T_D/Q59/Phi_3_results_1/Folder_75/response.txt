@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-60a5db15a66c444b819b9ccc331b83b0",
+  "object": "chat.completion",
+  "created": 1725547570,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    \"\"\"Check if a number is prime.\"\"\"\n    if n < 2:\n        return False\n    for i in range(2, int(n**0.5)+1):\n        if n % i == 0:\n            return False\n    return True\n\ndef is_truncatable_prime(n):\n    \"\"\"Check if a number is left-truncatable prime.\"\"\"\n    if not is_prime(n):\n        return False\n    \n    str_n = str(n)\n    for i in range(1, len(str_n)):\n        if not is_prime(int(str_n[i:])):\n            return False\n    return True\n\ndef all_left_truncatable_prime(numbers):\n    x = numbers[41]\n    return sorted([n for n in range(x, 0, -1) if is_truncatable_prime(n)])\n\n# Example usage:\n# numbers = (100,) * 42 + (1000,)  # Fill with increasing positive integers up to 1000\n# print(all_left_truncatable_prime(numbers))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 156,
+    "total_tokens": 444,
+    "completion_tokens": 288
+  }
+}

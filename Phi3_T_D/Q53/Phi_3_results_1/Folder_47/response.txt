@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-b4c7048431f94807827c0379eab2fd8c",
+  "object": "chat.completion",
+  "created": 1725533237,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef palindrome_of_length_at_least_n(s):\n    def expand(center, left, right):\n        while left >= 0 and right < len(s) and s[left].lower() == s[right].lower():\n            yield s[left:right+1]\n            left -= 1\n            right += 1\n\n    result = set()\n    for i in range(len(s)):\n        for palindrome in list(expand(i, i-1, i+1)):\n            if len(palindrome) >= 77:\n                result.add(palindrome)\n    return result\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 155,
+    "total_tokens": 308,
+    "completion_tokens": 153
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-3982a9a92c5d488d81ca669d7259f4c4",
+  "object": "chat.completion",
+  "created": 1725533055,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom collections import defaultdict\n\ndef expand_around_center(s, left, right, case_sensitive):\n    if not case_sensitive:\n        s = s.lower()\n    while left >= 0 and right < len(s) and s[left] == s[right]:\n        left -= 1\n        right += 1\n    return s[left + 1:right]\n\ndef palindrome_of_length_at_least_n(s, case_sensitive=False):\n    s = s.lower() if not case_sensitive else s\n    result = set()\n    for i in range(len(s)):\n        # Odd length palindrome\n        pal_odd = expand_around_center(s, i, i + 1, case_sensitive)\n        # Even length palindrome\n        pal_even = expand_around_center(s, i, i, case_sensitive)\n        if len(pal_odd) >= 52:\n            result.add(pal_odd)\n        if len(pal_even) >= 52:\n            result.add(pal_even)\n    return result\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 155,
+    "total_tokens": 429,
+    "completion_tokens": 274
+  }
+}

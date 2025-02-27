@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-f7d77e5447b34c73a700bc3a29b72089",
+  "object": "chat.completion",
+  "created": 1725513103,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\n\ndef prime_factors(numbers):\n\n    def get_prime_factors(n):\n\n        factors = set()\n\n        while n % 2 == 0:\n\n            factors.add(2)\n\n            n //= 2\n\n        for i in range(3, int(n**0.5) + 1, 2):\n\n            while n % i == 0:\n\n                factors.add(i)\n\n                n //= i\n\n        if n > 2:\n\n            factors.add(n)\n\n        return factors\n\n\n    if len(numbers) > 93:\n\n        return get_prime_factors(numbers[93])\n\n    else:\n\n        raise IndexError(\"List doesn't have the element at index 93\")\n\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 87,
+    "total_tokens": 282,
+    "completion_tokens": 195
+  }
+}

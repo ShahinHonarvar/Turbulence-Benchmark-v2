@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-6841fbe350494304bf045c1d918fb416",
+  "object": "chat.completion",
+  "created": 1725531392,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(strings):\n    lowered_strings = [''.join(sorted(s.lower())) for s in strings]\n    hash_map = {}\n    anagrams_count = 0\n\n    for string in lowered_strings:\n        if len(string) >= 3:\n            if string in hash_map:\n                anagrams_count += hash_map[string]\n                hash_map[string] += 1\n            else:\n                hash_map[string] = 1\n\n    return anagrams_count <= 79\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 148,
+    "total_tokens": 290,
+    "completion_tokens": 142
+  }
+}

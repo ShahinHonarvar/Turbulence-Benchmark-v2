@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-8d814f0f4d864caf994494758b591691",
+  "object": "chat.completion",
+  "created": 1725508473,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef filter_chars(s):\n    idx_start, idx_end = 69, 80\n    filter_chars = (chr(i) for i in range(ord('@'), ord('p') + 1))\n\n    return ''.join(c for c in s if not (idx_start <= s.index(c) <= idx_end and c in filter_chars)) if len(s) > idx_end else s\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 145,
+    "total_tokens": 253,
+    "completion_tokens": 108
+  }
+}

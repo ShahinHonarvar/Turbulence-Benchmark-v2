@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-614fdc0d86f446e786bf2bd09f482986",
+  "object": "chat.completion",
+  "created": 1725531240,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nfrom collections import defaultdict\n\ndef if_contains_anagrams(strings):\n    def alphabet_position(s):\n        alphabet = 'abcdefghijklmnopqrstuvwxyz'\n        return ''.join(sorted(s.lower()))\n\n    anagrams = defaultdict(list)\n    \n    for string in strings:\n        if len(string) >= 3:\n            anagrams[alphabet_position(string)].append(string)\n\n    count = 0\n    for key in anagrams:\n        count += len(anagrams[key]) * (len(anagrams[key]) - 1) // 2\n\n    return count <= 61\n\n# Example usage:\n# result = if_contains_anagrams([\"listen\", \"enlists\", \"google\", \"inlets\", \"banana\"])\n# print(result) # True or False depending on the input list\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 148,
+    "total_tokens": 367,
+    "completion_tokens": 219
+  }
+}

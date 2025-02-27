@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-33939eb8b3a94128b5d0974400e40930",
+  "object": "chat.completion",
+  "created": 1725547215,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef all_left_truncatable_prime(numbers):\n    x = numbers[429]\n    primes = [2, 3, 5, 7]\n    \n    for num in range(11, x, 2):\n        if all(num % prime != 0 for prime in primes):\n            primes.append(num)\n    \n    left_truncatable = []\n    \n    for prime in primes:\n        str_prime = str(prime)\n        temp_prime = prime\n        \n        while len(str_prime) > 1:\n            if temp_prime % 10 == 0 or not is_prime(temp_prime):\n                break\n            temp_prime = temp_prime // 10\n            str_prime = str_prime[1:]\n        \n        if len(str_prime) == 1 and is_prime(prime):\n            left_truncatable.append(prime)\n    \n    return sorted(left_truncatable, reverse=True)\n\n\ndef is_prime(n):\n    if n <= 1:\n        return False\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            return False\n    return True\n```\n\n```python\nnumbers = ...  # The tuple of positive integers provided as an argument\nresult = all_left_truncatable_prime(numbers)\nprint(result)  # This will print the list of all left-truncatable prime numbers less than x in descending order\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 157,
+    "total_tokens": 531,
+    "completion_tokens": 374
+  }
+}

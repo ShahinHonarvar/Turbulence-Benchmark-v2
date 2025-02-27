@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-0514582f9f804595acca7ff34eebe3ea",
+  "object": "chat.completion",
+  "created": 1725519889,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef palindromes_between_indices(s):\n    from itertools import permutations\n\n    middle = s[2:7].lower()\n    letter_counts = {}\n    for letter in middle:\n        if letter.isalpha():\n            letter_counts[letter] = letter_counts.get(letter, 0) + 1\n\n    min_odd_count = 0\n    for count in letter_counts.values():\n        if count % 2 == 1:\n            min_odd_count += 1\n            if min_odd_count > 1:\n                return set()\n\n    if min_odd_count == 1:\n        middle_length = len(middle)\n        for letter, count in letter_counts.items():\n            letter_counts[letter] = (count + 1) // 2\n\n        half_palindromes = [letter * (count // 2) for letter, count in letter_counts.items()]\n        half_palindromes.sort()\n\n        palindromes = set()\n        for perm in permutations(half_palindromes):\n            palindrome = ''.join(perm) + middle[middle_length // 2] * min_odd_count + ''.join(reversed(perm))\n            if len(palindrome) >= 5:\n                palindromes.add(palindrome)\n\n        return palindromes\n\n    half_length = (len(middle) - min_odd_count) // 2\n    half_palindromes = [letter * (count // 2) for letter, count in letter_counts.items()]\n    half_palindromes.sort()\n\n    palindromes = {''.join(perm) + ''.join(reversed(perm)) for perm in permutations(half_palindromes)}\n    return set(p for p in palindromes if len(p) >= 5)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 192,
+    "total_tokens": 662,
+    "completion_tokens": 470
+  }
+}

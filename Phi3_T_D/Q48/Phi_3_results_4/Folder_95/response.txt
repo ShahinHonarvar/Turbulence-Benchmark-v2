@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-bf27b749ca9a4361821b78ae3030d03c",
+  "object": "chat.completion",
+  "created": 1725525061,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef return_binary_or_hexa(sorted_non_neg_ints):\n    a, b = sorted_non_neg_ints[32], sorted_non_neg_ints[99]\n    missing_sum = sum(set(range(a + 1, b)) - set(sorted_non_neg_ints[32:99]))\n\n    if missing_sum == 0:\n        return ''\n\n    if missing_sum % 2:\n        return bin(missing_sum)[2:]\n\n    return hex(missing_sum)[2:]\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 289,
+    "total_tokens": 428,
+    "completion_tokens": 139
+  }
+}

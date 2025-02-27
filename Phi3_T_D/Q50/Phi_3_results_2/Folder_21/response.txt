@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-5332037c2ba1437b9cad85cd33c8d569",
+  "object": "chat.completion",
+  "created": 1725527667,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef if_contains_anagrams(strings_list):\n    def normalize(s):\n        return ''.join(sorted(s.lower()))\n\n    anagram_counts = {}\n    for string in strings_list:\n        if len(string) < 3:\n            continue\n        norm_str = normalize(string)\n        anagram_counts[norm_str] = anagram_counts.get(norm_str, 0) + 1\n\n    return sum(count * (count - 1) // 2 for count in anagram_counts.values()) >= 136\n\n# Example usage:\n# result = if_contains_anagrams(['bat', 'tab', 'cat', 'act', 'racecar', ...])\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 135,
+    "total_tokens": 319,
+    "completion_tokens": 184
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-d0b223ade4b84bb0adef24984ba07e71",
+  "object": "chat.completion",
+  "created": 1725549802,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nfrom sympy import isprime\n\ndef all_left_truncatable_prime(t):\n    x = t[36]\n    primes = [i for i in range(2, x) if isprime(i)]\n    left_truncatable = []\n    for prime in primes:\n        P = str(prime)\n        if all(isprime(int(P[i:])) and '0' not in P[i:] for i in range(len(P))):\n            left_truncatable.append(prime)\n    return sorted(left_truncatable, reverse=True)\n\n# Here's how you would call the function with a tuple containing 37 positive integers.\n# result = all_left_truncatable_prime(tuple(range(1, 38)))\n# print(result)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 156,
+    "total_tokens": 357,
+    "completion_tokens": 201
+  }
+}

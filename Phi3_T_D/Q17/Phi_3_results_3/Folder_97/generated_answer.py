@@ -1,0 +1,3 @@
+def all_ints_div_by_both_two_nums(nums):
+    divisible_nums = [num for i, num in enumerate(nums[58:76]) if num % 72 == 0 and num % 62 == 0]
+    return divisible_nums

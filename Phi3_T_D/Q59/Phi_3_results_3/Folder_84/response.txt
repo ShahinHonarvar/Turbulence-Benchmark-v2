@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-9f6c373b34ae452389a00d7af2312653",
+  "object": "chat.completion",
+  "created": 1725548942,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n <= 1:\n        return False\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            return False\n    return True\n\ndef all_left_truncatable_primes(bounds):\n    x = bounds[630]\n    left_truncatable_primes = []\n    for number in range(7, x, 2):  # 2 and 5 are not left-truncatable primes\n        num_str = str(number)\n        if all(is_prime(int(num_str[i:])) for i in range(len(num_str))):\n            left_truncatable_primes.append(number)\n    return sorted(left_truncatable_primes, reverse=True)\n\n# Assuming we have a tuple of positive integers\nexample_tuple = (1, 2, 3, ..., 630_value)\nprint(all_left_truncatable_primes(example_tuple))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 157,
+    "total_tokens": 420,
+    "completion_tokens": 263
+  }
+}

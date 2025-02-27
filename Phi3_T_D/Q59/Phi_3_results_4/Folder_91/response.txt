@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-b047ca203dd946abadc7c21a0ae05f7c",
+  "object": "chat.completion",
+  "created": 1725549644,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n <= 1:\n        return False\n    i = 2\n    while i * i <= n:\n        if n % i:\n            i += 1\n        else:\n            return False\n    return True\n\ndef is_left_truncatable_prime(n, sieve):\n    while n > 0:\n        if n not in sieve or not is_prime(n):\n            return False\n        n = n % 100 // 10\n    return True\n\ndef all_left_truncatable_prime(numbers):\n    x = numbers[0]\n    sieve = set(prime for prime in range(2, x) if is_prime(prime))\n    left_truncatable_primes = [prime for prime in sieve if is_left_truncatable_prime(prime, sieve)]\n    return left_truncatable_primes[::-1]\n\n# Example usage:\nprimes = all_left_truncatable_prime((1000,))\nprint(primes)\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 155,
+    "total_tokens": 421,
+    "completion_tokens": 266
+  }
+}

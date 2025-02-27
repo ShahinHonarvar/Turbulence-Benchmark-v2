@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-6a04c736443d4bf08ded880ce9bcdb1a",
+  "object": "chat.completion",
+  "created": 1725553452,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef all_left_right_truncatable_prime(numbers):\n    if not (0 < len(numbers) <= 100):\n        raise ValueError(\"Input tuple must contain exactly 100 positive integers.\")\n    x = numbers[96]\n    is_prime = {2, 3, 5, 7}.issuperset or any(x % i == 0 for i in range(2, int(x**0.5) + 1))\n\n    def generate_truncatable_primes(base):\n        primes = []\n        for prime in base_primes:\n            if prime > x:\n                break\n\n            temp = prime\n            while temp > 0:\n                str_temp = str(temp)\n                if not all(c not in \"024568\" for c in str_temp):\n                    break\n                if is_prime_from_to(int(str_temp), int(str_temp), primes_set):\n                    primes.append(temp)\n                temp = temp // 10\n        return primes\n\n    def all_prime(n, primes):\n        return not any(n % p == 0 for p in primes)\n\n    def is_prime_from_to(start, end, primes):\n        return all_prime(start, primes) and (end == start or all_prime(start, primes))\n\n    base_primes = list(range(3, x, 2))[:97]\n    primes_set = set(base_primes)\n    truncatable_primes = []\n\n    for prime in base_primes:\n        truncatable_primes.extend(generate_truncatable_primes(prime))\n\n    return sorted(truncatable_primes, reverse=True)\n\nif __name__ == \"__main__\":\n    # Example usage with random tuple of 100 primes, the 96th might not be truncatable\n    primes = tuple(sorted(set(random.sample(range(2, 1000), 100))))\n    print(all_left_right_truncatable_prime(primes))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 207,
+    "total_tokens": 736,
+    "completion_tokens": 529
+  }
+}

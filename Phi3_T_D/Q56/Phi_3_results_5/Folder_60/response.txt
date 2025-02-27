@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-b13d0a10a0714e74a5908f64b2662cf9",
+  "object": "chat.completion",
+  "created": 1725542621,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef all_substring_of_size_n(s):\n    from collections import defaultdict\n    \n    if len(s) < 36:\n        return []\n\n    seen_chars = defaultdict(bool)\n    substr_set = set()\n\n    for i in range(len(s) - 35):\n        if all(seen_chars[c] == False for c in s[i:i+36]):\n            substr_set.add(s[i:i+36])\n            for c in s[i:i+36]:\n                seen_chars[c] = True\n\n    return list(substr_set)\n\n# Example usage:\n# substrings = all_substring_of_size_n(\"yourstringhere\")\n# print(substrings)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 130,
+    "total_tokens": 323,
+    "completion_tokens": 193
+  }
+}

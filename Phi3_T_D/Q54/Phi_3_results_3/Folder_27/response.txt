@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-89cae3e6443b467ab5a10b8da8c80824",
+  "object": "chat.completion",
+  "created": 1725536841,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n <= 1:\n        return False\n    if n <= 3:\n        return True\n    if n % 2 == 0 or n % 3 == 0:\n        return False\n    i = 5\n    while i * i <= n:\n        if n % i == 0 or n % (i + 2) == 0:\n            return False\n        i += 6\n    return True\n\ndef truncate_right(n):\n    return {int(str(n)[:i]) for i in range(len(str(n)), 0, -1)}\n\ndef all_right_truncatable_prime(numbers):\n    x = numbers[79]\n    truncatable_primes = {}\n    for i in range(2, x):\n        if all(is_prime(n) for n in truncate_right(i)):\n            truncatable_primes[i] = True\n    return sorted(truncatable_primes.keys(), reverse=True)\n```\n\nThis Python code defines three functions:\n\n- `is_prime(n)` checks if a number `n` is prime.\n- `truncate_right(n)` generates all right-truncatable parts of a number `n`.\n- `all_right_truncatable_prime(numbers)` iterates over a range of numbers (up to the 79th value in the tuple), checking if each number is a right-truncatable prime by calling `is_prime(n)` for each right-truncatable part, and if it is, adds the number to a dictionary of right-truncatable primes.\n\nFinally, the function returns the sorted keys of that dictionary, in descending order.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 169,
+    "total_tokens": 585,
+    "completion_tokens": 416
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-11448416b25b41b7a079f56513ae2150",
+  "object": "chat.completion",
+  "created": 1725527920,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(strings_list):\n    from collections import Counter\n    \n    def is_anagram(str1, str2):\n        return Counter(str1.lower()) == Counter(str2.lower()) and len(str1) >= 3 and len(str2) >= 3\n    \n    count = 0\n    for i in range(len(strings_list)):\n        for j in range(i+1, len(strings_list)):\n            if is_anagram(strings_list[i], strings_list[j]):\n                count += 1\n    \n    return count >= 73\n\n# Example usage:\nstrings_list = ['dormitory', 'dirty room', 'listen', 'silent', 'enlist', 'BANANA', 'BANANA', 'banana']\nresult = if_contains_anagrams(strings_list)\nprint(result)  # Output: True or False based on the content of strings_list.\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 134,
+    "total_tokens": 373,
+    "completion_tokens": 239
+  }
+}

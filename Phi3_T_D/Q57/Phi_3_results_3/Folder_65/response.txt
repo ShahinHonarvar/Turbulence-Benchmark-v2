@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-ae070d73d2a141d38ea909b3c661bfc3",
+  "object": "chat.completion",
+  "created": 1725543962,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    m, n = matrix.shape\n    submatrices = []\n\n    for i in range(m):\n        for j in range(n):\n            for size in range(1, min(m-i, n-j) + 1):\n                for p in range(i, i + size):\n                    for q in range(j, j + size):\n                        sub_matrix = matrix[i:p+1, j:q+1]\n                        if sub_matrix.sum() == 78:\n                            submatrices.append(sub_matrix)\n\n    return submatrices\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 126,
+    "total_tokens": 292,
+    "completion_tokens": 166
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-ae80a62dcafe4fb9a1ac62dc2eb32b92",
+  "object": "chat.completion",
+  "created": 1725542821,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    rows, cols = matrix.shape\n    result = []\n\n    for i in range(rows):\n        for j in range(cols):\n            for size in range(1, min(rows - i, cols - j) + 1):\n                submatrix = matrix[i:i+size, j:j+size]\n                if submatrix.sum() == -57:\n                    result.append(submatrix)\n                    \n    return result\n```\n\nNote: This python code does not optimize for the search of all submatrices with a sum of -57 in the given 2D numpy matrix. It switches sequentially through all possible submatrices. Depending on the size of the matrix, this may not be efficient.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 126,
+    "total_tokens": 315,
+    "completion_tokens": 189
+  }
+}

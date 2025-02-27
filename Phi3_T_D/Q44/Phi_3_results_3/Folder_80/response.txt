@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-71ee6d614a1f4de2a6b0bec0729d69d2",
+  "object": "chat.completion",
+  "created": 1725516942,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef composite_nums_between_indices(numbers):\n    def is_prime(num):\n        if num < 2:\n            return False\n        for i in range(2, int(num ** 0.5) + 1):\n            if num % i == 0:\n                return False\n        return True\n\n    composite_numbers_set = set()\n\n    for i in range(62, 79):\n        if not is_prime(numbers[i]):\n            composite_numbers_set.add(numbers[i])\n\n    return composite_numbers_set\n\n# Example usage:\n# numbers_list = [5, 4, 6, ..., 29]  # List with positive integers\n# result = composite_nums_between_indices(numbers_list)\n# print(result)  # Should print the set of composite numbers between indices 62 and 78\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 125,
+    "total_tokens": 342,
+    "completion_tokens": 217
+  }
+}

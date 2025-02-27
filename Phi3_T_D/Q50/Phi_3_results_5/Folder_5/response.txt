@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-515301ecc95940a08a9b1a5b63ad4cf7",
+  "object": "chat.completion",
+  "created": 1725528846,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef if_contains_anagrams(strings):\n    from collections import defaultdict\n\n    def count_chars(s):\n        return sorted(s.lower())\n\n    counts = defaultdict(list)\n    for string in strings:\n        if len(string) >= 3:\n            key = tuple(count_chars(string))\n            counts[key].append(string)\n\n    anagram_pairs = sum(len(v) >= 2 for v in counts.values())\n    return anagram_pairs >= 21\n\n# Example usage:\nexample_list = ['aba', 'bab', 'abc', 'bac', 'bbb', 'aaa', 'cab']\nprint(if_contains_anagrams(example_list))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 134,
+    "total_tokens": 317,
+    "completion_tokens": 183
+  }
+}

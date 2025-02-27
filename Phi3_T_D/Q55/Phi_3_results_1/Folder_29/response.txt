@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-b5700a7f121f4da4b68790cca63f65f5",
+  "object": "chat.completion",
+  "created": 1725538843,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef lists_with_product_equal_n(lst):\n    product = 15\n    num_len = len(lst)\n    subsets = []\n\n    for i in range(num_len):\n        for j in range(i, num_len * 2):\n            temp_product = 1\n            sublist = []\n            for k in range(i, j % num_len + 1):\n                sublist.append(lst[k % num_len])\n                temp_product *= lst[k % num_len]\n                if temp_product == product:\n                    subsets.append(sublist)\n\n    return subsets\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 203,
+    "total_tokens": 360,
+    "completion_tokens": 157
+  }
+}

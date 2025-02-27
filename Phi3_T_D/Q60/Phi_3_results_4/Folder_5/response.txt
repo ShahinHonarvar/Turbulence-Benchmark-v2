@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-6b87a177f3f34d3b9358f8fd099a37d0",
+  "object": "chat.completion",
+  "created": 1725552698,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            return False\n    return True\n\ndef is_truncatable_prime(prime):\n    str_prime = str(prime)\n    for i in range(1, len(str_prime)):\n        if not is_prime(int(str_prime[i:])) or not is_prime(int(str_prime[:-i])):\n            return False\n    return True\n\ndef all_left_right_truncatable_prime(numbers):\n    x = numbers[55]\n    truncatable_primes = []\n    for num in range(23, x + 1):\n        if is_truncatable_prime(num):\n            truncatable_primes.append(num)\n    return truncatable_primes\n```\n\n``` python\n# To use the function, pass a tuple containing the integers as the argument.\nprint(all_left_right_truncatable_prime((23, 29, 31, 37, 41, 43, ...))) # Replace '...' with the rest of the tuple elements\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 207,
+    "total_tokens": 518,
+    "completion_tokens": 311
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-52e2c78567444861aea90bf3ee52a584",
+  "object": "chat.completion",
+  "created": 1725539734,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef lists_with_product_equal_n(lst):\n    def helper(sub_lst, i, index, result):\n        if len(sub_lst) != 0 and sub_lst[0] == sub_lst[-1]:\n            product = 1\n            for num in sub_lst:\n                product *= num\n            if product == target:\n                result.append(sub_lst[:])\n            return\n        if index >= len(lst):\n            return\n        helper(sub_lst, i, index + 1, result)\n        helper(sub_lst + [lst[index]], i + 1, index + 1, result)\n\n    target = -1\n    halves = len(lst) // 2\n    found = []\n    helper([], 0, 0, found)\n    \n    results = []\n    for i in range(halves):\n        found_sublists = []\n        helper([], i, i, found_sublists)\n        for sublist in found_sublists:\n            rotated = sublist[1:] + sublist[:1]\n            if rotated not in results and rotated in found_sublists:\n                results.append(rotated)\n                found_sublists.remove(sublist)\n        found = found_sublists\n    \n    return results\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 202,
+    "total_tokens": 515,
+    "completion_tokens": 313
+  }
+}

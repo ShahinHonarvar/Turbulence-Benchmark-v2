@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-19cf1c9b50844080814bdc4399c4e489",
+  "object": "chat.completion",
+  "created": 1725531092,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(lst):\n    def is_anagram(str1, str2):\n        str1 = str1.lower()\n        str2 = str2.lower()\n        if len(str1) != len(str2):\n            return False\n        from collections import Counter\n        return Counter(str1) == Counter(str2)\n\n    seen_anagrams = set()\n    anagram_pairs = set()\n    for word in lst:\n        if len(word) < 3:\n            continue\n        for seen_word in seen_anagrams:\n            if is_anagram(word, seen_word):\n                anagram_pairs.add((min(word, seen_word), max(word, seen_word)))\n                break\n        seen_anagrams.add(word)\n\n    return len(anagram_pairs) <= 41\n```\n```\n\nThis Python code defines the `if_contains_anagrams` function which fulfills the given text specification. The helper function `is_anagram` helps in checking whether two words are anagrams, considering only the anagrams of English letters and comparing them in a case-insensitive manner. The function then keeps track of seen words and found anagram pairs, only considering words of at least three characters in length, and returns `True` if there are at most 41 anagram pairs, otherwise `False`.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 148,
+    "total_tokens": 481,
+    "completion_tokens": 333
+  }
+}

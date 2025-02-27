@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-17a85d5a91104e6484add5d6f5ff1c66",
+  "object": "chat.completion",
+  "created": 1725527568,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(lst):\n    def get_sorted_tuple(s):\n        return tuple(sorted(s.lower()))\n\n    anagrams_count = 0\n    seen = set()\n\n    for string in lst:\n        if len(string) >= 3:\n            sorted_tuple = get_sorted_tuple(string)\n            if sorted_tuple in seen:\n                anagrams_count += 1\n            else:\n                seen.add(sorted_tuple)\n\n    return anagrams_count >= 7\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 133,
+    "total_tokens": 267,
+    "completion_tokens": 134
+  }
+}

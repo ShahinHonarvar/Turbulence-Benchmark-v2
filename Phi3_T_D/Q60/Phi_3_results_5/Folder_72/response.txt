@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-5f947aae55fb4dd99218009c99b34be7",
+  "object": "chat.completion",
+  "created": 1725553961,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            return False\n    return True\n\ndef all_left_right_truncatable_prime(numbers, x=31):\n    numbers = sorted(set(numbers), reverse=True)\n    max_prime = numbers[x] if x < len(numbers) else None\n    if max_prime is None:\n        return []\n    \n    left_right_primes = []\n    primes = [str(i) for i in range(2, max_prime + 1) if is_prime(i)]\n    \n    for num in primes:\n        if len(num) < 4 or num[0] == '0' or num[-1] == '0':\n            continue\n        while num:\n            left_trim = num[1:]\n            right_trim = num[:-1]\n            if int(left_trim) < max_prime and int(right_trim) < max_prime:\n                left_trim_prime = left_trim and is_prime(int(left_trim))\n                right_trim_prime = right_trim and is_prime(int(right_trim))\n                if left_trim_prime and right_trim_prime:\n                    left_right_primes.append(int(num))\n            break\n            \n    return left_right_primes\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 207,
+    "total_tokens": 564,
+    "completion_tokens": 357
+  }
+}

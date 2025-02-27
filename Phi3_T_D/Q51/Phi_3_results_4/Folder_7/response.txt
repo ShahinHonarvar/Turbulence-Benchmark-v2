@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-a19448ba369245859de90aa733fb5cc3",
+  "object": "chat.completion",
+  "created": 1725530611,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport collections\n\ndef if_contains_anagrams(lst):\n    count = 0\n    checked = set()\n\n    for word in lst:\n        sorted_word = ''.join(sorted(word.lower()))\n        if sorted_word in checked:\n            count += 1\n            if count > 445:\n                return False\n        else:\n            checked.add(sorted_word)\n\n    return True\n\n# Example usage:\n# result = if_contains_anagrams(['listen', 'silent', 'enlist', 'inlets'])\n# print(result)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 149,
+    "total_tokens": 292,
+    "completion_tokens": 143
+  }
+}

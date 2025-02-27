@@ -1,0 +1,14 @@
+import numpy as np
+
+def submatrix_with_n_numbers(matrix):
+    rows, cols = matrix.shape
+    n = 88
+    count = 0
+    for r in range(rows):
+        for c in range(cols):
+            for dr in range(r + 1, rows + 1):
+                for dc in range(c + 1, cols + 1):
+                    submatrix = matrix[r:dr, c:dc]
+                    if submatrix.size == n:
+                        count += 1
+    return count

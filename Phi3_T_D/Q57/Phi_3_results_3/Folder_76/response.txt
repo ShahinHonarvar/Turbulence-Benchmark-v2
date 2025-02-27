@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-f57a91fdfc1442368d6517ea227cd801",
+  "object": "chat.completion",
+  "created": 1725544019,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nimport numpy as np\nfrom itertools import product\n\ndef submatrix_with_particular_sum(matrix):\n    def check_submatrix(matrix, upper_left, lower_right, target_sum):\n        return np.sum(matrix[upper_left[0]:lower_right[0]+1, upper_left[1]:lower_right[1]+1]) == target_sum\n\n    matrix = np.array(matrix)\n    rows, cols = matrix.shape\n    matched_submatrices = []\n\n    for i in range(rows):\n        for j in range(cols):\n            for k in range(i, rows):\n                for l in range(j, cols):\n                    if check_submatrix(matrix, (i, j), (k, l), -255):\n                        matched_submatrices.append(matrix[i:k+1, j:l+1].tolist())\n\n    return matched_submatrices\n```\n\nAlternatively, if you want to have better performance using a more efficient approach (this would avoid checking all possible submatrices and adding complexity), consider using dynamic programming or sieve methods based on finding sum of rows and/or columns. However, keep in mind that even these methods may have high time complexity for large matrices.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 127,
+    "total_tokens": 422,
+    "completion_tokens": 295
+  }
+}

@@ -1,0 +1,2 @@
+def sum_ints_div_by_either_nums(ints):
+    return sum((x for i, x in enumerate(ints) if i <= 9 and (x % 10 == 0 or x % 100 == 0)))

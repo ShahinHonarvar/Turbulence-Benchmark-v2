@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-822679df52d14409814b9f24a64c9b6d",
+  "object": "chat.completion",
+  "created": 1725504631,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef find_original_set(*sets_of_integers):\n    if len(sets_of_integers) != 48:\n        raise ValueError(\"Exactly 48 sets of integers are required.\")\n\n    original_set = set()\n    for subset in sets_of_integers:\n        if not subset.issubset(original_set):\n            original_set = original_set.union(subset)\n\n    return original_set\n```\n\nRemember to call the function with exactly 48 arguments:\n\n```python\noriginal = find_original_set(set1, set2, set3, ..., set48)\n```\n\nReplace `set1`, `set2`, `set3`, ..., `set48` with your actual sets of integers when invoking the function.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 98,
+    "total_tokens": 287,
+    "completion_tokens": 189
+  }
+}

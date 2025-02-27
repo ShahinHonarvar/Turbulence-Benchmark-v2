@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-01a30ad9b2b442cf94be889a1395d717",
+  "object": "chat.completion",
+  "created": 1725530033,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom collections import defaultdict\nimport itertools\n\ndef create_normalized_key(s):\n    return ''.join(sorted(s.lower()))\n\ndef if_contains_anagrams(strings):\n    anagram_count = 0\n    normalized_keys = defaultdict(list)\n    \n    for string in strings:\n        if len(string) < 3:\n            continue\n        normalized_key = create_normalized_key(string)\n        normalized_keys[normalized_key].append(string)\n\n    for strings_with_same_normalized_key in normalized_keys.values():\n        if len(strings_with_same_normalized_key) > 1:\n            combinations_to_check = list(itertools.combinations(strings_with_same_normalized_key, 2))\n            for pair in combinations_to_check:\n               anagram_count += 1\n               if anagram_count > 173:\n                   return False\n    return True\n```\n```\nThis code satisfies the given text specification by creating a function that counts up to 173 anagram pairs. It does this by normalizing the strings to alphabetic order and case, thus treating case-insensitive comparisons as equivalent, and only considers strings with a length of at least three characters. The function returns False as soon as it identifies more than 173 pairs.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 149,
+    "total_tokens": 481,
+    "completion_tokens": 332
+  }
+}

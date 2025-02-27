@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-d1d9150559c54b51a6339a86b3f5d1f1",
+  "object": "chat.completion",
+  "created": 1725518865,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom itertools import permutations\nfrom collections import Counter\n\ndef palindromes_between_indices(s):\n    segment = s[4:10].lower()\n    freq_dict = Counter(segment)\n    odd_count = sum(n%2 for n in freq_dict.values())\n\n    if odd_count > 1:\n        return set()\n\n    half = ''.join(k * (v//2) for k, v in freq_dict.items())\n    half_perms = set(permutations(sorted(half)))\n    palindromes = [''.join(left + middle + left[::-1])\n                   for left in half_perms\n                   for mid in ('',) if len(left) > 1 or odd_count == 1]\n\n    return set(palindromes)\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 192,
+    "total_tokens": 401,
+    "completion_tokens": 209
+  }
+}

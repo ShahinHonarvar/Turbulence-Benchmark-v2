@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-d4ce578746784079817e48ad97190db3",
+  "object": "chat.completion",
+  "created": 1725536003,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_right_truncatable_prime(n, primes_set):\n    while n > 0:\n        if not is_prime(n):\n            return False\n        n //= 10\n    return True\n\ndef all_right_truncatable_prime(integers_tuple):\n    n = integers_tuple[100]\n    primes_set = set(generate_primes(n))\n    right_truncatable_primes = [p for p in primes_set if is_right_truncatable_prime(p, primes_set)]\n    return sorted(right_truncatable_primes)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 170,
+    "total_tokens": 331,
+    "completion_tokens": 161
+  }
+}

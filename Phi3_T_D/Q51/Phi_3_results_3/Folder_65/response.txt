@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-4f52d6e61370424ea5b619a1f218e752",
+  "object": "chat.completion",
+  "created": 1725530429,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom collections import defaultdict\n\ndef if_contains_anagrams(strings_list):\n    def normalize_string(s):\n        return ''.join(sorted(s.lower()))\n\n    anagram_dict = defaultdict(int)\n    for string in strings_list:\n        if len(string) >= 3:\n            normalized = normalize_string(string)\n            anagram_dict[normalized] += 1\n\n    anagram_pairs = sum(v * (v - 1) // 2 for v in anagram_dict.values())\n    return anagram_pairs <= 72\n\n# Example usage:\n# if_contains_anagrams([\"listen\", \"enlist\", \"google\"])\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 148,
+    "total_tokens": 325,
+    "completion_tokens": 177
+  }
+}

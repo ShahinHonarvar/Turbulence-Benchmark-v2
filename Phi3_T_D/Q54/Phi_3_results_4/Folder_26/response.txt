@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-4efa4df1fb6f422d9bc70dbd5a43cdba",
+  "object": "chat.completion",
+  "created": 1725537513,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nfrom sympy import isprime\n\ndef all_right_truncatable_prime(numbers):\n    right_truncatable_primes = []\n    x = numbers[81]\n\n    def is_right_truncatable(n):\n        for i in range(len(str(n))):\n            if not isprime(int(str(n)[:-1])):\n                return False\n            n = int(str(n)[:-1])\n        return True\n\n    for number in range(x - 1, 10, -1):\n        if all(isprime(digit) for digit in map(int, str(number))) and is_right_truncatable(number):\n            right_truncatable_primes.append(number)\n\n    return right_truncatable_primes\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 169,
+    "total_tokens": 371,
+    "completion_tokens": 202
+  }
+}

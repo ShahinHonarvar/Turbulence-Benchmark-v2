@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-90ef185e90404bb7a900be5750d74bc2",
+  "object": "chat.completion",
+  "created": 1725543558,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    result = []\n    rows, cols = matrix.shape\n    matrix_sum = np.zeros((rows, cols))\n\n    for i in range(rows):\n        for j in range(cols):\n            if i > 0:\n                matrix_sum[i][j] += matrix_sum[i-1][j]\n            if j > 0:\n                matrix_sum[i][j] += matrix_sum[i][j-1]\n            if i > 0 and j > 0:\n                matrix_sum[i][j] -= matrix_sum[i-1][j-1]\n            matrix_sum[i][j] += matrix[i][j]\n\n    for top in range(rows):\n        for down in range(top, rows):\n            for left in range(cols):\n                for right in range(left, cols):\n                    window_sum = matrix_sum[down][right]\n                    if top > 0:\n                        window_sum -= matrix_sum[top-1][right]\n                    if left > 0:\n                        window_sum -= matrix_sum[down][left-1]\n                    if top > 0 and left > 0:\n                        window_sum += matrix_sum[top-1][left-1]\n                    if window_sum == -336:\n                        result.append(matrix[top:down+1,left:right+1].tolist())\n    return result\n```\n\nTo use this function, ensure you have numpy installed and pass a numpy ndarray:\n\n```python\nimport numpy as np\n\nmy_matrix = np.array([[1, -2], [3, -4]])\nsubmatrices = submatrix_with_particular_sum(my_matrix)\nprint(submatrices)  # Replace with your own matrix\n```\n\nThis function calculates a cumulative sum of submatrices using dynamic programming to find the sum of each possible submatrix efficiently. It then checks if any of these sums equal `-336` and returns all the matching submatrices.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 127,
+    "total_tokens": 630,
+    "completion_tokens": 503
+  }
+}

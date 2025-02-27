@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-b0a61b162df14f468cd0a5562a224657",
+  "object": "chat.completion",
+  "created": 1725537365,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef is_prime(n):\n    if n < 2:\n        return False\n    if n % 2 == 0 and n > 2:\n        return False\n    for i in range(3, int(n**0.5) + 1, 2):\n        if n % i == 0:\n            return False\n    return True\n\ndef is_right_truncatable(n, primes_set):\n    while n > 0:\n        if not is_prime(n):\n            return False\n        n = n // 10\n    return True\n\ndef all_right_truncatable_prime(int_tuple):\n    x = int_tuple[96]\n    right_truncatable_primes = []\n    for num in range(x-1, 7, -1):  # start from x-1 to 7, since 2, 3, 5, 7 must be checked\n        if is_right_truncatable(num, set(range(2, num))):\n            right_truncatable_primes.append(num)\n    \n    return right_truncatable_primes\n```\n\nTo run the function with the desired input, you'd call it like so:\n\n```\nresult = all_right_truncatable_prime((100, 200, 300, ..., 99, 100))  # fill the tuple with your numbers\nprint(result)\n```\n\nPlease ensure that you generate the tuple to the required length, with the correct integer at the 96th index as specified in the problem statement.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 169,
+    "total_tokens": 555,
+    "completion_tokens": 386
+  }
+}

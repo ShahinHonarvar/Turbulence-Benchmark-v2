@@ -1,0 +1,3 @@
+def find_sum_of_multiples(n):
+    sum_of_multiples = sum(range(n, n * 101, n))
+    return sum_of_multiples

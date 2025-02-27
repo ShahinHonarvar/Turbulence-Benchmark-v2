@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-4fc0adcc67974111a54aa1d0da3ac5ac",
+  "object": "chat.completion",
+  "created": 1725545257,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    if not isinstance(matrix, np.ndarray) or len(matrix.shape) != 2:\n        return 0\n\n    count = 0\n    for i in range(matrix.shape[0]):\n        for j in range(matrix.shape[1]):\n            for k in range(i + 1, matrix.shape[0] + 1):\n                for l in range(j + 1, matrix.shape[1] + 1):\n                    if (k - i) * (l - j) == 24:\n                        count += 1\n    \n    return count\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 116,
+    "total_tokens": 281,
+    "completion_tokens": 165
+  }
+}

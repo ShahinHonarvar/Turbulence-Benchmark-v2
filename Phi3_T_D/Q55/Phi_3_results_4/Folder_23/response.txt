@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-ed634a7579a14c7188d0fb2252c16e11",
+  "object": "chat.completion",
+  "created": 1725540423,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef lists_with_product_equal_n(lst):\n    length = len(lst)\n    result = []\n\n    def helper(index, current, product):\n        if product == -95:\n            result.append(current.copy())\n        elif product < -95:\n            for i in range(index, length):\n                current.append(lst[i])\n                helper(i + 1, current, product * lst[i])\n                current.pop()\n\n    helper(0, [], 1)\n    return result\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 203,
+    "total_tokens": 334,
+    "completion_tokens": 131
+  }
+}

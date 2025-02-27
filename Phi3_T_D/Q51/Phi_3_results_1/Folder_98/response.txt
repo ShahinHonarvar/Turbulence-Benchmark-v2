@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-26591cb400ee4eba9fd7687476f25250",
+  "object": "chat.completion",
+  "created": 1725529683,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef if_contains_anagrams(words):\n    def normalize(word):\n        return ''.join(sorted(word.lower()))\n\n    unique_words = {normalize(word) for word in words if len(word) >= 3}\n    count = 0\n    seen = set()\n\n    for normalized in unique_words:\n        if normalized in seen:\n            count += 1\n        seen.add(normalized)\n\n    return count <= 46\n\n\n# Example usage:\nwords_list = ['Care', 'Race', 'Acre', 'Actor', 'Torca', 'Cider', 'Rice', 'True', 'Flare', 'Feral']\nprint(if_contains_anagrams(words_list))  # Expected output: True\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 148,
+    "total_tokens": 340,
+    "completion_tokens": 192
+  }
+}

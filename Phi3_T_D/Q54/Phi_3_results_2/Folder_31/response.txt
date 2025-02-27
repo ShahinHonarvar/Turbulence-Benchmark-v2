@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-63363021fb0043dc9388419b26ab49a8",
+  "object": "chat.completion",
+  "created": 1725536198,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef all_right_truncatable_prime(numbers):\n    def is_prime(n, sieve=None):\n        if sieve is None:\n            sieve = [True] * (n+1)\n        if n < 2 or sieve[n] == False:\n            return n == 2\n        for i in range(2, int(n**0.5) + 1):\n            if n % i == 0:\n                return False\n        sieve[n] = False  # Mark as not prime\n        return True\n\n    def all_right_truncatable_primes_less_than(n):\n        def is_right_truncatable(n):\n            str_n = str(n)\n            for i in range(len(str_n)):\n                part = int(str_n[i:])\n                if not is_prime(part):\n                    return False\n            return True\n        \n        right_truncatable_primes = []\n        for i in range(2, n):\n            if is_right_truncatable(i):\n                right_truncatable_primes.append(i)\n        return right_truncatable_primes\n\n    tail = numbers[50]\n    return sorted(all_right_truncatable_primes_less_than(tail), reverse=True)\n\n# Example usage:\nnumbers = (100, 101, 102, ..., 500)  # Include all integers up to the 50th index\nprint(all_right_truncatable_prime(numbers))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 169,
+    "total_tokens": 559,
+    "completion_tokens": 390
+  }
+}

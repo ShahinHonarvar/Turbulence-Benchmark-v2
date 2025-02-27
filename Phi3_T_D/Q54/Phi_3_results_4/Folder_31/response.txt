@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-e62c0b132f574bef9bbd2ccb91d2c871",
+  "object": "chat.completion",
+  "created": 1725537544,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef all_right_truncatable_prime(numbers):\n    primes = [2, 3, 5, 7]\n    x = numbers[49]\n    \n    def is_prime(n):\n        for p in primes:\n            if p * p > n:\n                break\n            if n % p == 0:\n                return False\n        return True\n    \n    def truncatable(p):\n        while p > 0:\n            if not is_prime(p):\n                return False\n            p = p // 10\n        return True\n    \n    right_truncs = [p for p in range(2, x) if truncatable(p)]\n    return sorted(right_truncs, reverse=True)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 169,
+    "total_tokens": 355,
+    "completion_tokens": 186
+  }
+}

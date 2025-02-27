@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-577f1b77af5a4a629a8a60a1deebf361",
+  "object": "chat.completion",
+  "created": 1725546051,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    if not isinstance(matrix, np.ndarray):\n        raise ValueError(\"The input must be a numpy array.\")\n    if matrix.ndim != 2 or not matrix.dtype.kind in 'iufb':\n        raise ValueError(\"The input must be a two-dimensional matrix of integers.\")\n\n    rows, cols = matrix.shape\n    count = 0\n\n    for x in range(rows):\n        for y in range(cols):\n            if x + 2 < rows and y + 2 < cols:\n                submatrix = matrix[x:x+3, y:y+3]\n                if submatrix.size == 85:\n                    count += 1\n    return count\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 116,
+    "total_tokens": 304,
+    "completion_tokens": 188
+  }
+}

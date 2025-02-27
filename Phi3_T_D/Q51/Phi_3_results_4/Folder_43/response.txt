@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-45602e906fb94d21a7509fd5468fbfb2",
+  "object": "chat.completion",
+  "created": 1725530762,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef if_contains_anagrams(words):\n    def get_signature(s):\n        return ''.join(sorted(s.lower()))\n\n    from collections import defaultdict\n    signature_count = defaultdict(int)\n\n    for word in words:\n        if len(word) >= 3:\n            signature = get_signature(word)\n            signature_count[signature] += 1\n\n    return sum(count >= 2 for count in signature_count.values()) <= 3\n\n# Example usage:\n# if_contains_anagrams(['cinema', 'iceman', 'Forest', 'poster', 'stopes', 'traps'])\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 147,
+    "total_tokens": 308,
+    "completion_tokens": 161
+  }
+}

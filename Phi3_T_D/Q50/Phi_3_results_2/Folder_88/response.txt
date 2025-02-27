@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-aa6736f0b3464887b4aaa0b2494688d2",
+  "object": "chat.completion",
+  "created": 1725527935,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(words):\n    def get_signature(s):\n        return ''.join(sorted(s.lower()))\n\n    anagrams = {}\n    for word in words:\n        if len(word) < 3:\n            continue\n        sig = get_signature(word)\n        if sig in anagrams:\n            anagrams[sig].append(word)\n        else:\n            anagrams[sig] = [word]\n\n    anagram_pairs = [v[i:i+2] for v in anagrams.values() for i in range(len(v) - 1)]\n    return len(anagram_pairs) >= 34\n\n# Example usage:\n# result = if_contains_anagrams(['bat', 'tab', 'cat', 'act', 'tac',...])\n# print(result)  # Output: True or False\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 134,
+    "total_tokens": 355,
+    "completion_tokens": 221
+  }
+}

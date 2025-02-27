@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-bb2a71f6026248b0837b19669584b2b6",
+  "object": "chat.completion",
+  "created": 1725528207,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(words):\n    from collections import defaultdict\n    lengthy_anagrams = defaultdict(int)\n\n    for word in words:\n        key = ''.join(sorted(word.lower())).lstrip('-')\n        if key and len(word) >= 3:\n            lengthy_anagrams[key] += 1\n    \n    return sum(count >= 2 for count in lengthy_anagrams.values()) >= 11\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 134,
+    "total_tokens": 256,
+    "completion_tokens": 122
+  }
+}

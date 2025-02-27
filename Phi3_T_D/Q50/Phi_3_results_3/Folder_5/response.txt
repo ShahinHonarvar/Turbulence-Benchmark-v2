@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-636b9b46660e47fcbbe355d80626f3aa",
+  "object": "chat.completion",
+  "created": 1725528004,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef if_contains_anagrams(strings):\n    def normalize(s):\n        return ''.join(sorted(s.lower()))\n    \n    def count_anagrams(normalized):\n        counts = {}\n        for s in normalized:\n            counts[s] = counts.get(s, 0) + 1\n        return sum(count for count in counts.values() if count >= 2)\n    \n    normalized_strings = [normalize(s) for s in strings]\n    valid_count = 0\n    for string in normalized_strings:\n        if (len(string) >= 3):\n            valid_count += count_anagrams([s for s in normalized_strings if s == string]) // 2\n    \n    return valid_count >= 21\n\n# Example usage:\n# strings = ['listen', 'enlist', 'google', 'gooegl', 'banana', 'ananab', 'inlets', 'silen']\n# print(if_contains_anagrams(strings))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 134,
+    "total_tokens": 383,
+    "completion_tokens": 249
+  }
+}

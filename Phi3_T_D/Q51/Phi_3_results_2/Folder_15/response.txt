@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-091b031a01814615b1795db6cf82f089",
+  "object": "chat.completion",
+  "created": 1725529751,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(strings):\n    def clean_and_sort(s):\n        return ''.join(sorted(s.lower()))\n\n    clean_strings = [clean_and_sort(s) for s in strings]\n    seen = set()\n    count = 0\n\n    for cs in clean_strings:\n        if cs in seen:\n            count += 1\n        if count > 20:\n            return False\n        seen.add(cs)\n\n    return True\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 148,
+    "total_tokens": 271,
+    "completion_tokens": 123
+  }
+}

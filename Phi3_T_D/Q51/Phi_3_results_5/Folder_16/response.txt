@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-23ed6dfc70a74fdb89cea485c334cc71",
+  "object": "chat.completion",
+  "created": 1725531122,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(strings):\n    def normalize(string):\n        return ''.join(sorted(string.lower()))\n\n    def is_long_enough(string):\n        return len(string) >= 3\n\n    sorted_strings = filter(is_long_enough, map(normalize, strings))\n    unique_sorted_strings = set(sorted_strings)\n\n    pairs = sum(1 for _ in combinations(unique_sorted_strings, 2) if sorted_strings.count(normalize(_[0])) == sorted_strings.count(normalize(_[1])))\n\n    return pairs <= 24\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 148,
+    "total_tokens": 306,
+    "completion_tokens": 158
+  }
+}

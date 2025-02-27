@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-a42f7896e4bb4482b5d9bd124a9b2d72",
+  "object": "chat.completion",
+  "created": 1725529632,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom collections import defaultdict\n\ndef if_contains_anagrams(strings):\n    count_map = defaultdict(int)\n    for s in strings:\n        cleaned = ''.join(e for e in s.lower() if e.isalpha())\n        sorted_s = ''.join(sorted(cleaned))\n        count_map[sorted_s] += 1\n\n    pairs = sum(n * (n - 1) // 2 for n in count_map.values() if n > 1)\n    return pairs <= 392\n\n# Example usage:\nprint(if_contains_anagrams([\"Listen\", \"Silent\", \"Test\", \"Taste\", \"List\"]))  # Should return True or False\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 149,
+    "total_tokens": 327,
+    "completion_tokens": 178
+  }
+}

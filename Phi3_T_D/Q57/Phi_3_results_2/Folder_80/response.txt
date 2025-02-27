@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-d340253d67d7400d8ca1dffa41293118",
+  "object": "chat.completion",
+  "created": 1725543576,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    rows, cols = matrix.shape\n    result = []\n\n    def dfs(i, j, path, current_sum):\n        if current_sum == 245:\n            result.append(np.array(path, dtype=int))\n            return\n        if current_sum > 245:\n            return\n        for x in range(i, rows):\n            for y in range(j, cols):\n                without_pixel = current_sum\n                if path or (matrix[i, j] not in path):\n                    path.append(matrix[i, j])\n                with_pixel = current_sum + matrix[i, j]\n                if with_pixel <= 245:\n                    dfs(x + 1, y + 1, path.copy(), with_pixel)\n                path.pop()\n\n    for i in range(rows):\n        for j in range(cols):\n            dfs(i, j, [], 0)\n\n    return result\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 127,
+    "total_tokens": 390,
+    "completion_tokens": 263
+  }
+}

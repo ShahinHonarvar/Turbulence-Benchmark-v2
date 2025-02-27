@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-86fd49a4bd0d4e7f8f4158b16ad8ec71",
+  "object": "chat.completion",
+  "created": 1725547099,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nfrom sympy import isprime\n\ndef all_left_truncatable_prime(numbers):\n    x = numbers[20]\n    truncable_primes = []\n\n    def is_left_truncatable(number, prime_cache):\n        if number in prime_cache:\n            return True\n        if not isprime(number):\n            return False\n        if number < x:\n            prime_cache.add(number)\n            str_number = str(number)\n            for i in range(1, len(str_number)):\n                if not is_left_truncatable(int(str_number[i:]), prime_cache):\n                    return False\n            return True\n        return False\n\n    prime_cache = set()\n    for i in range(2, x):\n        if is_left_truncatable(i, prime_cache):\n            truncable_primes.append(i)\n\n    return sorted(truncable_primes, reverse=True)\n\n# Example usage:\nnumbers_tuple = (2, 3, 5, 7, 10, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71)\nresult = all_left_truncatable_prime(numbers_tuple)\nprint(result)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 156,
+    "total_tokens": 508,
+    "completion_tokens": 352
+  }
+}

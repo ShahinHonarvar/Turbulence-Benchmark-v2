@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-37be206539f044a1b5ae43dde35d52b7",
+  "object": "chat.completion",
+  "created": 1725626692,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n <= 1:\n        return False\n    if n <= 3:\n        return True\n    if n % 2 == 0 or n % 3 == 0:\n        return False\n    i = 5\n    while i * i <= n:\n        if n % i == 0 or n % (i + 2) == 0:\n            return False\n        i += 6\n    return True\n\ndef is_truncatable_prime(n):\n    if not is_prime(n):\n        return False\n    str_n = str(n)\n    for i in range(1, len(str_n)):\n        if not is_prime(int(str_n[i:])) or not is_prime(int(str_n[:-i])):\n            return False\n    return True\n\ndef all_left_right_truncatable_prime(numbers):\n    x = numbers[126]\n    return sorted([n for n in range(2, x + 1) if is_truncatable_prime(n)], reverse=True)\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 208,
+    "total_tokens": 478,
+    "completion_tokens": 270
+  }
+}

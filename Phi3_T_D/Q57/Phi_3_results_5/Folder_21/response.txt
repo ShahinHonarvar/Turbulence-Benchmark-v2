@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-4b5183cf56b1452f96d25280c3c3c4ec",
+  "object": "chat.completion",
+  "created": 1725544690,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\n\nimport numpy as np\n\nfrom itertools import product\n\n\ndef submatrix_with_particular_sum(matrix):\n\n    targets = []\n\n    rows, cols = matrix.shape\n\n    target_sum = -936\n\n\n    for r1, r2 in product(range(rows), repeat=2):\n\n        for c1, c2 in product(range(cols), repeat=2):\n\n            submatrix = matrix[r1:r2+1, c1:c2+1]\n\n            if submatrix.sum() == target_sum:\n\n                targets.append(submatrix)\n\n\n    return targets\n\n\n# Example usage:\n\n# np_matrix = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])\n\n# print(submatrix_with_particular_sum(np_matrix))\n\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 127,
+    "total_tokens": 347,
+    "completion_tokens": 220
+  }
+}

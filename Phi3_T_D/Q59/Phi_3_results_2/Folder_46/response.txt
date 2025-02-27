@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-41cb5859054b41e08f349c92265df4f8",
+  "object": "chat.completion",
+  "created": 1725548041,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef all_left_truncatable_prime(numbers):\n    def is_prime(n):\n        if n < 2:\n            return False\n        for i in range(2, int(n**0.5)+1):\n            if n % i == 0:\n                return False\n        return True\n\n    def is_truncatable_prime(n, prime_digits):\n        if n < 10:\n            return False\n        n_str = str(n)\n        for i in range(len(n_str)):\n            if n_str[i] in prime_digits and is_prime(int(n_str[i:])):\n                if len(n_str) - i > 1 or n_str[i+1:] == \"\":\n                    return is_truncatable_prime(int(n_str[i+1:]), prime_digits)\n        return False\n\n    x = numbers[33]\n    prime_digits = {'2', '3', '5', '7'}\n    truncatable_primes = []\n\n    for number in range(2, x):\n        if is_prime(number) and is_truncatable_prime(number, prime_digits):\n            truncatable_primes.append(number)\n\n    return truncatable_primes\n```\n\nThis function takes a tuple of numbers as its argument and extracts the integer at index 33 to use as the upper bound for finding left-truncatable prime numbers. The resulting primes are returned as a sorted list in ascending order.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 156,
+    "total_tokens": 529,
+    "completion_tokens": 373
+  }
+}

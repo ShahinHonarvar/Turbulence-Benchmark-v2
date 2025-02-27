@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-b95e750e57bf4fe0b5ccb9fd1e1cee20",
+  "object": "chat.completion",
+  "created": 1725530415,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom collections import defaultdict\n\ndef if_contains_anagrams(str_list):\n    length = len(str_list)\n    anagram_buckets = [defaultdict(int) for _ in range(length)]\n    anagram_count = 0\n\n    for i, s in enumerate(str_list):\n        s = s.lower()\n        sorted_s = ''.join(sorted(s))\n        \n        found = False\n        for j, other_s in enumerate(str_list):\n            if i != j and len(other_s) >= 3:\n                other_s = other_s.lower()\n                if ''.join(sorted(other_s)) == sorted_s:\n                    if j < len(str_list) - i - (2 - found):\n                        anagram_count += 1\n                        found = True\n\n        if not found and len(s) >= 3:\n            anagram_buckets[i][sorted_s] = 1\n\n    return anagram_count <= 423\n```\n\nThis Python function `if_contains_anagrams` accepts a list of strings and returns `True` if there are at most 423 pairs of anagrams among them that meet the specified conditions.\n\nThe function consists of a sliding window that selects pairs of strings, sorts the characters of each string, and compares them to detect anagrams, while tracking the count of such anagram pairs. The time complexity of this function is hard to determine due to the potentially quadratic nature of the sliding window approach, yet it attempts to prevent unnecessary repetition through an optimization step.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 149,
+    "total_tokens": 526,
+    "completion_tokens": 377
+  }
+}

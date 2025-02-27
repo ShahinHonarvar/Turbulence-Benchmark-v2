@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-705994ea1ec54f48834f7059d07cd35c",
+  "object": "chat.completion",
+  "created": 1725508699,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef filter_chars(input_string):\n    mask_chars = set(')' + ''.join([chr(i) for i in range(ord(')')+1, ord('l')+1)])\n    return ''.join([char for idx, char in enumerate(input_string) if idx not in range(35, 41) or char not in mask_chars])\n```\n\n",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 145,
+    "total_tokens": 243,
+    "completion_tokens": 98
+  }
+}

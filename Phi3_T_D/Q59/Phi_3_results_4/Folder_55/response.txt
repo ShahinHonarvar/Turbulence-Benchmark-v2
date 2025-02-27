@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-058f9d88012e4e1b8e8a98440372f208",
+  "object": "chat.completion",
+  "created": 1725549428,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef all_left_truncatable_prime(numbers):\n    def is_prime(n, primes):\n        if n < 2:\n            return False\n        for p in primes:\n            if p * p > n:\n                break\n            if n % p == 0:\n                return False\n        return True\n\n    def is_left_truncatable(n, primes):\n        n_str = str(n)\n        while n_str:\n            n = int(n_str)\n            if not is_prime(n, primes):\n                return False\n            n_str = n_str[:-1]\n        return True\n\n    x = numbers[73]\n    primes = [2]\n    prime_candidates = [str(num) for num in range(2, x)]\n    left_truncatable_primes = []\n\n    for prime_candidate in prime_candidates:\n        if prime_candidate not in primes and is_left_truncatable(int(prime_candidate), primes):\n            primes.append(int(prime_candidate))\n        if int(prime_candidate) > x:\n            break\n\n    return sorted([p for p in primes if is_left_truncatable(p, primes)], reverse=True)\n\n# Return result for the tuple (currently omitted, but would be placed here if provided)\n```\n\n*Note: This code assumes that the tuple argument is not used since no specific usage was provided in the text specification.*\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 156,
+    "total_tokens": 531,
+    "completion_tokens": 375
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-d9d19ed612f64328bf3dc8ae6ed5baba",
+  "object": "chat.completion",
+  "created": 1725527725,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef if_contains_anagrams(lst):\n    from collections import defaultdict\n    \n    def to_sorted_str(s):\n        return ''.join(sorted(s.lower()))\n    \n    sorted_strings = [to_sorted_str(s) for s in lst if len(s) >= 3]\n    frequencies = defaultdict(int)\n    \n    for string in sorted_strings:\n        frequencies[string] += 1\n    \n    return sum(1 for count in frequencies.values() if count >= 2) >= 29\n\n# Example usage:\n# result = if_contains_anagrams([\"race\", \"care\", \"cafe\", \"face\", \"lace\", ...]) # Continue with more strings\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 134,
+    "total_tokens": 309,
+    "completion_tokens": 175
+  }
+}

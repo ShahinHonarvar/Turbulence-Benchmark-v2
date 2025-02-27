@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-dc4391aab7624ab09354328dfe0b93cf",
+  "object": "chat.completion",
+  "created": 1725549926,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef all_left_truncatable_prime(numbers):\n    from sympy import isprime\n\n    x = numbers[35]\n    def is_left_truncatable(n, max_val):\n        while n > 0:\n            if not isprime(n):\n                return False\n            n = n % (10 ** (len(str(n)) - 1))\n        return True\n\n    left_truncatable_primes = sorted(filter(lambda n: is_left_truncatable(n, x) and n < x, range(2, x)), reverse=True)\n    return left_truncatable_primes\n\n# Example usage (uncomment and replace tuple with actual numbers):\n# primes_tuple = (0,) * 35 + (100,) + (0,) * 2 + (some other numbers) + (0,)\n# print(all_left_truncatable_prime(primes_tuple))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 156,
+    "total_tokens": 393,
+    "completion_tokens": 237
+  }
+}

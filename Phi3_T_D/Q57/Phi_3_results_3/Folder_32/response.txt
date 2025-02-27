@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-b84e6559ebf04c56b8c7388ec165e1dc",
+  "object": "chat.completion",
+  "created": 1725543800,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    rows, cols = matrix.shape\n    result = []\n\n    def search(r1, c1, r2, c2, target):\n        if r1 < r2 or c1 < c2:\n            return\n        current_sum = np.sum(matrix[r1:r2+1, c1:c2+1])\n        if current_sum == target:\n            result.append(matrix[r1:r2+1, c1:c2+1].tolist())\n        search(r1, c1 + 1, r2, c2, target)\n        search(r1, c1, r2, c2 + 1, target)\n        search(r1 + 1, c1, r2, c2, target)\n\n    for r1 in range(rows):\n        for c1 in range(cols):\n            for r2 in range(r1, rows):\n                for c2 in range(c1, cols):\n                    search(r1, c1, r2, c2, 901)\n\n    return result\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 127,
+    "total_tokens": 407,
+    "completion_tokens": 280
+  }
+}

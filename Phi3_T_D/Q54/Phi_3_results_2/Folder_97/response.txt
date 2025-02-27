@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-dc305d1ed31542f3ac8b0c92c684e9e5",
+  "object": "chat.completion",
+  "created": 1725536651,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nimport sys\n\ndef is_prime(n):\n    if n <= 1:\n        return False\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            return False\n    return True\n\ndef is_truncatable_right_prime(n, d):\n    if not is_prime(n):\n        return False\n    if len(str(n)) == 1:\n        return True\n    return is_truncatable_right_prime(int(str(n)[:-1]), d + 1)\n\ndef all_right_truncatable_prime(numbers):\n    x = numbers[644]\n    if x <= 1:\n        return []\n    right_truncatables = set()\n    for i in range(2, x):\n        if all(is_prime(int(str(i)[:j+1])) for j in range(len(str(i)))) and is_truncatable_right_prime(i, 0):\n            right_truncatables.add(i)\n    return sorted(list(right_truncatables))\n\nprint(all_right_truncatable_prime(numbers))\n```\n\nPlease note that in Python, indexing is zero-based and tuple indexing is also zero-based. Therefore, as per the spec, a tuple index of 645 would translate to the 644th index in 0-based indexing of the Python tuple.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 170,
+    "total_tokens": 525,
+    "completion_tokens": 355
+  }
+}

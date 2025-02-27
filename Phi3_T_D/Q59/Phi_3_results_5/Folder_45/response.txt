@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-3a415f0bd5b94e469c5f02aee137f66b",
+  "object": "chat.completion",
+  "created": 1725549976,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef is_prime(n):\n    if n <= 1:\n        return False\n    for i in range(2, int(n ** 0.5) + 1):\n        if n % i == 0:\n            return False\n    return True\n\ndef left_truncatable_prime(n):\n    str_n = str(n)\n    while len(str_n) > 1 and is_prime(int(str_n)):\n        str_n = str_n[1:]\n    return len(str_n) == 1\n\ndef all_left_truncatable_prime(numbers):\n    x = numbers[61]\n    return sorted([n for n in range(2, x) if left_truncatable_prime(n)])\n\n# Function usage example:\nnumbers = (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59)\nprint(all_left_truncatable_prime(numbers))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 156,
+    "total_tokens": 600,
+    "completion_tokens": 444
+  }
+}

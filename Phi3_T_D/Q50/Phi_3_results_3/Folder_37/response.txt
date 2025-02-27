@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-0ad6fc6669ec41c78b17aeb36cb8a6d8",
+  "object": "chat.completion",
+  "created": 1725528136,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef if_contains_anagrams(string_list):\n    from collections import defaultdict\n\n    def is_anagram_of_same_length(s1, s2):\n        return len(s1) == len(s2) and sorted(s1.lower()) == sorted(s2.lower())\n\n    anagrams_map = defaultdict(list)\n\n    for string in string_list:\n        if len(string) >= 3:\n            sorted_string = ''.join(sorted(string.lower()))\n            anagrams_map[sorted_string].append(string)\n\n    count = 0\n    for anagram_group in anagrams_map.values():\n        if len(anagram_group) >= 2:\n            count += (len(anagram_group) * (len(anagram_group) - 1)) // 2\n        if count >= 29:\n            return True\n\n    return False\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 134,
+    "total_tokens": 362,
+    "completion_tokens": 228
+  }
+}

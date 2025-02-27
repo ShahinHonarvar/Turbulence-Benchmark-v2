@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-e99d5200f687475cb04b843579dc6991",
+  "object": "chat.completion",
+  "created": 1725501670,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_perfect_num(nums):\n    if len(nums) <= 13:\n        return False\n\n    def is_perfect(n):\n        sum = 1\n        for i in range(2, int(n**0.5) + 1):\n            if n % i == 0:\n                sum += i\n                if i != n // i:\n                    sum += n // i\n        return sum == n\n\n    return is_perfect(nums[13])\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 94,
+    "total_tokens": 219,
+    "completion_tokens": 125
+  }
+}

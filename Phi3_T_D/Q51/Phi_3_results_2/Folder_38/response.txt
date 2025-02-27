@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-8fa4e1aed85e486499840cfdc019917a",
+  "object": "chat.completion",
+  "created": 1725529847,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom collections import defaultdict\nfrom itertools import combinations\n\ndef if_contains_anagrams(words):\n    alpha_words = [''.join(sorted(c for c in word.lower() if c.isalpha())) for word in words]\n    word_counts = defaultdict(int)\n    for alpha_word in alpha_words:\n        word_counts[alpha_word] += 1\n    anagram_pairs = sum(1 for count in word_counts.values() if count > 1 and len(alpha_words) - count > 3)\n    return anagram_pairs <= 416\n\n# Example usage:\n# print(if_contains_anagrams(['listen', 'enlist', 'google', 'gooegl']))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 149,
+    "total_tokens": 332,
+    "completion_tokens": 183
+  }
+}

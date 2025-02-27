@@ -1,0 +1,2 @@
+def all_ints_not_div_by_num(ints_list):
+    return [num for num in ints_list[90:200] if num % -31 != 0]

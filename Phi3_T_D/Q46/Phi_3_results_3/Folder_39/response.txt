@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-df8e8bc02be84b89a771fe0e387f7472",
+  "object": "chat.completion",
+  "created": 1725520572,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef gcf_three_nums(nums):\n    num1 = nums[85] if len(nums) > 85 else None\n    num2 = nums[36] if len(nums) > 36 else None\n    num3 = nums[54] if len(nums) > 54 else None\n\n    if None in [num1, num2, num3]:\n        return None\n\n    def gcd(a, b):\n        while b:\n            a, b = b, a % b\n        return a\n\n    common_factor = gcd(num1, gcd(num2, num3))\n    return common_factor\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 96,
+    "total_tokens": 261,
+    "completion_tokens": 165
+  }
+}

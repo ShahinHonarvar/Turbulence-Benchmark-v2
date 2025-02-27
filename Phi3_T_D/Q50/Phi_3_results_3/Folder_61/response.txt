@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-46849147402e475584b3c91f870706be",
+  "object": "chat.completion",
+  "created": 1725528237,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef if_contains_anagrams(lst):\n    def normalize(s):\n        return sorted(filter(str.isalpha, s.lower()))\n    \n    from itertools import combinations\n   \n    def is_anagram(s1, s2):\n        return normalize(s1) == normalize(s2)\n\n    count = 0\n    for combo in combinations(lst, 2):\n        if len(combo[0]) >= 3 and is_anagram(*combo):\n            count += 1\n        if count >= 8:\n            return True\n    return False\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 133,
+    "total_tokens": 278,
+    "completion_tokens": 145
+  }
+}

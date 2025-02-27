@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-b47f6d5ae6e34c7ea83b6f418d495e5a",
+  "object": "chat.completion",
+  "created": 1725537931,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n <= 1:\n        return False\n    if n <= 3:\n        return True\n    if n % 2 == 0 or n % 3 == 0:\n        return False\n    i = 5\n    while i * i <= n:\n        if n % i == 0 or n % (i + 2) == 0:\n            return False\n        i += 6\n    return True\n\ndef is_right_truncatable_prime(n):\n    while n > 0:\n        if not is_prime(n):\n            return False\n        n //= 10\n    return True\n\ndef all_right_truncatable_prime(numbers_tuple):\n    x = numbers_tuple[466]\n    right_truncatable_primes = []\n    for num in range(x - 1, 10, -1):\n        if is_right_truncatable_prime(num):\n            right_truncatable_primes.append(num)\n    return right_truncatable_primes\n\n# Example usage:\nnumbers = (1,) * 467  # Filling the tuple with appropriate values, here using 1 as a placeholder\nprint(all_right_truncatable_prime(numbers))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 170,
+    "total_tokens": 488,
+    "completion_tokens": 318
+  }
+}

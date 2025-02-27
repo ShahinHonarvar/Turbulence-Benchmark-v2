@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-87f957b58f11427c9cff14ba6eaaf65b",
+  "object": "chat.completion",
+  "created": 1725539109,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef lists_with_product_equal_n(circular_list):\n    from itertools import permutations\n\n    def product(subset):\n        prod = 1\n        for num in subset:\n            prod *= num\n        return prod == 8\n\n    result = []\n    for i in range(1, len(circular_list) + 1):\n        for subset in permutations(circular_list, i):\n            if product(subset):\n                result.append(list(subset))\n    return list(map(list, set(map(tuple, result))))\n\n# Test function\nprint(lists_with_product_equal_n([2, 2, 2]))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 202,
+    "total_tokens": 367,
+    "completion_tokens": 165
+  }
+}

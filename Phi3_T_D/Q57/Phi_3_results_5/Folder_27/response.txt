@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-8a58a35ce6ed4a388302df03b41c181a",
+  "object": "chat.completion",
+  "created": 1725544714,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\nfrom itertools import product\n\ndef submatrix_with_particular_sum(matrix):\n    valid_submatrices = []\n    for i, j in product(range(matrix.shape[0]), range(matrix.shape[1])):\n        for k, l in product(range(i+1, matrix.shape[0]+1), range(j+1, matrix.shape[1]+1)):\n            submatrix = matrix[i:k, j:l]\n            if submatrix.sum() == 77:\n                valid_submatrices.append(submatrix)\n    return valid_submatrices\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 126,
+    "total_tokens": 278,
+    "completion_tokens": 152
+  }
+}

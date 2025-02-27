@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-154cdaf38ad64ba4bab473bae0533f98",
+  "object": "chat.completion",
+  "created": 1725547505,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef all_left_truncatable_prime(numbers):\n    from functools import reduce\n    max_number = numbers[32]\n\n    def is_prime(n):\n        if n <= 1: return False\n        for i in range(2, int(n**0.5) + 1):\n            if n % i == 0: return False\n        return True\n\n    def is_truncatable_prime(n, primes):\n        str_n = str(n)\n        while str_n:\n            if not is_prime(n): return False\n            n = int(str_n) // 10\n            str_n = str(n)\n        return True\n\n    primes = [p for p in range(2, max_number) if is_prime(p)]\n    truncatable_primes = []\n\n    for prime in primes:\n        if is_truncatable_prime(prime, primes):\n            truncatable_primes.append(prime)\n    \n    return truncatable_primes\n\n# Example call to the function with placeholder argument\nprint(all_left_truncatable_prime((0,) * 33 + (1000,)))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 156,
+    "total_tokens": 456,
+    "completion_tokens": 300
+  }
+}

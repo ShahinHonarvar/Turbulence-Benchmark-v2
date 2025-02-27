@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-ed457b16180d4107ba09c8c82e936338",
+  "object": "chat.completion",
+  "created": 1725533580,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef palindrome_of_length_at_least_n(s):\n    def is_palindrome(s):\n        return s == s[::-1]\n    \n    alphabet = 'abcdefghijklmnopqrstuvwxyz'\n    n = max(len(s), 3)\n    palindromes = set()\n\n    def expand_around_center(left, right):\n        while left >= 0 and right < len(s) and s[left].lower() in alphabet and s[right].lower() in alphabet:\n            if is_palindrome(s[left:right+1]):\n                palindromes.add(s[left:right+1])\n            if len(s[left:right+1]) >= 32:\n                return\n            left -= 1\n            right += 1\n\n    for i in range(len(s)):\n        expand_around_center(i, i)  # Odd length palindromes\n        if i + 1 < len(s) and s[i].lower() == s[i+1].lower():\n            expand_around_center(i, i+1)  # Even length palindromes\n\n    return palindromes\n```\n```\n\nThis code snippet defines a function `palindrome_of_length_at_least_n` which finds all palindromes of length greater than or equal to 32 in a given string, case-insensitively, consisting only of English letters. The helper function `is_palindrome` checks if a string is a palindrome. The main function utilizes a variation of the center-expanding method, iterating through each character to consider both odd and even length palindromes.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 155,
+    "total_tokens": 563,
+    "completion_tokens": 408
+  }
+}

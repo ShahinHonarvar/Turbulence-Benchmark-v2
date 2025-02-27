@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-ee14730a3f6e4a14b94b688647940b89",
+  "object": "chat.completion",
+  "created": 1725530971,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(strings):\n    def count_chars(s):\n        return ''.join(sorted(s.lower()))\n    anagram_count = {}\n    for s in strings:\n        if len(s) < 3:\n            continue\n        key = count_chars(s)\n        if key in anagram_count:\n            anagram_count[key] += 1\n        else:\n            anagram_count[key] = 1\n    return sum(v for v in anagram_count.values() if v > 1) <= 276\n\n# Example usage:\n# result = if_contains_anagrams(['listen', 'silent', 'another', 'nothear', 'enlist'])\n# print(result) # Output should be True or False based on the condition\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 149,
+    "total_tokens": 347,
+    "completion_tokens": 198
+  }
+}

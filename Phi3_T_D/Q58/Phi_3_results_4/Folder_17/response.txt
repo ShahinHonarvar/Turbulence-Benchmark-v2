@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-3340d8facae24e969fbb5814426e70f8",
+  "object": "chat.completion",
+  "created": 1725546355,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_n_numbers(mat):\n    if not isinstance(mat, np.ndarray):\n        raise ValueError(\"Input must be a numpy matrix\")\n\n    if mat.ndim != 2:\n        raise ValueError(\"Matrix must be two-dimensional\")\n\n    if mat.shape[0] * mat.shape[1] < 166:\n        return 0\n\n    def count_submatrices(matrix, count):\n        rows, cols = matrix.shape\n        for subrow_size in range(1, rows - 15):\n            for subcol_size in range(1, cols - 15):\n                submatrix = matrix[subrow_size:-(16-subrow_size), subcol_size:-(16-subcol_size)]\n                count[0] += (submatrix == 166).sum()\n\n        return count\n\n    count = [0]\n    return count\n\n# Example usage provided below; you will need to create a numpy matrix and pass it to the function.\n# Example: mat = np.array([[1, 1, 1], [1, 1, 1], [1, 1, 1]])\n# print(submatrix_with_n_numbers(mat))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 117,
+    "total_tokens": 425,
+    "completion_tokens": 308
+  }
+}

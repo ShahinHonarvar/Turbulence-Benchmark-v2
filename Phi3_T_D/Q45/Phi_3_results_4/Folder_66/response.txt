@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-d090a5548d9b403cbff7d0d013739c81",
+  "object": "chat.completion",
+  "created": 1725519411,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef palindromes_between_indices(s):\n    low = 5\n    if s == \"\" or len(s) < 5:\n        return set()\n\n    counter = {}\n    for c in s[:6]:\n        counter[c.lower()] = counter.get(c.lower(), 0) + 1\n\n    def can_form_palindrome(counts):\n        odd_count = 0\n        for c in counts:\n            if counts[c] % 2 != 0:\n                odd_count += 1\n            if odd_count > 1:\n                return False\n        return True\n\n    palindromes = set()\n    for key in counter:\n        if counter[key] >= 2:\n            mid = key*((counter[key]-1)//2)\n            palindromes.add(mid + mid[::-1])\n            mid += key\n            palindromes.add(mid + mid[::-1])\n\n    if can_form_palindrome(counter):\n        palindromes.add(''.join([k*((v//2)-1) + 'a' + k*((v//2)-1) for k, v in counter.items() if v >= 2]) + ''.join(k*((v//2)-1) for k, v in counter.items() if v >= 2 and k != 'a'))\n\n    return palindromes\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 192,
+    "total_tokens": 538,
+    "completion_tokens": 346
+  }
+}

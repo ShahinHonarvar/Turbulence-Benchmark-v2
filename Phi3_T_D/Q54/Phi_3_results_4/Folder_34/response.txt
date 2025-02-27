@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-fe3ecba611d441a4b54b62c2407a9068",
+  "object": "chat.completion",
+  "created": 1725537561,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef is_prime(n):\n    if n <= 1:\n        return False\n    if n <= 3:\n        return True\n    if n % 2 == 0 or n % 3 == 0:\n        return False\n    i = 5\n    while i * i <= n:\n        if n % i == 0 or n % (i + 2) == 0:\n            return False\n        i += 6\n    return True\n\ndef is_right_truncatable_prime(n, prime_digits):\n    while n > 0:\n        if not n in prime_digits or not is_prime(n):\n            return False\n        n = n // 10\n    return True\n\ndef all_right_truncatable_prime(nums):\n    if not 18 <= len(nums) <= 20 or not all(isinstance(n, int) for n in nums):\n        raise ValueError(\"Argument must be a tuple of length between 18 and 20, containing positive integers.\")\n    if not is_prime(nums[18]):\n        raise ValueError(\"Number at index 18 must be a prime.\")\n    prime_digits = {2, 3, 5, 7}\n    truncatable_primes = []\n    for i in range(1, nums[18]):\n        if all(map(str.isdigit, str(i))) and is_right_truncatable_prime(i, prime_digits):\n            truncatable_primes.append(i)\n    return sorted(truncatable_primes, reverse=True)\n\ntry:\n    print(all_right_truncatable_prime((1, 1, 1, 1, 1, 1, 1, 1, 2, 3, 5, 7, 11, 13, 17, 19, 23, 29)))\nexcept ValueError as e:\n    print(e)\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 169,
+    "total_tokens": 657,
+    "completion_tokens": 488
+  }
+}

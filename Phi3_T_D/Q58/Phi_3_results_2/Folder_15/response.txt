@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-8c00c65a4a39488296e67cbdc9d33f28",
+  "object": "chat.completion",
+  "created": 1725545509,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    count = 0\n    rows, cols = matrix.shape\n    for r in range(rows):\n        for c in range(cols):\n            for x in range(r, rows):\n                for y in range(c, cols):\n                    submatrix = matrix[r:x+1, c:y+1]\n                    unique_numbers = set(matrix[submatrix].flatten())\n                    if len(unique_numbers) == 2:\n                        count += 1\n    return count\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 115,
+    "total_tokens": 256,
+    "completion_tokens": 141
+  }
+}

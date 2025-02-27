@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-604691dc890345f98bdfccfda3b5f154",
+  "object": "chat.completion",
+  "created": 1725540831,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef lists_with_product_equal_n(circ_list):\n    n = len(circ_list)\n    result = []\n    if n < 2:\n        return result\n\n    for i in range(n):\n        product = 1\n        sublist = []\n        for j in range(n):\n            if product == -1:\n                if len(sublist) > 1:\n                    result.append(sublist)\n                product = 0\n                sublist = []\n                break\n            else:\n                product *= circ_list[(i + j) % n]\n                sublist.append(circ_list[(i + j) % n])\n        if sublist and product == -1:\n            result.append(sublist)\n    return result\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 202,
+    "total_tokens": 390,
+    "completion_tokens": 188
+  }
+}

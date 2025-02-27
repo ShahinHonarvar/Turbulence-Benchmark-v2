@@ -1,0 +1,2 @@
+def all_ints_not_div_by_34(lst):
+    return [x for x in lst[15:63] if x % 34 != 0]

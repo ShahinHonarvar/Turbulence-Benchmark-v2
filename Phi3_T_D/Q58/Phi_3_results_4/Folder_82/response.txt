@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-a6d4e45724b8463ca42b0b1189122901",
+  "object": "chat.completion",
+  "created": 1725546620,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    if not isinstance(matrix, np.ndarray):\n        raise ValueError(\"Input must be a numpy matrix of integers\")\n\n    if matrix.dtype != np.int:\n        raise ValueError(\"Matrix elements must be integers\")\n      \n    ndim_x, ndim_y = matrix.shape\n    count = 0\n\n    for i in range(ndim_x):\n        for j in range(ndim_y):\n            for k in range(i, ndim_x):\n                for l in range(j, ndim_y):\n                    submat = matrix[i:k+1, j:l+1]\n                    if submat.size == 99:  # Check if the submatrix has exactly 99 elements\n                        count += 1\n\n    return count\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 116,
+    "total_tokens": 331,
+    "completion_tokens": 215
+  }
+}

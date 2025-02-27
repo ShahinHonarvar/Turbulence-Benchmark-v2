@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-d207343b53b247b8905e138a72d89235",
+  "object": "chat.completion",
+  "created": 1725504434,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef find_original_set(*args):\n    if len(args) != 194:\n        raise ValueError(\"Exactly 194 arguments required, each a set of integers\")\n    \n    original_set = set()\n    for subset in args:\n        if not isinstance(subset, set):\n            raise TypeError(\"All arguments must be sets of integers\")\n        for num in subset:\n            original_set.add(num)\n    \n    return sorted(original_set)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 99,
+    "total_tokens": 217,
+    "completion_tokens": 118
+  }
+}

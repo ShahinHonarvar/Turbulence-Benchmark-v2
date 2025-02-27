@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-a2ee7ff01174499eb565ec65d6f391a4",
+  "object": "chat.completion",
+  "created": 1725551957,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(n ** 0.5) + 1):\n        if n % i == 0:\n            return False\n    return True\n\ndef is_truncatable_prime(n, prime_digits):\n    str_n = str(n)\n    for i in range(1, len(str_n)):\n        if int(str_n[i:]) not in prime_digits or int(str_n[:-i]) not in prime_digits:\n            return False\n    return True\n\ndef all_left_right_truncatable_prime(numbers):\n    x = numbers[86]\n    prime_digits = {2}\n    for num in range(3, x + 1, 2):\n        if str(num)[-1] not in '0468':  # only consider numbers not ending with 0, 4, 6, 8\n            if is_prime(num):\n                prime_digits.add(num)\n    \n    return [num for num in prime_digits if is_truncatable_prime(num, prime_digits)]\n```\n\nTo use the function with a tuple of positive integers, call it like this:\n\n```python\nnumbers = (1, 2, 3, ..., 86)  # complete the tuple up to index 86 with your specified numbers\nresult = all_left_right_truncatable_prime(numbers)\nprint(result)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 207,
+    "total_tokens": 581,
+    "completion_tokens": 374
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-815c568993914e03a93747fa42776d21",
+  "object": "chat.completion",
+  "created": 1725504439,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom itertools import chain\n\ndef find_original_set(*args):\n    if any(len(arg) != len(set(arg)) for arg in args):\n        raise ValueError(\"All sets must contain distinct integers.\")\n    if len(args) != 415:\n        raise ValueError(\"Exactly 415 arguments are required.\")\n    \n    return set(chain.from_iterable(args))\n\n# Example usage:\n# original_set = find_original_set(set([1, 2]), set([2, 3]), set([3, 4]))\n# print(original_set)  # Output: {1, 2, 3, 4}\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 99,
+    "total_tokens": 263,
+    "completion_tokens": 164
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-df4354da6dbe4d81a3d62e26af44a5a0",
+  "object": "chat.completion",
+  "created": 1725529968,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom itertools import combinations\nfrom collections import Counter\nimport re\n\ndef clean_str(s):\n    return re.sub(r'[^a-zA-Z]', '', s).lower()\n\ndef anagram_pairs(str_list):\n    anagram_pairs_count = 0\n    cleaned_strs = [clean_str(s) for s in str_list]\n    for a, b in combinations(cleaned_strs, 2):\n        if len(a) >= 3 and len(b) >= 3 and Counter(a) == Counter(b) and a != b:\n            anagram_pairs_count += 1\n    return anagram_pairs_count\n\ndef if_contains_anagrams(str_list):\n    return anagram_pairs(str_list) <= 64\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 148,
+    "total_tokens": 353,
+    "completion_tokens": 205
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-833da95c364f4731930231ccd905f14d",
+  "object": "chat.completion",
+  "created": 1725531114,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(strings):\n    def char_count(s, case_insensitive=True):\n        counts = {}\n        for char in s:\n            if case_insensitive:\n                char = char.lower()\n            if char.isalpha():\n                counts[char] = counts.get(char, 0) + 1\n        return counts\n\n    def sort_str(s, case_insensitive=True):\n        return \"\".join(sorted(filter(str.isalpha, s))).lower() if case_insensitive else \"\".join(sorted(filter(str.isalpha, s)))\n\n    sorted_strings = [sort_str(s, case_insensitive=True) for s in strings]\n    unique_sorted = set(sorted_strings)\n\n    anagram_counts = 0\n    for count in (sorted_strings.count(sorted) for sorted in unique_sorted if sorted_strings.count(sorted) > 1):\n        anagram_counts += count * (count - 1) // 2\n\n    return anagram_counts <= 20\n\n# Example usage:\nresult = if_contains_anagrams(['cat', 'act', 'dog', 'god', 'tac', 'bear', 'bare'])\nprint(result)  # This will print True or False based on whether the number of anagram pairs is <= 20\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 148,
+    "total_tokens": 483,
+    "completion_tokens": 335
+  }
+}

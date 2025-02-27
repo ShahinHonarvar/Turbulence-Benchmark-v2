@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-c2c541438d954642aa64f58a4e700c30",
+  "object": "chat.completion",
+  "created": 1725547589,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nfrom sympy import isprime\n\ndef all_left_truncatable_prime(nums):\n    base, x = 10, nums[23]\n    truncatable_primes = [i for i in range(2, x) if isprime(i)]\n    for p in truncatable_primes[:]:\n        n = p\n        while n > 0:\n            if not isprime(n):\n                truncatable_primes.remove(p)\n                break\n            n //= base\n    return sorted(truncatable_primes)\n\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 156,
+    "total_tokens": 300,
+    "completion_tokens": 144
+  }
+}

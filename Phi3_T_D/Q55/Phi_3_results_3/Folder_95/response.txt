@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-d4752ea87a25418fa9ab5a7330338ef2",
+  "object": "chat.completion",
+  "created": 1725540272,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef get_sublist(start, l, seen):\n    n = len(l)\n    for end in range(start + 1, len(l) + start):\n        if end > n:\n            end = end % n\n        product = 1\n        for i in range(start, end + 1):\n            product *= l[i]\n        if product == 28:\n            sublist = tuple(l[start:i + 1])\n            if sublist not in seen:\n                seen.add(sublist)\n                yield list(sublist)\n\ndef lists_with_product_equal_n(circular_list):\n    n = len(circular_list)\n    seen = set()\n\n    for i, num in enumerate(circular_list):\n        if i == n - 1 or not get_sublist(i, circular_list, seen):\n            continue\n        yield from get_sublist(i, circular_list, seen)\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 203,
+    "total_tokens": 438,
+    "completion_tokens": 235
+  }
+}

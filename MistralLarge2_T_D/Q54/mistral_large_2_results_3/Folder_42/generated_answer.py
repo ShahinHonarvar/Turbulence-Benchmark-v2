@@ -1,0 +1,27 @@
+def is_prime(num):
+    if num <= 1:
+        return False
+    if num <= 3:
+        return True
+    if num % 2 == 0 or num % 3 == 0:
+        return False
+    i = 5
+    while i * i <= num:
+        if num % i == 0 or num % (i + 2) == 0:
+            return False
+        i += 6
+    return True
+
+def all_right_truncatable_prime(numbers):
+    x = numbers[64]
+    right_truncatable_primes = []
+    for num in range(2, x):
+        if is_prime(num):
+            temp = num
+            while temp > 0:
+                if not is_prime(temp):
+                    break
+                temp //= 10
+            else:
+                right_truncatable_primes.append(num)
+    return sorted(right_truncatable_primes, reverse=True)

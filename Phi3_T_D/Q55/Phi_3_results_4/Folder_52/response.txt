@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-6af9ba0b3bed43139f6855cc41c4b258",
+  "object": "chat.completion",
+  "created": 1725540597,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef rotate(nums, k):\n    k = k % len(nums)\n    return nums[k:] + nums[:k]\n\ndef continuous_sublists_product_equal_n(nums, n):\n    sublists = []\n    for i in range(len(nums)):\n        product = 1\n        for num in nums[i:]:\n            product *= num\n            if product == n:\n                sublists.append(nums[i:nums.index(num)+1])\n        for j in range(1, len(nums)):\n            if i + j < len(nums):\n                product = 1\n                for num in nums[i:i+j]:\n                    product *= num\n                if product == n:\n                    sublists.append(nums[i:i+j])\n    return sublists\n\ndef lists_with_product_equal_n(circular_list):\n    n = 37\n    sublists = []\n    for _ in range(len(circular_list)):\n        sublists.extend(continuous_sublists_product_equal_n(circular_list, n))\n        circular_list = rotate(circular_list, 1)\n    return list(set(map(tuple, sublists)))\n```\n\n```python\nprint(lists_with_product_equal_n([2, 1, 1, 5, 7, 7]))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 203,
+    "total_tokens": 549,
+    "completion_tokens": 346
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-5a93d0b831e84668acc94dff74b30aad",
+  "object": "chat.completion",
+  "created": 1725518957,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef palindromes_between_indices(s):\n    from itertools import permutations\n    from collections import Counter\n    s = s[1:8].lower()\n    char_data = Counter(s)\n    all_permutations = [''.join(p) for p in permutations(s, len(s)) if all(char_data[char] >= p.count(char) for char in p)]\n    return set(filter(lambda x: x == x[::-1] and len(x) >= 6, all_permutations))\n```\n```\ndef palindromes_between_indices(s):\n    from itertools import permutations\n    from collections import Counter\n    s = s[1:8].lower()\n    letters = [c for c, count in Counter(s).items() if count >= 3]\n    palindromes = set()\n    \n    for length in range(6, len(letters) + 1):\n        for perm in permutations(letters, length):\n            s_temp = ''.join(sorted(perm))\n            if s_temp == s_temp[::-1]:\n                palindromes.add(s_temp)\n    \n    return palindromes\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 192,
+    "total_tokens": 491,
+    "completion_tokens": 299
+  }
+}

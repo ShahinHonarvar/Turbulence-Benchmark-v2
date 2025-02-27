@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-177b357b6ecf4308898f3fb082802164",
+  "object": "chat.completion",
+  "created": 1725545648,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    n = 72\n    height, width = matrix.shape\n    count = 0\n\n    for i in range(height):\n        for j in range(width):\n            for size_height in range(1, height - i + 1):\n                if size_height * width < n:\n                    continue\n                for size_width in range(1, width - j + 1):\n                    if size_height * size_width < n:\n                        continue\n                    if size_height * size_width == n:\n                        count += 1\n    return count\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 116,
+    "total_tokens": 275,
+    "completion_tokens": 159
+  }
+}

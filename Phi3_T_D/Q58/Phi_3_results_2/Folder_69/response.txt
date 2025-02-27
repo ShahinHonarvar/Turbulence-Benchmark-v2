@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-d626e7c126194880a280092cd63d8475",
+  "object": "chat.completion",
+  "created": 1725545730,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    count = 0\n    rows, cols = matrix.shape\n    for i in range(rows):\n        for j in range(cols):\n            if (j + 11 < cols) and (i + 11 < rows):\n                submatrix = matrix[i:i+12, j:j+12]\n                if np.all(submatrix == 126):\n                    count += 1\n    return count\n\n# Example usage\n# matrix = np.array([[your 2D numpy matrix here]])\n# print(submatrix_with_n_numbers(matrix))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 117,
+    "total_tokens": 280,
+    "completion_tokens": 163
+  }
+}

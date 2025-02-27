@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-643c621d86d04d9581c4299a54a57a4f",
+  "object": "chat.completion",
+  "created": 1725542514,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef all_substring_of_size_n(s):\n    from itertools import permutations\n    \n    n = 106\n    results = set()\n    for i in range(len(s) - n + 1):\n        substring = s[i:i+n]\n        if len(set(substring)) == n:\n            results.add(''.join(permutations(substring, n)))\n    \n    return list(results)\n\n# Example usage\ntext = \"abcdefghijklmnopqrstuvwxyz1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()_+-=[]{};:',.<>/?`~\"\nsubstrings = all_substring_of_size_n(text)\nprint(substrings)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 131,
+    "total_tokens": 333,
+    "completion_tokens": 202
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-69f66f9b3feb41e0aed19061f0d6d9c5",
+  "object": "chat.completion",
+  "created": 1725536602,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef is_prime(n):\n    if n <= 1:\n        return False\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            return False\n    return True\n\ndef all_right_truncatable_primes(numbers):\n    threshold = numbers[97]\n    right_truncatable_primes = [num for num in range(2, threshold)\n                                if is_prime(num) and all(is_prime(num // 10**i) for i in range(int(num**0.5)//10+1))]\n    return sorted(right_truncatable_primes, reverse=True)\n\n# Example usage if we wanted to pass a tuple with integers, index 97 being chosen for demonstration purposes:\nall_right_truncatable_prime = all_right_truncatable_primes((0,) * 97 + (104729,))\nprint(all_right_truncatable_prime)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 169,
+    "total_tokens": 425,
+    "completion_tokens": 256
+  }
+}

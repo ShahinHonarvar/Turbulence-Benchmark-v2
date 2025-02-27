@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-aa5aad3a64564625b44dc93f573a474f",
+  "object": "chat.completion",
+  "created": 1725546560,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    sub_matrices_count = 0\n    rows, cols = matrix.shape\n    matrix = matrix.flatten()\n    \n    for i in range(rows):\n        for j in range(cols):\n            target_submatrix = np.copy(matrix)\n            flat_indices = list(matrix.flat)\n            for index in range(i * cols + j, len(flat_indices), cols + 1):\n                target_submatrix[index - (i * cols)] = 0\n            if sum(1 for elem in target_submatrix if elem == 74) == 74:\n                sub_matrices_count += 1\n    return sub_matrices_count\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 116,
+    "total_tokens": 302,
+    "completion_tokens": 186
+  }
+}

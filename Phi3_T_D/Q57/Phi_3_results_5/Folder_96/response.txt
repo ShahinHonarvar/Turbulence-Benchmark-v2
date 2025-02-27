@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-bead6a9082264b08a941b62730b06f90",
+  "object": "chat.completion",
+  "created": 1725545021,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\n\nimport numpy as np\n\nfrom itertools import product\n\n\ndef submatrix_with_particular_sum(matrix):\n\n    def all_submatrices(matrix):\n\n        rows, cols = matrix.shape\n\n        for r1, r2 in product(range(rows + 1), repeat=2):\n\n            for c1, c2 in product(range(cols + 1), repeat=2):\n\n                yield matrix[r1:r2, c1:c2]\n\n\n    def submatrix_sum_equals(submatrix, target):\n\n        return np.sum(submatrix) == target\n\n\n    result = []\n\n    for submatrix in all_submatrices(matrix):\n\n        if submatrix.size > 0 and submatrix_sum_equals(submatrix, -63):\n\n            result.append(submatrix)\n\n    return result\n\n\n# Example usage:\n\n# matrix = np.array([[1, -1, 2], [3, 1, -1], [5, -6, 18]])\n\n# submatrices = submatrix_with_particular_sum(matrix)\n\n# print(submatrices)\n\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 126,
+    "total_tokens": 412,
+    "completion_tokens": 286
+  }
+}

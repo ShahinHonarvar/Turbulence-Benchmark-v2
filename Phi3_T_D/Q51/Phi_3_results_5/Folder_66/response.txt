@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-a8852e495f9546d9b177d3822dbb784d",
+  "object": "chat.completion",
+  "created": 1725531325,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom itertools import permutations\nimport string\n\ndef if_contains_anagrams(word_list):\n    def normalize(word):\n        return ''.join(sorted(word.lower())).replace(' ', '')\n\n    def is_valid_word(word):\n        return len(word) >= 3\n\n    max_pairs = 64\n    valid_words = [word for word in word_list if is_valid_word(word)]\n    normalized_words = [normalize(word) for word in valid_words]\n    anagram_count = 0\n\n    for i in range(len(normalized_words)):\n        for p in permutations(normalized_words[i], len(normalized_words[i])):\n            if ''.join(p) in normalized_words and normalized_words.index(''.join(p)) != i:\n                anagram_count += 1\n                break\n        if anagram_count > max_pairs:\n            return False\n\n    return True\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 148,
+    "total_tokens": 393,
+    "completion_tokens": 245
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-f98ec3e1975447afaafc209e95b35045",
+  "object": "chat.completion",
+  "created": 1725538723,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef lists_with_product_equal_n(lst):\n    from itertools import cycle\n\n    result = []\n    n = 42\n    circular = cycle(lst)\n    \n    for start in range(len(lst)):\n        product = 1\n        current_list = []\n        \n        for _ in range(start, start + len(lst)):\n            element = next(circular)\n            product *= element\n            current_list.append(element)\n            \n            if product == n:\n                result.append(current_list[:])\n                break\n        \n            if product > n:\n                product = 1\n                current_list = []\n    \n    return result\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 203,
+    "total_tokens": 369,
+    "completion_tokens": 166
+  }
+}

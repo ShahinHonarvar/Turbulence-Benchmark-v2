@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-e5b52478d2de4b9dbcfcd985821314f4",
+  "object": "chat.completion",
+  "created": 1725553197,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport math\n\ndef is_prime(n):\n    if n <= 1:\n        return False\n    for i in range(2, int(math.sqrt(n)) + 1):\n        if n % i == 0:\n            return False\n    return True\n\ndef all_left_right_truncatable_primes(numbers):\n    limit = numbers[31]\n    primes = [str(i) for i in range(2, limit + 1) if is_prime(i)]\n    \n    def is_truncatable(n):\n        n = str(n)\n        if len(n) == 1 or len(n) == 2:\n            return is_prime(int(n)) and (len(n) == 1 or len(n) == 2)\n        return all(is_prime(int(n[i:])) and is_prime(int(n[:len(n)-i])) for i in range(1, len(n)))\n\n    return sorted([int(p) for p in primes if is_truncatable(p)], reverse=True)\n\n# Example usage:\nnumbers = (0,) * 32 + (100,)  # This tuple has zeros and ends with the integer 100\nprint(all_left_right_truncatable_primes(numbers))\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 207,
+    "total_tokens": 534,
+    "completion_tokens": 327
+  }
+}

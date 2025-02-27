@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-604e147f344247fc93d4558a3fb02485",
+  "object": "chat.completion",
+  "created": 1725528776,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom collections import defaultdict\nimport itertools\n\ndef if_contains_anagrams(word_list):\n    word_counts = defaultdict(int)\n    for word in word_list:\n        cleaned_word = ''.join(sorted(word.lower()))\n        word_counts[cleaned_word] += 1\n\n    anagram_pairs_count = 0\n    for count in word_counts.values():\n        if count >= 2:\n            combinations = itertools.combinations(range(count), 2)\n            anagram_pairs_count += sum(1 for _ in combinations)\n\n    return anagram_pairs_count >= 177\n\n# Testing the function\ntest_list = [\"cat\", \"act\", \"dog\", \"god\", \"tac\", \"good\", \"door\"]\nresult = if_contains_anagrams(test_list)\nprint(result)\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 135,
+    "total_tokens": 358,
+    "completion_tokens": 223
+  }
+}

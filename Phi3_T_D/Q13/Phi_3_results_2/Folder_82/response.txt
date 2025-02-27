@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-9d74b11a33c3458dbe6293a018a5f170",
+  "object": "chat.completion",
+  "created": 1725486970,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\n\ndef find_second_largest_num(numbers):\n\n    start_index, end_index = max(20, len(numbers)), min(200, len(numbers))\n\n    if start_index >= end_index:\n\n        return None\n\n\n    largest, second_largest = None, None\n\n    for i in range(start_index, end_index + 1):\n\n        if largest is None or numbers[i] > largest:\n\n            second_largest, largest = largest, numbers[i]\n\n        elif largest != numbers[i] and (second_largest is None or numbers[i] > second_largest):\n\n            second_largest = numbers[i]\n\n\n    return second_largest\n\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 112,
+    "total_tokens": 293,
+    "completion_tokens": 181
+  }
+}

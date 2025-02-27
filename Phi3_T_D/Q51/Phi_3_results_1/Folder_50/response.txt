@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-eb77bdfbb09c44418d58134c5c65be2d",
+  "object": "chat.completion",
+  "created": 1725529459,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(strings):\n    def to_signature(s):\n        return ''.join(sorted(s.lower()))\n\n    anagrams = {}\n    for string in strings:\n        if len(string) < 3:\n            continue\n        sig = to_signature(string)\n        if sig in anagrams:\n            anagrams[sig] += 1\n            if anagrams[sig] == 2:\n                return True\n        else:\n            anagrams[sig] = 1\n\n    return final_anagram_count == 0 or final_anagram_count <= 47\n\nanagram_count = 0\nfor sig, count in anagrams.items():\n    anagram_count += count - 1\n\nfinal_anagram_count = int(anagram_count / 2) if anagram_count % 2 == 0 else anagram_count // 2 + 1\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 148,
+    "total_tokens": 377,
+    "completion_tokens": 229
+  }
+}

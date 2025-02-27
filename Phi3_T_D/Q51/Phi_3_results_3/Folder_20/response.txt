@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-2edefcadf58347f5b9f66e2619b90885",
+  "object": "chat.completion",
+  "created": 1725530225,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(lst):\n    def count_chars(s):\n        char_count = {}\n        for char in s.lower():\n            if char.isalpha() and len(char) >= 3:\n                if char in char_count:\n                    char_count[char] += 1\n                else:\n                    char_count[char] = 1\n        return char_count\n\n    from itertools import combinations\n    anagram_count = 0\n\n    for word1, word2 in combinations(lst, 2):\n        if count_chars(word1) == count_chars(word2):\n            anagram_count += 1\n            if anagram_count > 131:\n                return False\n    return True\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 149,
+    "total_tokens": 336,
+    "completion_tokens": 187
+  }
+}

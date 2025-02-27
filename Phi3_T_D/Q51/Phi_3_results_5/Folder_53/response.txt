@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-574aabf819f348429ae8b4374e2ea2ff",
+  "object": "chat.completion",
+  "created": 1725531269,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom collections import defaultdict\n\ndef if_contains_anagrams(words_list):\n    def normalize(word):\n        return ''.join(sorted(word.lower()))\n    \n    ngrams_count = 0\n    word_groups = defaultdict(list)\n    \n    for word in words_list:\n        if len(word) < 3:\n            continue\n        word_groups[normalize(word)].append(word)\n    \n    for group in word_groups.values():\n        ngrams_count += len(group) * (len(group) - 1) // 2\n        \n    return ngrams_count <= 8\n\n# Test cases\nprint(if_contains_anagrams(['listen', 'enlists', 'google', 'inlets', 'banana']))  # Expected: True\nprint(if_contains_anagrams(['hello', 'loleh', 'test', 'lehol']))  # Expected: True\nprint(if_contains_anagrams(['cat', 'dog', 'tac']))  # Expected: False\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 147,
+    "total_tokens": 404,
+    "completion_tokens": 257
+  }
+}

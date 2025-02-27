@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-02e11868595e4c85954b46b81cbb38f0",
+  "object": "chat.completion",
+  "created": 1725530563,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(lst):\n    def is_anagram(s1, s2):\n        return len(set(s1.lower()).difference(s2.lower())) == 0\n\n    pairs = 0\n    seen = []\n\n    for i, str1 in enumerate(lst):\n        for str2 in lst[i+1:]:\n            if str1.lower() != str2.lower() and len(str1) >= 3 and len(str2) >= 3 and is_anagram(str1, str2):\n                pair_key = ''.join(sorted(str1.lower())) # Sort letters for easier comparison\n                if pair_key not in seen:\n                    seen.append(pair_key)\n                    pairs += 1\n                    if pairs > 6:\n                        return False\n    return True\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 147,
+    "total_tokens": 352,
+    "completion_tokens": 205
+  }
+}

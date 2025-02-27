@@ -1,0 +1,10 @@
+def if_contains_anagrams(words):
+    count = 0
+    sorted_words = [''.join(sorted(word.lower())) for word in words if len(word) >= 3]
+    for i in range(len(sorted_words)):
+        for j in range(i + 1, len(sorted_words)):
+            if sorted_words[i] == sorted_words[j]:
+                count += 1
+                if count >= 276:
+                    return True
+    return False

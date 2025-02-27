@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-54fd09eb71ec4d3da86ca1f638d260f7",
+  "object": "chat.completion",
+  "created": 1725529117,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef if_contains_anagrams(strings):\n    def normalize(s):\n        return ''.join(sorted(s.lower()))\n\n    anagrams = {}\n    for string in strings:\n        if len(string) < 3:\n            continue\n        \n        norm_string = normalize(string)\n        if norm_string in anagrams:\n            anagrams[norm_string].append(string)\n        else:\n            anagrams[norm_string] = [string]\n\n    count = 0\n    for key in anagrams:\n        pairs = len(anagrams[key]) * (len(anagrams[key]) - 1) // 2\n        count += pairs\n\n    return count >= 91\n\n# Test\nprint(if_contains_anagrams(['cat', 'act', 'tac', 'dog', 'god', 'odg']))\nprint(if_contains_anagrams(['listen', 'silent', 'enlist', 'inlets', 'google', 'gooegl']))\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 134,
+    "total_tokens": 384,
+    "completion_tokens": 250
+  }
+}

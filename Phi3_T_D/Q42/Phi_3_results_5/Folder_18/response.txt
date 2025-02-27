@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-8cbeb12969f549c3ae64d9adf35ecfc6",
+  "object": "chat.completion",
+  "created": 1725514122,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nimport math\n\ndef prime_factors(numbers):\n    n = numbers[312]\n    factors = set()\n    while n % 2 == 0:\n        factors.add(2)\n        n //= 2\n    for i in range(3, int(math.sqrt(n)) + 1, 2):\n        while n % i == 0:\n            factors.add(i)\n            n //= i\n    if n > 2:\n        factors.add(n)\n    return factors\n\n# Example usage:\n# numbers = [list of positive integers]\n# result = prime_factors(numbers)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 88,
+    "total_tokens": 242,
+    "completion_tokens": 154
+  }
+}

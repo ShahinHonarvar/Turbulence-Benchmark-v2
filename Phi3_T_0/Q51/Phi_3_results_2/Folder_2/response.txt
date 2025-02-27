@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-f49623d32e3b4a099a7db831d4115d56",
+  "object": "chat.completion",
+  "created": 1725603953,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(strings):\n    def normalize(s):\n        return ''.join(sorted(s.lower()))\n\n    def count_anagrams(normalized_strings):\n        from collections import Counter\n        counts = Counter(normalized_strings)\n        return sum(count * (count - 1) // 2 for count in counts.values())\n\n    normalized_strings = [normalize(s) for s in strings if len(s) >= 3]\n    return count_anagrams(normalized_strings) <= 81\n\n# Example usage:\n# result = if_contains_anagrams(['listen', 'enlist', 'google', 'gooegl'])\n# print(result)  # Output: True\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 148,
+    "total_tokens": 332,
+    "completion_tokens": 184
+  }
+}

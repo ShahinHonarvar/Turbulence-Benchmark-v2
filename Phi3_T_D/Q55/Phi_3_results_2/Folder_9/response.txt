@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-8a1fadca51604974958d732844336ae7",
+  "object": "chat.completion",
+  "created": 1725539241,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom itertools import tee\n\ndef one_pass(lst, target):\n    start, end, total, result = 0, 0, lst[0], []\n    while end < len(lst):\n        if total == target:\n            result.append(lst[start:end+1])\n            total //= lst[start]\n            start += 1\n        elif total < target:\n            total *= lst[end+1] if (end+2) < len(lst) else 1\n            end += 1\n        else:\n            total //= lst[start]\n            start += 1\n    return result\n\ndef pairs_equalling_product(prev_lst, nxt_lst, target):\n    prev, nxt = tee(zip(prev_lst, nxt_lst))\n    next(nxt, None)\n    prev = list(prev)\n    nxt = list(nxt)\n    \n    result = []\n    for i in range(1, len(prev_lst)):\n        if prev_lst[i-1]*nxt_lst[0] == target:\n            result.append(prev_lst[i-1:i+1]+[nxt_lst[0]])\n    \n    if prev_lst[0]*nxt_lst[-1] == target:\n        result.append([prev_lst[0]]+nxt_lst)\n    \n    return result\n\ndef lists_with_product_equal_n(lst, target=36):\n    if len(lst) == 0: return []\n    if len(lst) == 1:\n        return lst if lst[0] == target else []\n\n    result = one_pass(lst, target)\n    lst = lst + lst[0:1] #circle the list\n    for i in range(1, len(lst)):\n        result += pairs_equalling_product(lst[i-1:i+1], lst[i:i+2], target)\n    \n    return result\n\n# Example call\nlists = [-2, -3, 4, 6, 9]\nprint(lists_with_product_equal_n(lists))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 203,
+    "total_tokens": 710,
+    "completion_tokens": 507
+  }
+}

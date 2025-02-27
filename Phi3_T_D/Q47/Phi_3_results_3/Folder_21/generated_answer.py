@@ -1,0 +1,2 @@
+def palindromes_of_specific_lengths(s):
+    return set((center[i:j] for i in range(136, 161) for j in range(i + 136, 161 + 1) if i + j <= 295 and s[100:296].lower()[i:j].isalpha() and (s[100:296].lower()[i:j] == s[100:296].lower()[i:j][::-1])))

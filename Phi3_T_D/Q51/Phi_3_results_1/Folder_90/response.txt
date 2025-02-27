@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-bb9b012a87aa41bba8a5e090308006b7",
+  "object": "chat.completion",
+  "created": 1725529646,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(strings):\n    from collections import Counter\n    def is_anagram(str1, str2):\n        counter1, counter2 = Counter(str1.lower()), Counter(str2.lower())\n        return counter1 == counter2 and len(str1) >= 3 and len(str2) >= 3\n\n    anagram_pairs = [(strings[i], strings[j])\n                     for i in range(len(strings))\n                     for j in range(i+1, len(strings))\n                     if is_anagram(strings[i], strings[j])]\n\n    return len(anagram_pairs) <= 147\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 149,
+    "total_tokens": 318,
+    "completion_tokens": 169
+  }
+}

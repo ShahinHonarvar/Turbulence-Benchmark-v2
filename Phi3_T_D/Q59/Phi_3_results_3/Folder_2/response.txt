@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-078a0262b92641938c83b012902e5628",
+  "object": "chat.completion",
+  "created": 1725548395,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n <= 1:\n        return False\n    if n <= 3:\n        return True\n    if n % 2 == 0 or n % 3 == 0:\n        return False\n    i = 5\n    while i * i <= n:\n        if n % i == 0 or n % (i + 2) == 0:\n            return False\n        i += 6\n    return True\n\ndef is_left_truncatable_prime(n):\n    if not is_prime(n):\n        return False\n    while n > 0:\n        if not is_prime(int(str(n)[:-1])):\n            return False\n        n = int(str(n)[:-1])\n    return True\n\ndef all_left_truncatable_prime(numbers_tuple):\n    x = numbers_tuple[618]\n    return sorted([n for n in range(2, x) if is_left_truncatable_prime(n)])\n```\n\nTo better understand the constraints, let me walk you through what the functions do:\n\n1. `is_prime` checks if an integer `n` is a prime number and returns `True` or `False`.\n2. `is_left_truncatable_prime` uses `is_prime` method, and while debugging leftmost digits, it validates if all resulting numbers are a prime too.\n3. `all_left_truncatable_prime` gets the second argument as a tuple. Extracts 618th value and uses list comprehension to check every number less than it for being a left-truncatable prime number. The result is a sorted list of those numbers.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 157,
+    "total_tokens": 562,
+    "completion_tokens": 405
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-9b4c7c19dff64f3980abc743d1c5ec27",
+  "object": "chat.completion",
+  "created": 1725546015,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    count, n = 0, 131\n    rows, cols = matrix.shape\n\n    for rowStart in range(rows):\n        for colStart in range(cols):\n            for rowEnd in range(rowStart, rows):\n                for colEnd in range(colStart, cols):\n                    submatrix = matrix[rowStart:rowEnd+1, colStart:colEnd+1]\n                    if submatrix.size == n:\n                        count += 1\n\n    return count\n\n# Example usage:\n# matrix = np.array([[...], [...], ...])\n# result = submatrix_with_n_numbers(matrix)\n# print(result)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 117,
+    "total_tokens": 299,
+    "completion_tokens": 182
+  }
+}

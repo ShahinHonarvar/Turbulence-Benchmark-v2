@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-e0f306adec1941509c3d7868fe901713",
+  "object": "chat.completion",
+  "created": 1725547062,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    m, n = matrix.shape\n    count = 0\n    for i in range(m):\n        for j in range(n):\n            if matrix[i][j] == 5:\n                if i + 1 < m:\n                    if matrix[i+1][j] == 5:\n                        count += 1\n                        if j + 1 < n and matrix[i][j+1] == 5 and matrix[i+1][j+1] == 5:\n                            count += 1\n    return count\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 115,
+    "total_tokens": 266,
+    "completion_tokens": 151
+  }
+}

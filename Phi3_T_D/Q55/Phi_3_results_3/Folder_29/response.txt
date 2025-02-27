@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-aa38d55af2254cb39bb4f74a38865fed",
+  "object": "chat.completion",
+  "created": 1725539908,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef lists_with_product_equal_n(circular_list):\n    product = 0\n    n = 15\n    indices = []\n    results = []\n\n    def recurse(start, temp):\n        nonlocal product\n        if product == n:\n            results.append(temp)\n            return\n        if product > n:\n            return\n        for i in range(start, len(circular_list) + start):\n            product *= circular_list[i % len(circular_list)]\n            temp.append(circular_list[i % len(circular_list)])\n            recurse(i + 1, temp)\n            temp.pop()\n            product //= circular_list[i % len(circular_list)]\n\n    recurse(0, [])\n    return results\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 203,
+    "total_tokens": 403,
+    "completion_tokens": 200
+  }
+}

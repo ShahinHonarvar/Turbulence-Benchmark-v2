@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-f4aa3aea0a524806b69f6ed0b8578fbd",
+  "object": "chat.completion",
+  "created": 1725504682,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef find_original_set(*sets):\n    if not isinstance(sets, (list, set)) or not all(isinstance(s, set) for s in sets):\n        raise TypeError(\"All arguments must be sets of integers.\")\n\n    if len(sets) != 91:\n        raise ValueError(\"Exactly 91 sets are required.\")\n\n    if len(set(frozenset(s) for s in sets)) != 91:\n        raise ValueError(\"All sets must be distinct.\")\n\n    original_set = set()\n    for s in sets:\n        original_set.update(s)\n    return original_set\n```\n\nYou may use this function like this:\n\n```python\nset1 = {1, 2, 3}\nset2 = {2, 3, 4}\n#...\nset91 = {10, 11, ...} # Make sure to define all 91 distinct sets\n\nresult = find_original_set(set1, set2, ..., set91)\nprint(result)  # This will print the smallest set containing all elements from all 91 sets\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 98,
+    "total_tokens": 368,
+    "completion_tokens": 270
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-6071ba156b6c4084b009fcbe1806ee9c",
+  "object": "chat.completion",
+  "created": 1725547709,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef all_left_truncatable_prime(tuple_of_ints):\n    def is_prime(n):\n        if n < 2:\n            return False\n        for i in range(2, int(n**0.5) + 1):\n            if n % i == 0:\n                return False\n        return True\n    \n    def left_truncatable_prime(n, primes_set):\n        str_n = str(n)\n        for i in range(len(str_n)):\n            if not is_prime(int(str_n[i:])):\n                return False\n        return True\n    \n    x = tuple_of_ints[8]\n    primes = [p for p in range(x) if is_prime(p)]\n    left_truncatables = [p for p in primes if left_truncatable_prime(p, set(primes))]\n    return sorted(left_truncatables, reverse=True)\n\n# Example call to the function (you would replace this with an actual tuple of integers)\nresult = all_left_truncatable_prime((2, 120, 300, 400, 500, 600, 700, 800, 1000))\nprint(result)  # This would print the left-truncatable primes less than 1000 in descending order\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 155,
+    "total_tokens": 502,
+    "completion_tokens": 347
+  }
+}

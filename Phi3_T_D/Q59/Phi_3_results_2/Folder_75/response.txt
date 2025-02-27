@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-6088faf317db47a588150f89ea1bf11d",
+  "object": "chat.completion",
+  "created": 1725548222,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef all_left_truncatable_prime(primes_tuple):\n    x = primes_tuple[41]\n    primes = set(primes_tuple)\n    result = []\n\n    def is_left_truncatable(n):\n        while n > 0:\n            if n not in primes:\n                return False\n            n = n // 10\n        return True\n\n    for n in primes:\n        if n < x and is_left_truncatable(n):\n            result.append(n)\n            result.sort()\n\n    return result\n\n# Assuming primes_tuple is defined and contains prime numbers\n# primes_tuple = (2, 3, 5, 7, 11, ...)\n# print(all_left_truncatable_prime(primes_tuple))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 156,
+    "total_tokens": 361,
+    "completion_tokens": 205
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-cdc1ff3c0f364e488873ee4fbf551fbc",
+  "object": "chat.completion",
+  "created": 1725541590,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef all_substring_of_size_n(s):\n    result = set()\n    substr_to_index_map = {}\n    for i, c in enumerate(s):\n        current_substr = s[i:min(i + 61, len(s))]\n        if len(current_substr) == 61 and len(set(current_substr)) == 61:\n            result.add(current_substr)\n            for j in range(i + 1, min(i + 61, len(s))):\n                key = s[i:j + 1]\n                if key not in substr_to_index_map:\n                    substr_to_index_map[key] = j\n                else:\n                    for k in range(substr_to_index_map[key] + 1, j + 1):\n                        substring_to_remove = s[i:k]\n                        if all(c in substring_to_remove for c in substring_to_remove):\n                            result.remove(substring_to_remove)\n                    break\n    return list(result)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 130,
+    "total_tokens": 394,
+    "completion_tokens": 264
+  }
+}

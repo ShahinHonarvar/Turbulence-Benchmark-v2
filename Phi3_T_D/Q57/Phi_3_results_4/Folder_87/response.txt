@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-f322a6a1943543df8a4e9c065b1d4692",
+  "object": "chat.completion",
+  "created": 1725544540,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef get_submatrices(matrix, rows, cols, numRows, numCols):\n    for i in range(rows - numRows + 1):\n        for j in range(cols - numCols + 1):\n            yield matrix[i:i+numRows, j:j+numCols]\n\ndef submatrix_with_particular_sum(matrix):\n    rows, cols = matrix.shape\n    result = []\n\n    for numRows in range(1, rows + 1):\n        for numCols in range(1, cols + 1):\n            for submatrix in get_submatrices(matrix, rows, cols, numRows, numCols):\n                if submatrix.sum() == 35:\n                    result.append(submatrix)\n    return result\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 126,
+    "total_tokens": 322,
+    "completion_tokens": 196
+  }
+}

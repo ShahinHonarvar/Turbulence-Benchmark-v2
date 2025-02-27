@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-cff94798168d469a92d434f4b9d7e069",
+  "object": "chat.completion",
+  "created": 1725549419,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nfrom sympy import primerange, isprime\n\ndef all_primes_below_x(x):\n    return list(primerange(2, x))\n\ndef is_left_truncatable(n, prime_list):\n    n_str_list = list(str(n))\n    while n_str_list:\n        if not isprime(int(''.join(n_str_list))):\n            return False\n        n_str_list.pop(0)\n    return True\n\ndef all_left_truncatable_prime(tuple_of_ints):\n    x = tuple_of_ints[88]\n    primes = all_primes_below_x(x)\n    \n    return sorted([prime for prime in primes if is_left_truncatable(prime, primes)], reverse=True)\n```\n\nTo use the function, you need to supply it with a tuple of positive integers. Here is an example call and how to use it:\n\n```\nexample_tuple = (1, 2, 3, 4, ..., 88, ...)  # A tuple with 89 elements having the first 88 as positive integers less than 1000, and the 89th as the x passed to the function.\nleft_truncatable_primes = all_left_truncatable_prime(example_tuple)\nprint(left_truncatable_primes)\n```\n\nThis code does leverage the `sympy` library for the `primerange` function, so make sure you have `sympy` installed in your Python environment:\n\n```\npip install sympy\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 156,
+    "total_tokens": 544,
+    "completion_tokens": 388
+  }
+}

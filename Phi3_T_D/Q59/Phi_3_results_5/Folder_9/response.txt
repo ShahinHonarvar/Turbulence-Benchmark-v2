@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-cbaced37806c4bee8c5c392cc045e1c9",
+  "object": "chat.completion",
+  "created": 1725549756,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef all_left_truncatable_prime(numbers):\n    def is_prime(n, sieve):\n        return n in sieve\n    \n    def gen_left_truncatable_primes(start, sieve):\n        result = []\n        while start < x:\n            if is_prime(start, sieve):\n                if all(is_prime(int(str(start)[i:]), sieve) for i in range(1, len(str(start)))):\n                    result.append(start)\n            start += 1\n        return result\n    \n    x = numbers[29]\n    sieve = {p for p in range(2, x) if is_prime(p, {})}\n    truncatable_primes = gen_left_truncatable_primes(11, sieve)\n    return sorted(truncatable_primes, reverse=True)\n\nprint(all_left_truncatable_prime((..., 29, ...)))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 156,
+    "total_tokens": 399,
+    "completion_tokens": 243
+  }
+}

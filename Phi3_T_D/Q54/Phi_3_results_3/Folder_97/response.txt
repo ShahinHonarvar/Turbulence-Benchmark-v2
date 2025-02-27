@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-3aab950847014860849aef7dfee5c68e",
+  "object": "chat.completion",
+  "created": 1725537315,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef all_right_truncatable_prime(numbers):\n    def is_prime(n):\n        if n <= 1:\n            return False\n        for i in range(2, int(n**0.5) + 1):\n            if n % i == 0:\n                return False\n        return True\n\n    def is_right_truncatable_prime(n, primes_set):\n        if n not in primes_set:\n            return False\n        if n < 10:\n            return True\n        return is_right_truncatable_prime(n // 10, primes_set)\n\n    x = numbers[645]\n    primes_set = set()\n    right_truncatable_primes = []\n\n    for num in range(2, x):\n        if is_prime(num):\n            primes_set.add(num)\n            for rt_length in range(len(str(num)), 1, -1):\n                rt_num = int(str(num)[:-rt_length])\n                if is_right_truncatable_prime(rt_num, primes_set):\n                    right_truncatable_primes.append(rt_num)\n\n    return sorted(set(right_truncatable_primes))\n\n# Example usage:\n# result = all_right_truncatable_prime((645,))\n# print(result)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 170,
+    "total_tokens": 522,
+    "completion_tokens": 352
+  }
+}

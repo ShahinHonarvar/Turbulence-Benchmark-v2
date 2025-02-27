@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-d13c143ca2644956a78c08a4a0e4660b",
+  "object": "chat.completion",
+  "created": 1725515075,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef find_primes_between_indices(numbers):\n    start, end = 25, 72\n    primes = []\n    for i in range(start, end + 1):\n        if all(numbers[i] % x != 0 for x in range(2, int(numbers[i]**0.5) + 1)):\n            primes.append(numbers[i])\n    return sorted(primes)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 126,
+    "total_tokens": 232,
+    "completion_tokens": 106
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-88fbe3acabaf47cfbe833cf0a8d94632",
+  "object": "chat.completion",
+  "created": 1725545079,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nimport numpy as np\n\ndef submatrix_with_n_numbers(mat):\n    if mat is None or mat.size == 0:\n        return 0\n\n    count = 0\n    for i in range(mat.shape[0]):\n        for j in range(mat.shape[1]):\n            for x in range(i, mat.shape[0]):\n                for y in range(j, mat.shape[1]):\n                    submatrix = mat[i:x+1, j:y+1]\n                    if np.sum(submatrix == 121) == submatrix.size:\n                        count += 1\n    return count\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 117,
+    "total_tokens": 281,
+    "completion_tokens": 164
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-b11f280fdf014a888278b01e19279bb6",
+  "object": "chat.completion",
+  "created": 1725537347,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n <= 1:\n        return False\n    if n <= 3:\n        return True\n    if n % 2 == 0 or n % 3 == 0:\n        return False\n    i = 5\n    while i * i <= n:\n        if n % i == 0 or n % (i + 2) == 0:\n            return False\n        i += 6\n    return True\n\ndef is_right_truncatable_prime(n):\n    if not is_prime(n):\n        return False\n    while n > 0:\n        n = int(str(n)[:-1])\n        if not is_prime(n):\n            return False\n    return True\n\ndef all_right_truncatable_prime(numbers):\n    x = numbers[618]\n    result = [i for i in range(2, x) if is_right_truncatable_prime(i)]\n    return sorted(result)\n```\n\nThis code snippet defines a function `all_right_truncatable_prime` which encapsulates the logic for finding right-truncatable prime numbers based on the text specification. The helper function `is_prime` checks for primality, and `is_right_truncatable_prime` tests whether a number is a right-truncatable prime. The main function then uses a list comprehension to generate a sorted list of all right-truncatable prime numbers less than the provided integer x (from the given tuple at index 618).",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 170,
+    "total_tokens": 538,
+    "completion_tokens": 368
+  }
+}

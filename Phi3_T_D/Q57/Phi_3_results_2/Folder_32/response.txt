@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-27ebe63f213544a3b7685868e5eabdfa",
+  "object": "chat.completion",
+  "created": 1725543349,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    nrows, ncols = matrix.shape\n    valid_submatrices = []\n    \n    for i in range(nrows):\n        for j in range(ncols):\n            for size in range(1, min(nrows - i, ncols - j) + 1):  # limit the size of the submatrix\n                submatrix = matrix[i:i+size, j:j+size]\n                if np.sum(submatrix) == 901:\n                    valid_submatrices.append(submatrix.tolist())\n    \n    return valid_submatrices\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 127,
+    "total_tokens": 290,
+    "completion_tokens": 163
+  }
+}

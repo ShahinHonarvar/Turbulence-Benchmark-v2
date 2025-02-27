@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-407d50ae2fcf4d3fa4b928ec9f0eb392",
+  "object": "chat.completion",
+  "created": 1725537633,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef is_prime(n):\n    if n <= 1:\n        return False\n    if n <= 3:\n        return True\n    if n % 2 == 0 or n % 3 == 0:\n        return False\n    i = 5\n    while i * i <= n:\n        if n % i == 0 or n % (i + 2) == 0:\n            return False\n        i += 6\n    return True\n\ndef is_right_truncatable_prime(n):\n    while n > 0:\n        if not is_prime(n):\n            return False\n        n = n // 10\n    return True\n\ndef all_right_truncatable_prime(numbers_tuple):\n    x = numbers_tuple[89]\n    return sorted([n for n in range(2, x) if is_right_truncatable_prime(n)], reverse=True)\n\n# Usage example\nnumbers_tuple = (223, 45, 987654321, ...) # Complete tuples up to the 89th index\nsorted_primes = all_right_truncatable_prime(numbers_tuple)\nprint(sorted_primes)\n```\n\nPlease note that the usage example must be replaced with an actual tuple of length 90, as the Python code assumes that positional index 89 exists in the given tuple.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 169,
+    "total_tokens": 505,
+    "completion_tokens": 336
+  }
+}

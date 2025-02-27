@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-9abf2a3bc7b84685aea9f81b739ba7ce",
+  "object": "chat.completion",
+  "created": 1725518942,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom itertools import permutations\n\ndef palindromes_between_indices(s):\n    letters = s[1:7].lower()\n    counts = {letter: letters.count(letter) for letter in set(letters)}\n    half_len = sum(min(2, v) for v in counts.values()) // 2\n\n    def create_half_palindrome(half_letters):\n        palindrome_half = []\n        pairs = [[k] * v for k, v in half_letters.items() if v > 1]\n        singletons = [k for k, v in half_letters.items() if v == 1]\n\n        for L in permutations(pairs):\n            for pair_perm in permutations(L):\n                for comb in range(len(pair_perm) + 1):\n                    palindrome_half.append(''.join(pair_perm[:comb]) + ''.join(singletons) + ''.join(pair_perm[comb:][::-1]))\n        return palindrome_half\n\n    palindromes = set()\n    for half_len in range(half_len, -1, -1):\n        for comb in create_half_palindrome({k: count-2 for k, count in counts.items() if count > 1}):\n            if len(comb) >= 4:\n                other_half = comb + comb[-2::-1] if palindromes else comb[-2::-1]\n                palindromes.add(other_half + comb)\n\n    palindromes = {p.upper() for p in palindromes if len(p) >= 4}\n    return palindromes\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 192,
+    "total_tokens": 604,
+    "completion_tokens": 412
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-c0ac8530d0bd4bf9a537f216fb46cf21",
+  "object": "chat.completion",
+  "created": 1725527387,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\n\nfrom collections import defaultdict\n\nimport itertools\n\n\ndef if_contains_anagrams(strings_list):\n\n    def custom_key(s):\n\n        return ''.join(sorted(s)).lower()\n\n\n    counts = defaultdict(int)\n\n    anagram_pairs = 0\n\n\n    for word in strings_list:\n\n        if len(word) < 3:\n\n            continue\n\n        key = custom_key(word)\n\n        counts[key] += 1\n\n\n    for count in counts.values():\n\n        anagram_pairs += count * (count - 1) // 2\n\n\n    return anagram_pairs >= 74\n\n\n# Example usage:\n\n# print(if_contains_anagrams(['debitcard', 'badcredit', 'Elvis', 'lives', 'badcreditdebitcard', 'act', 'cat']))\n\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 134,
+    "total_tokens": 358,
+    "completion_tokens": 224
+  }
+}

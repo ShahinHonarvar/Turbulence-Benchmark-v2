@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-59b8133db43542eb92e8204adc24795f",
+  "object": "chat.completion",
+  "created": 1725543139,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\nfrom itertools import product\n\ndef submatrix_with_particular_sum(matrix):\n    m, n = matrix.shape\n    submatrices = []\n    for x1, y1 in product(range(m), repeat=2):\n        for x2, y2 in product(range(x1, m), repeat=2):\n            for y3, x3 in product(range(y1, n), repeat=2):\n                submatrix = matrix[x1:x2+1, y1:y3+1]\n                if np.sum(submatrix) == 35:\n                    submatrices.append(submatrix)\n    return submatrices\n\n# Example matrix\nmatrix = np.array([[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]])\nresult = submatrix_with_particular_sum(matrix)\nfor submatrix in result:\n    print(submatrix)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 126,
+    "total_tokens": 372,
+    "completion_tokens": 246
+  }
+}

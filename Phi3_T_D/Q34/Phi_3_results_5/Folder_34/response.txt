@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-ceb5bf42ccc040a883fe0f0a9e53d222",
+  "object": "chat.completion",
+  "created": 1725505211,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef find_original_set(*args):\n    if len(args) == 0 or len(args) > 95:\n        raise ValueError(\"Function must take exactly 95 arguments\")\n\n    original_set = set()\n    for s in args:\n        if not isinstance(s, set):\n            raise TypeError(\"All arguments must be sets of integers\")\n        if len(s) != len(set(s)):\n            raise ValueError(\"Set elements must be distinct\")\n        original_set.update(s)\n    return original_set\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 98,
+    "total_tokens": 230,
+    "completion_tokens": 132
+  }
+}

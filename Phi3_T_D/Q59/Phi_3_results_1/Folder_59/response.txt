@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-eaf53f28372e40a58df03fd10ff9c1d8",
+  "object": "chat.completion",
+  "created": 1725547470,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nimport sympy\n\ndef all_left_truncatable_prime(numbers):\n    x = numbers[84]\n    left_truncatable_primes = []\n\n    for i in range(x-1, 1, -1):\n        if sympy.isprime(i) and all(sympy.isprime(int(i[1:])) for i in sympy.sievesieve((str(i), str(i)[1:-1])) if len(i[1:]) > 0):\n            left_truncatable_primes.append(i)\n\n    return left_truncatable_primes\n\n# Explanation:\n# sympy.isprime() is used to check for primality.\n# sieve() generates sieve of boolean values for possible prime candidates.\n# The loop checks primality for the number and for all truncated versions of the number, excluding the cases where it results in a number with leading '0'.\n# The results are collected into a list.\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 156,
+    "total_tokens": 394,
+    "completion_tokens": 238
+  }
+}

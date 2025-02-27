@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-e31129f4c115443b8f27522f66e09c91",
+  "object": "chat.completion",
+  "created": 1725507051,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef filter_chars(s):\n    chars_to_filter = ''.join([chr(i) for i in range(ord('B'), ord('r'))])\n    result = ''.join([c for c in s if c not in chars_to_filter or not (43 < s.index(c) < 69)])\n    return result\n\n# Test case\nprint(filter_chars(\"The quick brown fox jumps over the lazy dog.\"))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 141,
+    "total_tokens": 255,
+    "completion_tokens": 114
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-f243e3832e4e4880993d5ca95f3cf827",
+  "object": "chat.completion",
+  "created": 1725541434,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef all_substring_of_size_n(s):\n    if len(s) < 63:\n        return []\n    substrings = set()\n    for i in range(len(s) - 62):\n        substring = s[i:i+63]\n        if len(set(substring)) == 63:\n            substrings.add(substring)\n    return list(substrings)\n\n# Test the function\ninput_string = \"abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-_=+\"\nprint(all_substring_of_size_n(input_string))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 130,
+    "total_tokens": 297,
+    "completion_tokens": 167
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-cdcb2d65daa04fe2a644e76d106c5d97",
+  "object": "chat.completion",
+  "created": 1725547323,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef all_left_truncatable_prime(numbers):\n    from sympy import primerange\n\n    n = max(numbers[-1], 10)\n    primes_set = set(primerange(2, n))\n\n    def is_left_truncatable_prime(number):\n        while number in primes_set:\n            number = number % (10 ** len(str(number)) // 10)\n            if number == 0:\n                return False\n        return True\n\n    return [p for p in primes_set if all(is_left_truncatable_prime(p // 10**i) for i in range(len(str(p))))]\n\n\nx = numbers[992]\nprint(all_left_truncatable_prime(numbers)[x])\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 157,
+    "total_tokens": 357,
+    "completion_tokens": 200
+  }
+}

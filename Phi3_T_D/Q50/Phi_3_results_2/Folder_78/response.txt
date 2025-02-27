@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-c7f07d8963ac4564905acc677fdb07c0",
+  "object": "chat.completion",
+  "created": 1725527892,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom collections import defaultdict\n\ndef if_contains_anagrams(lst):\n    def is_anagram(s1, s2):\n        return len(s1) >= 3 and len(s2) >= 3 and sorted(s1.lower()) == sorted(s2.lower())\n\n    count = 0\n    seen = defaultdict(int)\n\n    for word in lst:\n        for key in seen:\n            if is_anagram(word, key):\n                count += seen[key]\n                seen[key] += 1\n                break\n        else:\n            sorted_word = ''.join(sorted(word.lower()))\n            words_count = seen[sorted_word]\n            seen[sorted_word] = words_count + 1\n            count += words_count\n\n    return count >= 79\n\n# Example usage:\n# anagrams_list = ['cat', 'silent', 'listen', 'enlist', 'Listen', 'tac', 'SLITE', ...]\n# result = if_contains_anagrams(anagrams_list)\n# print(result)  # This will print True if there are at least 79 pairs of anagrams otherwise False.\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 134,
+    "total_tokens": 421,
+    "completion_tokens": 287
+  }
+}

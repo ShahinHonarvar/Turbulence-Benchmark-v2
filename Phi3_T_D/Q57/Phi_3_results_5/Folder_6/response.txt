@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-6fee310c95944b888c610b1dab1aeacc",
+  "object": "chat.completion",
+  "created": 1725544621,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    if not isinstance(matrix, np.ndarray) or matrix.ndim != 2:\n        return []\n\n    total_rows, total_cols = matrix.shape\n    zero_matrix = np.zeros_like(matrix)\n    found_submatrices = []\n\n    for top_row in range(total_rows):\n        for left_col in range(total_cols):\n            for bottom_row in range(top_row, total_rows):\n                for right_col in range(left_col, total_cols):\n                    submatrix_sum = np.sum(matrix[top_row:bottom_row+1, left_col:right_col+1])\n                    if submatrix_sum == 126:\n                        found_submatrices.append(matrix[top_row:bottom_row+1, left_col:right_col+1])\n\n    return found_submatrices\n```\n\nExample of usage:\n\n```python\nimport numpy as np\n\nmatrix = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])\nsubmatrices = submatrix_with_particular_sum(matrix)\nprint(submatrices)\n```\n\nThis function iterates over all possible top left corners of submatrices and computes the sum of their elements. If the sum equals 126, the submatrix is added to the result list. Finally, it returns the list of found submatrices or an empty list if none are found. Note that since the code is searching for submatrices of different sizes, including the empty matrix, a lot of computations might be done, and for large input matrices, this might be inefficient.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 127,
+    "total_tokens": 549,
+    "completion_tokens": 422
+  }
+}

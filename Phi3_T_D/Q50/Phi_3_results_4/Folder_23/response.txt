@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-9aa56aaa60a540d7b2bc7c76dd96813a",
+  "object": "chat.completion",
+  "created": 1725528493,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nfrom collections import defaultdict\n\ndef if_contains_anagrams(strings):\n    def is_anagram(s1, s2):\n        return sorted(s1.lower()) == sorted(s2.lower())\n        \n    def len_filter(string):\n        return len(string) >= 3\n    \n    filtered = filter(len_filter, strings)\n    sorted_filtered = [sorted(string.lower()) for string in filtered]\n    anagram_groups = defaultdict(list)\n    \n    for index, value in enumerate(sorted_filtered):\n        anagram_groups[value].append(index)\n        \n    count_pairs = sum(len(group) * (len(group) - 1) // 2 for group in anagram_groups.values() if len(group) >= 2)\n    \n    return count_pairs >= 67\n\n# Example usage\nif_contains_anagrams(['listen', 'silent', 'enlist', 'inlets', 'google', 'gooegl', 'apple', 'papel', 'banana', 'anaban'])\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 134,
+    "total_tokens": 397,
+    "completion_tokens": 263
+  }
+}

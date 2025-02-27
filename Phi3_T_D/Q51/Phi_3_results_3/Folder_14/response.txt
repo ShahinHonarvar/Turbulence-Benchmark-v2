@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-314b075e3e6f4a6d98bd0356db867a67",
+  "object": "chat.completion",
+  "created": 1725530200,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(strings):\n    from collections import Counter\n    length_limit = 3\n    match_count = 0\n\n    strings = [''.join(sorted(s.lower())) for s in strings if len(s) >= length_limit]\n    seen = set()\n\n    for s in strings:\n        if s in seen:\n            match_count += 1\n            if match_count > 474:\n                return False\n        else:\n            seen.add(s)\n\n    return True\n\n# Example call to the function\n# result = if_contains_anagrams([\"listen\", \"silent\", \"foo\", \"oof\", \"bar\", \"tab\"])\n# print(result) # True if at most 474 pairs of anagrams are present\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 149,
+    "total_tokens": 342,
+    "completion_tokens": 193
+  }
+}

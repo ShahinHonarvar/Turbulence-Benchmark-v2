@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-cbfd4e51f25a40439428a83667ac87f6",
+  "object": "chat.completion",
+  "created": 1725512493,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef prime_factors(number):\n    factors = set()\n    divisor = 2\n    while divisor * divisor <= number:\n        if number % divisor:\n            divisor += 1\n        else:\n            number //= divisor\n            factors.add(divisor)\n    if number > 1:\n        factors.add(number)\n    return factors\n\ndef prime_factors_of_nth(lst, index):\n    if index < 0 or index >= len(lst) or not isinstance(lst, list):\n        return set()\n    return prime_factors(lst[index])\n\n# Example of usage:\n# lst = [list of positive integers]\n# print(prime_factors_of_nth(lst, 88))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 87,
+    "total_tokens": 272,
+    "completion_tokens": 185
+  }
+}

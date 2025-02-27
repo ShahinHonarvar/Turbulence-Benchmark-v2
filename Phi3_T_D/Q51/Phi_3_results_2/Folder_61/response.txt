@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-2643abffa82a4e0ba23b782e3e7dc6a1",
+  "object": "chat.completion",
+  "created": 1725529947,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom collections import Counter\nfrom itertools import combinations\n\ndef if_contains_anagrams(strings):\n    anagrams_count = 0\n    sorted_strings = [''.join(sorted(s.lower())) for s in strings if len(s) >= 3]\n    \n    seen_hashes = set()\n    for string in sorted_strings:\n        for other in seen_hashes:\n            if Counter(string) == Counter(other):\n                anagrams_count += 1\n                if anagrams_count == 50:\n                    return False\n        seen_hashes.add(string)\n    \n    return True\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 148,
+    "total_tokens": 306,
+    "completion_tokens": 158
+  }
+}

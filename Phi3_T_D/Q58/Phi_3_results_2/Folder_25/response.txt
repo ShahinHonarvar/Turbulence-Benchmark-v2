@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-d8a9cc1147c745438cfd8b8459d32a61",
+  "object": "chat.completion",
+  "created": 1725545549,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    count = 0\n    rows, cols = matrix.shape\n    n = 6\n    rows_sub = cols_sub = n\n\n    while rows_sub <= rows and cols_sub <= cols:\n        for i in range(rows - rows_sub + 1):\n            for j in range(cols - cols_sub + 1):\n                if np.all(matrix[i:i + rows_sub, j:j + cols_sub] == n):\n                    count += 1\n        rows_sub += 1\n        if rows_sub > rows:\n            rows_sub = rows\n        cols_sub += 1\n        if cols_sub > cols:\n            cols_sub = cols\n    return count\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 116,
+    "total_tokens": 307,
+    "completion_tokens": 191
+  }
+}

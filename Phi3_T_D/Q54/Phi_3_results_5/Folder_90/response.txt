@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-83850f2bfd03435fb3ee50ba859fecac",
+  "object": "chat.completion",
+  "created": 1725538602,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n <= 1:\n        return False\n    if n <= 3:\n        return True\n    if n % 2 == 0 or n % 3 == 0:\n        return False\n    i = 5\n    while i * i <= n:\n        if n % i == 0 or n % (i + 2) == 0:\n            return False\n        i += 6\n    return True\n\ndef all_right_truncatable_prime(numbers, x=0):\n    target = numbers[466] if 466 < len(numbers) and numbers[466] else x\n    truncatables = []\n    for num in range(x, 1, -1):\n        s = str(num)\n        if not is_prime(num):\n            continue\n        for i in range(len(s) - 1, -1, -1):\n            if not is_prime(int(s[:i + 1])):\n                break\n        else:\n            truncatables.append(num)\n    return truncatables\n\n# Call the function with a tuple of integers\nprint(all_right_truncatable_prime((2, 3, 5, 7, 11, 13, 17, 31, 37, 71, 73, 79, 97, 113, 131, 199, 311, 331, 373, 733, 919, 991, 1193, 1931, 2011, 2233, 2271, 2293, 2297, 2333, 2341, 2393, 2593, 3001, 3211, 3277, 3301, 3541, 3581, 3583, 3671, 3799, 3851, 3889, 4103, 4151, 4187, 4421, 4481, 4787, 4871, 4919, 4943, 4997, 5059, 5263, 5431, 5551, 5623, 5801, 5903, 5909, 5997, 6021, 6211, 6247, 6361, 6459, 6501, 6511, 6601, 6761, 7309, 7331, 7543, 7591, 7699, 7973, 8219, 8273, 8581, 8587, 9091, 9341, 9427, 9481, 9663, 9733, 9781, 9823, 9841, 9901, 9923, 9967, 10073, 10193, 10241, 10411, 10447, 10521, 10625, 10821, 10909, 10931, 11047, 11303, 11319, 11487, 11511, 11523, 11619, 11703, 11923, 11953, 12121, 12251, 12331, 12409, 12702, 12719, 12739, 12759, 12779, 12829, 12879, 12921, 12923, 12943, 12987, 13091, 13211, 13221, 13423, 13551, 13659",
+        "tool_calls": []
+      },
+      "finish_reason": "length"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 170,
+    "total_tokens": 1270,
+    "completion_tokens": 1100
+  }
+}

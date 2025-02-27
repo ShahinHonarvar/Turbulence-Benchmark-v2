@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-6e74d3bb16034e6c9533771a13cd4444",
+  "object": "chat.completion",
+  "created": 1725549402,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef all_left_truncatable_prime(numbers):\n    def is_prime(n):\n        if n <= 1:\n            return False\n        for i in range(2, int(n**0.5) + 1):\n            if n % i == 0:\n                return False\n        return True\n\n    def right_truncate(n):\n        n = str(n)\n        return [int(n[i:]) for i in range(len(n))]\n\n    def left_truncatable(n):\n        if not is_prime(n):\n            return False\n        truncated = right_truncate(n)\n        return all(is_prime(t) for t in truncated)\n    \n    x = numbers[52]\n    return sorted([n for n in range(2, x) if left_truncatable(n)], reverse=True)\n\n# Usage\nnumbers = (10**3, 10**4, 10**5, 10**6) # Example tuple with very large numbers\nresult = all_left_truncatable_prime(numbers)\nprint(result)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 156,
+    "total_tokens": 433,
+    "completion_tokens": 277
+  }
+}

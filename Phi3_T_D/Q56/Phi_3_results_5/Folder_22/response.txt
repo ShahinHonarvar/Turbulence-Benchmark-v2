@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-7de9e278bb87455ea844d536d9af184f",
+  "object": "chat.completion",
+  "created": 1725542519,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef all_substring_of_size_n(s):\n    length = len(s)\n    subs = set()\n\n    for i in range(length):\n        for j in range(i + 22, min(length, i + 23) + 1):\n            substring = s[i:j]\n            if len(substring) == 22 and len(set(substring)) == 22:\n                subs.add(substring)\n    \n    return list(subs)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 130,
+    "total_tokens": 250,
+    "completion_tokens": 120
+  }
+}

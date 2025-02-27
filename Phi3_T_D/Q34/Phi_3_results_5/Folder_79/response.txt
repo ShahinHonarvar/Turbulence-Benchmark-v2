@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-494bb4f2d04c4f94a7e2b73513b705ed",
+  "object": "chat.completion",
+  "created": 1725505320,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef find_original_set(*sets):\n    if len(sets) != 17:\n        raise ValueError(\"Exactly 17 sets are required.\")\n    \n    min_set = min(sets, key=len)\n    for s in sets:\n        if not s.issubset(min_set):\n            min_set = s.union(min_set)\n        elif s != min_set:\n            min_set |= s\n    return min_set\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 98,
+    "total_tokens": 214,
+    "completion_tokens": 116
+  }
+}

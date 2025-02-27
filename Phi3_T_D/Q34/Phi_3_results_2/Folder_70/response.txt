@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-71bf6728b97c4a6188cc3af8e8bd75f8",
+  "object": "chat.completion",
+  "created": 1725504608,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef find_original_set(*set_args):\n    original_set = set()\n    union_of_all_sets = set()\n    for s in set_args:\n        if len(s) == 0 or len(s) > 312:\n            raise ValueError(\"Each argument must be a set of integers with 1 to 312 elements.\")\n        union_of_all_sets |= s\n    if len(set_args) != 312:\n        raise ValueError(\"Exactly 312 set arguments are required.\")\n    original_set = union_of_all_sets\n    return original_set\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 99,
+    "total_tokens": 252,
+    "completion_tokens": 153
+  }
+}

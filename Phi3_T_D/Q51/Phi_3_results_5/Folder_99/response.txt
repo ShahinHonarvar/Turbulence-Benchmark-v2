@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-8a472a952ee345a59d4bd0ca178b72fb",
+  "object": "chat.completion",
+  "created": 1725531472,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom collections import defaultdict\n\ndef if_contains_anagrams(words):\n    anagram_count = 0\n    anagram_map = defaultdict(list)\n\n    for word in words:\n        sorted_word = ''.join(sorted(word.lower()))\n        if len(word) >= 3:\n            anagram_map[sorted_word].append(word)\n\n    for word_list in anagram_map.values():\n        n = len(word_list)\n        anagram_count += n * (n - 1) // 2\n\n    return anagram_count <= 93\n\n# Example usage:\nprint(if_contains_anagrams(['rat', 'tar', 'start', 'tart', 'art']))  # Should print True\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 148,
+    "total_tokens": 335,
+    "completion_tokens": 187
+  }
+}

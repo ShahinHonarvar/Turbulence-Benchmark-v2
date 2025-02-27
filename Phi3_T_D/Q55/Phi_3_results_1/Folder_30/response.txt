@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-4671c937d66449f4b9c150b2ace9cda2",
+  "object": "chat.completion",
+  "created": 1725538847,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef lists_with_product_equal_n(circular_list):\n    def backtrack(start, path):\n        product = 1\n        temp_path = path[:]\n        for i in range(start, len(circular_list) + start):\n            product *= circular_list[i % len(circular_list)]\n            temp_path.append(circular_list[i % len(circular_list)])\n            if product == 99:\n                res.append(temp_path[:])\n            if product > 99:\n                break\n\n    res = []\n    for i in range(len(circular_list)):\n        backtrack(i, [])\n    return res\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 203,
+    "total_tokens": 377,
+    "completion_tokens": 174
+  }
+}

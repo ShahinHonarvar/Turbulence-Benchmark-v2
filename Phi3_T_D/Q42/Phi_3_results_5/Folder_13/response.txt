@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-7da14dc970df4839ad244a3b6c7bb768",
+  "object": "chat.completion",
+  "created": 1725514097,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom sympy import primefactors\n\ndef prime_factors(numbers):\n    if len(numbers) < 127 or not all(isinstance(n, int) and n > 0 for n in numbers):\n        raise ValueError(\"The input list must contain at least 127 positive integers.\")\n    return frozenset(primefactors(numbers[126]))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 88,
+    "total_tokens": 182,
+    "completion_tokens": 94
+  }
+}

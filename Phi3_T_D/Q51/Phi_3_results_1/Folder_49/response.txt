@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-dae95c204a6d44dc9d669028cf759578",
+  "object": "chat.completion",
+  "created": 1725529453,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(strings):\n    from collections import defaultdict\n\n    def is_anagram(s1, s2):\n        return sorted(s1.lower()) == sorted(s2.lower())\n\n    def has_valid_length(s):\n        return len(s) >= 3\n\n    lengths = defaultdict(int)\n    anagram_groups = defaultdict(list)\n\n    for s in strings:\n        if has_valid_length(s):\n            sorted_str = ''.join(sorted(s.lower()))\n            lengths[len(s)] += 1\n            anagram_groups[sorted_str].append(s)\n\n    count = 0\n    for group in anagram_groups.values():\n        if len(group) > 1:\n            count += (len(group) * (len(group) - 1)) // 2\n\n    return count <= 10\n\n# Example usage:\nstrings = [\"listen\", \"enlists\", \"google\", \"inlets\", \"banana\"]\nprint(if_contains_anagrams(strings))\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 148,
+    "total_tokens": 413,
+    "completion_tokens": 265
+  }
+}

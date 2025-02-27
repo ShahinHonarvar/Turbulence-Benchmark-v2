@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-7f1b45789f4543aab6857fd5c2cc2fc5",
+  "object": "chat.completion",
+  "created": 1725553628,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef all_left_right_truncatable_prime(args):\n    from sympy import isprime\n    \n    def _is_truncatable_prime(n, d):\n        str_n = str(n)\n        if len(str_n) < d or not isprime(n):\n            return False\n        for i in range(d, len(str_n) + 1):\n            if not isprime(int(str_n[i:])):\n                return False\n        for i in range(0, d):\n            if not isprime(int(str_n[:i+1])):\n                return False\n        return True\n\n    x = args[79] if len(args) > 79 else None\n    if x is None:\n        return []\n\n    return sorted([i for i in range(23, x + 1) if _is_truncatable_prime(i, 2)], reverse=True)\n\n# Assuming args is a predefined tuple containing positive integers, pass it to the function to test.\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 207,
+    "total_tokens": 460,
+    "completion_tokens": 253
+  }
+}

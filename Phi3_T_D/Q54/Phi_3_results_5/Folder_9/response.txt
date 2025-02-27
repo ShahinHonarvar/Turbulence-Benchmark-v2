@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-b33916b68c094dd680e04cbadc1cde27",
+  "object": "chat.completion",
+  "created": 1725538067,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n <= 1:\n        return False\n    if n <= 3:\n        return True\n    if n % 2 == 0 or n % 3 == 0:\n        return False\n    i = 5\n    while i * i <= n:\n        if n % i == 0 or n % (i + 2) == 0:\n            return False\n        i += 6\n    return True\n\ndef all_right_truncatable_prime(numbers):\n    x = numbers[29]\n    right_truncatable_primes = []\n    \n    def is_right_truncatable(prime_candidate):\n        str_prime = str(prime_candidate)\n        while len(str_prime) > 1:\n            if not is_prime(int(str_prime)):\n                return False\n            str_prime = str_prime[:-1]\n        return True\n\n    for num in range(x - 1, 1, -1):\n        if is_right_truncatable(num):\n            right_truncatable_primes.append(num)\n\n    return right_truncatable_primes\n\n# Example usage:\nnumbers = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 9999, 10000)\nprint(all_right_truncatable_prime(numbers))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 169,
+    "total_tokens": 603,
+    "completion_tokens": 434
+  }
+}

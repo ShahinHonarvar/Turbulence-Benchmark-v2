@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-2110c52c9b764e60ac128a9410955846",
+  "object": "chat.completion",
+  "created": 1725527993,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(strings):\n    def normalize(s):\n        return ''.join(sorted(s.lower()))\n    \n    def find_anagram_pairs():\n        anagram_count = 0\n        normalized_strings = {normalize(s): [] for s in strings}\n        \n        for s in strings:\n            if len(s) >= 3:\n                normalized = normalize(s)\n                if normalized in normalized_strings:\n                    normalized_strings[normalized].append(s)\n                else:\n                    normalized_strings[normalized] = [s]\n        \n        for items in normalized_strings.values():\n            n = len(items)\n            anagram_pairs = n * (n - 1) // 2\n            if anagram_pairs >= 30:\n                return True\n        return False\n\n    return find_anagram_pairs()\n```\n\nThis code snippet defines the desired function `if_contains_anagrams` to identify at least 30 pairs of anagrams within a list of strings considering strings of at least three characters in length. It uses internal helper functions to normalize strings for case-insensitive comparison and count anagram pairs efficiently.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 134,
+    "total_tokens": 430,
+    "completion_tokens": 296
+  }
+}

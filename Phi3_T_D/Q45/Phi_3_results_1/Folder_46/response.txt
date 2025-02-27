@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-309cadb746924ccba27a23b058daf19b",
+  "object": "chat.completion",
+  "created": 1725517837,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef palindromes_between_indices(s):\n    substring = s[4:10]\n    from itertools import permutations\n    from collections import Counter\n\n    counter = Counter(substring.lower())\n    letter_count = sum(count for count in counter.values() if count >= 6)\n\n    if letter_count < 6:\n        return set()\n\n    available_letters = ''.join(letter for letter, count in counter.items() if count >= 6)\n    half_palindrome = ''.join(letter * (count // 2) for letter, count in counter.items() if count >= 6)\n    fully_palindromic = {half_palindrome}\n\n    for _ in range(letter_count // 2 - len(half_palindrome)):\n        new_permutations = set(''.join(p) for p in permutations(available_letters, 1))\n        fully_palindromic.update(''.join([letter, x, letter]) for palindrome in fully_palindromic\n                                 for letter in set(available_letters)\n                                 for x in new_permutations\n                                 if ''.join([letter, x, letter]) == ''.join([letter, x, letter])[::-1])\n\n    return {''.join(p) for p in permutations(half_palindrome, 3) + permutations(half_palindrome + half_palindrome[::-1], 3)}\n```\n\nThis function first extracts the substring from index 4 to index 9. Then, it counts the occurrences of each letter (case-insensitive) that occur in this substring. If any of the letters occur six or more times, those letters are retained for constructing palindromes.\n\nIt splits the counts by half and constructs half-palindromes with their characters. The list of half-palindromes is iteratively extended by joining a character from the available letters with half-palindrome letters following it and its mirror on the other side, for each possible letter from the available set.\n\nFinally, it constructs full palindromes by combining these extensions with the mirrored half-palindromes, and yields only those that result in palindromes (which should be all, if the function worked correctly). If the initial substring does not contain at least six repeating characters, the function returns an empty set.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 192,
+    "total_tokens": 755,
+    "completion_tokens": 563
+  }
+}

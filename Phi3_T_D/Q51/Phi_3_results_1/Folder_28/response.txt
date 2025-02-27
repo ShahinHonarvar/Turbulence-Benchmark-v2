@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-4c3f0e7267fc48d29bab089a5cbfff63",
+  "object": "chat.completion",
+  "created": 1725529359,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nfrom collections import Counter\n\ndef if_contains_anagrams(lst):\n    def normalize(s):\n        return Counter(s.lower())\n\n    count = 0\n    seen = set()\n\n    for word in lst:\n        if len(word) < 3:\n            continue\n        norm_word = normalize(word)\n        for seen_word in seen:\n            if norm_word == normalize(seen_word):\n                count += 1\n                break\n        seen.add(word)\n\n        if count > 78:\n            return False\n\n    return True\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 148,
+    "total_tokens": 294,
+    "completion_tokens": 146
+  }
+}

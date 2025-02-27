@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-aa864c1424f1426aba0c4a9b7afd0ee7",
+  "object": "chat.completion",
+  "created": 1725548851,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef all_left_truncatable_prime(primes_tuple):\n    def is_left_truncatable(num, prime_list):\n        while num > 0:\n            if num not in prime_list:\n                return False\n            num = num % (10 ** len(str(num)))\n        return True\n\n    x = primes_tuple[433]\n    truncated_primes = [str(p) for p in primes_tuple if is_left_truncatable(p, primes_tuple) and p < x]\n    truncated_primes.sort(reverse=True)\n    return [int(tp) for tp in truncated_primes]\n\n# Assuming you have a sorted tuple of primes named `primes_tuple`, you can call the function like this:\n# result = all_left_truncatable_prime(primes_tuple)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 157,
+    "total_tokens": 374,
+    "completion_tokens": 217
+  }
+}

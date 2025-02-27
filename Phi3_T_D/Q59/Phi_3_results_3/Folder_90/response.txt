@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-15bcb60de42144d8a631bf08fd83defc",
+  "object": "chat.completion",
+  "created": 1725548989,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef is_prime(n):\n    if n <= 1:\n        return False\n    if n % 2 == 0 and n > 2:\n        return False\n    for i in range(3, int(n**0.5) + 1, 2):\n        if n % i == 0:\n            return False\n    return True\n\ndef left_truncatable_chain(n, primes):\n    if n < 10 or not is_prime(n):\n        return primes\n    next_num = n % 10\n    if n // 10 == 0:\n        return primes\n    next_trunc_chain = left_truncatable_chain(n // 10, primes + [n])\n    return next_trunc_chain\n\ndef all_left_truncatable_prime(numbers):\n    x = numbers[466]\n    primes = [p for p in range(2, x) if is_prime(p)]\n    left_trunc_primes = []\n    for prime in primes:\n        chain = left_truncatable_chain(prime, [])\n        if prime in chain:\n            left_trunc_primes.extend(chain)\n    return sorted(left_trunc_primes, reverse=True)\n```\n\nYou can now call the function `all_left_truncatable_prime` with a tuple of positive integers to get all left-truncatable prime numbers less than the integer at index 466, sorted in descending order.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 157,
+    "total_tokens": 525,
+    "completion_tokens": 368
+  }
+}

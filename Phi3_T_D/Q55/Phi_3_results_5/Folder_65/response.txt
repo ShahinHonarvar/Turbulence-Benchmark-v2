@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-f20b46ffb94047bb9e26a6561c70fea6",
+  "object": "chat.completion",
+  "created": 1725541210,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef lists_with_product_equal_n(ints):\n    n = 46\n    result = []\n    for i in range(len(ints)):\n        for j in range(i, len(ints) * 2):\n            sublist = ints[i:j % len(ints)]\n            if j > i and all(sublist[k] != None for k in range(len(sublist))):\n                product = 1\n                for num in sublist:\n                    product *= num\n                if product == n:\n                    result.append(sublist)\n    return result\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 203,
+    "total_tokens": 349,
+    "completion_tokens": 146
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-d823f3b96f884e4aafa99e8689044552",
+  "object": "chat.completion",
+  "created": 1725530753,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(words):\n    from collections import defaultdict\n    def count_sorted(word):\n        return tuple(sorted(word.lower()))\n    count_map = defaultdict(int)\n    for word in words:\n        if len(word) >= 3:\n            count_map[count_sorted(word)] += 1\n    return sum(1 for count in count_map.values() if count > 1) <= 29\n```\n```\n",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 148,
+    "total_tokens": 264,
+    "completion_tokens": 116
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-f2aa87eb225442fcbdbf09366ede7d13",
+  "object": "chat.completion",
+  "created": 1725546891,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    count = 0\n    rows, cols = matrix.shape\n    for x in range(rows):\n        for y in range(cols):\n            for width in range(1, cols - y + 1):\n                for height in range(1, rows - x + 1):\n                    submatrix = matrix[x:x+height, y:y+width]\n                    if np.sum(submatrix == 130) == (height * width):\n                        count += 1\n    return count\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 117,
+    "total_tokens": 259,
+    "completion_tokens": 142
+  }
+}

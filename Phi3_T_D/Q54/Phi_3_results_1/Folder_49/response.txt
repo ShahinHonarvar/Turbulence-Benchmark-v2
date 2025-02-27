@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-614626e12b454f54a1c413b0ea3c9415",
+  "object": "chat.completion",
+  "created": 1725535624,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nfrom sympy import isprime\n\ndef all_right_truncatable_prime(numbers):\n    x = numbers[14]\n    primes = [num for num in range(2, x) if isprime(num)]\n\n    right_truncatables = []\n    for prime in primes:\n        str_prime = str(prime)\n        while str_prime:\n            if not isprime(int(str_prime)):\n                break\n            right_truncatables.append(prime)\n            str_prime = str_prime[:-1]\n\n    return sorted(set(right_truncatables))\n\n# Example usage\nnum_tuple = (0,) * 13 + (100,) + (0,) * 13\nprint(all_right_truncatable_prime(num_tuple))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 169,
+    "total_tokens": 372,
+    "completion_tokens": 203
+  }
+}

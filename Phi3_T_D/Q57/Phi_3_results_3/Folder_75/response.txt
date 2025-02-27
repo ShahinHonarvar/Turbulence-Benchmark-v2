@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-3718005d579247e98c89b5dd6f3c8423",
+  "object": "chat.completion",
+  "created": 1725544008,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    def _get_submatrix(mat, top, left, bottom, right):\n        return mat[top:bottom, left:right]\n\n    def _find_submatrices(mat, t, l, b, r, target, path, paths):\n        if t == b and l == r:\n            path_sum = np.sum(mat[t, l])\n            if path_sum == target:\n                paths.append([row[l:r + 1].tolist() for row in mat[t:b + 1]])\n            return\n\n        if l < r:\n            _find_submatrices(mat, t, l + 1, b, r, target, path + [mat[t, l:(l + 1)]], paths)\n        if t < b:\n            _find_submatrices(mat, t + 1, l, b, r, target, path + [mat[(t + 1):(t + 2), l]], paths)\n\n    target_sum = 16\n    rows, cols = matrix.shape\n    all_submatrices = []\n    for row_len in range(1, rows + 1):\n        for col_len in range(1, cols + 1):\n            for i in range(rows - row_len + 1):\n                for j in range(cols - col_len + 1):\n                    submat = _get_submatrix(matrix, i, j, i + row_len - 1, j + col_len - 1)\n                    _find_submatrices(submat, 0, 0, submat.shape[0] - 1, submat.shape[1] - 1, target_sum, [], all_submatrices)\n    return all_submatrices\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 126,
+    "total_tokens": 569,
+    "completion_tokens": 443
+  }
+}

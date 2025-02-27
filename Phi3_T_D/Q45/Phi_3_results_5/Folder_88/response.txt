@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-3ecf438c0c254044aca54c96676d6f20",
+  "object": "chat.completion",
+  "created": 1725519986,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef palindromes_between_indices(s):\n    from itertools import permutations\n\n    def is_palindrome(s):\n        return s == s[::-1]\n\n    start, end = 3, 7\n    letters = s[start:end+1].lower()\n    unique_letters = \"\".join(sorted(set(letters)))\n    result = set()\n\n    for perm in set(permutations(unique_letters, len(unique_letters))):\n        candidate = ''.join(perm[start:end+1])\n        if is_palindrome(candidate):\n            result.add(candidate)\n\n    return set(filter(lambda p: len(p) >= 6, result))\n\n# Example usage\nprint(palindromes_between_indices(\"qopbnplopas\"))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 192,
+    "total_tokens": 402,
+    "completion_tokens": 210
+  }
+}

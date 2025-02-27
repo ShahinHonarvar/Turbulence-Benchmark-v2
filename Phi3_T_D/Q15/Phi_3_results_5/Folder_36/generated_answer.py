@@ -1,0 +1,2 @@
+def sum_odd_ints_inclusive(numbers):
+    return sum(filter(lambda x: x % 2 != 0, numbers[246:751]))

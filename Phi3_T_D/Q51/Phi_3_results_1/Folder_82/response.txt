@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-704526061b564f99acd52ce778b312d2",
+  "object": "chat.completion",
+  "created": 1725529608,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef if_contains_anagrams(strings):\n    from collections import defaultdict\n    \n    def is_anagram(str1, str2):\n        return len(str1) == len(str2) and sorted(str1.lower()) == sorted(str2.lower())\n\n    anagram_counts = defaultdict(int)\n\n    for string in strings:\n        if len(string) < 3:\n            continue\n        anagram_key = ''.join(sorted(string.lower()))\n        anagram_counts[anagram_key] += 1\n\n    anagram_pairs = sum(count * (count - 1) // 2 for count in anagram_counts.values())\n\n    return anagram_pairs <= 40\n```\n\nPlease note that the function first filters out strings shorter than three characters, then it creates sorted lowercase strings to identify anagrams. The defaultdict is used to count occurrences of these sorted strings. Finally, it calculates the number of possible unique pairs for each anagram grouping and sum these pairs up to see if the result is 40 or fewer.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 148,
+    "total_tokens": 408,
+    "completion_tokens": 260
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-d44871d6c445411f8fc9186da7256549",
+  "object": "chat.completion",
+  "created": 1725531058,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef if_contains_anagrams(words):\n    from collections import defaultdict\n    def are_anagrams(a, b):\n        return sorted(a.lower()) == sorted(b.lower())\n    length = defaultdict(list)\n    count = 0\n    for word in words:\n        if len(word) >= 3:\n            sorted_word = sorted(word.lower())\n            length[tuple(sorted_word)].append(word)\n    for lst in length.values():\n        if len(lst) > 1:\n            count += len(lst) * (len(lst) - 1) // 2\n    return count <= 66\n\n# Example usage:\nwords_list = [\"listen\", \"enlist\", \"google\", \"gooegl\", \"banana\", \"aebnana\"]\nprint(if_contains_anagrams(words_list))  # Should return True or False based on conditions\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 148,
+    "total_tokens": 371,
+    "completion_tokens": 223
+  }
+}

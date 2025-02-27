@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-d87acb4ccfb3492b9fe27d9cf45e287b",
+  "object": "chat.completion",
+  "created": 1725508022,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef filter_chars(s):\n    start, end = 35, 51\n    if len(s) > end: end = len(s)\n    chars_to_remove = set([chr(i) for i in range(ord('H'), ord('s') + 1)])\n    return ''.join(c for i, c in enumerate(s) if c not in chars_to_remove or i < start or i > end)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 146,
+    "total_tokens": 255,
+    "completion_tokens": 109
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-89f48bcc802149f7a0db62e4c725a9cc",
+  "object": "chat.completion",
+  "created": 1725531258,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(lst):\n    def sorted_tuples(words):\n        return {tuple(sorted(word.lower())) for word in words}\n\n    sorted_words = sorted_tuples(lst)\n    anagram_pairs = [(word, anagram) for i, word in enumerate(sorted_words) for anagram in sorted_words[i + 1:] if sorted(word) == sorted(anagram)]\n\n    return len(anagram_pairs) <= 47\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 148,
+    "total_tokens": 271,
+    "completion_tokens": 123
+  }
+}

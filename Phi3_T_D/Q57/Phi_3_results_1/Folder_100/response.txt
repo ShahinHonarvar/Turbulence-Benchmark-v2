@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-f5469a723e1e4fc683f65ccdecbc0f93",
+  "object": "chat.completion",
+  "created": 1725543194,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    rows, cols = matrix.shape\n    result = []\n    \n    for top in range(rows):\n        for left in range(cols):\n            for bottom in range(top, rows):\n                for right in range(left, cols):\n                    submatrix = matrix[top:bottom+1, left:right+1]\n                    if submatrix.sum() == 28:\n                        result.append(submatrix)\n                        \n    return result\n\n# Example usage with a 4x4 matrix\nmatrix_example = np.array([[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 16]])\nprint(submatrix_with_particular_sum(matrix_example))\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 126,
+    "total_tokens": 353,
+    "completion_tokens": 227
+  }
+}

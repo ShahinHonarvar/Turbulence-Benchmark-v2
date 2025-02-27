@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-3384b96d47b642e0aa4910bd550c5289",
+  "object": "chat.completion",
+  "created": 1725519524,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom itertools import permutations\n\ndef palindromes_between_indices(s):\n    start, end = 5, 9\n    substring = s[start:end+1].lower()\n    letter_count = {}\n    for letter in substring:\n        if letter.isalpha():\n            letter_count[letter] = letter_count.get(letter, 0) + 1\n    \n    palindromes = set()\n    for length in range(6, end-start+1+1, 2):\n        for perm in permutations(letter_count.keys(), length//2):\n            half_palindrome = ''.join(perm)\n            if length % 2 == 0:\n                palindrome = half_palindrome + half_palindrome[::-1]\n            else:\n                for letter, count in letter_count.items():\n                    if count > 0:\n                        palindrome = half_palindrome + letter + half_palindrome[::-1]\n                        letter_count[letter] -= 1\n                        break\n                else:\n                    continue\n            if len(palindrome) == length and palindrome == palindrome[::-1]:\n                palindromes.add(palindrome)\n    return palindromes\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 192,
+    "total_tokens": 506,
+    "completion_tokens": 314
+  }
+}

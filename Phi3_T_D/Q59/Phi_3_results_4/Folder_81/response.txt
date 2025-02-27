@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-73448230ded246a5b407aa97a516f7ea",
+  "object": "chat.completion",
+  "created": 1725549580,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef all_left_truncatable_prime((limit,)):\n    primes = [2, 3, 5, 7]\n    def is_prime(n):\n        for p in primes:\n            if p * p > n:\n                break\n            if n % p == 0:\n                return False\n        return True\n\n    def truncate_left(n):\n        str_n = str(n)\n        for i in range(1, len(str_n)):\n            if not is_prime(int(str_n[i:])):\n                return False\n        return True\n\n    x = limit[0]\n    result = []\n    for i in range(10, x):\n        if truncate_left(i):\n            result.append(i)\n    return result\n\n# Assuming we call the function with x = 1000\nall_left_truncatable_prime((1000,))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 156,
+    "total_tokens": 384,
+    "completion_tokens": 228
+  }
+}

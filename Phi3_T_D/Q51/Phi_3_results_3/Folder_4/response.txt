@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-1e3371c19be548019bed58562b91e459",
+  "object": "chat.completion",
+  "created": 1725530157,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(words):\n    def count_letters(word):\n        letter_count = {}\n        for letter in word.lower():\n            if letter.isalpha():\n                letter_count[letter] = letter_count.get(letter, 0) + 1\n        return letter_count\n\n    anagrams_count = 0\n    checked = set()\n    for i in range(len(words)):\n        for j in range(i + 1, len(words)):\n            if (i, j) in checked or (j, i) in checked:\n                continue\n\n            word_a_count, word_b_count = count_letters(words[i]), count_letters(words[j])\n            if word_a_count == word_b_count:\n                anagrams_count += 1\n                checked.add((i, j))\n                checked.add((j, i))\n\n            if anagrams_count > 84:\n                return False\n    return True\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 148,
+    "total_tokens": 396,
+    "completion_tokens": 248
+  }
+}

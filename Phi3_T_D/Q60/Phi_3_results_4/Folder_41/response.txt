@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-ce8b44fb0fb6478d9ebfc76fe36020af",
+  "object": "chat.completion",
+  "created": 1725552970,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n <= 1:\n        return False\n    if n <= 3:\n        return True\n    if n % 2 == 0 or n % 3 == 0:\n        return False\n    i = 5\n    while i * i <= n:\n        if n % i == 0 or n % (i + 2) == 0:\n            return False\n        i += 6\n    return True\n\ndef all_left_right_truncatable_prime(numbers):\n    trunc_primes = []\n    x = numbers[45]\n    for n in range(x, 1, -1):\n        str_n = str(n)\n        for i in range(len(str_n)):\n            if not is_prime(int(str_n[i:])) or not is_prime(int(str_n[:len(str_n)-i])):\n                break\n        else:\n            trunc_primes.append(n)\n    return trunc_primes\n\n# Example usage:\nnumbers_tuple = (1, 2, 3, ...)  # The tuple should have 46 elements including x\nresult = all_left_right_truncatable_prime(numbers_tuple)\nprint(result)\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 207,
+    "total_tokens": 514,
+    "completion_tokens": 307
+  }
+}

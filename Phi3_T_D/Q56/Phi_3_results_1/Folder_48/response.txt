@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-05bc22b1219a4e67932bfb936fabb433",
+  "object": "chat.completion",
+  "created": 1725541510,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef all_substring_of_size_n(s):\n    from itertools import islice\n\n    n = 120\n    substrs = set()\n    for i in range(len(s)-n+1):\n        substr = ''.join(sorted(islice(s, i, i+n)))\n        if len(set(substr)) == n:\n            substrs.add(substr)\n    return list(substrs)\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 131,
+    "total_tokens": 240,
+    "completion_tokens": 109
+  }
+}

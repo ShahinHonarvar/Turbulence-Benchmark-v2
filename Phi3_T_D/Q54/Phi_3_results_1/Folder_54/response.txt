@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-df2abf723b224277a573fbc38994dd67",
+  "object": "chat.completion",
+  "created": 1725535655,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n <= 1:\n        return False\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            return False\n    return True\n\ndef is_right_truncatable_prime(n):\n    while n:\n        if not is_prime(n):\n            return False\n        n //= 10\n    return True\n\ndef all_right_truncatable_prime(numbers):\n    x = numbers[88]\n    right_truncatable_primes = [p for p in range(2, x) if is_right_truncatable_prime(p)]\n    return sorted(right_truncatable_primes, reverse=True)\n\n# Uncomment the line below to use the function with a specific tuple of numbers\n# results = all_right_truncatable_prime((0,)*88 + (100,))\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 169,
+    "total_tokens": 408,
+    "completion_tokens": 239
+  }
+}

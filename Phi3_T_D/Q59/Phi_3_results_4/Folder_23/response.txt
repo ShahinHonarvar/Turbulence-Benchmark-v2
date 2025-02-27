@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-15d780fddb4943e8af4abf28100b37fd",
+  "object": "chat.completion",
+  "created": 1725549212,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n <= 1:\n        return False\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            return False\n    return True\n\ndef all_left_truncatable_prime(numbers):\n    x = numbers[77]\n    truncatable_primes = []\n    primes = {2, 3, 5, 7}\n    for number in range(x, 1, -1):\n        s = str(number)\n        if s.startswith('0') or any(int(s[i:]) not in primes for i in range(1, len(s))):\n            continue\n        primes |= {int(s[i:]) for i in range(1, len(s))}\n        truncatable_primes.append(number)\n    return truncatable_primes\n```\n\nPlease make sure that the tuple provided with the integers starts with smaller values as this code starts checking for left-truncatable prime numbers from `x` down to 2. If the tuple does not start with primes, the function won't return any truncatable primes.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 156,
+    "total_tokens": 448,
+    "completion_tokens": 292
+  }
+}

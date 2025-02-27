@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-db41468f1665415ba8460d3a441d4368",
+  "object": "chat.completion",
+  "created": 1725541237,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef lists_with_product_equal_n(nums):\n    result = []\n    size = len(nums)\n    for start in range(size):\n        product = 1\n        i = start\n        while i < size:\n            product *= nums[i % size]\n            if product == 47:\n                result.append(nums[start:i + 1])\n                if i + 1 < size:\n                    i += 1\n                else:  # Reached the end of the list, move to the start to check again\n                    break\n            elif product > 47:\n                break\n            i += 1\n    return result\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 203,
+    "total_tokens": 367,
+    "completion_tokens": 164
+  }
+}

@@ -1,0 +1,13 @@
+from collections import defaultdict
+
+def if_contains_anagrams(strings):
+
+    def is_anagram(s1, s2):
+        return sorted(s1.lower()) == sorted(s2.lower())
+    anagram_count = defaultdict(list)
+    for s in strings:
+        if len(s) >= 3:
+            key = ''.join(sorted(s.lower()))
+            anagram_count[key].append(s)
+    pair_count = sum((len(lst) * (len(lst) - 1) // 2 for lst in anagram_count.values()))
+    return pair_count <= 181

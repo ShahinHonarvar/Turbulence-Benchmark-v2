@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-a94ad7bccbe04cdda589beb8fe561f89",
+  "object": "chat.completion",
+  "created": 1725551780,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n <= 1:\n        return False\n    if n <= 3:\n        return True\n    if n % 2 == 0 or n % 3 == 0:\n        return False\n    i = 5\n    while i * i <= n:\n        if n % i == 0 or n % (i + 2) == 0:\n            return False\n        i += 6\n    return True\n\ndef all_left_right_truncatable_prime(number_range):\n    primes = [i for i in range(2, number_range[0]) if is_prime(i)]\n    x = number_range[93]\n    result = []\n\n    for prime in primes:\n        str_prime = str(prime)\n        left_truncs = [int(str_prime[i:]) for i in range(len(str_prime))]\n        right_truncs = [int(str_prime[:i+1]) for i in range(len(str_prime))]\n\n        if all(is_prime(t) for t in left_truncs + right_truncs):\n            result.append(prime)\n\n    return result\n\n# Example usage\nnumber_range = (100, 1000)\nprint(all_left_right_truncatable_prime(number_range))\n```\n\nIn this code:\n\n1. `is_prime(n)` is a helper function to check if a number is prime.\n2. In the `all_left_right_truncatable_prime(number_range)` function, we create a list of prime numbers less than `number_range[0]`.\n3. For each prime number, we create a list of left truncatable primes (by truncating digits from the left) and a list of right truncatable primes (by truncating digits from the right).\n4. We add the number to the result list if all truncated numbers are prime.\n5. Finally, we return the result list.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 207,
+    "total_tokens": 689,
+    "completion_tokens": 482
+  }
+}

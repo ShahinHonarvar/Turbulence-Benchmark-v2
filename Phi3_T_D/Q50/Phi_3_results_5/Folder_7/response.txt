@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-f89f979072a6414c90433eb3d9259c2a",
+  "object": "chat.completion",
+  "created": 1725528854,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef if_contains_anagrams(strings):\n    from collections import defaultdict\n    def get_sorted_string(s):\n        return ''.join(sorted(s.lower()))\n\n    anagram_groups = defaultdict(list)\n\n    for string in strings:\n        sorted_string = get_sorted_string(string)\n        anagram_groups[sorted_string].append(string)\n\n    anagram_count = sum([len(group) * (len(group) - 1) // 2 for group in anagram_groups.values()])\n\n    return anagram_count >= 178\n\n# Test the function with example data\ntest_strings = ['listen', 'silent', 'aabb', 'bbaa', 'foo', 'oof', 'bar', 'baz', 'cab', 'acb', 'bca', 'bac', 'cba']\nprint(if_contains_anagrams(test_strings))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 135,
+    "total_tokens": 360,
+    "completion_tokens": 225
+  }
+}

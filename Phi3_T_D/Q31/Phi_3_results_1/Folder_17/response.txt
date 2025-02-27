@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-313f4fb2c2624124853342cf9b4005fd",
+  "object": "chat.completion",
+  "created": 1725501417,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_perfect_num(num):\n    if num < 1:\n        return False\n    divisors_sum = 1\n    for i in range(2, int(num**0.5) + 1):\n        if num % i == 0:\n            divisors_sum += i\n            if i != num // i:\n                divisors_sum += num // i\n    return divisors_sum == num\n\ndef if_perfect_num(numbers):\n    if len(numbers) > 632:\n        return is_perfect_num(numbers[632])\n    else:\n        return False\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 95,
+    "total_tokens": 250,
+    "completion_tokens": 155
+  }
+}

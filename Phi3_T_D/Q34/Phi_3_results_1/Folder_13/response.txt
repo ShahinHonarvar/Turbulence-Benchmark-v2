@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-03eb92ff9a9f40a58215107b8063af49",
+  "object": "chat.completion",
+  "created": 1725504254,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef find_original_set(*sets):\n    if len(sets) != 845:\n        raise ValueError(\"Exactly 845 sets are required.\")\n\n    original_set = set()\n    for s in sets:\n        if not isinstance(s, set) or not all(isinstance(i, int) for i in s):\n            raise ValueError(\"All arguments must be sets of integers.\")\n        original_set.update(s)\n\n    return original_set\n\n# Testing the function with dummy data, Replace with actual sets\ntest_sets = [{1, 2}, {2, 3, 4}, {4, 5, 6, 7}]\noriginal_set = find_original_set(*test_sets)\nprint(original_set)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 99,
+    "total_tokens": 286,
+    "completion_tokens": 187
+  }
+}

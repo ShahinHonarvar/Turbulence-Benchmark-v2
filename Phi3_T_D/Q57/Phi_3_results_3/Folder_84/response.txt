@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-a6b9454d26f6409cabe4772f03c3ba73",
+  "object": "chat.completion",
+  "created": 1725544055,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    def all_submatrices(matrix):\n        submatrices = []\n        rows, cols = matrix.shape\n        for top in range(rows):\n            for left in range(cols):\n                for bottom in range(top + 1, rows + 1):\n                    for right in range(left + 1, cols + 1):\n                        submatrices.append(matrix[top:bottom, left:right])\n        return submatrices\n\n    def sum_of_submatrix(submatrix):\n        return np.sum(submatrix)\n\n    target_sum = -308\n    submatrices = all_submatrices(matrix)\n    result = [submatrix for submatrix in submatrices if sum_of_submatrix(submatrix) == target_sum]\n    return result\n```\n\n```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    def submatrix_sum(submatrix):\n        return np.sum(np.array(submatrix))\n\n    target_sum = -308\n    rows, cols = matrix.shape\n    result = []\n\n    for size in range(1, rows + 1):\n        for row in range(rows - size + 1):\n            for col in range(cols - size + 1):\n                submatrix = matrix[row:row+size, col:col+size]\n                if submatrix_sum(submatrix) == target_sum:\n                    result.append(submatrix)\n\n    return result\n```\nThese two versions of the code achieve the same goal. The first one does so by generating all possible submatrices first, then sifting through them to find the ones with a sum of -308. The second version directly generates the submatrices in sequence, incrementing the size and comparing the sum immediately.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 127,
+    "total_tokens": 576,
+    "completion_tokens": 449
+  }
+}

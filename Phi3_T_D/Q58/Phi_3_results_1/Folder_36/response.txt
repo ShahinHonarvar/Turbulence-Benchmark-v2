@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-1011d4769b264e57bc8484098747a9be",
+  "object": "chat.completion",
+  "created": 1725545191,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    rows, cols = matrix.shape\n    n = 131\n    if rows * cols < n:\n        return 0\n    result = 0\n    for i in range(rows):\n        for j in range(cols):\n            for k in range(i, rows):\n                for l in range(j, cols):\n                    if (k - i + 1) * (l - j + 1) == n:\n                        if all(matrix[x][y] for x in range(i, k + 1) for y in range(j, l + 1)):\n                            result += 1\n    return result\n\n# Example usage:\n# matrix = np.random.randint(0, 2, size=(50, 50)) # An example matrix\n# print(submatrix_with_n_numbers(matrix))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 117,
+    "total_tokens": 339,
+    "completion_tokens": 222
+  }
+}

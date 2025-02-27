@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-84318f434d7d4d7eaca6110c9b65298d",
+  "object": "chat.completion",
+  "created": 1725528626,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(strings):\n    from collections import defaultdict\n    string_count = defaultdict(int)\n    anagram_pairs = 0\n\n    for string in strings:\n        normalized = ''.join(sorted(string.lower()))\n        string_count[normalized] += 1\n        if string_count[normalized] == 2:\n            anagram_pairs += 1\n\n    return anagram_pairs >= 74\n\n# Example usage:\n# result = if_contains_anagrams([\"Dormitory\", \"Dirty room\", \"School MASTER\", \"The classesroom\", \"Not an anagram\", \"Astronomer\", \"Moon starer\"])\n# print(result)  # Output will be True or False based on the input.\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 134,
+    "total_tokens": 327,
+    "completion_tokens": 193
+  }
+}

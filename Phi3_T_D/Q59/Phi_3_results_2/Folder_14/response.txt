@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-55aa52f873eb4dff9697fca75a7fd900",
+  "object": "chat.completion",
+  "created": 1725547824,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef is_prime(n):\n    \"\"\"Check if n is a prime number.\"\"\"\n    if n < 2:\n        return False\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            return False\n    return True\n\ndef is_left_truncatable(n, prime_set):\n    \"\"\"Check if n is a left-truncatable prime number.\"\"\"\n    str_n = str(n)\n    for i in range(1, len(str_n)):\n        if not is_prime(int(str_n[i:])):\n            return False\n    return True\n\ndef all_left_truncatable_prime(numbers):\n    x = numbers[78]\n    result = []\n    prime_set = set()\n    for p in range(x - 1, 1, -1):\n        if is_prime(p) and p not in prime_set and is_left_truncatable(p, prime_set):\n            result.append(p)\n            for i in range(1, len(str(p))):\n                prime_set.add(int(str(p)[i:]))\n    return result\n```\n\nExplanation: The above code defines three main functions: `is_prime(n)`, `is_left_truncatable(n, prime_set)`, and `all_left_truncatable_prime(numbers)`.\n\n`is_prime(n)` checks if a number is prime or not. It starts by checking if `n` is less than 2 because prime numbers start from 2. It then checks if `n` is divisible by any number in the range from 2 to the square root of `n` (inclusive). If `n` is divisible by any such number, it isn't prime, and the function returns `False`. Otherwise, it returns `True`.\n\n`is_left_truncatable(n, prime_set)` checks if a number is a left-truncatable prime by calling `is_prime(n)` for each iteration of removing the leading digit. It also uses a `prime_set` set to keep track of seen numbers and avoid duplicates. This function returns `True` if the number is a left-truncatable prime, and `False` otherwise.\n\n`all_left_truncatable_prime(numbers)` is the main function that calls `is_prime(n)` and `is_left_truncatable(n, prime_set)` to generate the list of all left-truncatable prime numbers less than `x` (element at index 78 of the input tuple). It returns the list in descending order by iterating over numbers in reverse order and pushing the left-truncatable prime numbers to an array.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 156,
+    "total_tokens": 808,
+    "completion_tokens": 652
+  }
+}

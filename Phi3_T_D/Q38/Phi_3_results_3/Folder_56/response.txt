@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-7c155144048246219494c1ece75ebe56",
+  "object": "chat.completion",
+  "created": 1725509384,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef find_subset_of_length_n(elements):\n    n = 60\n    elements_length = len(elements)\n    return 1 if n > elements_length else choose(elements_length + n - 1, n)\n\ndef choose(n, k):\n    if k == 0 or k == n:\n        return 1\n    k = min(k, n - k)\n    numerator = denominator = 1\n    i_max = k\n    for i in range(i_max):\n        numerator *= (n - i)\n        denominator *= (i + 1)\n    return numerator // denominator\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 88,
+    "total_tokens": 245,
+    "completion_tokens": 157
+  }
+}

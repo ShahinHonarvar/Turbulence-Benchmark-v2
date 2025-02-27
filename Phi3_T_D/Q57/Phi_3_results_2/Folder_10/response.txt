@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-2c17f70c64264e5082cc8ab838049755",
+  "object": "chat.completion",
+  "created": 1725543250,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    result = []\n    (m, n) = matrix.shape\n    for x in range(m):\n        for y in range(n):\n            for dx in range(x, m):\n                for dy in range(y, n):\n                    submat = matrix[x:dx+1, y:dy+1]\n                    if np.sum(submat) == 56:\n                        result.append(submat)\n    return result\n\n# Example usage:\n# matrix = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])\n# print(submatrix_with_particular_sum(matrix))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 126,
+    "total_tokens": 314,
+    "completion_tokens": 188
+  }
+}

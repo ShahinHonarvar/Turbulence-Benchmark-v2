@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-c42088a620514e2fb6c803eea523bb0f",
+  "object": "chat.completion",
+  "created": 1725509603,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef find_subset_of_length_n(s):\n    \"\"\"Return the number of all subsets of size 95 from a set.\"\"\"\n    if len(s) < 95:\n        return 0\n    elif len(s) == 95:\n        return 1\n    return calculate_combinations(len(s) - 1, 94)\n\ndef calculate_combinations(n, r):\n    \"\"\"Return the number of ways to choose r elements from a set of n elements.\"\"\"\n    from math import factorial\n    return factorial(n) // (factorial(r) * factorial(n - r))\n\n# Example usage:\n# elements = {1, 2, 3, ... , 96}\n# print(find_subset_of_length_n(elements))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 88,
+    "total_tokens": 285,
+    "completion_tokens": 197
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-e80f1d30f46845b799c6c625dd8e989a",
+  "object": "chat.completion",
+  "created": 1725513623,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport math\n\ndef prime_factors(list_of_ints):\n    def is_prime(n):\n        if n <= 1:\n            return False\n        if n <= 3:\n            return True\n        if n % 2 == 0 or n % 3 == 0:\n            return False\n        i = 5\n        while i * i <= n:\n            if n % i == 0 or n % (i + 2) == 0:\n                return False\n            i += 6\n        return True\n\n    def get_prime_factors(n):\n        factors = set()\n        # Divide out all instances of 2\n        while n % 2 == 0:\n            factors.add(2)\n            n //= 2\n        # Look for all odd factors: 3, 5, 7, ...\n        for i in range(3, int(math.sqrt(n)) + 1, 2):\n            while n % i == 0:\n                if is_prime(i):\n                    factors.add(i)\n                n //= i\n        # Handle the case when n is a prime number greater than 2\n        if n > 2:\n            if is_prime(n):\n                factors.add(n)\n        return factors\n\n    return get_prime_factors(list_of_ints[77]) if len(list_of_ints) > 77 else set()\n```\n\nRun the code with your list of integers as input.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 87,
+    "total_tokens": 443,
+    "completion_tokens": 356
+  }
+}

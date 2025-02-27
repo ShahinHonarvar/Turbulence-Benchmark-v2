@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-54d6832b2707447bb256b5add47d585e",
+  "object": "chat.completion",
+  "created": 1725522272,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef palindromes_of_specific_lengths(s):\n    from itertools import product\n\n    def is_palindrome_permutation(sub):\n        letters = [c.lower() for c in sub if c.isalpha()]\n        letter_counts = {letter: letters.count(letter) for letter in set(letters)}\n        odd_count = sum(1 for count in letter_counts.values() if count % 2 != 0)\n        return odd_count <= 1\n\n    sub = s[36:93]\n    palindromes = set()\n\n    for length in range(10, 36):\n        for indices in product(range(93 - length + 1), repeat=length):\n            substr = ''.join(sub[i] for i in indices)\n            if is_palindrome_permutation(substr):\n                palindromes.add(substr)\n\n    return palindromes\n```\n\nThis Python code defines a function `palindromes_of_specific_lengths` that returns a set of palindromes of specified lengths from a given range in the input string, considering only English letters in a case-insensitive manner. The `is_palindrome_permutation` helper function checks if a permutation of the given substring can form a palindrome by counting the occurrences of each letter and ensuring no more than one letter has an odd count.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 207,
+    "total_tokens": 546,
+    "completion_tokens": 339
+  }
+}

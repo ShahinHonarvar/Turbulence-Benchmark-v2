@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-c50ec58117a94d70ab06672eb9010df6",
+  "object": "chat.completion",
+  "created": 1725545056,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    count = 0\n    n, m = matrix.shape\n    for i in range(n):\n        for j in range(m):\n            if j+4 < m and i+4 < n:\n                submatrix = matrix[i:i+4, j:j+4]\n                if np.all(submatrix):\n                    count += 1\n    return count\n\n# Example usage:\n# Define a matrix with numpy\nexample_matrix = np.array([[1, 0, 0, 9, 3],\n                           [0, 5, 4, 8, 1],\n                           [1, 6, 7, 2, 5],\n                           [1, 2, 3, 4, 5],\n                           [5, 4, 3, 2, 1]])\n\n# Call the function\nprint(submatrix_with_n_numbers(example_matrix))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 116,
+    "total_tokens": 358,
+    "completion_tokens": 242
+  }
+}

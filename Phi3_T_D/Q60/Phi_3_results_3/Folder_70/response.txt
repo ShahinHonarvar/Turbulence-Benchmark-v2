@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-3ae7d16cc5494d7aad0d7b1789706c5a",
+  "object": "chat.completion",
+  "created": 1725552399,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n <= 1:\n        return False\n    if n <= 3:\n        return True\n    if n % 2 == 0 or n % 3 == 0:\n        return False\n    i = 5\n    while i * i <= n:\n        if n % i == 0 or n % (i + 2) == 0:\n            return False\n        i += 6\n    return True\n\ndef all_left_right_truncatable_primes(numbers_tuple, x_index=433):\n    x = numbers_tuple[x_index]\n    truncatable_primes = []\n    for num in range(x, 1, -1):\n        if is_prime(num):\n            num_str = str(num)\n            for i in range(1, len(num_str)):\n                if not is_prime(int(num_str[i:])) or not (len(num_str) > i and is_prime(int(num_str[:i]))):\n                    break\n            else:\n                truncatable_primes.append(num)\n    return truncatable_primes\n\n# Example usage:\nnumbers = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101)\nprimes_list = all_left_right_truncatable_primes(numbers)\nprint(primes_list)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 208,
+    "total_tokens": 930,
+    "completion_tokens": 722
+  }
+}

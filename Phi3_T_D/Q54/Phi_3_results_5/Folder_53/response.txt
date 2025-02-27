@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-9494018476604f45a3d0e8945640e9fd",
+  "object": "chat.completion",
+  "created": 1725538366,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n <= 1:\n        return False\n    if n <= 3:\n        return True\n    if n % 2 == 0 or n % 3 == 0:\n        return False\n    i = 5\n    while i * i <= n:\n        if n % i == 0 or n % (i + 2) == 0:\n            return False\n        i += 6\n    return True\n\ndef right_truncatable_prime(n):\n    if not is_prime(n):\n        return False\n    str_n = str(n)\n    while len(str_n) > 1:\n        if not is_prime(int(str_n)):\n            return False\n        str_n = str_n[:-1]\n    return True\n\ndef all_right_truncatable_prime(numbers):\n    x = numbers[86]\n    primes = [p for p in range(2, x) if right_truncatable_prime(p)]\n    return sorted(primes, reverse=True)\n\n# Example usage:\nnumbers_tuple = (2,) * 87 + (1000,)  # Add the other 85 integers in your specified sequence\nresult = all_right_truncatable_prime(numbers_tuple)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 169,
+    "total_tokens": 489,
+    "completion_tokens": 320
+  }
+}

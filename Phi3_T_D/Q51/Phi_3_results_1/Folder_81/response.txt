@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-26158c44a41c41a3b8591ceb0a3f599b",
+  "object": "chat.completion",
+  "created": 1725529601,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom collections import defaultdict\n\ndef if_contains_anagrams(string_list):\n    def is_anagram(str1, str2):\n        if len(str1) != len(str2):\n            return False\n        return sorted(str1.lower()) == sorted(str2.lower())\n\n    def valid_anagram(s):\n        return len(s) >= 3 and s.isalpha()\n\n    anagrams_count = defaultdict(int)\n    for s in string_list:\n        if valid_anagram(s):\n            key = ''.join(sorted(s.lower()))\n            anagrams_count[key] += 1\n\n    count = 0\n    for key in anagrams_count:\n        count += anagrams_count[key] * (anagrams_count[key] - 1) // 2\n\n    return count <= 79\n\n# Example usage:\nresult = if_contains_anagrams(['listen', 'enlist', 'google', 'gooegl', 'banana'])\nprint(result)  # Expected output: True or False based on the list provided.\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 148,
+    "total_tokens": 423,
+    "completion_tokens": 275
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-3493a8c026f448aca315315996857c06",
+  "object": "chat.completion",
+  "created": 1725549207,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef all_left_truncatable_prime(nums):\n    max_num = nums[85]\n    primes = [2, 3, 5, 7]\n    for num in range(11, max_num):\n        if all(num % prime != 0 for prime in primes):\n            primes.append(num)\n\n    def is_left_truncatable(prime):\n        str_prime = str(prime)\n        while str_prime:\n            if int(str_prime) not in primes:\n                return False\n            str_prime = str_prime[1:]\n        return True\n\n    left_truncatable_primes = [prime for prime in primes if is_left_truncatable(prime) and len(str(prime)) > 1]\n\n    return left_truncatable_primes\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 156,
+    "total_tokens": 367,
+    "completion_tokens": 211
+  }
+}

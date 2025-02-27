@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-455fa960641849ab9355ac5aabfa0b5b",
+  "object": "chat.completion",
+  "created": 1725527792,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom collections import defaultdict\n\ndef if_contains_anagrams(strings):\n    anagrams_count = 0\n    sorted_strings = {}\n\n    for string in strings:\n        if len(string) >= 3 and string.lower() not in sorted_strings:\n            sorted_string = ''.join(sorted(string.lower()))\n            anagrams = [s for s in strings if ''.join(sorted(s.lower())) == sorted_string and s.lower() != string.lower()]\n            sorted_strings[string.lower()] = len(anagrams) + 1\n            anagrams_count += len(anagrams)\n\n    return anagrams_count >= 74\n\n# Example usage\nprint(if_contains_anagrams([\"listen\", \"silent\", \"enlist\", \"inlets\", \"google\", \"gooegl\"]))  # Should return True if there are at least 74 pairs\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 134,
+    "total_tokens": 361,
+    "completion_tokens": 227
+  }
+}

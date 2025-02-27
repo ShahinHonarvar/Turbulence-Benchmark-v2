@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-93dbbe202b784a17b4997832b8621785",
+  "object": "chat.completion",
+  "created": 1725512610,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef prime_factors(nums):\n    def prime_factors_of(n):\n        factors = set()\n        while n % 2 == 0:\n            factors.add(2)\n            n //= 2\n        for i in range(3, int(n**0.5) + 1, 2):\n            while n % i == 0:\n                factors.add(i)\n                n //= i\n        if n > 2:\n            factors.add(n)\n        return factors\n\n    return prime_factors_of(nums[46])\n\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 87,
+    "total_tokens": 231,
+    "completion_tokens": 144
+  }
+}

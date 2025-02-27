@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-90ecb36e87ff4530a1bf5937b082fa0d",
+  "object": "chat.completion",
+  "created": 1725515566,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef find_primes_between_indices(numbers):\n    def is_prime(n):\n        if n <= 1:\n            return False\n        if n <= 3:\n            return True\n        if n % 2 == 0 or n % 3 == 0:\n            return False\n        i = 5\n        while i * i <= n:\n            if n % i == 0 or n % (i + 2) == 0:\n                return False\n            i += 6\n        return True\n\n    start, end = 289, 381\n    primes_in_range = [num for num in numbers[start:end+1] if is_prime(num)]\n    return sorted(primes_in_range, reverse=True)\n\n# Example usage:\n# my_numbers = [list of integers]\n# print(find_primes_between_indices(my_numbers))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 128,
+    "total_tokens": 350,
+    "completion_tokens": 222
+  }
+}

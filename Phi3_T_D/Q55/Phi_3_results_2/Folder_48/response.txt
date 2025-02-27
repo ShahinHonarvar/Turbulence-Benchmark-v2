@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-0a9d2d7cfd994e71b522c7204ad19360",
+  "object": "chat.completion",
+  "created": 1725539461,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef lists_with_product_equal_n(circular_list):\n    if not circular_list:\n        return []\n\n    target_product = 990\n    results = set()\n    current_product = 1\n    temp_list = []\n\n    for i in range(len(circular_list)):\n        current_value = circular_list[i]\n        temp_list.append(current_value)\n        current_product *= current_value\n\n        while current_product > target_product and temp_list:  # Shrink from the left\n            current_product /= temp_list[0]\n            temp_list.pop(0)\n\n        if current_product == target_product:\n            results.add(tuple(temp_list))\n\n        next_index = (i + 1) % len(circular_list)\n        if next_index == 0:\n            break\n\n    result_list = [list(sublist) for sublist in results]\n    return result_list\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 204,
+    "total_tokens": 449,
+    "completion_tokens": 245
+  }
+}

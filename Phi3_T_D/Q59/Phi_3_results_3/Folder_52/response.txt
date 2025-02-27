@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-e05c50bc558c4fc989921f9407975e2f",
+  "object": "chat.completion",
+  "created": 1725548726,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n <= 1:\n        return False\n    if n <= 3:\n        return True\n    if n % 2 == 0 or n % 3 == 0:\n        return False\n    i = 5\n    while i * i <= n:\n        if n % i == 0 or n % (i + 2) == 0:\n            return False\n        i += 6\n    return True\n\ndef all_left_truncatable_prime(numbers):\n    x = numbers[52]\n    primes = [str(p) for p in range(2, x) if is_prime(p)]\n    left_truncatable_primes = []\n\n    for p in primes:\n        if all(is_prime(int(p[i:])) for i in range(len(p))):\n            left_truncatable_primes.append(int(p))\n\n    return sorted(left_truncatable_primes, reverse=True)\n\n```\n\nHere's a breakdown of the code:\n\n1. The `is_prime` function checks if a given number `n` is prime by checking divisibility up to the square root of `n`.\n2. The `all_left_truncatable_prime` function first generates all primes less than `x` (the 53rd element of the input tuple).\n3. It then iterates over each prime `p` and checks if all left-truncated variants of `p` are prime. For example, if `p` is `379`, it checks if `37`, `3`, and `79` are all prime.\n4. If all left-truncated variants of a prime `p` are prime, `p` is added to the `left_truncatable_primes` list.\n5. Finally, the function returns the `left_truncatable_primes` list sorted in descending order.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 156,
+    "total_tokens": 619,
+    "completion_tokens": 463
+  }
+}

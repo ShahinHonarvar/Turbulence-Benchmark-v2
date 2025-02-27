@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-8d355e0792924900a9444fb2b604bfca",
+  "object": "chat.completion",
+  "created": 1725531424,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom collections import defaultdict\n\ndef if_contains_anagrams(lst):\n    def anagram_key(s):\n        return ''.join(sorted(filter(str.isalpha, s.lower())))\n    \n    anagram_dict = defaultdict(list)\n    for word in lst:\n        if len(word) >= 3:\n            anagram_dict[anagram_key(word)].append(word)\n            \n    anagram_pairs_count = sum(len(v) * (len(v) - 1) // 2 for v in anagram_dict.values())\n    return anagram_pairs_count <= 407\n\n# Example usage:\nexample_list = [\"arc\", \"car\", \"hello\", \"Cat\", \"tac\", \"act\"]\nprint(if_contains_anagrams(example_list))  # Output should be True or False depending on anagram pairs\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 149,
+    "total_tokens": 368,
+    "completion_tokens": 219
+  }
+}

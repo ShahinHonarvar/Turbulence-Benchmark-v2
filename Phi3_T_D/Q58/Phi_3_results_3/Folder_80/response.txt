@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-d63c4cbcbffc4917b18dfc80f6a84d50",
+  "object": "chat.completion",
+  "created": 1725546209,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    def count_submatrices(top, left, bottom, right):\n        return (bottom - top + 1) * (right - left + 1)\n    \n    count = 0\n    rows, cols = matrix.shape\n    for i in range(rows):\n        for j in range(cols):\n            for k in range(i, rows):\n                for l in range(j, cols):\n                    if count_submatrices(i, j, k, l) == 180:\n                        count += 1\n    \n    return count\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 117,
+    "total_tokens": 271,
+    "completion_tokens": 154
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-a56fbca00f904726a7046f888bd9388c",
+  "object": "chat.completion",
+  "created": 1725543410,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    rows, cols = matrix.shape\n    result = []\n\n    def check_submatrix(r1, r2, c1, c2):\n        return np.sum(matrix[r1:r2, c1:c2]) == 416\n\n    def find_all_submatrices(r1, r2, c1, c2, prev_sum=0):\n        if c1 == cols:\n            return\n\n        if check_submatrix(r1, r2, c1, c2):\n            result.append(matrix[r1:r2, c1:c2].copy())\n\n        find_all_submatrices(r1, r2, c1 + 1, cols)\n        find_all_submatrices(r1 + 1, rows, c1 + 1, cols)\n\n    for r1 in range(rows):\n        for c1 in range(cols):\n            find_all_submatrices(r1, rows, c1, cols)\n\n    return result\n\n# Example usage:\n# matrix = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])\n# print(submatrix_with_particular_sum(matrix))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 127,
+    "total_tokens": 451,
+    "completion_tokens": 324
+  }
+}

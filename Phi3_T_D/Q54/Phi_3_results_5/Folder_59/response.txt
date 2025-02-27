@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-9a81e64e05d549ef8b80e4a40a12fc1d",
+  "object": "chat.completion",
+  "created": 1725538412,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef all_right_truncatable_prime(numbers):\n    x = numbers[84]\n    primes = [2, 3, 5, 7]\n    right_truncatables = []\n\n    def is_prime(num):\n        for prime in primes:\n            if num % prime == 0:\n                return False\n        return True\n\n    def truncatable(num):\n        str_num = str(num)\n        while str_num:\n            if is_prime(int(str_num)):\n                right_truncatables.append(num)\n            str_num = str_num[:-1]  # Remove the last digit\n            if not str_num or not is_prime(int(str_num)):\n                break\n\n    for num in range(5, x, 2):  # Check only odd numbers\n        str_num = str(num)\n        if all(str(digit) in '257' for digit in str_num):  # Must not contain 0, 1, 4, 6, 8, 9\n            truncatable(num)\n\n    if is_prime(x):\n        truncatable(x)\n\n    return sorted(right_truncatables, reverse=True)\n\nresult = all_right_truncatable_prime(numbers)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 169,
+    "total_tokens": 492,
+    "completion_tokens": 323
+  }
+}

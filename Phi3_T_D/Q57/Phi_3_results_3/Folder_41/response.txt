@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-e9dc41bbd205467d8ee735aba4c53489",
+  "object": "chat.completion",
+  "created": 1725543846,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    def kadane(nums):\n        max_sum = float(\"-inf\")\n        current_sum = 0\n        result_indices = []\n        for i, num in enumerate(nums):\n            if current_sum <= 0:\n                current_sum = num\n                start_index = i\n            else:\n                current_sum += num\n            finish_index = i\n            if current_sum > max_sum:\n                max_sum = current_sum\n                result_indices = [start_index, finish_index]\n        return max_sum, result_indices\n\n    rows, cols = matrix.shape\n    submatrices = []\n    for rowStart in range(rows):\n        for rowEnd in range(rowStart, rows):\n            histogram = [0] * cols\n            for col in range(cols):\n                histogram[col] = histogram[col] + matrix[rowEnd][col] if rowStart == rowEnd else matrix[rowStart-1][col] + matrix[rowEnd][col] - matrix[rowStart-1][col]\n            for colStart in range(cols):\n                for colEnd in range(colStart, cols):\n                    window_sum = sum(histogram[colStart:colEnd+1])\n                    if window_sum == -26:\n                        submatrices.append(matrix[rowStart:rowEnd+1, colStart:colEnd+1])\n    return submatrices\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 126,
+    "total_tokens": 492,
+    "completion_tokens": 366
+  }
+}

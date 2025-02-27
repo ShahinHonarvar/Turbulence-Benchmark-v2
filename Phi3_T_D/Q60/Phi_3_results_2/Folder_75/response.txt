@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-a5bfb5a1bfcb42f3aa0851dca5efd822",
+  "object": "chat.completion",
+  "created": 1725551688,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom sympy import isprime\n\ndef is_left_right_truncatable_prime(n, primes):\n    while n > 0:\n        if not isprime(n):\n            return False\n        n = n % (10 ** (len(str(n)) - 1))\n    return True\n\ndef all_left_right_truncatable_prime(numbers):\n    x = numbers[41]\n    primes = set(range(2, x + 1))\n    for i in range(2, int(x ** 0.5) + 1):\n        if i in primes:\n            primes -= set(range(i * 2, x + 1, i))\n    primes = sorted(primes)\n    \n    return [p for p in primes if is_left_right_truncatable_prime(p, primes)]\n\n# Example usage:\nnumbers = (50,)  # Example tuple with only one argument\nresult = all_left_right_truncatable_prime(numbers)\nprint(result)  # This will print the list of all left-and-right-truncatable prime numbers up to 50\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 207,
+    "total_tokens": 492,
+    "completion_tokens": 285
+  }
+}

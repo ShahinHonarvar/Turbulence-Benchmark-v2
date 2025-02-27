@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-9e572af21709454993c3fba47f038d63",
+  "object": "chat.completion",
+  "created": 1725546232,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    count = 0\n    size = len(matrix)\n    for i in range(size):\n        for j in range(size):\n            for k in range(i, size):\n                for l in range(j, size):\n                    if k - i + 1 == l - j + 1 == 13:\n                        test_submatrix = matrix[i:k+1, j:l+1]\n                        if np.count_nonzero(test_submatrix) == 13:\n                            count += 1\n    return count\n\n# Example usage:\n# matrix = np.random.randint(2, size=(10, 10))\n# print(submatrix_with_n_numbers(matrix))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 116,
+    "total_tokens": 312,
+    "completion_tokens": 196
+  }
+}

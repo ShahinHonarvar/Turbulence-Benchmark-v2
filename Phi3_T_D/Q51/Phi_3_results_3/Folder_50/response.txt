@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-97e6850960b8410fbf71ccd87a20b30c",
+  "object": "chat.completion",
+  "created": 1725530359,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom collections import Counter\n\ndef count_anagrams(words):\n    hash_map = {}\n    for word in words:\n        if len(word) >= 3:\n            word_hash = ''.join(sorted(word.lower()))\n            if word_hash in hash_map:\n                hash_map[word_hash] += 1\n            else:\n                hash_map[word_hash] = 1\n\n    count = sum(v for v in hash_map.values() if v > 1)\n    return count\n\ndef if_contains_anagrams(words):\n    anagrams_count = count_anagrams(words)\n    anagram_pairs = anagrams_count * (anagrams_count - 1) // 2\n    return anagram_pairs <= 47\n\n# Example usage:\n# result = if_contains_anagrams(['listen', 'enlist', 'google', 'gooegl'])\n# print(result)  # Output: True\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 148,
+    "total_tokens": 391,
+    "completion_tokens": 243
+  }
+}

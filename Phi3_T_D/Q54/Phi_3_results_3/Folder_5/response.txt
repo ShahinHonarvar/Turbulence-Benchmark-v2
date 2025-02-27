@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-4096bd7684654d3b9803060a7bc3d238",
+  "object": "chat.completion",
+  "created": 1725536702,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n <= 1:\n        return False\n    if n <= 3:\n        return True\n    if n % 2 == 0 or n % 3 == 0:\n        return False\n    i = 5\n    while i * i <= n:\n        if n % i == 0 or n % (i + 2) == 0:\n            return False\n        i += 6\n    return True\n\ndef right_truncatable_prime(n, primes):\n    if not is_prime(n):\n        return False\n    if n < 10:\n        return True\n    return is_prime(int(str(n)[:-1])) and n % 10 != 0 and str(n)[-1] in [str(p) for p in primes] and right_truncatable_prime(int(str(n)[:-1]), primes)\n\ndef all_right_truncatable_prime(numbers):\n    if not (0 < len(numbers) <= 56):\n        raise ValueError(\"The argument should be a tuple of positive integers with index 55.\")\n    if len(numbers) < 56:\n        raise ValueError(\"Tuple does not contain 56 elements.\")\n    \n    x = numbers[55]\n    primes = [str(n) for n in range(2, 10)]\n    for n in range(11, x):\n        if is_prime(n):\n            primes.append(str(n))\n    \n    result = [int(start) for start in primes for _ in range(len(start)) if right_truncatable_prime(int(start), [int(p) for p in primes])]\n    return sorted(filter(lambda n: n < x, result))\n\n# Example usage:\n# numbers = (...)\n# print(all_right_truncatable_prime(numbers))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 169,
+    "total_tokens": 634,
+    "completion_tokens": 465
+  }
+}

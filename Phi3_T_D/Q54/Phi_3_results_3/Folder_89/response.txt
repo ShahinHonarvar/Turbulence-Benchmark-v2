@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-6e186c2209964b8e95a2b4e14a3ff89c",
+  "object": "chat.completion",
+  "created": 1725537262,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef all_right_truncatable_prime(numbers_tuple):\n    def is_prime(n):\n        if n < 2:\n            return False\n        if n % 2 == 0 and n > 2:\n            return False\n        for i in range(3, int(n**0.5) + 1, 2):\n            if n % i == 0:\n                return False\n        return True\n\n    def is_right_truncatable_prime(n, primes_set):\n        return is_prime(n) and all(is_prime(int(str(n)[:i])) for i in range(1, len(str(n)) + 1) if int(str(n)[:i]) > 1)\n\n    primes_set = {2, 3, 5, 7} # Single-digit right-truncatable primes\n    if len(numbers_tuple) != 1 or numbers_tuple[0] < 10:\n        return []\n\n    x = numbers_tuple[0]\n    while x > 0:\n        if is_right_truncatable_prime(x, primes_set):\n            primes_set.add(x)\n        x -= 1\n\n    return sorted(primes_set - {2, 3, 5, 7}, reverse=True)\n\n# Call the function with a tuple example\nprint(all_right_truncatable_prime((100,)))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 169,
+    "total_tokens": 524,
+    "completion_tokens": 355
+  }
+}

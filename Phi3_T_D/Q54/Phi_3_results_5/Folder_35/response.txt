@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-8ba8f048023e4ecf82d5fec9fa1052e5",
+  "object": "chat.completion",
+  "created": 1725538243,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef all_right_truncatable_prime(numbers):\n    x = numbers[177]\n    primes = right_truncatable_primes(x)\n    return primes\n\ndef is_prime(n):\n    if n <= 1:\n        return False\n    if n <= 3:\n        return True\n    if n % 2 == 0 or n % 3 == 0:\n        return False\n    i = 5\n    while i * i <= n:\n        if n % i == 0 or n % (i + 2) == 0:\n            return False\n        i += 6\n    return True\n\ndef all_right_truncatable_primes(n):\n    primes = [set() for _ in range(len(str(n)))]\n    current_numbers = [2, 3, 5, 7]\n    \n    for number in current_numbers:\n        primes[0].add(number)\n\n    for i in range(1, len(primes)):\n        for num in range(10 ** (i - 1), min(10 ** i, n)):\n            if is_prime(num):\n                for j in range(1, 10):\n                    next_num = num * 10 + j\n                    if next_num > n:\n                        break\n                    if next_num in primes[i - 1]:\n                        primes[i].add(next_num)\n    return set.union(*primes)\n\nprint(all_right_truncatable_prime(tuple(range(2, 10**6))))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 170,
+    "total_tokens": 563,
+    "completion_tokens": 393
+  }
+}

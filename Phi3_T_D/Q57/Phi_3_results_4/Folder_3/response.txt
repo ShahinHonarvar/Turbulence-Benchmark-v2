@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-0441103755f64398b301a50f5e730e48",
+  "object": "chat.completion",
+  "created": 1725544152,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    def get_cumulative_sum(matrix):\n        cum_sum = np.zeros((matrix.shape[0] + 1, matrix.shape[1] + 1))\n        cum_sum[1:, 1:] = np.cumsum(np.cumsum(matrix, axis=0), axis=1)\n        return cum_sum\n\n    def find_submatrices(cum_sum, target_sum, rows, cols):\n        submatrices = []\n        for top in range(rows):\n            for left in range(cols):\n                for bottom in range(top, rows):\n                    for right in range(left, cols):\n                        current_sum = cum_sum[bottom + 1, right + 1] - cum_sum[bottom + 1, left] - cum_sum[top, right + 1] + cum_sum[top, left]\n                        if current_sum == target_sum:\n                            submatrices.append(matrix[top:bottom + 1, left:right + 1])\n        return submatrices\n\n    if not isinstance(matrix, np.ndarray) or len(matrix.shape) != 2 or not matrix.dtype.kind in 'ui':\n        return []\n\n    cum_sum = get_cumulative_sum(matrix)\n    return find_submatrices(cum_sum, 54, *matrix.shape)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 126,
+    "total_tokens": 485,
+    "completion_tokens": 359
+  }
+}

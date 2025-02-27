@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-4119e129f5e546ddadbd117f1c331ce1",
+  "object": "chat.completion",
+  "created": 1725543299,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    result = []\n    rows, cols = matrix.shape\n    for sr in range(rows):\n        for sc in range(cols):\n            for tr in range(sr, rows):\n                for tc in range(sc, cols):\n                    submatrix = matrix[sr:tr+1, sc:tc+1]\n                    if np.sum(submatrix) == -936:\n                        result.append(submatrix)\n    return result\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 127,
+    "total_tokens": 258,
+    "completion_tokens": 131
+  }
+}

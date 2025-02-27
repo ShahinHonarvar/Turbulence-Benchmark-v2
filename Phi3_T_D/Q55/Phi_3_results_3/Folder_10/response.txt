@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-b5ae69223fff443fbc47eb33cdac0417",
+  "object": "chat.completion",
+  "created": 1725539806,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef lists_with_product_equal_n(lst):\n    result = []\n    lst_len = len(lst)\n\n    for i in range(lst_len):\n        for j in range(i, lst_len):\n            sublist = lst[i:] + lst[:i]\n            for k in range(1, len(sublist) + 1):\n                for sub in [sublist[x:x+k] for x in range(len(sublist) - k + 1)]:\n                    if 0 in sub and any(item != 0 for item in sub):\n                        continue\n                    product = 1\n                    for item in sub:\n                        product *= item\n                    if product == -93:\n                        result.append(sub)\n    return result\n\n# Example usage:\n# circular_list = [2, -3, 1, -31]\n# print(lists_with_product_equal_n(circular_list))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 203,
+    "total_tokens": 439,
+    "completion_tokens": 236
+  }
+}

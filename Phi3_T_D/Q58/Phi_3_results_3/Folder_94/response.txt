@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-323561e20fcd49a2abdf4d444b91799e",
+  "object": "chat.completion",
+  "created": 1725546268,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    if not isinstance(matrix, np.ndarray) or matrix.ndim != 2:\n        raise ValueError(\"Input must be a two-dimensional numpy matrix.\")\n    \n    count = 0\n    rows, columns = matrix.shape\n    n = 93\n    \n    for top in range(rows):\n        for left in range(columns):\n            for bottom in range(top+1, rows+1):\n                for right in range(left+1, columns+1):\n                    if (bottom - top) * (right - left) == n:\n                        count += 1\n                        \n    return count\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 116,
+    "total_tokens": 285,
+    "completion_tokens": 169
+  }
+}

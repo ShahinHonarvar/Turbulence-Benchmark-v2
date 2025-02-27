@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-29839f82e8d4489980d46d04b0d45a16",
+  "object": "chat.completion",
+  "created": 1725530470,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom collections import defaultdict\n\ndef if_contains_anagrams(strings):\n    def string_signature(s):\n        return ''.join(sorted(s.lower()))\n\n    freq = defaultdict(int)\n    for s in strings:\n        if len(s) >= 3:\n            freq[string_signature(s)] += 1\n\n    count = 0\n    for n in freq.values():\n        if n > 1:\n            count += n * (n - 1) // 2\n\n    return count <= 55\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 148,
+    "total_tokens": 288,
+    "completion_tokens": 140
+  }
+}

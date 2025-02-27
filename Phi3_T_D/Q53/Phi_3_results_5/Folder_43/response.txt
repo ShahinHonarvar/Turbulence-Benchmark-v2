@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-90ba58f2952444df8e5b0a1b4feed72e",
+  "object": "chat.completion",
+  "created": 1725535049,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_palindrome(s):\n    return s == s[::-1]\n\ndef find_palindromes_at(center, s, left, right, results):\n    while left >= 0 and right < len(s) and is_palindrome(s[left:right + 1].lower()):\n        results.add(s[left:right + 1])\n        left -= 1\n        right += 1\n\ndef palindrome_of_length_at_least_n(s):\n    results = set()\n    n = 49\n\n    for i in range(len(s)):\n        # Even length palindrome\n        find_palindromes_at(i, s, i - 1, i, results)\n        \n        # Odd length palindrome\n        find_palindromes_at(i, s, i - 1, i + 1, results)\n\n    return {p for p in results if len(p) >= n and p.isalpha()}\n\n# Example usage:\n# palindromes = palindrome_of_length_at_least_n(\"An example string with dabbaab senzredna\")\n# print(palindromes)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 155,
+    "total_tokens": 451,
+    "completion_tokens": 296
+  }
+}

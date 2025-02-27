@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-021c4693d71a4104aa69d532a933ef47",
+  "object": "chat.completion",
+  "created": 1725536341,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nfrom sympy import isprime, primerange\n\ndef all_right_truncatable_prime(numbers):\n    x = numbers[54]\n    truncatable_prime_list = []\n\n    for prime in primerange(2, x + 1).as_iterable():\n        str_prime = str(prime)\n        if all(isprime(int(str_prime[:-i])) for i in range(1, len(str_prime))):\n            truncatable_prime_list.append(prime)\n\n    return sorted(truncatable_prime_list)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 169,
+    "total_tokens": 312,
+    "completion_tokens": 143
+  }
+}

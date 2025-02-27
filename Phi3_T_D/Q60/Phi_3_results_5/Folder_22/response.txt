@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-576886ab709d48d7ab40f89e48b49e15",
+  "object": "chat.completion",
+  "created": 1725553594,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            return False\n    return True\n\ndef is_truncatable_prime(n, primes):\n    s = str(n)\n    for i in range(len(s)):\n        if not is_prime(int(s[i:])) or not is_prime(int(s[:i+1])):\n            return False\n    return True\n\ndef all_left_right_truncatable_prime(numbers):\n    x = numbers[85]\n    prime_list = [p for p in range(2, x+1) if is_prime(p)]\n    trunc_primes = [p for p in prime_list if is_truncatable_prime(p, prime_list)]\n    return trunc_primes\n```\n\n```plaintext\nThe function `all_left_right_truncatable_prime` uses two helper functions: `is_prime` and `is_truncatable_prime`.\n\n1. `is_prime` checks if a number is prime.\n2. `is_truncatable_prime` checks if a prime number is left-and-right-truncatable by using `is_prime` to verify the truncated versions of the number.\n\nIn the main function, it first generates a list of primes less than or equal to `x` and then filters this list to find the left-and-right-truncatable primes.\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 207,
+    "total_tokens": 587,
+    "completion_tokens": 380
+  }
+}

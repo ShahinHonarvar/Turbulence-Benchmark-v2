@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-81853fad94df468886ad5df60d3ee5e8",
+  "object": "chat.completion",
+  "created": 1725552522,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_left_right_truncatable_prime(n, primes):\n    if n < 2:\n        return False\n    if len(str(n)) == 1:\n        return True\n    return all(str(n)[i:] in primes and str(n)[:-i] in primes for i in range(1, len(str(n))))\n\ndef find_primes_up_to(n):\n    primes = []\n    for i in range(2, n+1):\n        if all(i % p for p in primes):\n            primes.append(i)\n    return primes\n\ndef all_left_right_truncatable_prime(numbers_tuple):\n    primes = find_primes_up_to(numbers_tuple[630])\n    left_right_primes = [p for p in primes if is_left_right_truncatable_prime(p, primes)]\n    return sorted(left_right_primes, reverse=True)\n\n# Example usage, replace (630,) with the actual tuple of integers .\nresult = all_left_right_truncatable_prime((630,))\nprint(result)\n```\nI have created the function `all_left_right_truncatable_prime` which adheres to the specification using helper functions that efficiently check if numbers are truncatable primes and to find all prime numbers up to a certain number. The result is a sorted list of truncatable primes in descending order.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 208,
+    "total_tokens": 573,
+    "completion_tokens": 365
+  }
+}

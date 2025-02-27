@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-e7066e05eb254a4290e6e23b89e03d6b",
+  "object": "chat.completion",
+  "created": 1725537801,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n <= 1:\n        return False\n    if n <= 3:\n        return True\n    if n % 2 == 0 or n % 3 == 0:\n        return False\n    i = 5\n    while i * i <= n:\n        if n % i == 0 or n % (i + 2) == 0:\n            return False\n        i += 6\n    return True\n\ndef all_right_truncatable_prime(numbers):\n    x = numbers[31]\n    right_truncatables = []\n\n    for number in range(x-1, 1, -1):\n        if is_prime(number):\n            str_number = str(number)\n            while len(str_number) > 1 and is_prime(int(str_number)):\n                if len(str_number) == 2:\n                    right_truncatables.append(number)\n                str_number = str_number[:-1]\n\n    return sorted(right_truncatables, reverse=True)\n\n# Example usage:\n# right_truncatables = all_right_truncatable_prime((math.inf,)*32 + (9973,))  # Using math.inf to satisfy the tuple size\n# print(right_truncatables)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 169,
+    "total_tokens": 495,
+    "completion_tokens": 326
+  }
+}

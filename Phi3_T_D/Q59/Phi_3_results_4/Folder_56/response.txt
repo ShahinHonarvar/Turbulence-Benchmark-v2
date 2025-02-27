@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-c7fde1a5cf5449bb95aaa25f86441b4a",
+  "object": "chat.completion",
+  "created": 1725549437,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(n ** 0.5) + 1):\n        if n % i == 0:\n            return False\n    return True\n\ndef all_left_truncatable_prime(numbers):\n    x = numbers[30]\n    left_truncatable_primes = []\n\n    for num in range(2, x):\n        if not ('0' in str(num)):\n            prime_flag = True\n            temp_num = num\n            while temp_num > 0:\n                if not is_prime(temp_num):\n                    prime_flag = False\n                    break\n                temp_num = int(str(temp_num)[1:])\n            if prime_flag:\n                left_truncatable_primes.append(num)\n\n    return left_truncatable_primes\n```\n\nTo call this function, pass a tuple of positive integers like this:\n\n```python\nnumbers = (50, 60, 70, ... , 100) # Add positive integers up to the desired range\nprint(all_left_truncatable_prime(numbers))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 156,
+    "total_tokens": 453,
+    "completion_tokens": 297
+  }
+}

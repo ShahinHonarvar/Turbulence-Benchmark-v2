@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-b51feb98b69a4e56a71fe3895fdabdd0",
+  "object": "chat.completion",
+  "created": 1725537247,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_right_truncatable_prime(n, primes):\n    while n > 0:\n        if n not in primes:\n            return False\n        n //= 10\n    return True\n\ndef all_right_truncatable_prime(t):\n    x = t[39]\n    primes = set(range(2, x))\n    \n    # Generate primes up to x and store in a set\n    for num in range(2, x):\n        if num in primes:\n            primes -= set(range(num * 2, x, num))\n    \n    # Filter right-truncatable primes\n    right_truncatable_primes = [p for p in primes if is_right_truncatable_prime(p, set(primes))]\n\n    return sorted(right_truncatable_primes, reverse=True)\n```\n\nTo run the code with your provided argument (assuming it's a tuple named `input_tuple`), you would use:\n\n```python\nresult = all_right_truncatable_prime(input_tuple)\nprint(result)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 169,
+    "total_tokens": 446,
+    "completion_tokens": 277
+  }
+}

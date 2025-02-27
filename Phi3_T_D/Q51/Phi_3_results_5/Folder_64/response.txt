@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-4bbf2b1b404e4d308a5f35a5c78d1a01",
+  "object": "chat.completion",
+  "created": 1725531316,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom collections import defaultdict\n\ndef if_contains_anagrams(words):\n    def normalize(word):\n        return ''.join(sorted(word.lower()))\n\n    anagrams_map = defaultdict(list)\n    for word in words:\n        if len(word) >= 3:\n            norm_word = normalize(word)\n            anagrams_map[norm_word].append(word)\n\n    anagrams_count = sum(len(anagrams) * (len(anagrams) - 1) // 2 for anagrams in anagrams_map.values())\n    return anagrams_count <= 59\n\n# Example usage:\n# result = if_contains_anagrams(['cat', 'act', 'tac', 'dog', 'god'])\n# print(result) # True\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 148,
+    "total_tokens": 349,
+    "completion_tokens": 201
+  }
+}

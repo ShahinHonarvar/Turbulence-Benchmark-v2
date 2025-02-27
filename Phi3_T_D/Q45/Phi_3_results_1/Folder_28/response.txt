@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-234c35265a3a4890943733f10301c393",
+  "object": "chat.completion",
+  "created": 1725517744,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom itertools import permutations\n\ndef palindromes_between_indices(text):\n    substring = text[1:6].lower()\n    letter_count = {}\n    for char in substring:\n        if char.isalpha():\n            letter_count[char] = letter_count.get(char, 0) + 1\n    \n    def can_form_palindrome(counts):\n        odd_counts = [v % 2 for v in counts.values()]\n        return sum(odd_counts) <= 1\n    \n    def build_palindromes(chars):\n        for p in set(permutations(chars)):\n            half = p[:len(p)//2]\n            candidate = ''.join(half) + ''.join(half[::-1])\n            if candidate[len(candidate) // 2] in letter_count and candidate[:len(candidate) // 2].count(candidate[len(candidate) // 2]) < letter_count[candidate[len(candidate) // 2]]:\n                if len(candidate) >= 4 and can_form_palindrome(dict(zip(chars, [half.count(c) for c in set(half)]))):\n                    yield candidate\n    \n    return set(build_palindromes(letter_count.keys()))\n\n# Example usage:\nprint(palindromes_between_indices(\"abcdedcba\"))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 192,
+    "total_tokens": 550,
+    "completion_tokens": 358
+  }
+}

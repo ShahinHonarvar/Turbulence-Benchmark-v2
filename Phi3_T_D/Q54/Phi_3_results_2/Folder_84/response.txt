@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-b5aea10085e5485a995b17423118e610",
+  "object": "chat.completion",
+  "created": 1725536569,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom sympy import isprime, primerange\n\ndef all_right_truncatable_prime(numbers):\n    x = numbers[630]\n    primes = set(primerange(2, x))\n    right_truncatable_primes = []\n\n    while primes:\n        prime = primes.pop()\n        s = str(prime)\n        for i in range(len(s), 0, -1):\n            truncated = int(s[:i])\n            if truncated not in primes:\n                break\n        else:\n            right_truncatable_primes.append(prime)\n\n    return sorted(right_truncatable_primes, reverse=True)\n\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 170,
+    "total_tokens": 345,
+    "completion_tokens": 175
+  }
+}

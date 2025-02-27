@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-c3ad2cda240c47f2b52882a0cf788148",
+  "object": "chat.completion",
+  "created": 1725552115,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_left_and_right_truncatable(prime, primes_set):\n    nstr = str(prime)\n    for i in range(len(nstr)):\n        if int(nstr[i:]) not in primes_set or int(nstr[:-i or None]) not in primes_set:\n            return False\n    return True\n\ndef all_left_right_truncatable_prime(integers):\n    if not (0 < len(integers) <= 2 and integers[0] <= integers[1]):\n        return []\n    start, end = integers\n    if start > 7 or end < 11:\n        return []\n    \n    primes = set(filter(is_prime, range(start, end + 1)))\n    truncatable_primes = [p for p in primes if is_left_and_right_truncatable(p, primes)]\n    return sorted(truncatable_primes, reverse=True)\n\ndef is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(n ** 0.5) + 1):\n        if n % i == 0:\n            return False\n    return True\n\n# Example usage:\nresult = all_left_right_truncatable_prime((945, 948))\n```\n````",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 208,
+    "total_tokens": 545,
+    "completion_tokens": 337
+  }
+}

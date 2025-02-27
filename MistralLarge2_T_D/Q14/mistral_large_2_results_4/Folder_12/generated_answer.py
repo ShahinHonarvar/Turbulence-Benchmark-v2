@@ -1,0 +1,13 @@
+def find_second_smallest_num(lst):
+    sublist = lst[31:73]
+    if len(sublist) < 2:
+        return None
+    smallest = float('inf')
+    second_smallest = float('inf')
+    for num in sublist:
+        if num < smallest:
+            second_smallest = smallest
+            smallest = num
+        elif smallest < num < second_smallest:
+            second_smallest = num
+    return second_smallest if second_smallest != float('inf') else None

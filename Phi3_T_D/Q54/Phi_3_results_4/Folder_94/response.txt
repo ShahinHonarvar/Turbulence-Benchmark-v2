@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-2d5806c48cb740e6bb2fa11522426799",
+  "object": "chat.completion",
+  "created": 1725537962,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef all_right_truncatable_prime(nums):\n    def is_right_truncatable_prime(num, truncs):\n        if num in truncs:\n            return True\n        if not all(num % d for d in range(2, int(num**0.5) + 1)):\n            return False\n        if len(str(num)) > 1:\n            return is_right_truncatable_prime(num // 10, truncs | {num})\n        return True\n\n    try:\n        limit = nums[43]\n    except IndexError:\n        return []\n\n    primes = [2, 3, 5, 7]\n    truncs = set(primes)\n    num = 11\n    while num <= limit:\n        if is_right_truncatable_prime(num, truncs):\n            truncs.add(num)\n        num += 2  # Consider only odd numbers (even numbers > 2 are not prime)\n\n    return sorted(list(truncs))\n```\n\nThis Python function named `all_right_truncatable_prime` implements the functionality described in the specification. It finds all right-truncatable prime numbers up to a specified limit and returns them in sorted order.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 169,
+    "total_tokens": 479,
+    "completion_tokens": 310
+  }
+}

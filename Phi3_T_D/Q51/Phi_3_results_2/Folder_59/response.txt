@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-1e28269d4b064046a08ec53896d166d6",
+  "object": "chat.completion",
+  "created": 1725529935,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(strings):\n    def count_chars(s):\n        count = {}\n        for char in s.lower():\n            if char.isalpha():\n                count[char] = count.get(char, 0) + 1\n        return count\n\n    def is_anagram(str1, str2):\n        return count_chars(str1) == count_chars(str2)\n\n    anagram_count = 0\n    for i in range(len(strings)):\n        for j in range(i + 1, len(strings)):\n            if is_anagram(strings[i], strings[j]) and len(strings[i]) >= 3:\n                anagram_count += 1\n                if anagram_count > 15:\n                    return False\n\n    return True\n```\n\nThis Python function takes a list of strings as input and checks if there are at most 15 pairs of anagrams. To do this, it uses helper functions: `count_chars` to count characters in a string, considering only English letters and `is_anagram` to check if two strings are anagrams, ignoring case. It iterates over the list of strings and counts the anagram pairs that fulfill the length condition. If the count exceeds 15, the function returns `False`; otherwise, it returns `True`.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 148,
+    "total_tokens": 468,
+    "completion_tokens": 320
+  }
+}

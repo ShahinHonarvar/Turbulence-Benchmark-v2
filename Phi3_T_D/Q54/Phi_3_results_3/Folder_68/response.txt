@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-cb3cd930874c4b159287511621a92968",
+  "object": "chat.completion",
+  "created": 1725537121,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef is_prime(n):\n    if n <= 1:\n        return False\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            return False\n    return True\n\ndef all_truncations(n):\n    str_n = str(n)\n    for i in range(len(str_n)):\n        yield int(str_n[:i] + str_n[i+1:])\n\ndef is_right_truncatable_prime(n):\n    for truncation in all_truncations(n):\n        if not is_prime(truncation):\n            return False\n    return True\n\ndef all_right_truncatable_prime(numbers):\n    x = numbers[1]\n    right_truncatable_primes = [i for i in range(2, x) if is_right_truncatable_prime(i)]\n    return sorted(right_truncatable_primes, reverse=True)\n```\n\nTo use the function, you'd call it like this:\n\n```\nright_truncatable_primes_list = all_right_truncatable_prime((2, 100))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 168,
+    "total_tokens": 467,
+    "completion_tokens": 299
+  }
+}

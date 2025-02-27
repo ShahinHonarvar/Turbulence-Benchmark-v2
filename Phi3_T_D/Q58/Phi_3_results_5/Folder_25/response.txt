@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-bd5c49a56c634f6883cef8a7206de7f2",
+  "object": "chat.completion",
+  "created": 1725546794,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    height, width = matrix.shape\n    if height == 0 or width == 0:\n        return 0\n\n    count = 0\n    n = 66\n\n    for i in range(height):\n        for j in range(width):\n            vertical = 0\n            horizontal = 0\n            diagonal = 0\n            off_diagonal = 0\n            crossing = 0\n\n            for k in range(n):\n                if i + k < height and j + k < width:\n                    diagonal = 1 + (matrix[i + k, j + k] == matrix[i, j])\n                    off_diagonal = 1 + (matrix[i + k, width - j - 1] == matrix[i, j])\n                elif i + k < height and j - k >= 0:\n                    vertical = 1 + (matrix[i + k, j] == matrix[i, j])\n                    crossing = 1 + (matrix[i + k, j - k] == matrix[i, j])\n                else:\n                    break\n\n                if vertical >= n and horizontal >= n and diagonal >= n and \\\n                   off_diagonal >= n and crossing >= n:\n                    count += 1\n\n                horizontal += 1\n\n            vertical = 0\n            horizontal = 0\n            diagonal = 0\n            off_diagonal = 0\n            crossing = 0\n\n            for k in range(n):\n                if i - k >= 0 and j + k < width:\n                    diagonal = 1 + (matrix[i - k, j + k] == matrix[i, j])\n                    off_diagonal = 1 + (matrix[height - i - 1, j - k] == matrix[i, j])\n                elif i >= 0 and j + k < width:\n                    vertical = 1 + (matrix[i, j + k] == matrix[i, j])\n                    crossing = 1 + (matrix[i - k, j - k] == matrix[i, j])\n                else:\n                    break\n\n                if vertical >= n and horizontal >= n and diagonal >= n and \\\n                   off_diagonal >= n and crossing >= n:\n                    count += 1\n\n                horizontal += 1\n\n    return count\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 116,
+    "total_tokens": 681,
+    "completion_tokens": 565
+  }
+}

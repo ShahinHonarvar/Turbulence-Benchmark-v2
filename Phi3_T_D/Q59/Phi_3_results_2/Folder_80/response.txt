@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-5a8a6ca6c9fe4cfe8d2daf101ad3c5fd",
+  "object": "chat.completion",
+  "created": 1725548252,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom sympy import primerange, isprime\n\ndef all_left_truncatable_prime(numbers):\n    if len(numbers) < 15:\n        raise ValueError(\"Tuple must contain at least 15 elements.\")\n    \n    x = numbers[14]\n    primes = list(primerange(10, x))\n    left_truncatables = [p for p in primes if all(isprime(int(str(p)[i:])) for i in range(len(str(p))))]\n    \n    return sorted(left_truncatables, reverse=True)\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 156,
+    "total_tokens": 306,
+    "completion_tokens": 150
+  }
+}

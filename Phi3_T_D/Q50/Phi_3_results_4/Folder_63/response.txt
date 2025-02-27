@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-f3503156dc324bf3b8f774869a7db6d0",
+  "object": "chat.completion",
+  "created": 1725528665,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(lst):\n    def count_letter_frequency(s):\n        freq = {}\n        for char in s.lower():\n            if char.isalpha():\n                freq[char] = freq.get(char, 0) + 1\n        return freq\n\n    def are_anagrams(str1, str2):\n        freq1, freq2 = count_letter_frequency(str1), count_letter_frequency(str2)\n        return freq1 == freq2 and len(str1) >= 3 and len(str2) >= 3\n\n    anagram_pairs = [(str1, str2) for i, str1 in enumerate(lst) for str2 in lst[i+1:] if are_anagrams(str1, str2)]\n\n    return len(anagram_pairs) >= 89\n```\n\nIf you need to run just this code, enclose it within triple backticks:\n\n```\n```\ndef if_contains_anagrams(lst):\n    def count_letter_frequency(s):\n        freq = {}\n        for char in s.lower():\n            if char.isalpha():\n                freq[char] = freq.get(char, 0) + 1\n        return freq\n\n    def are_anagrams(str1, str2):\n        freq1, freq2 = count_letter_frequency(str1), count_letter_frequency(str2)\n        return freq1 == freq2 and len(str1) >= 3 and len(str2) >= 3\n\n    anagram_pairs = [(str1, str2) for i, str1 in enumerate(lst) for str2 in lst[i+1:] if are_anagrams(str1, str2)]\n\n    return len(anagram_pairs) >= 89\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 134,
+    "total_tokens": 592,
+    "completion_tokens": 458
+  }
+}

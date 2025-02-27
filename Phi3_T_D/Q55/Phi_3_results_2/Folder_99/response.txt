@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-42a918ceff3c4e60bc792da6f5a5c3b3",
+  "object": "chat.completion",
+  "created": 1725539741,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef circular_list_generator(lst):\n    times_to_repeat = len(lst)\n    for i in range(times_to_repeat):\n        yield from (lst[i:] + lst[:i])\n\ndef sublists_product(lst, target):\n    for start_index in range(len(lst)):\n        product = 1\n        sublist = []\n        for current_index in range(start_index, len(lst) + start_index):\n            index = current_index % len(lst)\n            product *= lst[index]\n            sublist.append(lst[index])\n            if product == target:\n                yield sublist.copy()\n            elif product > target:\n                break\n\ndef lists_with_product_equal_n(lst, n):\n    results = []\n    for circular_list in circular_list_generator(lst):\n        results.extend(sublists_product(circular_list, n))\n    return results\n```\n\nUsage:\n\n```python\nprint(lists_with_product_equal_n([7, 5, 6, 1], 415))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 204,
+    "total_tokens": 472,
+    "completion_tokens": 268
+  }
+}

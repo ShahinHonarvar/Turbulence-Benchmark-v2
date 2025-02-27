@@ -1,0 +1,2 @@
+def insert_before_character(s):
+    return s.replace('A', 'AA').replace('AAA', 'A')

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-6a558af9c8cb4049b00064d58bf7ae3e",
+  "object": "chat.completion",
+  "created": 1725518639,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom itertools import permutations\ndef palindromes_between_indices(s):\n    s = s[:8].lower()\n    middle_char_candidates = sorted(set(s))\n    palindromes = set()\n\n    for char in middle_char_candidates:\n        prefix, middle, suffix = s.replace(char, ''), char, ''\n        if len(prefix) + len(suffix) + 1 < 4:\n            continue\n        \n        for l in range(2, min(4, len(prefix)) + 1):\n            for perm in set(permutations(prefix, l)):\n                palindrome_candidate = ''.join(perm) + middle + ''.join(reversed(perm))\n                palindromes.add(palindrome_candidate)\n\n    return set(filter(lambda p: len(p) >= 4, palindromes))\n\n# Example usage:\nexample_string = \"ABCDEFGHI\"\nprint(palindromes_between_indices(example_string))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 192,
+    "total_tokens": 452,
+    "completion_tokens": 260
+  }
+}

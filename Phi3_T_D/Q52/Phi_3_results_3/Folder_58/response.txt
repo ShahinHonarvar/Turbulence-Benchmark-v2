@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-96eaeead6b8e436684fbc522375663a4",
+  "object": "chat.completion",
+  "created": 1725532266,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef palindrome_of_length_n(input_str):\n    results = set()\n    str_len = len(input_str)\n    min_ch = 'a'\n    max_ch = 'z'\n\n    def is_palindrome(s):\n        return s == s[::-1]\n\n    def expand_around_center(left, right):\n        while left >= 0 and right < len(input_str) and input_str[left].lower() >= min_ch and input_str[left].lower() <= max_ch and input_str[right].lower() >= min_ch and input_str[right].lower() <= max_ch:\n            if is_palindrome(input_str[left:right+1]):\n                results.add(input_str[left:right+1])\n            if right - left < 222:\n                break\n            left -= 1\n            right += 1\n\n    for i in range(str_len):\n        expand_around_center(i, i)  # odd length palindrome\n        expand_around_center(i, i + 1)  # even length palindrome\n\n    return results\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 161,
+    "total_tokens": 445,
+    "completion_tokens": 284
+  }
+}

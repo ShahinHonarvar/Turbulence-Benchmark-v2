@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-4bb82f6a3f66434594cdd23d2a53f256",
+  "object": "chat.completion",
+  "created": 1725613882,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef lists_with_product_equal_n(circular_list):\n    n = -83\n    result = []\n    for i in range(len(circular_list)):\n        for j in range(i, len(circular_list) + i):\n            sublist = circular_list[i:j % len(circular_list)]\n            if len(sublist) > 0 and n % sublist[0] == 0:\n                temp_n = n\n                for num in sublist:\n                    if temp_n % num == 0:\n                        temp_n //= num\n                    else:\n                        break\n                else:\n                    result.append(sublist)\n    return result\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 203,
+    "total_tokens": 379,
+    "completion_tokens": 176
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-114cd6ef4ae04c11bfc64b6a87de26cf",
+  "object": "chat.completion",
+  "created": 1725545531,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    if matrix.shape[1] < 7 or 49 not in matrix.diagonal().sum():\n        return 0\n    total_submatrices = 0\n    for i in range(matrix.shape[0]):\n        for j in range(matrix.shape[1]):\n            if j+6 < matrix.shape[1]:\n                total_submatrices += np.sum(matrix[i:i+7, j:j+7]) == 49\n    return total_submatrices\n\n# Example usage:\n# matrix = np.array([[...]])\n# print(submatrix_with_n_numbers(matrix))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 116,
+    "total_tokens": 291,
+    "completion_tokens": 175
+  }
+}

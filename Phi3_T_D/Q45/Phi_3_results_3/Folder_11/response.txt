@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-d46b56592068407e867d136f97e0e519",
+  "object": "chat.completion",
+  "created": 1725518663,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef palindromes_between_indices(s):\n    from itertools import permutations\n\n    start, end = 3, 7\n    letters = s[start:end+1].lower()\n    letter_counts = {}\n    for letter in letters:\n        if letter.isalpha():\n            letter_counts[letter] = letter_counts.get(letter, 0) + 1\n\n    def can_form_palindrome(sub_letters):\n        odd_count = sum(1 for letter, count in sub_letters.items() if count % 2 == 1)\n        return odd_count <= 1\n\n    def permutations_generator(sub_letters, prefix='', length=4):\n        if length == 0:\n            if can_form_palindrome({key: sub_letters.get(key, 0) for key in sub_letters}):\n                yield prefix\n        for letter, count in sub_letters.items():\n            if count > 0:\n                new_sub_letters = sub_letters.copy()\n                new_sub_letters[letter] -= 1\n                yield from permutations_generator(new_sub_letters, prefix=prefix + letter, length=length - 1)\n\n    all_palindromes = set(permutations_generator(letter_counts))\n    return {palindrome[:len(palindrome)//2] + palindrome[len(palindrome)//2:][::-1] for palindrome in all_palindromes if len(palindrome) >= 4}\n\n\n# Example usage\nprint(palindromes_between_indices(\"abacczdef\"))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 192,
+    "total_tokens": 602,
+    "completion_tokens": 410
+  }
+}

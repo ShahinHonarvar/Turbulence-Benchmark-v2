@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-65fcf021bf6c481c88c4f640a6a111e4",
+  "object": "chat.completion",
+  "created": 1725505663,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef remove_repeat_chars(s):\n    indices = range(450, 905)\n    char_indexes = {c: [] for c in set(s) if 450 < s.index(c) < len(s) - 555}\n    for i in indices:\n        if s[i] in char_indexes:\n            char_indexes[s[i]].append(i)\n    \n    chars_to_remove = {c for c, indexes in char_indexes.items() if len(indexes) > 1}\n    \n    return ''.join([c for c, i in zip(s, indices) if c not in chars_to_remove or i not in char_indexes[c]])\n\ns = \"example string\"\nprint(remove_repeat_chars(s))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 132,
+    "total_tokens": 334,
+    "completion_tokens": 202
+  }
+}

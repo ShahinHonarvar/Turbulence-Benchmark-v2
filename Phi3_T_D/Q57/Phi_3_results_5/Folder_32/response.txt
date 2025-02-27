@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-ad3316fd4b904c53826fc4472950afd5",
+  "object": "chat.completion",
+  "created": 1725544734,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    def wrapper(matrix):\n        m, n = matrix.shape\n        result = []\n\n        for i in range(m):\n            for j in range(n):\n                for k in range(i, m):\n                    for l in range(j, n):\n                        submatrix = matrix[i:k+1, j:l+1]\n                        if submatrix.sum() == 901:\n                            result.append(submatrix.tolist())\n        return result\n\n    return wrapper(matrix)\n\n# Example usage\n# matrix = np.array([[100, 200, 300, 400], [50, 350, 100, 800], [300, 450, 50, 901]])\n# print(submatrix_with_particular_sum(matrix))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 127,
+    "total_tokens": 362,
+    "completion_tokens": 235
+  }
+}

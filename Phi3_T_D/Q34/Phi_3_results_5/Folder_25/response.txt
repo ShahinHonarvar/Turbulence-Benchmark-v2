@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-770d848ff028490e82655eeeb633da03",
+  "object": "chat.completion",
+  "created": 1725505190,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef find_original_set(*args):\n    if len(args) != 38:\n        raise ValueError(\"Exactly 38 arguments are required, each being a set of integers.\")\n    original_set = set()\n    for s in args:\n        if not isinstance(s, set):\n            raise TypeError(\"All arguments must be sets of integers.\")\n        if not all(isinstance(i, int) for i in s):\n            raise ValueError(\"All elements of the sets must be integers.\")\n        original_set |= s\n    return original_set\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 98,
+    "total_tokens": 232,
+    "completion_tokens": 134
+  }
+}

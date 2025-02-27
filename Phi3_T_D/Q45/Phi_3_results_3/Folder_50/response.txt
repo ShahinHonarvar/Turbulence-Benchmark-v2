@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-47900dd742aa4a6399d672b8829bc176",
+  "object": "chat.completion",
+  "created": 1725518845,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef get_palindromes(s):\n    def is_palindrome(subs):\n        return subs == subs[::-1]\n\n    def get_permutations(chars):\n        if len(chars) <= 1:\n            yield chars\n        else:\n            for i, char in enumerate(chars):\n                for perm in get_permutations(chars[:i] + chars[i+1:]):\n                    yield char + perm\n\n    def is_valid_string(subs):\n        return 'a' <= subs[0] <= 'z' and 'A' <= subs[-1] <= 'Z'\n\n    substr = s[4:9]\n    substr = \"\".join(filter(str.isalpha, substr)).lower()\n    if not is_valid_string(substr):\n        return set()\n\n    permutations_set = set(map(''.join, get_permutations(substr)))\n    palindromes = {permut for permut in permutations_set if len(permut) >= 5 and is_palindrome(permut)}\n    return palindromes\n\ndef palindromes_between_indices(s):\n    return get_palindromes(s)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 192,
+    "total_tokens": 488,
+    "completion_tokens": 296
+  }
+}

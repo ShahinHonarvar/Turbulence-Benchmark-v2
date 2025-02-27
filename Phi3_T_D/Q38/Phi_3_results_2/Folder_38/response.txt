@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-3ff4bdbbc9794ef3ae768ff834f04ded",
+  "object": "chat.completion",
+  "created": 1725509163,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef find_subset_of_length_n(elements):\n    n = 38\n    def combinations(subset, idx, n, results, buffer):\n        if n == 0:\n            results.add(tuple(buffer))\n            return\n        for i in range(idx, len(subset)):\n            combinations(subset, i + 1, n - 1, results, buffer + [subset[i]])\n\n    results = set()\n    combinations(elements, 0, n, results, [])\n    return len(results)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 88,
+    "total_tokens": 216,
+    "completion_tokens": 128
+  }
+}

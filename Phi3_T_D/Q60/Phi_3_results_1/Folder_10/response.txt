@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-407c19f34a02491fa227cd3300bcf35f",
+  "object": "chat.completion",
+  "created": 1725550408,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef all_left_right_truncatable_prime(input_tuple):\n    def is_prime(n):\n        if n < 2:\n            return False\n        for i in range(2, int(n**0.5) + 1):\n            if n % i == 0:\n                return False\n        return True\n\n    if input_tuple[38] < 11:  # No left-and-right-truncatable primes exist below 11.\n        return []\n\n    truncatable_primes = []\n    for num in range(11, input_tuple[38] + 1, 2):  # Start with 11 and step by 2\n        if is_prime(num) and is_truncatable_prime(num):\n            truncatable_primes.append(num)\n\n    return sorted(truncatable_primes, reverse=True)\n\ndef is_truncatable_prime(n):\n    while n > 0:\n        if not is_prime(n):\n            return False\n        n = n % (10 ** (len(str(n)) - 1))  # Right truncate\n    while n < 10:\n        if n < 2 or not is_prime(n):\n            return False\n        n = n // 10  # Left truncate\n    return True\n\n# Example usage:\n# result = all_left_right_truncatable_prime((..., 100, ..., 200, ...))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 207,
+    "total_tokens": 579,
+    "completion_tokens": 372
+  }
+}

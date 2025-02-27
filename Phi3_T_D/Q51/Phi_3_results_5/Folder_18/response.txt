@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-71ea467779184a24b66484fa53ff6e0a",
+  "object": "chat.completion",
+  "created": 1725531129,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(strings):\n    def sort_string(s):\n        return ''.join(sorted(s.lower()))\n\n    def has_anagram(s, seen):\n        sorted_s = sort_string(s)\n        if sorted_s in seen:\n            return True\n        seen.add(sorted_s)\n        return False\n\n    seen = set()\n    anagram_count = 0\n\n    for s in strings:\n        if has_anagram(s, seen):\n            anagram_count += 1\n\n    return anagram_count <= 42\n\n# Example usage:\n# result = if_contains_anagrams([\"Listen\", \"Silent\", \"It\", \"Lit\"])\n# print(result)  # Outputs: True\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 148,
+    "total_tokens": 341,
+    "completion_tokens": 193
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-348ea2de63294d17b98d4e436d7d6493",
+  "object": "chat.completion",
+  "created": 1725514186,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef prime_factors(numbers):\n    def is_prime(num):\n        if num < 2:\n            return False\n        for i in range(2, int(num**0.5) + 1):\n            if num % i == 0:\n                return False\n        return True\n\n    def prime_factors_of(num):\n        factors = set()\n        for i in range(2, num + 1):\n            if num % i == 0 and is_prime(i):\n                factors.add(i)\n        return factors\n\n    if 97 < len(numbers):\n        num = numbers[97]\n        return prime_factors_of(num)\n    else:\n        raise IndexError(\"Index out of range. No element at index 97.\")\n\n# Example usage:\nnumbers = [i for i in range(200)]  # Sample list of integers\nprint(prime_factors(numbers))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 87,
+    "total_tokens": 314,
+    "completion_tokens": 227
+  }
+}

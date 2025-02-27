@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-418adf4a5bde4828adbdeee089d4e758",
+  "object": "chat.completion",
+  "created": 1725551894,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n <= 1:\n        return False\n    if n <= 3:\n        return True\n    if n % 2 == 0 or n % 3 == 0:\n        return False\n    i = 5\n    while i * i <= n:\n        if n % i == 0 or n % (i + 2) == 0:\n            return False\n        i += 6\n    return True\n\ndef all_left_right_truncatable_primes(numbers):\n    upper_limit = numbers[100]\n    truncatable_primes = []\n\n    def is_left_and_right_truncatable(prime, primes_set):\n        str_prime = str(prime)\n        for i in range(1, len(str_prime)):\n            if not is_prime(int(str_prime[i:])) or not is_prime(int(str_prime[:-i])):\n                return False\n        return True\n\n    primes_set = set()\n    for num in range(2, upper_limit + 1):\n        if is_prime(num):\n            primes_set.add(num)\n            if is_left_and_right_truncatable(num, primes_set):\n                truncatable_primes.append(num)\n\n    return sorted(truncatable_primes)\n\n# Example usage:\nnumbers = (0, 100, 200, 500, 2000, 10000)  # This tuple is just for the sake of argument\nprint(all_left_and_right_truncatable_primes(numbers))\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 208,
+    "total_tokens": 622,
+    "completion_tokens": 414
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-fad5f0cd46e0496387c2ea0e73c098ce",
+  "object": "chat.completion",
+  "created": 1725528146,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nfrom collections import defaultdict\n\ndef if_contains_anagrams(lst):\n    def is_anagram(s1, s2):\n        return sorted(s1.lower()) == sorted(s2.lower())\n\n    count = 0\n    seen = defaultdict(list)\n    length = len(lst)\n\n    for i in range(length):\n        for j in range(i + 1, length):\n            if (len(lst[i]) >= 3 and len(lst[j]) >= 3 and\n                is_anagram(lst[i], lst[j])):\n                if lst[i] not in seen[lst[j].lower()]:\n                    count += 1\n                    seen[lst[j].lower()].append(lst[i])\n\n    return count >= 54\n```\n```\n\nThis code implements a check for at least 54 pairs of anagrams within a list of strings. It considers anagrams of strings with length of at least three and compares them in a case-insensitive manner. Two strings are counted as anagrams if they have the same characters in a different order, and the function returns `True` if there are at least 54 such pairs, `False` otherwise.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 134,
+    "total_tokens": 424,
+    "completion_tokens": 290
+  }
+}

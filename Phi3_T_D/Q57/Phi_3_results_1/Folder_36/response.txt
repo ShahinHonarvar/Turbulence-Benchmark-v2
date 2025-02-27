@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-7efa87e0b7564cd888602a47e648e035",
+  "object": "chat.completion",
+  "created": 1725542893,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    def get_submatrix_sums(submatrices):\n        return [np.sum(sub) for sub in submatrices]\n\n    def get_submatrices(m, n):\n        if m <= 0 or n <= 0:\n            return [[]]\n        if m == 1:\n            return [list(matrix[:, :n])]\n        if n == 1:\n            return [[list(row)] for row in matrix[:m]]\n        submatrices = get_submatrices(m-1, n)\n        for submatrix in get_submatrices(m, n-1):\n            submatrices.append(submatrix[:-1])\n        return [submatrix + [row[-1]] for submatrix in get_submatrices(m-1, n-1) for row in matrix[m-2:-1]]\n\n    submatrices = []\n    height, width = matrix.shape\n    \n    for size_y in range(1, height + 1):\n        for size_x in range(1, width + 1):\n            submatrices_temp = get_submatrices(size_y, size_x)\n            submatrix_sums = get_submatrix_sums([np.array(submatrix) for submatrix in submatrices_temp])\n            submatrices.extend([submatrix for submatrix, sum in zip(submatrices_temp, submatrix_sums) if sum == -779])\n    \n    return submatrices\n\n# Example usage:\n# matrix = np.array([\n#     [1, 2, -780],\n#     [3, 4, 5],\n#     [6, 7, 8]\n# ])\n# print(submatrix_with_particular_sum(matrix))\n```\n\nThis code defines a function `submatrix_with_particular_sum` which, for a given numpy matrix, generates all possible submatrices and calculates their sums. It then filters these sums to return only those submatrices whose sum equals -779.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 127,
+    "total_tokens": 634,
+    "completion_tokens": 507
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-974c08ab00474b6a92d8ce095931dd3e",
+  "object": "chat.completion",
+  "created": 1725552530,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n <= 1:\n        return False\n    if n <= 3:\n        return True\n    if n % 2 == 0 or n % 3 == 0:\n        return False\n    i = 5\n    while i * i <= n:\n        if n % i == 0 or n % (i + 2) == 0:\n            return False\n        i += 6\n    return True\n\ndef all_left_right_truncatable_prime(numbers):\n    x = numbers[94] if len(numbers) > 94 else 0\n    left_primes = set(get_left_truncatable(x))\n    right_primes = set(get_right_truncatable(x))\n    return sorted(list(left_primes.intersection(right_primes)))\n\ndef get_left_truncatable(n):\n    truncatable_primes = []\n    for i in range(11, n + 1, 2):  # starting from 11, only check odd numbers\n        str_i = str(i)\n        if is_prime(i):\n            for j in range(1, len(str_i)):\n                if not is_prime(int(str_i[j:])):\n                    break\n            else:  # loop didn't break, so it's left truncatable\n                if len(str_i) > 1 and '0' not in str_i:  # exclude if 0 is present\n                    truncatable_primes.append(i)\n    return truncatable_primes\n\ndef get_right_truncatable(n):\n    truncatable_primes = []\n    for i in range(13, n + 1, 2):  # starting from 13 to avoid single digit primes\n        str_i = str(i)\n        if is_prime(i):\n            for j in range(1, len(str_i)):\n                if not is_prime(int(str_i[:-j])):\n                    break\n            else:  # loop didn't break, so it's right truncatable\n                if '0' not in str_i:  # exclude if 0 is present\n                    truncatable_primes.append(i)\n    return truncatable_primes\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 207,
+    "total_tokens": 782,
+    "completion_tokens": 575
+  }
+}

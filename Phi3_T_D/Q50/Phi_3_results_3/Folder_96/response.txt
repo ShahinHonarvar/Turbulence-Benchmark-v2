@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-ff2dd191e1274e1ebe964e4b833becbc",
+  "object": "chat.completion",
+  "created": 1725528376,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(strings):\n    from collections import defaultdict\n    \n    def normalize(s):\n        return ''.join(sorted(s.lower()))\n    \n    def is_anagram_of_length(s, min_length):\n        return len(s) >= min_length and normalize(s) in anagram_dict\n    \n    anagram_dict = defaultdict(list)\n    for s in strings:\n        if is_anagram_of_length(s, 3):\n            anagram_dict[normalize(s)].append(s)\n    \n    found_anagrams = 0\n    for anagrams in anagram_dict.values():\n        if len(anagrams) > 1:\n            found_anagrams += len(anagrams) * (len(anagrams) - 1) // 2\n    \n    return found_anagrams >= 98\n\n# Example usage:\n# result = if_contains_anagrams(['bob', 'george', 'jogge', 'Rob', 'reged'])\n# print(result) # Should print True or False based on the input list\n\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 134,
+    "total_tokens": 415,
+    "completion_tokens": 281
+  }
+}

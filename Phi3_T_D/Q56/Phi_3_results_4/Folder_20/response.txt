@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-0172fb9c58fb446db6103a4d33fe09b8",
+  "object": "chat.completion",
+  "created": 1725542231,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef all_substring_of_size_n(s):\n    from itertools import combinations\n\n    substr_set = set(''.join(substr) for i in range(50, len(s) + 1) for substr in combinations(s, i))\n    no_dup_substr_set = {''.join(chars) for chars in substr_set if len(set(chars)) == 50}\n\n    return list(no_dup_substr_set)\n\n# Example usage:\n# substrings = all_substring_of_size_n(\"abcd...\")\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 130,
+    "total_tokens": 270,
+    "completion_tokens": 140
+  }
+}

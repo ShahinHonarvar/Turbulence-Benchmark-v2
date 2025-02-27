@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-91da1847ed5d4a9b87d73427f2d9f0d4",
+  "object": "chat.completion",
+  "created": 1725551649,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(num):\n    if num < 2:\n        return False\n    for i in range(2, int(num**0.5) + 1):\n        if num % i == 0:\n            return False\n    return True\n\ndef is_truncatable_prime(num, prefixes, suffixes, right_to_left=True):\n    str_num = str(num)\n    for prefix in prefixes:\n        if prefix and not is_prime(int(prefix)):\n            return False\n    if right_to_left:\n        for suffix in suffixes:\n            if suffix == str_num:\n                continue\n            if not is_prime(int(suffix)):\n                return False\n    else:\n        str_num = str_num[1:]\n        for prefix in prefixes:\n            if prefix and not is_prime(int(prefix)):\n                return False\n        for suffix in suffixes:\n            if suffix and not is_prime(int(suffix)):\n                return False\n    return True\n\ndef all_left_right_truncatable_prime(numbers):\n    x = numbers[433]\n    truncatable_primes = []\n    for num in range(7, x + 1):\n        prefixes = [str(num)[i:] for i in range(len(str(num)))]\n        suffixes = [str(num)[:i] for i in range(len(str(num)), 0, -1)]\n        if is_truncatable_prime(num, prefixes, suffixes):\n            truncatable_primes.append(num)\n\n    return sorted(truncatable_primes, reverse=True)\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 208,
+    "total_tokens": 618,
+    "completion_tokens": 410
+  }
+}

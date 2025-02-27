@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-727df116ef54450c832bb0680cb06867",
+  "object": "chat.completion",
+  "created": 1725531148,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom collections import defaultdict\n\ndef if_contains_anagrams(strings):\n    anagram_groups = [sorted(word.lower()) for word in strings if len(word) >= 3]\n    anagram_count = sum([anagram_groups.count(group) > 1 for group in set(anagram_groups)])\n    return anagram_count <= 14\n\n# Example usage:\nprint(if_contains_anagrams([\"silent\", \"listen\", \"enlist\", \"inlets\", \"google\", \"easily\"]))  # True\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 148,
+    "total_tokens": 286,
+    "completion_tokens": 138
+  }
+}

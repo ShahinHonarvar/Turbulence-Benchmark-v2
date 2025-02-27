@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-0bd390b382834f979be59f1902302168",
+  "object": "chat.completion",
+  "created": 1725539548,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef rotate(l, n):\n    return l[-n:] + l[:-n]\n\ndef pairwise_product(items):\n    return [items[i] * items[i + 1] for i in range(len(items) - 1)]\n\ndef lists_with_product_equal_n(circular_list):\n    target_product = 46\n    results = []\n    list_size = len(circular_list)\n\n    for i in range(list_size):\n        for j in range(list_size):\n            portion = rotate(circular_list, i)[:j + 1]\n            if len(portion) > 1 and pairwise_product(portion) == [target_product]:\n                results.append(portion)\n\n    results = [list(x) for x in set(tuple(x) for x in results)]\n    return results\n\n# Example usage:\ncircular_list = [2, 23, 1, 2, 1]\nprint(lists_with_product_equal_n(circular_list))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 203,
+    "total_tokens": 464,
+    "completion_tokens": 261
+  }
+}

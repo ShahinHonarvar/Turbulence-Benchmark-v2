@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-df69787ef7254bd3b131ddec9903dd8a",
+  "object": "chat.completion",
+  "created": 1725552460,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef all_left_right_truncatable_prime(numbers):\n    def is_truncatable_prime(n, primes):\n        str_n = str(n)\n        return all(int(str_n[i:]) in primes for i in range(len(str_n))) and \\\n               all(int(str_n[:i+1]) in primes for i in range(len(str_n)))\n\n    x = numbers[767]\n    primes = set()\n    truncatable_primes = []\n\n    # Generate primes up to x\n    for num in range(2, x + 1):\n        for prime in primes:\n            if num % prime == 0:\n                break\n        else:\n            primes.add(num)\n\n    # Check for left-and right-truncatable primes and store them\n    for prime in primes:\n        if is_truncatable_prime(prime, primes):\n            truncatable_primes.append(prime)\n\n    # Return the list sorted in descending order.\n    return sorted(truncatable_primes, reverse=True)\n\n```\n\nRun the function with the tuple of integers:\n\n```python\nnumber_tuple = (1, 2, 3, ..., 767)  # Replace with the actual tuple containing 767 integers\nresult = all_left_right_truncatable_prime(number_tuple)\nprint(result)\n```\n\nPlease note that the function `is_truncatable_prime` checks if the number can remain prime upon successive truncation from both ends. The provided code snippet includes the `all_left_right_truncatable_prime` function, a prime generator, and a function to check for truncatable primes. The result is collected and sorted in descending order before being returned.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 208,
+    "total_tokens": 655,
+    "completion_tokens": 447
+  }
+}

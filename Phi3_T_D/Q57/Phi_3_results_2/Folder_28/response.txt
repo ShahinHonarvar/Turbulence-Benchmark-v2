@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-ca027da55cff4b04aeff383cc781cff4",
+  "object": "chat.completion",
+  "created": 1725543331,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    rows, cols = matrix.shape\n    submatrices = []\n\n    def check_sum(sub_matrix):\n        return np.sum(sub_matrix) == 15\n\n    def explore(i, j, current_submatrix):\n        for rows_extend in range(i, rows + 1):\n            for cols_extend in range(j, cols + 1):\n                current_submatrix = matrix[i:rows_extend, j:cols_extend]\n                if check_sum(current_submatrix):\n                    submatrices.append(current_submatrix.tolist())\n\n    for i in range(rows):\n        for j in range(cols):\n            explore(i, j, np.array([]))\n\n    return submatrices\n```\n```\n\nPlease note that we're using Python's list comprehension along with NumPy to satisfy the specification. The `check_sum` function verifies if the submatrix adds up to 15. The `explore` function explores all possible submatrices starting from the (i, j) position.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 126,
+    "total_tokens": 400,
+    "completion_tokens": 274
+  }
+}

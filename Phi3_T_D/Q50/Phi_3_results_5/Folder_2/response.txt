@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-c7ddb7edb2014117b9359caf1c94be30",
+  "object": "chat.completion",
+  "created": 1725528831,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(words):\n    from collections import defaultdict\n    \n    def is_anagram(word1, word2):\n        return sorted(word1.lower()) == sorted(word2.lower()) and word1.lower() != word2.lower()\n    \n    counter = defaultdict(int)\n    for word in words:\n        if len(word) >= 3:\n            sorted_word = tuple(sorted(word.lower()))\n            counter[sorted_word] += 1\n    \n    return sum(count >= 2 for count in counter.values()) >= 246\n\n# Example usage:\nwords_list = [\"listen\", \"enlist\", \"tan\", \"Ant\", \"Silent\", \"Inlets\", \"This\", \"is\", \"no\", \"example\", \"anagram\", \"of\", \"slightly\", \"longer\", \"words\", \"Each\", \"other\", \"one\", \"is\", \"of\", \"the\", \"same\", \"length\", \"but\", \"not\", \"all\", \"of\", \"these\", \"words\", \"actually\", \"are\", \"anagrams\", \"Also\", \"some\", \"other\", \"unrelated\", \"words\", \"are\", \"included\", \"just\", \"to\", \"make\", \"the\", \"example\", \"longer\", \"These\", \"are\", \"not\", \"anagrams\", \"Change\", \"Some\", \"case\", \"sensitivity\"]\nprint(if_contains_anagrams(words_list))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 135,
+    "total_tokens": 485,
+    "completion_tokens": 350
+  }
+}

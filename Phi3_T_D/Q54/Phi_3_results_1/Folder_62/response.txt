@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-66868ba639bb4ba988d836a583888fde",
+  "object": "chat.completion",
+  "created": 1725535714,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef all_right_truncatable_prime(numbers):\n    no = numbers[70]\n    def is_prime(n):\n        if n <= 1:\n            return False\n        if n <= 3:\n            return True\n        if n % 2 == 0 or n % 3 == 0:\n            return False\n        i = 5\n        while i * i <= n:\n            if n % i == 0 or n % (i + 2) == 0:\n                return False\n            i += 6\n        return True\n\n    def is_right_truncatable_prime(n, primes):\n        str_n = str(n)\n        for i in range(len(str_n)):\n            if not is_prime(int(str_n[:len(str_n)-i])):\n                return False\n        return True\n\n    primes = [i for i in range(no) if is_prime(i)]\n    return [p for p in primes if is_right_truncatable_prime(p, primes)]\n\n```\n\nThis Python code defines the `all_right_truncatable_prime` function which returns the sorted list of all right-truncatable prime numbers below the provided upper bound. Within the function, there are nested helper functions: `is_prime` to test primality, and `is_right_truncatable_prime` to check for right-truncatable primality.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 169,
+    "total_tokens": 514,
+    "completion_tokens": 345
+  }
+}

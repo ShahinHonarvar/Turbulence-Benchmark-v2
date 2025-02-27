@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-1ad4026aaa5246f49064e2c3ac450842",
+  "object": "chat.completion",
+  "created": 1725527171,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef if_contains_anagrams(words):\n    from collections import defaultdict\n\n    def normalize(word):\n        return \"\".join(sorted(word.lower()))\n\n    count = 0\n    normalized_words = defaultdict(int)\n    \n    for word in words:\n        if len(word) >= 3:\n            normalized = normalize(word)\n            count += normalized_words[normalized]\n            normalized_words[normalized] += 1\n\n    return count >= 96\n\n# Example use:\n# result = if_contains_anagrams([\"listen\", \"silent\", \"abc\", \"cba\", \"cat\", \"tac\",...])\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 134,
+    "total_tokens": 302,
+    "completion_tokens": 168
+  }
+}

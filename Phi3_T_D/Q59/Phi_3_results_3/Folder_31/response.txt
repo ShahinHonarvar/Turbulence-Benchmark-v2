@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-a44ec7b51424410fbf9f909d97ed93a5",
+  "object": "chat.completion",
+  "created": 1725548593,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n <= 1:\n        return False\n    if n <= 3:\n        return True\n    if n % 2 == 0 or n % 3 == 0:\n        return False\n    i = 5\n    while i * i <= n:\n        if n % i == 0 or n % (i + 2) == 0:\n            return False\n        i += 6\n    return True\n\ndef left_truncatable_prime(n):\n    str_n = str(n)\n    if not str_n.startswith('1'):  # Single digit primes except 1 are left-truncatable\n        return all(is_prime(int(str_n[start:])) for start in range(len(str_n)))\n    return False\n\ndef all_left_truncatable_prime(*args):\n    x = args[50] if len(args) > 50 else max(args)\n    result = [n for n in range(x, 1, -1) if left_truncatable_prime(n)]\n    return result\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 156,
+    "total_tokens": 427,
+    "completion_tokens": 271
+  }
+}

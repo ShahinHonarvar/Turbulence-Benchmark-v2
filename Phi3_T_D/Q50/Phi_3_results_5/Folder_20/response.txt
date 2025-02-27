@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-a05a99a8d7b349c1b2f401fff87fb8e5",
+  "object": "chat.completion",
+  "created": 1725528910,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(strings):\n    def count_char(s):\n        return sorted([(ch, s.lower().count(ch)) for ch in set(s.lower()) if ch.isalpha()])\n\n    char_map = {}\n    for string in strings:\n        if len(string) < 3:\n            continue\n        char_key = tuple(count_char(string))\n        char_map.setdefault(char_key, []).append(string.lower())\n\n    anagram_pairs = 0\n    for s in char_map.values():\n        anagram_pairs += len(s) * (len(s) - 1) // 2\n\n    return anagram_pairs >= 64\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 134,
+    "total_tokens": 316,
+    "completion_tokens": 182
+  }
+}

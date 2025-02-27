@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-7ef703dde8ff431b9968d55487679880",
+  "object": "chat.completion",
+  "created": 1725538334,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef all_right_truncatable_prime(input_tuple):\n    def is_prime(n):\n        if n <= 1:\n            return False\n        if n <= 3:\n            return True\n        if n % 2 == 0 or n % 3 == 0:\n            return False\n        i = 5\n        while i * i <= n:\n            if n % i == 0 or n % (i + 2) == 0:\n                return False\n            i += 6\n        return True\n\n    def is_right_truncatable_prime(n, first_digit):\n        if n < 10 and n != first_digit:\n            return False\n        return is_prime(n) and all(is_right_truncatable_prime(int(str(n)[:-1]), first_digit) if n != str(first_digit) else True for _ in range(2, len(str(n)) + 1))\n\n    x = input_tuple[835]\n    right_truncatable_primes = []\n\n    first_digit = 2\n    while first_digit < x:\n        for n in range(first_digit, x, first_digit):\n            if is_right_truncatable_prime(n, first_digit):\n                right_truncatable_primes.append(n)\n        first_digit = int(str(first_digit)[0]) + 1\n\n    return sorted(right_truncatable_primes)\n\n# Example usage with a tuple argument:\n# result = all_right_truncatable_prime((2, 3, 5, 7, 11, 13, 17, ..., 10000))\n# print(result)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 170,
+    "total_tokens": 599,
+    "completion_tokens": 429
+  }
+}

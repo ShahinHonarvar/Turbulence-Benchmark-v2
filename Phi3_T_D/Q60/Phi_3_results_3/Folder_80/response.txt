@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-dda168bc8ee54febaf18ea8d770aed95",
+  "object": "chat.completion",
+  "created": 1725552486,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n <= 1:\n        return False\n    if n <= 3:\n        return True\n    if n % 2 == 0 or n % 3 == 0:\n        return False\n    i = 5\n    while i * i <= n:\n        if n % i == 0 or n % (i + 2) == 0:\n            return False\n        i += 6\n    return True\n\ndef is_left_right_truncatable_prime(n):\n    if not is_prime(n):\n        return False\n    str_n = str(n)\n    while str_n:\n        if not is_prime(int(str_n)):\n            return False\n        str_n = str_n[:-1] if str_n[-1] == '0' else str_n[1:]\n    return True\n\ndef all_left_right_truncatable_primes(nums):\n    x = nums[14]\n    return sorted([n for n in range(2, x + 1) if is_left_right_truncatable_prime(n)], reverse=True)\n\n# Example usage:\nprimes = all_left_right_truncatable_primes((1,) * 15)  # sample tuple with 15 ones\nprint(primes)\n```\nThis Python code defines a function `all_left_right_truncatable_primes` that computes all left-and-right-truncatable prime numbers less than or equal to a specified integer, which is the 15th element in the provided tuple. The function utilizes helper functions `is_prime` to check for prime numbers and `is_left_right_truncatable_prime` to check if a prime is left-and-right-truncatable, deleting one digit at a time from both ends.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 207,
+    "total_tokens": 654,
+    "completion_tokens": 447
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-b70bcf08d3c2467390d79a2b48b28e22",
+  "object": "chat.completion",
+  "created": 1725544670,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    def helper(r1, c1, r2, c2):\n        submatrix_sum = np.sum(matrix[r1:r2, c1:c2])\n        return submatrix_sum == 398\n\n    def search_submatrices(starting_row, starting_col):\n        submatrices = []\n        for sub_rows in range(starting_row, len(matrix)):\n            for sub_cols in range(starting_col, len(matrix[0])):\n                if helper(starting_row, starting_col, sub_rows + 1, sub_cols + 1):\n                    submatrices.append(matrix[starting_row:sub_rows + 1, starting_col:sub_cols + 1])\n        return submatrices\n\n    result = []\n    for i in range(len(matrix)):\n        for j in range(len(matrix[0])):\n            result.extend(search_submatrices(i, j))\n\n    return result\n```\n\nThis code defines the function `submatrix_with_particular_sum` to find all submatrices in a given two-dimensional numpy matrix, such that the sum of all integers in each submatrix equals 398. It uses a helper function to calculate the sum of a given submatrix and determine if it equals 398. Then, the main function iterates over the entire matrix, generating all possible submatrices and filtering them using the helper function.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 127,
+    "total_tokens": 491,
+    "completion_tokens": 364
+  }
+}

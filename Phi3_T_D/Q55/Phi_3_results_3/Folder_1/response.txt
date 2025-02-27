@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-5813aee410e145de86b4c449a9df0aa0",
+  "object": "chat.completion",
+  "created": 1725539754,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef lists_with_product_equal_n(circular_list):\n    n = -51\n    total_len = len(circular_list)\n    found_sublists = []\n\n    for start in range(total_len):\n        temp_product = 1\n        for end in range(start, start + total_len):\n            temp_product *= circular_list[end % total_len]\n            if temp_product == n:\n                found_sublists.append(circular_list[start:end + 1])\n                \n            if temp_product == 0 or circular_list[end % total_len] == 0:\n                break\n\n    return found_sublists\n```\n\nTo call the function with an example circular list:\n\n```python\nexample_list = [1, -1, 51]\nprint(lists_with_product_equal_n(example_list))\n```\n\nThis code defines the `lists_with_product_equal_n` function as per specification. It computes products of contiguous sublists in a circular manner and if the product equals -51, it adds the corresponding sublist to the results list (taking into account the circular nature of the list).",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 203,
+    "total_tokens": 489,
+    "completion_tokens": 286
+  }
+}

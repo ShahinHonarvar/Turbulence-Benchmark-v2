@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-18bf42479ae44c1ca53d1c44307f9c1c",
+  "object": "chat.completion",
+  "created": 1725545760,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix: np.ndarray) -> int:\n    height, width = matrix.shape\n    count = 0\n    for y1 in range(height):\n        for x1 in range(width):\n            for h in range(height - y1):\n                for w in range(width - x1):\n                    submatrix = matrix[y1:y1+h+1, x1:x1+w+1]\n                    if np.full(submatrix.shape, 159, dtype=np.int8).sum() == submatrix.size:\n                        count += 1\n    return count\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 117,
+    "total_tokens": 279,
+    "completion_tokens": 162
+  }
+}

@@ -1,0 +1,3 @@
+def palindrome_of_length_n(s):
+    s = s.lower()
+    return {s[i:i + 24] for i in range(len(s) - 23) if s[i:i + 24] == s[i:i + 24][::-1] and all(('a' <= c <= 'z' for c in s[i:i + 24]))}

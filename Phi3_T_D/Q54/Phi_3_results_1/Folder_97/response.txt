@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-c846da25f88f407ca5edfc32e5c3b3cd",
+  "object": "chat.completion",
+  "created": 1725535964,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef all_right_truncatable_prime(numbers):\n    if len(numbers) < 1:\n        raise ValueError(\"Input tuple must contain at least one integer.\")\n    x = numbers[644]\n    primes = [2, 3, 5, 7]\n\n    def is_prime(n):\n        for p in primes:\n            if n % p == 0:\n                return False\n        return True\n\n    def is_right_truncatable(prime):\n        str_prime = str(prime)\n        while len(str_prime) > 2:\n            str_prime = str_prime[:-1]\n            if not is_prime(int(str_prime)):\n                return False\n        return True\n\n    right_truncatable_primes = [p for p in range(2, x) if is_prime(p) and is_right_truncatable(p)]\n    return sorted(right_truncatable_primes)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 170,
+    "total_tokens": 409,
+    "completion_tokens": 239
+  }
+}

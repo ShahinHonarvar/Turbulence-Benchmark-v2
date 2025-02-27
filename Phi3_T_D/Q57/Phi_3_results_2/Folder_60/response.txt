@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-e70d26a60a404ed0b652eea65100b157",
+  "object": "chat.completion",
+  "created": 1725543480,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nimport numpy as np\n\ndef get_submatrices(matrix, sum_target):\n    shapes = [(i, j) for i in range(1, matrix.shape[0] + 1) for j in range(1, matrix.shape[1] + 1)]\n    results = []\n    for shape in shapes:\n        for i in range(matrix.shape[0] - shape[0] + 1):\n            for j in range(matrix.shape[1] - shape[1] + 1):\n                submatrix = matrix[i:i+shape[0], j:j+shape[1]]\n                if np.sum(submatrix) == sum_target:\n                    results.append(submatrix)\n    return results\n\ndef submatrix_with_particular_sum(matrix):\n    return get_submatrices(matrix, 94)\n\n# Example usage:\n# matrix = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])\n# print(submatrix_with_particular_sum(matrix))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 126,
+    "total_tokens": 388,
+    "completion_tokens": 262
+  }
+}

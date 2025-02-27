@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-ba2492a3ded14d259bc903e7e81231f3",
+  "object": "chat.completion",
+  "created": 1725543889,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    m, n = matrix.shape\n    results = []\n\n    def check_sum(submatrix):\n        return np.sum(submatrix) == 95\n\n    for size in range(1, min(m, n) + 1):\n        for i in range(m - size + 1):\n            for j in range(n - size + 1):\n                submatrix = matrix[i:i+size, j:j+size]\n                if check_sum(submatrix):\n                    results.append(submatrix)\n\n    return results\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 126,
+    "total_tokens": 282,
+    "completion_tokens": 156
+  }
+}

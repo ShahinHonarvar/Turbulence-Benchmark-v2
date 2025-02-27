@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-ba08e782ab2c4da59a2c3900a528557d",
+  "object": "chat.completion",
+  "created": 1725543215,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    result = []\n    n = len(matrix)\n    m = len(matrix[0])\n\n    def check_sum(submatrix):\n        return np.sum(submatrix) == 54\n\n    def add_submatrix(x, y, width, height, level, submatrix):\n        submatrix_data = matrix[x:x+width, y:y+height]\n        if check_sum(submatrix_data):\n            result.append(submatrix_data.tolist())\n        if width > 1:\n            add_submatrix(x, y, width-1, height, level+1, submatrix_data.tolist())\n        if height > 1:\n            add_submatrix(x+1, y, width, height-1, level+1, submatrix_data.tolist())\n\n    for i in range(n):\n        for j in range(m):\n            add_submatrix(i, j, n-i, m-j, 0, np.array([[]]))\n\n    return result\n\n# Example usage:\n# matrix = np.array([[1, 2, 3],\n#                    [4, 5, 6],\n#                    [7, 8, 9]])\n# print(submatrix_with_particular_sum(matrix))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 126,
+    "total_tokens": 461,
+    "completion_tokens": 335
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-cfc312585459409390a78413b7de344a",
+  "object": "chat.completion",
+  "created": 1725545112,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    count = 0\n    rows, cols = matrix.shape\n    for i in range(rows):\n        for j in range(cols):\n            if j+1 < cols:\n                if np.issubdtype(matrix[i, j].dtype, np.integer) and np.issubdtype(matrix[i, j+1].dtype, np.integer):\n                    count += 1\n            else:\n                break\n        if i+1 < rows:\n            break\n    return count\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 115,
+    "total_tokens": 257,
+    "completion_tokens": 142
+  }
+}

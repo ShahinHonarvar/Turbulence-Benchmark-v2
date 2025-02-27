@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-26ea66ad12504212bc7d4e6e36d84b16",
+  "object": "chat.completion",
+  "created": 1725535734,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_right_truncatable_prime(n, primes):\n    while n > 0:\n        if n not in primes:\n            return False\n        n = n // 10\n    return True\n\ndef all_right_truncatable_prime(numbers):\n    if len(numbers) != 32:\n        raise ValueError(\"Function argument must be a tuple of 32 positive integers.\")\n\n    x = numbers[32]\n    primes = [2]\n    for n in range(3, x, 2):\n        if all(n % p != 0 for p in primes):\n            primes.append(n)\n\n    right_truncatable_primes = []\n    for p in primes:\n        if p < x and is_right_truncatable_prime(p, primes):\n            right_truncatable_primes.append(p)\n\n    return sorted(right_truncatable_primes)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 169,
+    "total_tokens": 408,
+    "completion_tokens": 239
+  }
+}

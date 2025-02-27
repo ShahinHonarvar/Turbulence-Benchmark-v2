@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-7585a8494cb34948a282953c3079e6ed",
+  "object": "chat.completion",
+  "created": 1725529150,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(lst):\n    def normalize(s):\n        return ''.join(sorted(s.lower()))\n\n    from itertools import combinations\n    count = sum(1 for x, y in combinations(lst, 2) if len(x) >= 3 and len(y) >= 3 and normalize(x) == normalize(y))\n    return count >= 19\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 134,
+    "total_tokens": 235,
+    "completion_tokens": 101
+  }
+}

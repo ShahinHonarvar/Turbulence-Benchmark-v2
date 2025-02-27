@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-4c8b8cece6624303b96261764214e9c0",
+  "object": "chat.completion",
+  "created": 1725537184,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef is_prime(n):\n    if n <= 1:\n        return False\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            return False\n    return True\n\ndef all_right_truncatable_primes(numbers):\n    x = numbers[23]\n    right_truncatable_primes = []\n\n    def is_right_truncatable(num):\n        return all(is_prime(int(num[i:])) for i in range(len(num)))\n\n    for num_str in map(str, range(2, x)):\n        if is_right_truncatable(num_str):\n            right_truncatable_primes.append(int(num_str))\n\n    return sorted(right_truncatable_primes)\n\n# Ensure that the tuple index 23 is passed to the function when called\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 169,
+    "total_tokens": 400,
+    "completion_tokens": 231
+  }
+}

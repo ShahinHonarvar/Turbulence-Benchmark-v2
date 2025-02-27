@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-74fda7ab53744c8b90cc2bf19911cfd1",
+  "object": "chat.completion",
+  "created": 1725548824,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nfrom itertools import dropwhile\n\ndef is_prime(n):\n    if n <= 1:\n        return False\n    if n <= 3:\n        return True\n    if n % 2 == 0 or n % 3 == 0:\n        return False\n    i = 5\n    while i * i <= n:\n        if n % i == 0 or n % (i + 2) == 0:\n            return False\n        i += 6\n    return True\n\ndef is_left_truncatable_prime(n):\n    if n < 10:\n        return is_prime(n)\n    return is_left_truncatable_prime(int(str(n)[1:])) and is_prime(n)\n\ndef all_left_truncatable_prime(numbers):\n    x = numbers[25]\n    return sorted([n for n in range(x - 1, 6, -1) if is_left_truncatable_prime(n)], reverse=True)\n\n# Example usage:\n# numbers_tuple = (1, 2, ..., 26)\n# result = all_left_truncatable_prime(numbers_tuple)\n# print(result)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 156,
+    "total_tokens": 453,
+    "completion_tokens": 297
+  }
+}

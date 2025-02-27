@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-a071e39e9a184f2488b958972fcb6e38",
+  "object": "chat.completion",
+  "created": 1725531050,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom collections import defaultdict\n\ndef if_contains_anagrams(strings):\n    def is_anagram(s1, s2):\n        return sorted(s1.lower()) == sorted(s2.lower()) and len(s1) >= 3\n\n    anagram_dict = defaultdict(list)\n    for s in strings:\n        anagram_dict[''.join(sorted(s.lower()))].append(s)\n\n    anagram_pairs = 0\n    for anagrams in anagram_dict.values():\n        n = len(anagrams)\n        if n > 1: \n            anagram_pairs += n * (n - 1) // 2\n\n    return anagram_pairs <= 30\n\n# Example usage:\n# print(if_contains_anagrams(['cat', 'act', 'tac', 'Anita', 'Naati', 'tack'])) # Should return true\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 148,
+    "total_tokens": 373,
+    "completion_tokens": 225
+  }
+}

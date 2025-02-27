@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-06962eaf94a846f3b2a160518f560cb8",
+  "object": "chat.completion",
+  "created": 1725537432,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n <= 1:\n        return False\n    if n <= 3:\n        return True\n    if n % 2 == 0 or n % 3 == 0:\n        return False\n    i = 5\n    while i * i <= n:\n        if n % i == 0 or n % (i + 2) == 0:\n            return False\n        i += 6\n    return True\n\ndef is_truncatable_prime(n, prime_set):\n    str_n = str(n)\n    for i in range(len(str_n)):\n        if not is_prime(int(str_n[i:])):\n            return False\n    return True\n\ndef all_right_truncatable_prime(tup):\n    primes = set()\n    for num in range(10, tup[0], -1):\n        if is_prime(num) and is_truncatable_prime(num, primes):\n            primes.add(num)\n    return sorted(primes, reverse=True)\n\n# Calling the function with the given tuple\nx_tuple = (10,)  # Add your tuple after the comma\nprint(all_right_truncatable_prime(x_tuple)[78] if len(all_right_truncatable_prime(x_tuple)) > 78 else [])\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 169,
+    "total_tokens": 511,
+    "completion_tokens": 342
+  }
+}

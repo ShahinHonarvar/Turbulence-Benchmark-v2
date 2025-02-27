@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-66d2309bece74918808e7734e7c47a28",
+  "object": "chat.completion",
+  "created": 1725537097,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef all_right_truncatable_prime(numbers):\n    x = numbers[32]\n    right_truncatable_prime = []\n\n    def is_prime(n):\n        if n < 2:\n            return False\n        p = 2\n        while p * p <= n:\n            if n % p == 0:\n                return False\n            p += 1\n        return True\n\n    def is_right_t_prime(n, primes):\n        if n not in primes:\n            return False\n        while n > 0:\n            n = n // 10\n            if n == 0 or n not in primes:\n                return False\n        return True\n        \n    primes = [2, 3, 5, 7]\n    for number in range(2, x):\n        if is_right_t_prime(number, primes + list(range(max(primes) + 1, number))):\n            right_truncatable_prime.append(number)\n            \n        while number > 0:\n            number = number // 10\n            if not is_prime(number):\n                break\n            primes.append(number)\n            \n    return sorted(right_truncatable_prime)\n\n\nresult = all_right_truncatable_prime((0,) * 33 + (1000,))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 169,
+    "total_tokens": 504,
+    "completion_tokens": 335
+  }
+}

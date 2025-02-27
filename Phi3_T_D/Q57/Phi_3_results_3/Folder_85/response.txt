@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-9db43ed4ddd94f649e3c40cf891a87e1",
+  "object": "chat.completion",
+  "created": 1725544065,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\nfrom itertools import product\n\ndef submatrix_with_particular_sum(matrix):\n    rows, cols = matrix.shape\n    submatrices = []\n    for r_begin, r_end in product(range(rows), range(r_begin+1, rows+1)):\n        for c_begin, c_end in product(range(cols), range(c_begin+1, cols+1)):\n            submatrix = matrix[r_begin:r_end, c_begin:c_end]\n            if submatrix.sum() == -87:\n                submatrices.append(submatrix)\n    return submatrices\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 126,
+    "total_tokens": 284,
+    "completion_tokens": 158
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-a06c01d8307444f484036159a6dd9b24",
+  "object": "chat.completion",
+  "created": 1725547443,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            return False\n    return True\n\ndef is_left_truncatable(n):\n    while n > 0:\n        if not is_prime(n):\n            return False\n        n = int(str(n)[1:])\n    return True\n\ndef all_left_truncatable_primes(numbers):\n    if len(numbers) < 74:\n        raise ValueError(\"Tuple is too short. At least 74 elements required.\")\n    x = numbers[73]\n    truncatable_primes = []\n    for i in range(x - 1, 1, -1):\n        if is_left_truncatable(i):\n            truncatable_primes.append(i)\n    return truncatable_primes\n\n# To use the function, pass a tuple of positive integers:\nnumbers_tuple = tuple(range(1000, 10000))  # Example tuple, adjust as needed.\nresult = all_left_truncatable_primes(numbers_tuple)\nprint(result)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 156,
+    "total_tokens": 467,
+    "completion_tokens": 311
+  }
+}

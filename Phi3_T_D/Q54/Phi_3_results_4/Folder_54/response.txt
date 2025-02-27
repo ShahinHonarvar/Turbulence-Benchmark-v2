@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-36a75e697e164c3f85794d833ceb057c",
+  "object": "chat.completion",
+  "created": 1725537700,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef all_right_truncatable_prime(numbers):\n    x = numbers[88]\n    truncatable_primes = [2, 3, 5, 7]\n    is_prime_cache = [None] * (x + 1)\n\n    def is_prime(n):\n        if n <= 1:\n            return False\n        if n <= 3:\n            return True\n        if is_prime_cache[n]:\n            return is_prime_cache[n]\n        if n % 2 == 0 or n % 3 == 0:\n            is_prime_cache[n] = False\n            return False\n        i = 5\n        while i * i <= n:\n            if n % i == 0 or n % (i + 2) == 0:\n                is_prime_cache[n] = False\n                return False\n            i += 6\n        is_prime_cache[n] = True\n        return True\n\n    def is_truncatable_prime(number):\n        while number > 0:\n            if not is_prime(number):\n                return False\n            number = int(str(number)[:-1])\n        return True\n\n    return sorted([p for p in range(11, x, 2) if is_prime(p) and is_truncatable_prime(p)], reverse=True)\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 169,
+    "total_tokens": 505,
+    "completion_tokens": 336
+  }
+}

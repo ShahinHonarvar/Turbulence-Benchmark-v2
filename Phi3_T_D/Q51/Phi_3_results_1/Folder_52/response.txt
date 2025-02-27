@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-4b181f95ac5e40d0b8df1d54bd614d8f",
+  "object": "chat.completion",
+  "created": 1725529469,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(words):\n    anagrams_count = 0\n    letters_set = set()\n    for word in words:\n        sorted_word = ''.join(sorted(word.lower())).lstrip('aouei')\n        if sorted_word in letters_set:\n            anagrams_count += 1\n        else:\n            letters_set.add(sorted_word)\n    return anagrams_count <= 43\n\n# Example usage:\nprint(if_contains_anagrams(['Listen', 'Silent', 'It', 'Tiny']))  # Should return False\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 148,
+    "total_tokens": 299,
+    "completion_tokens": 151
+  }
+}

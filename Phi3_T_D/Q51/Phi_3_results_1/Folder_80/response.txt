@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-55704becab454b01b40a161f763efb23",
+  "object": "chat.completion",
+  "created": 1725529592,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom collections import defaultdict\n\ndef if_contains_anagrams(strings):\n    def isAnagram(s1, s2):\n        s1, s2 = s1.lower(), s2.lower()\n        if len(s1) != len(s2) or not all(c.isalpha() for c in s1) or not all(c.isalpha() for c in s2):\n            return False\n        counter = defaultdict(int)\n        for char in s1:\n            counter[char] += 1\n        for char in s2:\n            counter[char] -= 1\n        return all(val == 0 for val in counter.values())\n\n    anagram_pairs = [(strings[i], strings[j]) for i in range(len(strings)) for j in range(i + 1, len(strings)) if isAnagram(strings[i], strings[j]) and len(strings[i]) >= 3 and len(strings[j]) >= 3]\n    return len(anagram_pairs) <= 255\n\n# Test examples\n# strings_test = [\"listen\", \"silent\", \"enlist\", \"google\", \"gooegl\", \"banana\"]\n# print(if_contains_anagrams(strings_test)) # Should return True\n```\n```\n\nThis Python code defines the `if_contains_anagrams` function, which counts the number of anagram pairs in a given list of strings and returns `True` if there are less than or equal to 255 such pairs, `False` otherwise. The function uses a helper function `isAnagram` to determine if two strings are anagrams considering case-insensitivity and alphabetic characters only.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 149,
+    "total_tokens": 550,
+    "completion_tokens": 401
+  }
+}

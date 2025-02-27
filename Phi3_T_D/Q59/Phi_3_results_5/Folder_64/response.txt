@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-7ae37a3cf0014c8fa58426bfc01fd895",
+  "object": "chat.completion",
+  "created": 1725550095,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef all_left_truncatable_prime(values):\n    x = values[4]\n    left_truncatable_primes = []\n\n    def is_prime(n):\n        if n < 2:\n            return False\n        for i in range(2, int(n**0.5) + 1):\n            if n % i == 0:\n                return False\n        return True\n\n    def is_left_truncatable_prime(n, digits):\n        if not is_prime(n):\n            return False\n        if n < x:\n            left_truncatable_primes.append(n)\n        if len(digits) > 1 and is_prime(n // 10):\n            return is_left_truncatable_prime(n // 10, digits[:-1]) or is_left_truncatable_prime(n, digits[:-1])\n        return n % 10 > 0\n\n    for number in range(23, x):\n        if is_left_truncatable_prime(number, str(number)):\n            if number not in left_truncatable_primes:\n                left_truncatable_primes.append(number)\n    return left_truncatable_primes\n```\n\nThis function defines inner functions to check for prime numbers and left-truncatable prime numbers. It iterates through possible candidates, checks if they are left-truncatable primes, and collects them in a list.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 155,
+    "total_tokens": 517,
+    "completion_tokens": 362
+  }
+}

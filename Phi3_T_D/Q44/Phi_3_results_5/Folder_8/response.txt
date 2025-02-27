@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-fde2f706bd694f4d9224d88e22fdc12f",
+  "object": "chat.completion",
+  "created": 1725517322,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            return False\n    return True\n\ndef composite_nums_between_indices(nums):\n    return set(filter(lambda x: not is_prime(x) and nums.index(x) >= 68 and nums.index(x) <= 86, nums))\n\n# Example usage:\nlst = [11, 4, 17, 6, 22, 15, 43, 47, 59, 61, 67, 71, 73, 79, 83, 89]\nprint(composite_nums_between_indices(lst))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 125,
+    "total_tokens": 337,
+    "completion_tokens": 212
+  }
+}

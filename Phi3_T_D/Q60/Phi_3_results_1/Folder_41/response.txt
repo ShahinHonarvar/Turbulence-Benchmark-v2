@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-bce925b36e764564b014f6557b63b93b",
+  "object": "chat.completion",
+  "created": 1725550650,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef all_left_right_truncatable_prime(numbers):\n    primes = [2, 3, 5, 7]\n    \n    def is_prime(n):\n        if n in primes:\n            return True\n        if n % 2 == 0 or n < 2:\n            return False\n        for i in range(3, int(n**0.5) + 1, 2):\n            if n % i == 0:\n                return False\n        return True\n    \n    def is_suftruncatable(n):\n        n_str = str(n)\n        if not is_prime(n):\n            return False\n        for i in range(1, len(n_str)):\n            if not is_prime(int(n_str[i:])) or not is_prime(int(n_str[:-i])):\n                return False\n        return True\n    \n    x = numbers[46]\n    result = [i for i in range(x, 1, -1) if is_suftruncatable(i)]\n    return result\n\n# Usage\nnumbers = (0,) * 46 + (1000000,)\nprint(all_left_right_truncatable_prime(numbers))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 207,
+    "total_tokens": 518,
+    "completion_tokens": 311
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-25495baedafc45548b7fc910fe6a1722",
+  "object": "chat.completion",
+  "created": 1725527988,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(strings):\n    def sorted_tuples(words):\n        return sorted(set(tuple(sorted(word.lower())) for word in words if len(word) >= 3))\n    \n    pairs = sum(len(list(group)) * (len(list(group)) - 1) / 2 for _, group in groupby(sorted_tuples(strings)))\n    return pairs >= 96\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 134,
+    "total_tokens": 240,
+    "completion_tokens": 106
+  }
+}

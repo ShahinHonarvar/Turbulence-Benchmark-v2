@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-4361aec69edc4f7891d74a5e2d5d8556",
+  "object": "chat.completion",
+  "created": 1725537952,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef is_prime(n):\n    if n <= 1:\n        return False\n    if n <= 3:\n        return True\n    if n % 2 == 0 or n % 3 == 0:\n        return False\n    i = 5\n    while i * i <= n:\n        if n % i == 0 or n % (i + 2) == 0:\n            return False\n        i += 6\n    return True\n\ndef find_truncatable_primes(limit):\n    truncatable_primes = []\n    try_digits = []\n    last_prefix = 0\n    while last_prefix < limit:\n        prefix = last_prefix * 10 + 1\n        while prefix <= limit:\n            if is_prime(prefix):\n                num_digits = len(str(prefix))\n                for i in range(num_digits, 1, -1):\n                    truncated_prefix = int(str(prefix)[:i])\n                    if truncated_prefix != 0 and is_prime(truncated_prefix):\n                        if truncated_prefix not in try_digits:\n                            truncatable_primes.append(truncated_prefix)\n                            try_digits.append(truncated_prefix)\n            prefix += 2\n        last_prefix += 1\n        if len(str(last_prefix)) > 1:\n            last_prefix = last_prefix % 100000000003\n    return truncatable_primes\n\ndef all_right_truncatable_prime(params):\n    x = params[11]\n    return sorted(find_truncatable_primes(x - 1))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 169,
+    "total_tokens": 587,
+    "completion_tokens": 418
+  }
+}

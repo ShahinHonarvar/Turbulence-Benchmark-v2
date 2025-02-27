@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-ea200244e2ff455295c2f070fb65acf2",
+  "object": "chat.completion",
+  "created": 1725527608,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(strings):\n    def build_signature(s):\n        return ''.join(sorted(s.lower()))\n    \n    from collections import defaultdict\n    count = 0\n    signatures = defaultdict(int)\n    \n    for s in strings:\n        if len(s) < 3:\n            continue\n        sig = build_signature(s)\n        count += signatures[sig]\n        signatures[sig] += 1\n        \n    return count >= 178\n\n# Test the function with example data\nprint(if_contains_anagrams([\"anagram\", \"nagaram\", \"argrama\", \"granama\", \"otherStrings\"]))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 135,
+    "total_tokens": 308,
+    "completion_tokens": 173
+  }
+}

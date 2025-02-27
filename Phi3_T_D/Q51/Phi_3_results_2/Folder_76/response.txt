@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-1a6a927f50e54e44a5e8ff68f8155d4b",
+  "object": "chat.completion",
+  "created": 1725530018,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom collections import defaultdict\n\ndef if_contains_anagrams(strings):\n    def is_anagram(str1, str2):\n        if len(str1) != len(str2):\n            return False\n        return sorted(str1.lower()) == sorted(str2.lower())\n\n    count = defaultdict(int)\n    valid_pairs = set()\n\n    for i in range(len(strings)):\n        for j in range(i + 1, len(strings)):\n            if is_anagram(strings[i], strings[j]) and len(strings[i]) >= 3:\n                pair = tuple(sorted([strings[i].lower(), strings[j].lower()]))\n                valid_pairs.add(pair)\n\n    return len(valid_pairs) <= 91\n\n# Example usage:\n# result = if_contains_anagrams(['listen', 'enlist', 'google', 'gooegl', 'bad', 'dab'])\n# print(result)  # Output: True or False based on the anagram pairs within the list\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 148,
+    "total_tokens": 405,
+    "completion_tokens": 257
+  }
+}

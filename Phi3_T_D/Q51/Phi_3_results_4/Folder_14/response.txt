@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-ea0b0ba63eda454696470f989b325d8e",
+  "object": "chat.completion",
+  "created": 1725530639,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(lst):\n    from collections import defaultdict\n\n    def generate_key(s):\n        return ''.join(sorted(s.lower()))\n\n    anagram_groups = defaultdict(list)\n    for word in lst:\n        length = len(word)\n        if length < 3:\n            continue\n        key = generate_key(word)\n        anagram_groups[key].append(word)\n\n    count_pairs = sum(len(v) * (len(v) - 1) // 2 for v in anagram_groups.values())\n    return count_pairs <= 474\n\n# Example usage:\nsome_strings = [\"listen\", \"enlist\", \"google\", \"gooegl\", \"missing\", \"sitting\", \"silent\"]\nresult = if_contains_anagrams(some_strings)\nprint(result)  # Output should be True or False based on the anagram pairs count\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 149,
+    "total_tokens": 380,
+    "completion_tokens": 231
+  }
+}

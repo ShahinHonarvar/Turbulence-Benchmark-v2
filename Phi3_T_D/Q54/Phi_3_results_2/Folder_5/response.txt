@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-68dae1b6a60642cabcc324b082a8992b",
+  "object": "chat.completion",
+  "created": 1725536013,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef all_right_truncatable_prime(t):\n    primes = [2, 3, 5, 7]\n    truncated = set(str(p) for p in primes)\n    lim = x = t[55]\n\n    for num in range(11, x, 2):\n        if all(num % p for p in primes) and str(num)[-1] in truncated:\n            truncated.add(str(num))\n            primes.append(num)\n\n    return sorted([int(p[:-1]) for p in truncated])\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 169,
+    "total_tokens": 314,
+    "completion_tokens": 145
+  }
+}

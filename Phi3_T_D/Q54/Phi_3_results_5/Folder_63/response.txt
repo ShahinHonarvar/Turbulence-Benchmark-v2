@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-12a3a46adbb440e3b7642fbb77400e0f",
+  "object": "chat.completion",
+  "created": 1725538439,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef all_right_truncatable_prime(primes_tuple):\n    x = primes_tuple[88]\n    all_primes = set(primes_tuple)\n    right_truncatable_primes = []\n    \n    for prime in all_primes:\n        prime_str = str(prime)\n        for i in range(len(prime_str)):\n            truncated_prime = int(prime_str[:-1])\n            if truncated_prime in all_primes:\n                right_truncatable_primes.append(prime)\n                break\n\n    return sorted(list(set(right_truncatable_primes)))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 169,
+    "total_tokens": 334,
+    "completion_tokens": 165
+  }
+}

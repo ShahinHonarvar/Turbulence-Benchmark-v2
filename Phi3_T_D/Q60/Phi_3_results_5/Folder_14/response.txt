@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-ca816030a4014ee0baec7bd3c0849af5",
+  "object": "chat.completion",
+  "created": 1725553532,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n <= 1:\n        return False\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            return False\n    return True\n\ndef digits_to_int(digits):\n    return int(''.join(map(str, digits)))\n\ndef all_truncatable_primes_from(n):\n    digits = list(map(int, str(n)))\n    truncatable_primes = []\n    while len(digits) > 0:\n        number = digits_to_int(digits)\n        if is_prime(number):\n            truncatable_primes.append(number)\n        else:\n            break\n        if len(digits) == 2:\n            break\n        digits.pop(0)\n    return truncatable_primes\n\ndef all_left_right_truncatable_prime(input_tuple):\n    x = input_tuple[78]\n    truncatable_primes = []\n    sorted_input = sorted(input_tuple, reverse=True)\n    for num in sorted_input:\n        if num <= x and num > 7:  # Check if number is within range and has at least three digits\n            truncatable_primes += all_truncatable_primes_from(num)\n    return list(set(truncatable_primes))\n\n# Example usage:\n# result = all_left_right_truncatable_prime((some_tuple_of_positive_integers))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 207,
+    "total_tokens": 594,
+    "completion_tokens": 387
+  }
+}

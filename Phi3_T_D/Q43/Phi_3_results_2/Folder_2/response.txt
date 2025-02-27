@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-348da7f81d004302b58f6a5cdc296774",
+  "object": "chat.completion",
+  "created": 1725514823,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef is_prime(num):\n    if num <= 1:\n        return False\n    for i in range(2, int(num**0.5) + 1):\n        if num % i == 0:\n            return False\n    return True\n\ndef find_primes_between_indices(int_list):\n    primes = [item for item in int_list[166:785] if is_prime(item)]\n    return sorted(primes, reverse=True)\n\n# Example usage:\n# integers = [2, 3, ...] # list of integers with at least 785 elements\n# print(find_primes_between_indices(integers))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 128,
+    "total_tokens": 296,
+    "completion_tokens": 168
+  }
+}

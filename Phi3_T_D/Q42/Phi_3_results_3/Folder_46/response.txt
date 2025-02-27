@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-93b6545d8aab45998fe2974e725eda5d",
+  "object": "chat.completion",
+  "created": 1725513326,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nfrom typing import Set\nimport math\n\ndef is_prime(n: int) -> bool:\n    if n <= 1:\n        return False\n    for i in range(2, int(math.sqrt(n)) + 1):\n        if n % i == 0:\n            return False\n    return True\n\ndef prime_factors(numbers: list) -> Set[int]:\n    if len(numbers) > 453:\n        numbers = numbers[453:]\n    else:\n        number = numbers[0]\n\n    factors = set()\n    divisor = 2\n    while number > 1:\n        while number % divisor == 0:\n            if is_prime(divisor):\n                factors.add(divisor)\n            number //= divisor\n        divisor += 1\n\n    return factors\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 88,
+    "total_tokens": 290,
+    "completion_tokens": 202
+  }
+}

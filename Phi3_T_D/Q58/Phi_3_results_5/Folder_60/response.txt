@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-7480b17e7e174a13aa572c9b37d140bf",
+  "object": "chat.completion",
+  "created": 1725546939,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    count = 0\n    rows, cols = matrix.shape\n    for i in range(rows):\n        for j in range(cols):\n            for k in range(i, rows):\n                for l in range(j, cols):\n                    if (k - i + 1) * (l - j + 1) == 88:\n                        submatrix = matrix[i:k+1, j:l+1]\n                        count += int(np.sum(submatrix.reshape(-1) == 88) == 88)\n    return count\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 116,
+    "total_tokens": 276,
+    "completion_tokens": 160
+  }
+}

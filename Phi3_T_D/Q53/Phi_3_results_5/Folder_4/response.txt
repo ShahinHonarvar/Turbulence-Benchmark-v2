@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-284e1f8e64864b36b553dc3f853c38c5",
+  "object": "chat.completion",
+  "created": 1725534867,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef expand_around_center(s, left, right):\n    pairs = set()\n    while left >= 0 and right < len(s) and s[left].isalpha() and s[right].isalpha():\n        if s[left].lower() == s[right].lower():\n            pairs.add(s[left:right+1])\n            left -= 1\n            right += 1\n        else:\n            break\n    return pairs\n\ndef palindrome_of_length_at_least_n(s):\n    s = s.lower()\n    result = set()\n    for i in range(len(s)):\n        # Odd length palindromes\n        odd_pairs = expand_around_center(s, i, i)\n        for pair in odd_pairs:\n            if len(pair) >= 99:\n                result.add(pair)\n        \n        # Even length palindromes\n        even_pairs = expand_around_center(s, i, i+1)\n        for pair in even_pairs:\n            if len(pair) >= 99:\n                result.add(pair)\n    return result\n```\n```\n\nThese functions work by considering each character (and each pair of adjacent characters) in the input string as the center of a potential palindrome. It then expands outward from the center on both sides to determine if any palindromes exist of the required length. This simultaneously handles odd-length and even-length palindromes.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 155,
+    "total_tokens": 508,
+    "completion_tokens": 353
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-9cb751b1d0534e42959dd38aae86c4b2",
+  "object": "chat.completion",
+  "created": 1725544030,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef get_submatrices(n, m):\n    result = []\n    for i in range(n):\n        for j in range(m):\n            for k in range(i, n):\n                for l in range(j, m):\n                    result.append((i, j, k, l))\n    return result\n\ndef submatrix_with_particular_sum(matrix):\n    if not isinstance(matrix, np.ndarray) or matrix.ndim != 2:\n        raise ValueError('Input must be a two-dimensional numpy matrix')\n\n    n, m = matrix.shape\n    submatrices = get_submatrices(n, m)\n    result = []\n\n    for top_left, bottom_right in submatrices:\n        current_submatrix = matrix[top_left[0]:bottom_right[0]+1, top_left[1]:bottom_right[1]+1]\n        if current_submatrix.sum() == 17:\n            result.append(current_submatrix)\n\n    return result\n```\n\nThis function creates a list of all possible submatrices and then checks each one to see if its sum is 17. If it is, it adds the submatrix to the output list.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 126,
+    "total_tokens": 424,
+    "completion_tokens": 298
+  }
+}

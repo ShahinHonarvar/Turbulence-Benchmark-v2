@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-707399d5d39540859af4b9828b261236",
+  "object": "chat.completion",
+  "created": 1725550394,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n <= 1:\n        return False\n    if n <= 3:\n        return True\n    if n % 2 == 0 or n % 3 == 0:\n        return False\n    i = 5\n    while i * i <= n:\n        if n % i == 0 or n % (i + 2) == 0:\n            return False\n        i += 6\n    return True\n\ndef is_truncatable_prime(n, checked=set(), trunc_from_left=True):\n    if n in checked:\n        return True\n    if not n or not is_prime(n):\n        return False\n    if trunc_from_left:\n        return is_truncatable_prime(n[1:], checked | {n}, False)\n    else:\n        return is_truncatable_prime(n[:-1], checked | {n}, True)\n\ndef all_left_right_truncatable_prime(nums):\n    x = nums[41]\n    return sorted([n for n in range(2, x + 1) if is_truncatable_prime(str(n))], reverse=True)\n```\n\nRemember to update index 41 if your tuple has a different structure or if the index is out of range. The above code assumes a single integer tuple. If you need to handle cases with multiple integers or different indexes, modify the code accordingly.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 207,
+    "total_tokens": 552,
+    "completion_tokens": 345
+  }
+}

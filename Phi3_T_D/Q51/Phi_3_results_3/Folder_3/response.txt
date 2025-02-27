@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-8d8c8426f7ea4808b85b03dd766d89dc",
+  "object": "chat.completion",
+  "created": 1725530151,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(strings):\n    def build_key(s):\n        return ''.join(sorted(s.lower()))\n\n    from collections import defaultdict\n    anagram_groups = defaultdict(list)\n    \n    for string in strings:\n        if len(string) >= 3:\n            key = build_key(string)\n            anagram_groups[key].append(string)\n\n    anagram_pairs = 0\n    for group in anagram_groups.values():\n        anagram_pairs += sum(range(len(group)))\n\n    return anagram_pairs <= 66\n\n# Example usage:\n# strings_list = [\"cinema\", \"iceman\", \"silent\", \"listen\", \"stream\", \"master\"]\n# if_contains_anagrams(strings_list)\n```\n```\n\nPlease note that this solution is based on the given specifications. It ensures that anagrams of at least three characters are considered, and it checks for case-insensitivity by converting strings to lower case before processing.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 148,
+    "total_tokens": 399,
+    "completion_tokens": 251
+  }
+}

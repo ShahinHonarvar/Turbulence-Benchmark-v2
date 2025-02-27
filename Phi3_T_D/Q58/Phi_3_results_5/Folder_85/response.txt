@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-d265ec826f374780a31c7b81b9b352bb",
+  "object": "chat.completion",
+  "created": 1725547039,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    nrows, ncols = matrix.shape\n    count = 0\n    for i in range(nrows):\n        for j in range(ncols):\n            for k in range(i, nrows):\n                for l in range(j, ncols):\n                    if (k - i + 1) * (l - j + 1) == 13:\n                        submatrix = matrix[i:k+1, j:l+1]\n                        if np.prod(submatrix.shape) == 13:\n                            count += 1\n    return count\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 116,
+    "total_tokens": 276,
+    "completion_tokens": 160
+  }
+}

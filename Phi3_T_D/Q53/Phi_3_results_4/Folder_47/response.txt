@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-c83e5a5fe8c446818430579c031d1af9",
+  "object": "chat.completion",
+  "created": 1725534607,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef palindrome_of_length_at_least_n(s):\n    def expand(start, end):\n        while start >= 0 and end < len(s) and s[start].lower() == s[end].lower():\n            yield s[start:end + 1]\n            start -= 1\n            end += 1\n\n    palindromes = set()\n    s = s.lower()\n\n    for i in range(len(s)):\n        it1 = expand(i, i)\n        it2 = expand(i, i + 1)\n        for pal in it1:\n            if len(pal) >= 77:\n                palindromes.add(pal)\n        for pal in it2:\n            if len(pal) >= 77:\n                palindromes.add(pal)\n\n    return palindromes\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 155,
+    "total_tokens": 367,
+    "completion_tokens": 212
+  }
+}

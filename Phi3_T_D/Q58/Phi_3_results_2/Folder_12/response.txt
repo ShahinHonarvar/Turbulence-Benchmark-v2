@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-e161475da6af446cb36adb88c8ae927d",
+  "object": "chat.completion",
+  "created": 1725545498,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix, n=46):\n    rows, cols = matrix.shape\n    count = 0\n    for i in range(rows):\n        for j in range(cols):\n            current_sum = 0\n            for k in range(i, rows):\n                current_sum += matrix[k, j:min(cols, j+n)].sum()\n                if current_sum == n:\n                    count += 1\n                elif current_sum > n:\n                    break\n    return count\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 116,
+    "total_tokens": 253,
+    "completion_tokens": 137
+  }
+}

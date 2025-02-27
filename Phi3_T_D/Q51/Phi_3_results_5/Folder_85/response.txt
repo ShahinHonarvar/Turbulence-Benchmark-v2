@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-da3338112a60414da7274597d3d77268",
+  "object": "chat.completion",
+  "created": 1725531410,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom collections import defaultdict\n\ndef if_contains_anagrams(words):\n    anagrams_dict = defaultdict(int)\n    \n    for word in words:\n        sorted_word = ''.join(sorted(word.lower()))\n        anagrams_dict[sorted_word] += 1\n    \n    count = 0\n    for val in anagrams_dict.values():\n        count += val * (val - 1) // 2\n        \n    return count <= 276\n\n# Example usage:\n# result = if_contains_anagrams(['stop', 'pine', 'listen', 'tops'])\n# print(result) # Output: True, because there are two anagrams: 'stop' and 'tops'\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 149,
+    "total_tokens": 330,
+    "completion_tokens": 181
+  }
+}

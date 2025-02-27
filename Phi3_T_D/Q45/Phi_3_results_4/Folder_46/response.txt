@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-f8cbe5c98cca468abda0b560048efff6",
+  "object": "chat.completion",
+  "created": 1725519315,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_palindrome(s):\n    return s == s[::-1]\n\ndef get_all_permutations(chars):\n    if len(chars) <= 1:\n        return [chars]\n    perms = []\n    for i, char in enumerate(chars):\n        without_char = chars[:i] + chars[i+1:]\n        for perm in get_all_permutations(without_char):\n            perms.append([char] + perm)\n    return perms\n\ndef palindromes_between_indices(s):\n    char_set = set(s[4:10].lower())\n    if len(char_set) < 6:\n        return set()\n    all_perms = get_all_permutations(list(char_set))\n    palindromes = {tuple(''.join(perm)) for perm in all_perms if is_palindrome(''.join(perm))}\n    return palindromes\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 192,
+    "total_tokens": 435,
+    "completion_tokens": 243
+  }
+}

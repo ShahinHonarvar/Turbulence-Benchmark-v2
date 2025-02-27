@@ -1,0 +1,4 @@
+def if_perfect_num(lst):
+    if 51 < len(lst) and sum((i for i in range(1, lst[51]) if lst[51] % i == 0)) == lst[51]:
+        return True
+    return False

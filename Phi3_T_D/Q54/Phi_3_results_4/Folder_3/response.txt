@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-c22f405b28f74604aa49d2d17812e5d1",
+  "object": "chat.completion",
+  "created": 1725537356,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n <= 1:\n        return False\n    if n <= 3:\n        return True\n    if n % 2 == 0 or n % 3 == 0:\n        return False\n    i = 5\n    while i * i <= n:\n        if n % i == 0 or n % (i + 2) == 0:\n            return False\n        i += 6\n    return True\n\ndef all_right_truncatable_prime(numbers):\n    x = numbers[100]\n    primes = [2, 3, 5, 7]\n    right_truncatable_primes = []\n\n    for num in range(7, x, 2):\n        if is_prime(num):\n            num_str = str(num)\n            for i in range(len(num_str) - 1, -1, -1):\n                if is_prime(int(num_str[:i + 1])):\n                    right_truncatable_primes.append(num)\n                else:\n                    break\n\n    return sorted(set(filter(lambda p: p in primes, right_truncatable_primes)))\n```\n\nPlease, make sure to import the function if you use it in a different file or run it within an interactive session:\n\n```python\n# all_right_truncatable_prime([2, 3, ...])  # Replace '...' with the rest of the tuple\nprint(all_right_truncatable_prime([90007, 90129, ...]))  # Replace '...' with the rest of the tuple\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 170,
+    "total_tokens": 571,
+    "completion_tokens": 401
+  }
+}

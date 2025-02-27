@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-3323ee4200c749a39684511a20d191ae",
+  "object": "chat.completion",
+  "created": 1725530631,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom collections import defaultdict\nimport itertools\nimport math\n\ndef create_key(s):\n    return ''.join(sorted(s.lower()))\n\ndef string_generator(lst):\n    for L in range(3, math.ceil(math.log(len(lst), 2)) + 1):\n        for subset in itertools.combinations(lst, L):\n            yield tuple(sorted(subset))\n\ndef if_contains_anagrams(lst):\n    counter = defaultdict(int)\n    for tup in string_generator(lst):\n        k = create_key(tup)\n        counter[k] += 1\n        if counter[k] > 92:\n            return False\n    return True\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 148,
+    "total_tokens": 326,
+    "completion_tokens": 178
+  }
+}

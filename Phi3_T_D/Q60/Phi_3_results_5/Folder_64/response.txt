@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-a1fb2da1bdad4941b162094f92db10aa",
+  "object": "chat.completion",
+  "created": 1725553896,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n <= 1:\n        return False\n    if n == 2:\n        return True\n    if n % 2 == 0:\n        return False\n    p = 3\n    while p * p <= n:\n        if n % p == 0:\n            return False\n        p += 2\n    return True\n\ndef left_right_truncatable(n, primes):\n    if n in primes:\n        left = n // 10\n        right = n % 10\n        return is_prime(left) and is_prime(right)\n    return False\n\ndef all_left_right_truncatable_prime(numbers):\n    if numbers[4] < 11:\n        return []\n    x = numbers[4]\n    primes = {2, 3, 5, 7}\n    for i in range(11, x + 1):\n        if is_prime(i):\n            primes.add(i)\n    result = {}\n    for prime in primes:\n        if left_right_truncatable(prime, primes):\n            result[prime] = True\n    return sorted(result.keys())\n```\n\n```python\ndef all_left_right_truncatable_prime(numbers):\n    if numbers[4] < 11:\n        return []\n    x = numbers[4]\n    primes = {2, 3, 5, 7}\n    for i in range(11, x + 1):\n        if all(i % j != 0 for j in range(2, int(i**0.5) + 1)):\n            primes.add(i)\n    result = {}\n    for prime in primes:\n        str_prime = str(prime)\n        for i in range(1, len(str_prime)):\n            if not all(str(int(str_prime[:i])) in primes and str(int(str_prime[i:])) in primes):\n                break\n        else:\n            result[prime] = True\n    return sorted(result.keys())\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 206,
+    "total_tokens": 714,
+    "completion_tokens": 508
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-214a6a50c2804bcfa75001ca55095d9c",
+  "object": "chat.completion",
+  "created": 1725541223,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef lists_with_product_equal_n(nums):\n    result = []\n    n = len(nums)\n    \n    def helper(start, product):\n        if product == 6 or not nums:\n            result.append(nums[start:] + nums[:start])\n            return\n        if product * nums[start] == 6:\n            result.append(nums[start:])\n            return\n        for i in range(start, n + start):\n            helper(i + 1, product * nums[i % n])\n    \n    helper(0, 1)\n    return result\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 202,
+    "total_tokens": 356,
+    "completion_tokens": 154
+  }
+}

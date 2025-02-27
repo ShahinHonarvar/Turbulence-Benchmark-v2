@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-c2dc8390057e4be98fe343a32fdccaea",
+  "object": "chat.completion",
+  "created": 1725528389,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef if_contains_anagrams(lst):\n    sorted_words = [''.join(sorted(word.lower())) for word in lst if len(word) >= 3]\n    anagram_counts = {}\n    \n    for word in sorted_words:\n        anagram_counts[word] = anagram_counts.get(word, 0) + 1\n\n    count = 0\n    for count in anagram_counts.values():\n        count += count - 1\n\n    return count >= 314\n\n# Example usage:\n# print(if_contains_anagrams([\"cat\", \"tac\", \"act\", \"dog\", \"god\", \"tac\", \"god\", \"act\", \"atc\", \"act\", ..., \"tca\"]))  # True for at least 314 pairs\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 135,
+    "total_tokens": 334,
+    "completion_tokens": 199
+  }
+}

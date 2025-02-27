@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-68ee76b72ea143a79640670011a7e949",
+  "object": "chat.completion",
+  "created": 1725541829,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef all_substring_of_size_n(s):\n    from itertools import permutations\n\n    unique_substrings = set()\n    for i in range(len(s) - 98):\n        substring = s[i:i+99]\n        if len(set(substring)) == 99:\n            unique_substrings.update([''.join(p) for p in permutations(substring)])\n\n    return list(unique_substrings)\n\n# Example usage:\n# substrings_list = all_substring_of_size_n(\"abcdefghij\")\n# print(substrings_list)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 130,
+    "total_tokens": 281,
+    "completion_tokens": 151
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-26b31221b85b42f68049ac6ed2da8bc4",
+  "object": "chat.completion",
+  "created": 1725527281,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(strings):\n    def is_anagram(str1, str2):\n        return sorted(str1.lower()) == sorted(str2.lower())\n\n    count = 0\n    for i in range(len(strings)):\n        for j in range(i + 1, len(strings)):\n            if len(strings[i]) >= 3 and len(strings[j]) >= 3 and is_anagram(strings[i], strings[j]):\n                count += 1\n\n    return count >= 86\n\n# Example usage\nprint(if_contains_anagrams([\"listen\", \"silent\", \"enlist\", \"google\", \"goolge\"]))\n# Expected output: True if there are at least 86 anagram pairs, otherwise False\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 134,
+    "total_tokens": 326,
+    "completion_tokens": 192
+  }
+}

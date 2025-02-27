@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-003be8099d1a42fc9cfcc7ae13013c19",
+  "object": "chat.completion",
+  "created": 1725546918,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    if not matrix.size or matrix.ndim != 2:\n        return 0\n\n    count = 0\n    rows, cols = matrix.shape\n    for size in range(1, min(rows, cols) + 1):\n        for i in range(rows - size + 1):\n            for j in range(cols - size + 1):\n                submatrix = matrix[i:i+size, j:j+size]\n                flat_submatrix = submatrix.flatten()\n                unique_values, counts = np.unique(flat_submatrix, return_counts=True)\n                if np.any(counts == 39):\n                    count += 1\n    return count\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 116,
+    "total_tokens": 306,
+    "completion_tokens": 190
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-1128692a69374440b24a918d63a2575d",
+  "object": "chat.completion",
+  "created": 1725544183,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    target_sum = -86\n    submatrices = []\n    \n    for r1 in range(matrix.shape[0]):\n        for r2 in range(r1, matrix.shape[0]):\n            for c1 in range(matrix.shape[1]):\n                for c2 in range(c1, matrix.shape[1]):\n                    sub = matrix[r1:r2+1, c1:c2+1]\n                    if np.sum(sub) == target_sum:\n                        submatrices.append(sub)\n    return submatrices\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 126,
+    "total_tokens": 289,
+    "completion_tokens": 163
+  }
+}

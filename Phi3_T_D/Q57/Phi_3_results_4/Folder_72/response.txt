@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-e9499c7ae71c4c60b08b675d970e6930",
+  "object": "chat.completion",
+  "created": 1725544467,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    rows, cols = matrix.shape[:2]\n    result = []\n    \n    def recursive_find(submat, i, j, current_sum, elements_count):\n        if i == rows:\n            return\n        if j == cols:\n            if current_sum == 41:\n                result.append(submat.copy())\n            return\n        \n        recursive_find(submat, i + 1, j, current_sum + matrix[i][j], elements_count + 1)\n        if elements_count > 0:  # To avoid adding the current number twice\n            recursive_find(submat, i + 1, j + 1, current_sum, elements_count)\n            recursive_find(submat, i, j + 1, current_sum + matrix[i][j], elements_count + 1)\n\n    recursive_find([], 0, 0, 0, 0)\n    return result\n\n# Example usage:\n# matrix = np.array([[1,2,3], [4,5,6], [7,8,9]])\n# print(submatrix_with_particular_sum(matrix))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 126,
+    "total_tokens": 423,
+    "completion_tokens": 297
+  }
+}

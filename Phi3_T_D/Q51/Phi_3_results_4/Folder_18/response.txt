@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-12824ffb94fa4fd6992f8d26f646c40a",
+  "object": "chat.completion",
+  "created": 1725530658,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef if_contains_anagrams(strings):\n    anagrams = {}\n    count = 0\n    for s in strings:\n        sorted_s = ''.join(sorted(s.lower())).lstrip('aouei')\n        if sorted_s in anagrams:\n            count += anagrams[sorted_s]\n            anagrams[sorted_s] += 1\n        else:\n            anagrams[sorted_s] = 1\n            if anagrams[sorted_s] > 1:\n                count += 1\n    return count <= 42\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 148,
+    "total_tokens": 290,
+    "completion_tokens": 142
+  }
+}

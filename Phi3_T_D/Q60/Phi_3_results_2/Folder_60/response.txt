@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-aaf88576e88b4cd2a5447f649ed21be3",
+  "object": "chat.completion",
+  "created": 1725551571,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            return False\n    return True\n\ndef all_left_right_truncatable_prime(numbers):\n    x = numbers[87]\n    truncatable_primes = []\n\n    def is_left_and_right_truncatable(num):\n        if not num:\n            return False\n        if not is_prime(num):\n            return False\n        str_num = str(num)\n        for i in range(0, len(str_num)):\n            if not is_prime(int(str_num[i:])) or not is_prime(int(str_num[:len(str_num)-i])):\n                return False\n        return True\n\n    for number in range(2, x + 1):\n        if is_left_and_right_truncatable(number):\n            truncatable_primes.append(number)\n\n    return sorted(truncatable_primes)\n\n# Example usage:\ntruncatable_primes = all_left_right_truncatable_prime(tuple(range(1, 10000)))  # Adjust range as needed\nprint(truncatable_primes)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 207,
+    "total_tokens": 543,
+    "completion_tokens": 336
+  }
+}

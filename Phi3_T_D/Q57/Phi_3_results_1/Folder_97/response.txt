@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-c230c665a71b4433aaf05d9f5f354589",
+  "object": "chat.completion",
+  "created": 1725543182,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    nrows, ncols = matrix.shape\n    result = []\n\n    for left in range(ncols):\n        for right in range(left, ncols):\n            submatrix_sum = 0\n            for top in range(nrows):\n                for bottom in range(top, nrows):\n                    submatrix_sum = np.sum(matrix[top:bottom+1, left:right+1])\n                    if submatrix_sum == -617:\n                        result.append(matrix[top:bottom+1, left:right+1])\n\n    return result\n```\n\nTo use the function, first ensure you have NumPy installed, then import the function and call it with a 2D NumPy array:\n\n```python\nimport numpy as np\n\nmatrix = np.array([[...], [...], ...])\nsubmatrices = submatrix_with_particular_sum(matrix)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 127,
+    "total_tokens": 363,
+    "completion_tokens": 236
+  }
+}

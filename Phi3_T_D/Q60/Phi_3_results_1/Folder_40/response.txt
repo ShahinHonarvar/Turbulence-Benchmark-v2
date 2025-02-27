@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-31536e28947e434aaa0bc5fae24145b5",
+  "object": "chat.completion",
+  "created": 1725550642,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n <= 1:\n        return False\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            return False\n    return True\n\ndef all_left_right_truncatable_prime(numbers):\n    x = numbers[10]\n    truncatable_primes = []\n    for number in range(x, 1, -1):\n        str_num = str(number)\n        if all(is_prime(int(str_num[i:])) and is_prime(int(str_num[:i+1])) for i in range(len(str_num))):\n            truncatable_primes.append(number)\n    return truncatable_primes\n```\n\nThe `is_prime` function checks if a number is prime. The `all_left_right_truncatable_prime` function iterates over a range of numbers down to 2, converting them to strings to easily check for left-and-right-truncatable primes. For each number, it generates all possible truncatable sequences and uses `is_prime` to validate them. If a sequence is prime both before and after truncation, the number is added to the result list. The list is populated in descending order as required.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 207,
+    "total_tokens": 524,
+    "completion_tokens": 317
+  }
+}

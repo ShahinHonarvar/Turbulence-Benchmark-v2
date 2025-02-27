@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-ee325c6703ab49b793ec13018fa8f91d",
+  "object": "chat.completion",
+  "created": 1725550692,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef all_left_right_truncatable_prime(numbers):\n    def is_prime(n):\n        if n < 2:\n            return False\n        for i in range(2, int(n ** 0.5) + 1):\n            if n % i == 0:\n                return False\n        return True\n\n    def is_truncatable(prime):\n        str_prime = str(prime)\n        for i in range(1, len(str_prime)):\n            if not is_prime(int(str_prime[i:])) or not is_prime(int(str_prime[:i])):\n                return False\n        return True\n\n    x = numbers[49]\n    truncatable_primes = [p for p in range(23, x + 1) if is_truncatable(p)]\n    return truncatable_primes\n```\n\nThis code defines a function `all_left_right_truncatable_prime` that accepts a tuple of positive integers and returns a list of all left-and-right-truncatable prime numbers less than or equal to the integer at index 49 in the tuple, sorted in ascending order. The helper function `is_prime` checks if a number is prime, and the helper function `is_truncatable` checks if a prime number is left-and-right-truncatable.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 207,
+    "total_tokens": 535,
+    "completion_tokens": 328
+  }
+}

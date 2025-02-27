@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-b49aa3746aac4047848e59bb724926ee",
+  "object": "chat.completion",
+  "created": 1725538676,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n <= 1:\n        return False\n    if n <= 3:\n        return True\n    if n % 2 == 0 or n % 3 == 0:\n        return False\n    i = 5\n    while i * i <= n:\n        if n % i == 0 or n % (i + 2) == 0:\n            return False\n        i += 6\n    return True\n\ndef is_right_truncatable(n):\n    while n > 0:\n        if not is_prime(n):\n            return False\n        n = n // 10\n    return True\n\ndef all_right_truncatable_prime(numbers):\n    x = numbers[758]\n    if x <= 2:\n        return []\n    \n    right_truncatable_primes = []\n    candidate = 2\n\n    while candidate < x:\n        if is_right_truncatable(candidate):\n            right_truncatable_primes.append(candidate)\n        candidate += 1\n\n    return sorted(set(right_truncatable_primes))\n```\n\nHere's a breakdown of the code:\n\n- The `is_prime` function takes an integer and verifies if it's a prime number.\n- The `is_right_truncatable` function checks if a given number is right-truncatable. It progressively removes digits from the right end and checks if the remaining number is still prime and greater than 1 at each step.\n- The `all_right_truncatable_prime` function finds all right-truncatable prime numbers less than the given `x`, which is obtained at the index 758 of the provided tuple. It returns a sorted list of such prime numbers. The numbers are stored in a set to avoid duplicates and then converted to a list before sorting and returning.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 170,
+    "total_tokens": 624,
+    "completion_tokens": 454
+  }
+}

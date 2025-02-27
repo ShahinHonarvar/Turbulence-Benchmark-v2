@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-cc90d28433b04d5e8b0f8496c492c7ef",
+  "object": "chat.completion",
+  "created": 1725530329,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef if_contains_anagrams(lst):\n    def is_anagram(s1, s2):\n        return sorted(s1.lower()) == sorted(s2.lower()) and len(s1) >= 3\n\n    count = 0\n    seen = set()\n\n    for word in lst:\n        for perm in itertools.permutations(word, len(word)):\n            anagram = ''.join(perm).lower()\n            if is_anagram(word, anagram):\n                pair = tuple(sorted([word.lower(), anagram]))\n                if pair in seen:\n                    count += 1\n                    if count > 3:\n                        return False\n                    break\n                seen.add(pair)\n\n    return True\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 147,
+    "total_tokens": 329,
+    "completion_tokens": 182
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-e29cec38f6774f0c81b08c1559d5b100",
+  "object": "chat.completion",
+  "created": 1725544290,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\n```\n\n```python\n\nimport numpy as np\n\n\ndef submatrix_with_particular_sum(matrix):\n\n    rows, cols = matrix.shape\n\n    result = []\n\n\n    for row1 in range(rows):\n\n        for col1 in range(cols):\n\n            for row2 in range(row1, rows):\n\n                for col2 in range(col1, cols):\n\n                    submatrix = matrix[row1:row2 + 1, col1:col2 + 1]\n\n                    if submatrix.sum() == -811:\n\n                        result.append(submatrix)\n\n    return result\n\n\n# Example usage with numpy\n\nimport numpy as np\n\n# Define a matrix to test the function\n\nmatrix = np.array([[1, -2, 3],\n\n                   [4, -5, -6],\n\n                   [-7, 8, -9]])\n\nresult = submatrix_with_particular_sum(matrix)\n\nprint(result)\n\n```\n\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 127,
+    "total_tokens": 379,
+    "completion_tokens": 252
+  }
+}

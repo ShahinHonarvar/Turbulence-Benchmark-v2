@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-23d473ea714444b1a2ecbee5926504ab",
+  "object": "chat.completion",
+  "created": 1725551526,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom sympy import isprime\n\ndef is_truncatable_prime(num, right_to_left, prime_check):\n    num_str = str(num)\n    for i in range(1, len(num_str)):\n        if not prime_check(int(num_str[i:])) or (right_to_left and not prime_check(int(num_str[:-i]))):\n            return False\n    return True\n\ndef all_left_right_truncatable_prime((threshold)):\n    primes_upto_x = [num for num in range(2, threshold + 1) if isprime(num)]\n    result = [prime for prime in primes_upto_x if is_truncatable_prime(prime, True, isprime)]\n    return result[::-1]\n\n# Get x from the 88th index, if not provided, use the threshold argument directly\nx = threshold  # if the tuple is not provided, pass x as the threshold\nleft_right_truncatable_primes = all_left_right_truncatable_prime((x,)) if isinstance(x, tuple) else all_left_right_truncatable_prime((x,))\n\nprint(left_right_truncatable_primes)\n```\n````",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 207,
+    "total_tokens": 520,
+    "completion_tokens": 313
+  }
+}

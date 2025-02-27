@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-b54d27247add4de6ab9de3353320be90",
+  "object": "chat.completion",
+  "created": 1725502368,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_perfect_num(num):\n    \"\"\"Check if a number is a perfect number\"\"\"\n    divisors = [1]\n    for i in range(2, int(num**0.5) + 1):\n        if num % i == 0:\n            divisors.append(i)\n            if i != num // i:\n                divisors.append(num // i)\n    return sum(divisors) == num\n\ndef if_perfect_num(nums):\n    return is_perfect_num(nums[733]) if len(nums) > 733 else False\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 95,
+    "total_tokens": 246,
+    "completion_tokens": 151
+  }
+}

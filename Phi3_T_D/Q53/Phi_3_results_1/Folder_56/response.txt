@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-59879d9e01cd4814be4137874897c3ea",
+  "object": "chat.completion",
+  "created": 1725533267,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef expand(s, left, right):\n    while left >= 0 and right < len(s) and s[left].lower() == s[right].lower():\n        left -= 1\n        right += 1\n    return right - left - 1\n\ndef find_all_palindromes(s):\n    palindrome_set = set()\n    for center in range(2 * len(s) - 1):\n        left = center // 2\n        right = left + center % 2\n        len_mirror = expand(s, left, right)\n        if len_mirror >= 84:\n            palindrome_set.add(s[left:(left + len_mirror)].lower())\n    return palindrome_set\n\ndef palindrome_of_length_at_least_n(s):\n    return find_all_palindromes(s)\n\n# Example usage:\n# result = palindrome_of_length_at_least_n(\"Her level of tacocat in this kayak is madam\")\n# print(result)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 155,
+    "total_tokens": 418,
+    "completion_tokens": 263
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-b1980a95fe8c4895bea8704aba8edb00",
+  "object": "chat.completion",
+  "created": 1725536487,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef is_prime(n):\n    if n <= 1:\n        return False\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            return False\n    return True\n\ndef is_right_truncatable_prime(n, primes):\n    if n == 0 or n not in primes:\n        return False\n    return all(not is_prime(int(str(n)[:i])) for i in range(1, len(str(n))))\n\ndef all_right_truncatable_prime(numbers):\n    for num in range(2, numbers[31])[::-1]:\n        if is_right_truncatable_prime(num, set(filter(is_prime, range(2, numbers[31] + 1)))):\n            return [num]\n    return []\n\n# Usage example:\nall_right_truncatable_prime((1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 169,
+    "total_tokens": 493,
+    "completion_tokens": 324
+  }
+}

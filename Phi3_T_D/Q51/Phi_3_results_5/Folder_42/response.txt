@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-b45a9093371a4ca7ad360d94c82b6d6f",
+  "object": "chat.completion",
+  "created": 1725531225,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef if_contains_anagrams(strings):\n    def is_anagram(s1, s2):\n        return sorted(s1.lower()) == sorted(s2.lower()) and len(s1) >= 3\n\n    def count_anagrams(lst):\n        seen = {}\n        pairs_count = 0\n        for s in lst:\n            sorted_s = \"\".join(sorted(s.lower()))\n            if sorted_s in seen:\n                if pairs_count < 38:\n                    seen[sorted_s] += 1\n                    pairs_count += seen[sorted_s] - 1\n            else:\n                seen[sorted_s] = 1\n        return pairs_count\n\n    return count_anagrams(strings) <= 38\n\nprint(if_contains_anagrams([\"aabb\", \"abab\", \"cddc\", \"ccdz\"]))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 148,
+    "total_tokens": 368,
+    "completion_tokens": 220
+  }
+}

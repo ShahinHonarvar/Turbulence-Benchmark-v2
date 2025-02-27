@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-feb18def7fa540ceb213cb9939e0a098",
+  "object": "chat.completion",
+  "created": 1725544806,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    def all_submatrices(matrix, row_start, row_end, col_start, col_end):\n        if row_end == row_start + 1 or col_end == col_start + 1:\n            return []\n        \n        mid_row, mid_col = (row_start + row_end) // 2, (col_start + col_end) // 2\n        result = []\n        \n        # Recursively get all 4 submatrices and add them to result\n        for x, y in [(0, 0), (0, 1), (1, 0), (1, 1)]:\n            for subarray in all_submatrices(matrix, row_start, mid_row, col_start, mid_col):\n                result.extend([np.concatenate((subarray[0], arr[x][mid_col:]), axis=1)\n                               for arr in all_submatrices(matrix, row_start, y, mid_col, col_end)])\n            if x == 0:  # Avoid to calculate twice the mid submatrices\n                result.extend([matrix[row_start:mid_row, mid_col:]])\n            else:\n                result.extend([np.flip(matrix[y:row_end, col_start:mid_col], axis=0)])\n\n        return result\n    \n    return [submatrix for submatrix in all_submatrices(matrix, 0, len(matrix), 0, len(matrix[0])) if submatrix.sum() == 95]\n\n# Example usage:\n# matrix = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])\n# print(submatrix_with_particular_sum(matrix))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 126,
+    "total_tokens": 577,
+    "completion_tokens": 451
+  }
+}

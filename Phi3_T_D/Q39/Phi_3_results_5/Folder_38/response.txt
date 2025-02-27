@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-a383805ce8f2467e87e263ba9e3da624",
+  "object": "chat.completion",
+  "created": 1725510485,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef return_n_greatest_chars(s):\n    if len(s) <= 45:\n        return sorted(s, reverse=True)\n    return sorted([char for char in s if ord(char) <= sorted(set(map(ord, s)), reverse=True)[44]], reverse=True)[:45]\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 111,
+    "total_tokens": 195,
+    "completion_tokens": 84
+  }
+}

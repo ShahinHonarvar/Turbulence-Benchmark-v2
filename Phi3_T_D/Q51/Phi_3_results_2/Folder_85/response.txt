@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-94df91720df043d7ac640fd76bc9cc2b",
+  "object": "chat.completion",
+  "created": 1725530060,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(strings):\n    def normalize_string(s):\n        return ''.join(sorted(s.lower()))\n\n    def poten_permut(n):\n        return min(26**i * math.comb(n, i) for i in range(3, n + 1))\n\n    from math import comb\n    from collections import defaultdict\n\n    str_groups = defaultdict(list)\n    for string in strings:\n        norm_str = normalize_string(string)\n        str_groups[norm_str].append(string)\n\n    anagram_pairs = 0\n    for group in str_groups.values():\n        while len(group) > 1:\n            pair = group.pop()\n            for other in group:\n                if ''.join(sorted(pair.lower())) == ''.join(sorted(other.lower())):\n                    anagram_pairs += 1\n                    break\n\n    return anagram_pairs <= 276\n\nimport math\n\n# Example usage:\nstrings_list = [\"cat\", \"silent\", \"enlist\", \"race\", \"care\", \"listen\", \"tac\"]\nprint(if_contains_anagrams(strings_list))  # Output should be False\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 149,
+    "total_tokens": 452,
+    "completion_tokens": 303
+  }
+}

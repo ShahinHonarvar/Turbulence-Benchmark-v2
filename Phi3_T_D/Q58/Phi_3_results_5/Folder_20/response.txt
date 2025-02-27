@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-8be05e09f2274c2c8dae11123e102555",
+  "object": "chat.completion",
+  "created": 1725546770,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    if not isinstance(matrix, np.ndarray):\n        raise ValueError(\"Input must be a numpy matrix.\")\n\n    if matrix.ndim != 2:\n        raise ValueError(\"Matrix must be two-dimensional.\")\n\n    def count_submatrices(m, n, count):\n        if m == 0 or n == 0:\n            return count\n        for i in range(0, matrix.shape[0]-m+1):\n            for j in range(0, matrix.shape[1]-n+1):\n                yield matrix[i:i+m, j:j+n]\n                \n    count_49 = sum(1 for submatrix in count_submatrices(3, 3, 0) if submatrix.size == 49)\n    return count_49\n```\n\nThis code defines a function that takes a 2D numpy matrix and counts the number of 3x3 (which makes 9 elements) submatrices containing exactly 49 integers\u2014however, please note there seems to be a mistake in the specification or understanding. A 3x3 submatrix by definition always contains 9 integers, not 49. If we were to adapt for the intention, we could correct as follows:\n\n```\ndef submatrix_with_3x3():\n    return 0\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 116,
+    "total_tokens": 442,
+    "completion_tokens": 326
+  }
+}

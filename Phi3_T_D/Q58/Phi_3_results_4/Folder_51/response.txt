@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-c38c22d6a7ba4cd49e647e256baed085",
+  "object": "chat.completion",
+  "created": 1725546493,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    if len(matrix.shape) != 2 or matrix.dtype != 'int':\n        return 0\n\n    count = 0\n    rows, columns = matrix.shape\n\n    for i in range(rows):\n        for j in range(columns):\n            for size in range(1, min(rows - i, columns - j) + 1):  # considering only squares and rectangles\n                submatrix = matrix[i:i+size, j:j+size]\n                if np.prod(submatrix.shape) == size * size and np.all(submatrix == 95):\n                    count += 1\n\n    return count\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 116,
+    "total_tokens": 291,
+    "completion_tokens": 175
+  }
+}

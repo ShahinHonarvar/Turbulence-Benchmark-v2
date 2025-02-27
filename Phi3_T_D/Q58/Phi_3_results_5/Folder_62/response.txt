@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-b31537c422b14c518c54d6a48f72d99a",
+  "object": "chat.completion",
+  "created": 1725546947,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    rows, cols = matrix.shape\n    count = 0\n    square_side = int(np.sqrt(186))\n\n    for i in range(rows - square_side + 1):\n        for j in range(cols - square_side + 1):\n            submatrix = matrix[i:i + square_side, j:j + square_side]\n            count += int(np.sum(submatrix == 186))\n\n    return count\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 117,
+    "total_tokens": 250,
+    "completion_tokens": 133
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-fa530beedd9e46e9b33afcaf02cc9ddd",
+  "object": "chat.completion",
+  "created": 1725551234,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom sympy import isprime\n\ndef all_left_right_truncatable_prime(numbers):\n    x = numbers[36]\n    truncatable_primes = []\n    \n    # Helper function to check left-and-right-truncatability\n    def is_truncatable(prime):\n        str_prime = str(prime)\n        for i in range(1, len(str_prime)):\n            if not isprime(int(str_prime[i:])) or not isprime(int(str_prime[:i])):\n                return False\n        return True\n    \n    # Generate all primes less than or equal to x\n    for num in range(2, x + 1):\n        if isprime(num) and is_truncatable(num):\n            truncatable_primes.append(num)\n    \n    # Sort the list in descending order\n    truncatable_primes.sort(reverse=True)\n    return truncatable_primes\n\n# Example usage\nnumbers = (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0)\nprint(all_left_right_truncatable_prime(numbers))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 207,
+    "total_tokens": 604,
+    "completion_tokens": 397
+  }
+}

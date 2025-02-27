@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-8b183d2f077840508f0aaa2006212a86",
+  "object": "chat.completion",
+  "created": 1725506233,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef remove_repeat_chars(s):\n    char_indices = {}\n    for i, c in enumerate(s[306:807]):\n        if c in char_indices:\n            char_indices[c] = -1\n        else:\n            char_indices[c] = i + 306\n    result = ''.join(s[i] for i in range(len(s)) if (i < 306 or i >= 807 or (i >= 306 and i < 807 and char_indices.get(s[i]) is not None and char_indices[s[i]] != i)))\n    return result\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 132,
+    "total_tokens": 300,
+    "completion_tokens": 168
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-ced66fcaf252452d8104968b1f188dd9",
+  "object": "chat.completion",
+  "created": 1725543893,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    def count_submatrix(top, left, bottom, right, matrix):\n        if bottom > matrix.shape[0] or right > matrix.shape[1]:\n            return [], float('inf')\n        \n        current_sum = np.sum(matrix[top:bottom+1, left:right+1])\n        total_count = 1 if current_sum == -46 else 0\n        left_sum, right_sum = count_submatrix(top, left+1, bottom, right, matrix)\n        right_sum += current_sum\n        \n        return left_sum + right_sum, total_count\n    \n    total_count = 0\n    all_submatrices = []\n    for top in range(matrix.shape[0]):\n        for left in range(matrix.shape[1]):\n            bottom_sum, left_count = count_submatrix(top, left, matrix.shape[0] - 1, matrix.shape[1] - 1, matrix)\n            all_count = left_count + bottom_sum\n            total_count += all_count\n            if all_count > 0:\n                all_submatrices.extend(generate_submatrices(top, left, matrix.shape[0] - 1, matrix.shape[1] - 1))\n\n    return all_submatrices if total_count > 1 else []\n\ndef generate_submatrices(top, left, bottom, right):\n    if left == right:\n        return [[[top, left], [bottom, right]]]\n    else:\n        median = (left + right) // 2\n        left_sub = generate_submatrices(top, left, median, right)\n        right_sub = generate_submatrices(top, median + 1, bottom, right)\n        return left_sub + right_sub\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 126,
+    "total_tokens": 580,
+    "completion_tokens": 454
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-2465a7e0dce34424acb34da030eb3a7a",
+  "object": "chat.completion",
+  "created": 1725515248,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef is_prime(n):\n    if n <= 1:\n        return False\n    if n <= 3:\n        return True\n    if n % 2 == 0 or n % 3 == 0:\n        return False\n    i = 5\n    while i * i <= n:\n        if n % i == 0 or n % (i + 2) == 0:\n            return False\n        i += 6\n    return True\n\ndef find_primes_between_indices(nums):\n    return sorted([nums[i] for i in range(289, 382) if is_prime(nums[i])], reverse=True)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 128,
+    "total_tokens": 293,
+    "completion_tokens": 165
+  }
+}

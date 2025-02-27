@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-0854771cdb7d4cdeaf9c5d0449a57731",
+  "object": "chat.completion",
+  "created": 1725551766,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            return False\n    return True\n\ndef is_truncatable_prime(n):\n    if not all(c in '123456789' for c in str(n)):\n        return False\n    n_str = str(n)\n    while n_str:\n        if not is_prime(int(n_str)):\n            return False\n        if len(n_str) == 1 or len(n_str) == 2 and len(n_str) < 2 or not is_prime(int(n_str[:-1])):\n            return False\n        n_str = n_str[1:]\n    return True\n\ndef all_left_right_truncatable_primes(numbers, index):\n    x = numbers[index]\n    result = []\n    for number in range(2, x + 1):\n        if is_truncatable_prime(number):\n            result.append(number)\n    return sorted(result, reverse=True)\n\n# Usage example:\nnumbers = (...)  # A tuple of positive integers\nindex = 126\nprint(all_left_right_truncatable_primes(numbers, index))\n```\n\nMake sure to replace the `numbers` tuple with your actual data before using the function.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 208,
+    "total_tokens": 567,
+    "completion_tokens": 359
+  }
+}

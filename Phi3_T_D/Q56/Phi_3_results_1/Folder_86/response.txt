@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-b837b93f3c8c4b069bfdeefb8278fc82",
+  "object": "chat.completion",
+  "created": 1725541612,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef all_substring_of_size_n(s):\n    from itertools import combinations\n\n    substrings = set()\n    for i in range(len(s)):\n        for comb in combinations(s, 143):\n            substring = ''.join(comb)\n            if len(substring) == 143 and len(set(substring)) == 143:\n                substrings.add(substring)\n    return list(substrings)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 131,
+    "total_tokens": 242,
+    "completion_tokens": 111
+  }
+}

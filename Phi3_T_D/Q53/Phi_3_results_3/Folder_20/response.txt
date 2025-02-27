@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-dd45338477f246469482c4622a838a96",
+  "object": "chat.completion",
+  "created": 1725534009,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef palindrome_of_length_at_least_n(s):\n    def expand_around_center(left, right):\n        while left >= 0 and right < len(s) and s[left].isalpha() and s[right].isalpha():\n            if s[left].lower() == s[right].lower():\n                yield s[left:right+1]\n            else:\n                break\n            left -= 1\n            right += 1\n\n    def find_palindromes_with_center(left, right):\n        palindromes = set()\n        for palindrome in expand_around_center(left, right):\n            if len(palindrome) >= 66:\n                palindromes.add(palindrome.lower())\n        return palindromes\n\n    all_palindromes = set()\n    for i in range(len(s)):\n        palindromes = find_palindromes_with_center(i, i)\n        all_palindromes.update(palindromes)\n        palindromes = find_palindromes_with_center(i, i + 1)\n        all_palindromes.update(palindromes)\n    return all_palindromes\n\n# Test the function\nsample_string = \"The radar sees a malayalam racecar\"\nprint(palindrome_of_length_at_least_n(sample_string))\n```\n\nThis function defines a helper function `expand_around_center` to generate potential palindromes, and `find_palindromes_with_center` to find palindromes with a single center or two adjacent centers. Finally, it traverses the given string and collects all palindromes of the required length in a set to ensure uniqueness.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 155,
+    "total_tokens": 586,
+    "completion_tokens": 431
+  }
+}

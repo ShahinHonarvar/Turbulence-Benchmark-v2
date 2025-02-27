@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-732b9612d80e4c8d946bb68873e0e7e0",
+  "object": "chat.completion",
+  "created": 1725528210,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef if_contains_anagrams(string_list):\n    from collections import defaultdict\n    anagram_dict = defaultdict(list)\n\n    for s in string_list:\n        sorted_string = ''.join(sorted(s.lower())).lstrip(' ')\n        anagram_dict[sorted_string].append(s)\n\n    anagram_pairs_sum = 0\n    for anagrams in anagram_dict.values():\n        anagram_pairs_sum += len(anagrams) * (len(anagrams) - 1) // 2\n\n    return anagram_pairs_sum >= 74\n\n# Test case:\ntest_list = ['cat', 'act', 'tac', 'racecar', 'carecar', 'dog', 'god', 'list', 'sil']\nprint(if_contains_anagrams(test_list))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 134,
+    "total_tokens": 345,
+    "completion_tokens": 211
+  }
+}

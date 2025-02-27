@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-bf56ad9fdce1479db77f710fc75a61c6",
+  "object": "chat.completion",
+  "created": 1725545252,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    count = 0\n    size = len(matrix)\n    for i in range(size):\n        for j in range(size):\n            num = 0\n            for x in range(i, size):\n                for y in range(j, size):\n                    num += sum(matrix[x_i][y] for x_i in range(x, x + (x - i) + 1) for y in range(y, y + (y - j) + 1))\n                    if num == 147:\n                        count += 1\n                    if num > 147:\n                        break\n                if num > 147:\n                    break\n    return count\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 117,
+    "total_tokens": 304,
+    "completion_tokens": 187
+  }
+}

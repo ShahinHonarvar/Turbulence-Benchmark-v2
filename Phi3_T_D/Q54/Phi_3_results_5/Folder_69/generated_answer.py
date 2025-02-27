@@ -1,0 +1,16 @@
+def is_prime(n):
+    if n < 2:
+        return False
+    for i in range(2, int(n ** 0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
+
+def all_right_truncatable_prime(numbers):
+    x = numbers[760]
+    right_truncatable_primes = []
+    primes = [str(i) for i in range(x) if is_prime(i)]
+    for prim in primes:
+        if all((is_prime(int(prim[i:])) for i in range(len(prim)))):
+            right_truncatable_primes.append(int(prim))
+    return sorted(right_truncatable_primes, reverse=True)

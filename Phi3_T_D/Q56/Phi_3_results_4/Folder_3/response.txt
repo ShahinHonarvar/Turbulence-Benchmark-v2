@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-d07dfcef15a84511bb15683aed139415",
+  "object": "chat.completion",
+  "created": 1725542183,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef all_substring_of_size_n(s):\n    result = set()\n    str_len = len(s)\n    if str_len < 93:\n        return list(result)\n    \n    for i in range(str_len - 92):\n        if len(set(s[i:i+93])) == 93:\n            result.add(s[i:i+93])\n    return list(result)\n\n# Example usage:\nsubstrings = all_substring_of_size_n(\"This is a test string containing unique characters\")\nprint(substrings)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 130,
+    "total_tokens": 278,
+    "completion_tokens": 148
+  }
+}

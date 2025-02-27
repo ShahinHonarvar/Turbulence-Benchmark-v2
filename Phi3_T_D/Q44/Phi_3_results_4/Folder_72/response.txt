@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-ba358115e12647f391b532e17f52f721",
+  "object": "chat.completion",
+  "created": 1725517216,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef composite_nums_between_indices(nums):\n    def is_composite(num):\n        if num <= 3:\n            return num > 1\n        if num % 2 == 0 or num % 3 == 0:\n            return True\n        i = 5\n        while i * i <= num:\n            if num % i == 0 or num % (i + 2) == 0:\n                return True\n            i += 6\n        return False\n\n    start_index = 55\n    end_index = 98\n    if start_index > len(nums) or end_index > len(nums):\n        return set()\n\n    return {num for num in nums[start_index:end_index+1] if is_composite(num)}\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 125,
+    "total_tokens": 320,
+    "completion_tokens": 195
+  }
+}

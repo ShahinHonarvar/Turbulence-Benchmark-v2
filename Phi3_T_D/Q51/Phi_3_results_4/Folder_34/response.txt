@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-a46c61e01af4415ba587df857986c9aa",
+  "object": "chat.completion",
+  "created": 1725530724,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(string_list):\n    sorted_list = []\n    for s in string_list:\n        if len(s) >= 3:\n            sorted_list.append(''.join(sorted(s.lower())) + ': ' + s.lower())\n\n    count = 0\n    for i in range(len(sorted_list)):\n        for j in range(i+1, len(sorted_list)):\n            if sorted_list[i][:-3] == sorted_list[j][:-3]:\n                count += 1\n                if count > 401:\n                    return False\n\n    return True\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 149,
+    "total_tokens": 306,
+    "completion_tokens": 157
+  }
+}

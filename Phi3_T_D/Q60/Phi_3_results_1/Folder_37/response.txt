@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-db7fd67d387545ec89a87df353591b8d",
+  "object": "chat.completion",
+  "created": 1725550619,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport sympy\n\ndef all_left_right_truncatable_prime(integers):\n    x = integers[35]\n    left_right_primes = []\n    for i in range(x, 1, -1):\n        str_i = str(i)\n        if all(sympy.isprime(int(str_i[j:])) for j in range(len(str_i))) and sympy.isprime(i):\n            left_right_primes.append(i)\n    return left_right_primes\n\n# Example usage:\nintegers_tuple = (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35)\nprint(all_left_right_truncatable_prime(integers_tuple))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 207,
+    "total_tokens": 508,
+    "completion_tokens": 301
+  }
+}

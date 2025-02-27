@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-236bb6e38b6d4e848aa0aa486987b1ca",
+  "object": "chat.completion",
+  "created": 1725545279,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    def count_submatrices(n):\n        count = 0\n        for i in range(matrix.shape[0]):\n            for j in range(matrix.shape[1]):\n                if i + 6 < matrix.shape[0] and j + 6 < matrix.shape[1]:\n                    submatrix = matrix[i:i+7, j:j+7]\n                    if np.all(submatrix == 76):\n                        count += 1\n        return count\n    \n    return count_submatrices(76)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 116,
+    "total_tokens": 271,
+    "completion_tokens": 155
+  }
+}

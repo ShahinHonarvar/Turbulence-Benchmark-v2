@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-550093d1448a47489f1d41b8ba921c1e",
+  "object": "chat.completion",
+  "created": 1725538515,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef test_prime(n):\n    if n < 2: return False\n    if n % 2 == 0: return n == 2\n    p = 3\n    while p * p <= n:\n        if n % p == 0: return False\n        p += 2\n    return True\n\ndef all_right_truncatable_prime(t):\n    x = t[370]\n    primes = [str(p) for p in range(2, x) if test_prime(p)]\n    right_truncatable_primes = []\n    \n    for prime in primes:\n        while prime != '':\n            if not test_prime(int(prime)):\n                break\n            right_truncatable_primes.append(int(prime))\n            prime = prime[:-1]\n    \n    return sorted(right_truncatable_primes, reverse=True)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 170,
+    "total_tokens": 390,
+    "completion_tokens": 220
+  }
+}

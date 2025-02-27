@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-3d124188c6454238a12e8d94ba6b64c7",
+  "object": "chat.completion",
+  "created": 1725527277,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nfrom collections import defaultdict\nfrom itertools import combinations\n\ndef if_contains_anagrams(strings):\n    anagram_counts = defaultdict(int)\n    for string in strings:\n        sorted_str = ''.join(sorted(string.lower()))\n        anagram_counts[sorted_str] += 1\n    \n    anagram_pairs = sum(1 for count in anagram_counts.values() if count >= 2)\n    return anagram_pairs // 2 >= 49\n\n# Example usage:\nanagram_list = ['bat', 'tab', 'cat', 'Act', 'tac', 'drat', 'tard', 'Art', 'Cats', 'fat', 'ant', 'Pan']\nprint(if_contains_anagrams(anagram_list))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 134,
+    "total_tokens": 327,
+    "completion_tokens": 193
+  }
+}

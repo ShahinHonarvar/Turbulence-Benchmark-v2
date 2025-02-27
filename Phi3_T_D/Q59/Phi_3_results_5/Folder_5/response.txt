@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-7ccd8f28622c4feb8454b127f88cc942",
+  "object": "chat.completion",
+  "created": 1725549726,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nmin(t) < x for x in t:\n    return False\n\nis_prime = lambda n: n > 1 and all(n % i for i in range(2, int(n ** 0.5) + 1))\n\ndef all_left_truncatable_prime(numbers):\n    x = numbers[55]\n    possible_primes = [str(i) for i in range(2, x) if i % 10 > 0]\n    truncatable_primes = []\n    for number in possible_primes:\n        if all(is_prime(int(number[i:])) for i in range(len(number))):\n            truncatable_primes.append(int(number))\n    return sorted(truncatable_primes)\n\n# Example usage:\nnumbers_tup = (20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200, 210, 220, 230, 240, 250, 260, 270, 280, 290, 300, 310, 320, 330, 340, 350, 360, 370, 380, 390, 400, 410, 420, 430, 440, 450, 460, 470, 480, 490, 500, 510, 520, 530, 540, 550)\nprint(all_left_truncatable_prime(numbers_tup))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 156,
+    "total_tokens": 640,
+    "completion_tokens": 484
+  }
+}

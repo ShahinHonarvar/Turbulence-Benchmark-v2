@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-0dde2d596fb948228c3dd096642c5c01",
+  "object": "chat.completion",
+  "created": 1725534209,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef extend(s, direction):\n    index, chars = len(s) - 1, set('abcdefghijklmnopqrstuvwxyz')\n    result = ''\n    while index >= 0 and s[index] in chars:\n        result = s[index] + result\n        index -= 1\n    return (direction < 1, result)\n\ndef palindrome_of_length_at_least_n(s):\n    s = s.lower()\n    length, charset = len(s), set('abcdefghijklmnopqrstuvwxyz')\n    indices, center = range(length), set()\n    palindromes = set()\n\n    for i in indices:\n        odd = True if s[i] in charset else False\n        extend_left, extend_right = extend(s[i::-1] if odd else s[i+1:], 1), extend(s[i+1:] if odd else s[i::-1], -1)\n        if extend_left[0]:\n            odd, left_ext = extend_left\n            if extend_right[0]:\n                odd, right_ext = extend_right\n                if not any(c.isdigit() for c in left_ext + right_ext):\n                    palindromes.add((i - len(left_ext) * odd, len(left_ext) + len(right_ext) + odd))\n                    center.add(i - len(left_ext) * odd + (0 if odd else 1))\n        elif not odd and i + 1 in center:\n            indices_left, count = [i], 0\n            while indices_left[-1] > 0 and s[indices_left[-1]] in charset:\n                indices_left.append(indices_left[-1] - 1)\n                count += 1\n            if count >= 30:\n                palindromes.add((min(indices_left), count + 2 * (len(indices_left) - min(indices_left) - 1)))\n\n    return set(s[i: i+l] for i, l in palindromes if l >= 31)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 155,
+    "total_tokens": 675,
+    "completion_tokens": 520
+  }
+}

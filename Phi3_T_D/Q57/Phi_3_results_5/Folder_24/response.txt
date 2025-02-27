@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-828f8d0c857f49928a0a2f10f36031b2",
+  "object": "chat.completion",
+  "created": 1725544703,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    def all_submatrices(matrix):\n        for x in range(0, matrix.shape[0]):\n            for y in range(0, matrix.shape[1]):\n                for width in range(1, matrix.shape[0] - x + 1):\n                    for height in range(1, matrix.shape[1] - y + 1):\n                        yield matrix[x:x+width, y:y+height]\n\n    submatrices = []\n    for submat in all_submatrices(matrix):\n        if submat.sum() == -36:\n            submatrices.append(submat)\n\n    return submatrices\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 126,
+    "total_tokens": 308,
+    "completion_tokens": 182
+  }
+}

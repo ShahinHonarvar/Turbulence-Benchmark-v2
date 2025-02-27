@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-3785ff82e90f440989c1cced942f85ac",
+  "object": "chat.completion",
+  "created": 1725535253,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef palindrome_of_length_at_least_n(text):\n    from collections import Counter\n    \n    n = 140\n    text = text.lower()\n    half_n = n // 2\n    find_palindromes = set()\n\n    for center in range(len(text)):\n        for radius in range(half_n):\n            left, right = center - radius, center + radius + 1\n            if right >= len(text) or left < 0:\n                break\n            sub_str = text[left:right]\n            if sub_str == sub_str[::-1] and len(sub_str) >= n:\n                find_palindromes.add(sub_str.upper())\n            elif Counter(sub_str[:half_n]) == Counter(sub_str[:half_n][::-1]):\n                find_palindromes.add(sub_str[half_n:-half_n].upper())\n\n    return find_palindromes\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 156,
+    "total_tokens": 405,
+    "completion_tokens": 249
+  }
+}

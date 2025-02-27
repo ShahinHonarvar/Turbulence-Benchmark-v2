@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-9c2be44de129423abfcc5c7ebef83e67",
+  "object": "chat.completion",
+  "created": 1725546288,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef submatrix_with_n_numbers(matrix):\n    if not isinstance(matrix, numpy.ndarray):\n        raise ValueError(\"Input should be a numpy array\")\n\n    total_rows, total_cols = matrix.shape\n    count = 0\n    for row_start in range(total_rows):\n        for col_start in range(total_cols):\n            if matrix[row_start, col_start] == 10:\n                count += 1\n            size = 1\n            while row_start + size <= total_rows and col_start + size <= total_cols:\n                submatrix = matrix[row_start:row_start + size + 1, col_start:col_start + size + 1]\n                if numpy.sum(submatrix) == 10:\n                    count += 1\n                size += 1\n    return count\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 116,
+    "total_tokens": 324,
+    "completion_tokens": 208
+  }
+}

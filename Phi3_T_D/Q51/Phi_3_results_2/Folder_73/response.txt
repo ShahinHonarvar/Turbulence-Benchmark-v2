@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-a13f91a70f9043a1bd3d3be3af688791",
+  "object": "chat.completion",
+  "created": 1725530007,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef if_contains_anagrams(words):\n    def normalize(word):\n        return ''.join(sorted(word.lower()))\n\n    def can_pair(word1, word2):\n        return len(word1) >= 3 and word1 != word2 and normalize(word1) == normalize(word2)\n\n    pairs = [(w1, w2) for i, w1 in enumerate(words) for w2 in words[i+1:] if can_pair(w1, w2)]\n    unique_pairs = set((w1, w2) if w1 < w2 else (w2, w1) for w1, w2 in pairs)\n    return len(unique_pairs) <= 279\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 149,
+    "total_tokens": 327,
+    "completion_tokens": 178
+  }
+}

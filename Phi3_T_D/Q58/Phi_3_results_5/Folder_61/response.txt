@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-113c5a5f9dcb46d9924e15f4b2ca5079",
+  "object": "chat.completion",
+  "created": 1725546943,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    nrows, ncols = matrix.shape\n    count = 0\n    for rowStart in range(nrows):\n        for colStart in range(ncols):\n            for rowEnd in range(rowStart, nrows):\n                for colEnd in range(colStart, ncols):\n                    if (rowEnd - rowStart + 1) * (colEnd - colStart + 1) == 4:\n                        count += 1\n    return count\n\n# Example usage\n# matrix = np.array([[1,2,3], [4,5,6], [7,8,9]])\n# print(submatrix_with_n_numbers(matrix))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 115,
+    "total_tokens": 294,
+    "completion_tokens": 179
+  }
+}

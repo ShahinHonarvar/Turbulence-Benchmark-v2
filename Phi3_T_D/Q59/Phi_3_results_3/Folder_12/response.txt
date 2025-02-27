@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-ee91de80bcc54465be1e4d6930c7024c",
+  "object": "chat.completion",
+  "created": 1725548468,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nfrom typing import Tuple\nimport sympy\n\ndef all_left_truncatable_prime(tup: Tuple[int]) -> list:\n    x = tup[70]\n    primes = sympy.primerange(2, x)\n    left_truncatable = [p for p in primes if all(sympy.isprime(int(str(p)[i:])) for i in range(len(str(p))))]\n    return sorted(left_truncatable, reverse=True)\n\n# Example usage:\n# my_tuple = (2, 3, 5, 7, 11, 13, 17, 19, 23, ... , # rest of the tuple values)\n# result = all_left_truncatable_prime(my_tuple)\n# print(result)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 156,
+    "total_tokens": 361,
+    "completion_tokens": 205
+  }
+}

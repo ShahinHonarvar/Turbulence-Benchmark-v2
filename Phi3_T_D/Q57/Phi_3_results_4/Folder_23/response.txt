@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-68bee81b7733413ab09f776ee0e2b955",
+  "object": "chat.completion",
+  "created": 1725544242,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    def get_submatrices(matrix):\n        submatrices = []\n        rows, cols = matrix.shape\n        for i in range(rows):\n            for j in range(cols):\n                for k in range(i, rows):\n                    for l in range(j, cols):\n                        submatrices.append(matrix[i:k+1, j:l+1])\n        return submatrices\n\n    def has_sum_of_59(submatrix):\n        return np.sum(submatrix) == 59\n\n    submatrices = get_submatrices(matrix)\n    desired_submatrices = [submatrix for submatrix in submatrices if has_sum_of_59(submatrix)]\n    return desired_submatrices\n```\n\nNote: The time complexity of this solution is O(n^8) (where n is the dimension of the square matrix) due to the nested loops used to generate all possible submatrices. This can greatly increase the computation time for larger matrices. Consider using more advanced algorithms or optimizations for better performance on larger inputs.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 126,
+    "total_tokens": 400,
+    "completion_tokens": 274
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-4a21f41ab375432596a414a7bdf39509",
+  "object": "chat.completion",
+  "created": 1725540751,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom itertools import cycle\n\ndef helper(lst, current_product, current_sublist, n, visited):\n    if current_product == n:\n        return [current_sublist]\n    results = []\n    for item in zip(visited, cycle(lst)):\n        if item[1] == 0 or item[0] != item[1]:\n            new_visited = visited.copy()\n            new_visited[lst.index(item[1])] = 0\n            results.extend(helper(lst, current_product * item[1], current_sublist + [item[1]], n, new_visited))\n    return results\n\ndef lists_with_product_equal_n(lst):\n    n = -906\n    if 0 in lst:\n        lst_as_tuple = tuple(lst)\n        if n % 0 == 0 and lst.count(0) < len(lst):\n            return [[]]\n    visited = [0] * len(lst)\n    return helper(lst, 1, [], n, visited)\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 204,
+    "total_tokens": 461,
+    "completion_tokens": 257
+  }
+}

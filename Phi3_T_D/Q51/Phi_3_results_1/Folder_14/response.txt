@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-35c1fd73fd2f458e915543ba24adafe7",
+  "object": "chat.completion",
+  "created": 1725529299,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef if_contains_anagrams(strings):\n    def count_letter_freq(word):\n        freq = {}\n        for char in word.lower():\n            if char.isalpha() and len(word) >= 3:\n                freq[char] = freq.get(char, 0) + 1\n        return frozenset(freq.items())\n    \n    freq_sets = [count_letter_freq(word) for word in strings]\n    anagram_count = 0\n    for i in range(len(freq_sets)):\n        for j in range(i + 1, len(freq_sets)):\n            if freq_sets[i] == freq_sets[j]:\n                anagram_count += 1\n                if anagram_count > 474:\n                    return False\n    return True\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 149,
+    "total_tokens": 358,
+    "completion_tokens": 209
+  }
+}

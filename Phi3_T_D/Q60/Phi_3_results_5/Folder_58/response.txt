@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-8f02e7f1dd40435f95246dce40e37e0f",
+  "object": "chat.completion",
+  "created": 1725553851,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(n ** 0.5) + 1):\n        if n % i == 0:\n            return False\n    return True\n\ndef is_truncatable_prime(n):\n    str_n = str(n)\n    for i in range(1, len(str_n)):\n        if not is_prime(int(str_n[i:])) or not is_prime(int(str_n[:i])):\n            return False\n    return True\n\ndef all_left_right_truncatable_primest(numbers):\n    x = numbers[975]\n    truncatable_primes = [n for n in range(2, x + 1) if is_truncatable_prime(n)]\n    return sorted(truncatable_primes, reverse=True)\n\n# Assuming numbers is a tuple with a length of 1000 and correctly filled,\n# with 975 being the index 975.\n# You can call the function as follows:\nnumbers = tuple(range(1, 1001))  # Example tuple with 1000 integers.\nresult = all_left_right_truncatable_primest(numbers)\nprint(result)\n```\nPlease note that this code assumes that you have already created a tuple with 1000 integers and correctly filled the 975th index. The `all_left_right_truncatable_primest` function will then use this tuple to find and return all left-and-right-truncatable prime numbers less than or equal to the number at index 975.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 208,
+    "total_tokens": 616,
+    "completion_tokens": 408
+  }
+}

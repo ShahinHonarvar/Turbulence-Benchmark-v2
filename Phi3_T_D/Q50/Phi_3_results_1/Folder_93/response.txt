@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-ae60a470ba354544b211706e72f97b89",
+  "object": "chat.completion",
+  "created": 1725527547,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(words):\n    from collections import Counter\n    from itertools import combinations\n\n    min_length = 3\n    combs = []\n    count_anagrams = 0\n\n    # Generate all unique combinations of the list\n    for word in set(words):\n        if len(word) >= min_length:\n            for comb in combinations(sorted(words), 2):\n                if (Counter(comb[0].lower()) == Counter(comb[1].lower()) and\n                    len(comb[0]) >= min_length and len(comb[1]) >= min_length):\n                    count_anagrams += 1\n                    if count_anagrams >= 18:\n                        return True\n\n    return False\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 134,
+    "total_tokens": 320,
+    "completion_tokens": 186
+  }
+}

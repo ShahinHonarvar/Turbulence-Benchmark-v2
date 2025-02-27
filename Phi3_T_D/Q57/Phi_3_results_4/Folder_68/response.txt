@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-0db71fd17d8f4ff6a58e958e9d10f570",
+  "object": "chat.completion",
+  "created": 1725544450,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\nfrom itertools import product\n\ndef submatrix_with_particular_sum(matrix):\n    n_rows, n_cols = matrix.shape\n    submatrices = []\n\n    for r1, r2 in product(range(n_rows), repeat=2):\n        for c1, c2 in product(range(n_cols), repeat=2):\n            for i in range(r2 - r1 + 1):\n                for j in range(c2 - c1 + 1):\n                    submatrix = matrix[r1:r2+i, c1:c2+j]\n                    if np.sum(submatrix) == 3:\n                        submatrices.append(submatrix)\n\n    return submatrices\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 125,
+    "total_tokens": 309,
+    "completion_tokens": 184
+  }
+}

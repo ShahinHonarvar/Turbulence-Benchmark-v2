@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-85e3ac9e47dc43c3b735c02bf57a3d2b",
+  "object": "chat.completion",
+  "created": 1725539698,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom itertools import cycle, islice\n\ndef lists_with_product_equal_n(circular_list):\n    result = []\n    size = len(circular_list)\n\n    def find_sublists(start_index, current_list):\n        if start_index == size:\n            start_index = 0\n\n        if any(x == 2 for x in current_list):\n            result.append(current_list)\n\n        for i in range(start_index, size):\n            if i + 1 < size:\n                find_sublists(i + 1, list(islice(cycle(circular_list), i + 1, i + 4)))\n            else:\n                find_sublists(0, list(islice(cycle(circular_list), i + 1 - size, i + 1)))\n\n    for i in range(size):\n        find_sublists(i, list(islice(cycle(circular_list), i, i + 4)))\n\n    return result\n\n# Example usage\ncircular_list = [1, 2, 0.5, 0.5, 1]\nprint(lists_with_product_equal_n(circular_list))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 202,
+    "total_tokens": 497,
+    "completion_tokens": 295
+  }
+}

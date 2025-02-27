@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-44c059d56ae64591a918f68a91d54ba8",
+  "object": "chat.completion",
+  "created": 1725528595,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom collections import defaultdict\n\ndef if_contains_anagrams(lst):\n    def is_anagram(s1, s2):\n        s1 = s1.lower()\n        s2 = s2.lower()\n        return sorted(s1) == sorted(s2)\n\n    filtered = [s for s in lst if len(s) >= 3]\n    anagram_count = 0\n    anagram_map = defaultdict(list)\n\n    for i in range(len(filtered)):\n        for j in range(i + 1, len(filtered)):\n            if is_anagram(filtered[i], filtered[j]):\n                anagram_map[filtered[i]].append(filtered[j])\n\n    for value in anagram_map.values():\n        anagram_count += len(value) // 2\n\n    return anagram_count >= 38\n\n# Example usage:\nlst = [\"cat\", \"tac\", \"bat\", \"tab\", \"act\", \"god\", \"dog\", \"Anagram\", \"Nagaram\"]\nprint(if_contains_anagrams(lst))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 134,
+    "total_tokens": 406,
+    "completion_tokens": 272
+  }
+}

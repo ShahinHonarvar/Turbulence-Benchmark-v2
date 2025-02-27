@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-995426a7cd6641b89ba8d7adfb3af467",
+  "object": "chat.completion",
+  "created": 1725504980,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef find_original_set(*args):\n    if len(args) != 56:\n        raise ValueError(\"Exactly 56 sets are required\")\n\n    # Make sure each set has distinct elements only\n    combined_sets = set()\n    for arg in args:\n        if not all(x in combined_sets or combined_sets.add(x) for x in arg):\n            raise ValueError(\"All sets must contain only distinct elements\")\n\n    return set.union(*args)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 98,
+    "total_tokens": 216,
+    "completion_tokens": 118
+  }
+}

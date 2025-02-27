@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-ad753eedee8e47798ac6f9dc3cc280ae",
+  "object": "chat.completion",
+  "created": 1725551754,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef all_left_right_truncatable_prime(primes_tuple):\n    end_prime = primes_tuple[630]\n    truncatable_primes = [p for p in primes_tuple if 10 <= p <= end_prime]\n\n    left_truncatable = set(p for p in truncatable_primes if all(int(p[i:]) in truncatable_primes for i in range(1, len(str(p)))))\n    right_truncatable = set(p for p in truncatable_primes if all(int(p[:i+1]) in truncatable_primes for i, c in enumerate(str(p)) if c is not '0'))\n\n    result = sorted(left_truncatable.intersection(right_truncatable), reverse=True)\n    return result\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 208,
+    "total_tokens": 426,
+    "completion_tokens": 218
+  }
+}

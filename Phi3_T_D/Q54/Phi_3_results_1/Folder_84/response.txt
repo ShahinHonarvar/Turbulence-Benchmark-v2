@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-f2c90ef117004174aefa7623d334da79",
+  "object": "chat.completion",
+  "created": 1725535871,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nfrom sympy import isprime\n\ndef all_right_truncatable_prime(numbers_tuple):\n    x = numbers_tuple[630]\n    right_truncatable_primes = []\n\n    def primes_with_rightmost_digit(last_digit):\n        return set(p for p in range(10 * last_digit, last_digit * 10, 10) if isprime(p))\n\n    for last_digit in range(1, 10):\n        primes = primes_with_rightmost_digit(last_digit)\n        candidate_set = set()\n        for prime in primes:\n            remaining_digits = prime // 10\n            while remaining_digits > 0:\n                if remaining_digits not in primes_with_rightmost_digit(remaining_digits % 10):\n                    break\n                remaining_digits //= 10\n            else:\n                candidate_set.add(prime)\n\n        right_truncatable_primes.extend(sorted(candidate_set))\n\n    return sorted(right_truncatable_primes, reverse=True)\n\n# Example usage:\nnumbers_tuple = (10,) * 631 + (9371,)\nprint(all_right_truncatable_prime(numbers_tuple))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 170,
+    "total_tokens": 500,
+    "completion_tokens": 330
+  }
+}

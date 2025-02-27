@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-7ff64fc36a33404a9e5d14bae2b29b5e",
+  "object": "chat.completion",
+  "created": 1725546663,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    count = 0\n    rows, cols = matrix.shape\n    for r in range(rows):\n        for c in range(cols):\n            for x_len in range(1, cols - c + 1):\n                for y_len in range(1, rows - r + 1):\n                    if x_len * y_len == 53:\n                        submatrix = matrix[r:r+y_len, c:c+x_len]\n                        if np.prod(submatrix.shape) == 53:\n                            count += 1\n    return count\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 116,
+    "total_tokens": 278,
+    "completion_tokens": 162
+  }
+}

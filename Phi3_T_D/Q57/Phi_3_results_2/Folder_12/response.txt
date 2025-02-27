@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-26dd085ab4b9424da32737b662d1abee",
+  "object": "chat.completion",
+  "created": 1725543262,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    results = []\n    rows, cols = matrix.shape\n    for row_start in range(rows):\n        for col_start in range(cols):\n            for row_len in range(1, rows - row_start + 1):\n                for col_len in range(1, cols - col_start + 1):\n                    submatrix = matrix[row_start:row_start + row_len, col_start:col_start + col_len]\n                    if submatrix.sum() == -83:\n                        results.append(submatrix.tolist())\n    return results\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 126,
+    "total_tokens": 292,
+    "completion_tokens": 166
+  }
+}

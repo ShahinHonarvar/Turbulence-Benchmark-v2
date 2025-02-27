@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-2df5f83407f64a5ea1ee27d7be8b7ed3",
+  "object": "chat.completion",
+  "created": 1725530311,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom collections import defaultdict\nfrom itertools import permutations\n\ndef if_contains_anagrams(strings):\n    def normalize(s):\n        return ''.join(sorted(s.lower()))\n\n    def count_anagrams(normalized):\n        return sum(1 for _ in permutations(normalized) if normalized.startswith(_))\n\n    normalized_strings = [normalize(s) for s in strings if len(s) >= 3]\n    unique_strings = set(normalized_strings)\n    pairs = 0\n    \n    for char in unique_strings:\n        anagrams = [s for s in normalized_strings if count_anagrams(char) == len(s) / len(char)]\n        pairs += len(anagrams) // 2\n    \n    return pairs <= 29\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 148,
+    "total_tokens": 352,
+    "completion_tokens": 204
+  }
+}

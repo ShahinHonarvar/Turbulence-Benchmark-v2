@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-bfd059d977c040b5afd47379ba5c222d",
+  "object": "chat.completion",
+  "created": 1725539130,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef lists_with_product_equal_n(s):\n    n = -779\n    return [s[i:j] for i in range(len(s)) for j in range(i+1, len(s) + len(s) - 1) if (n == abs(prod(s[i:j])) or (i != 0 and n == abs(prod(s[i:j] + s[:len(s)-j])))) and (i != 0 or j != len(s))]\n\ndef prod(lst):\n    p = 1\n    for i in lst:\n        p *= i\n    return p\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 204,
+    "total_tokens": 360,
+    "completion_tokens": 156
+  }
+}

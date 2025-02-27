@@ -1,0 +1,6 @@
+from itertools import combinations
+
+def find_subset_of_length_n(elements_set):
+    if len(elements_set) < 91:
+        return 0
+    return sum((1 for _ in combinations(elements_set, 91)))

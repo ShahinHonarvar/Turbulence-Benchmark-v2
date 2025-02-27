@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-20fe7906795c41669f582844473f4e71",
+  "object": "chat.completion",
+  "created": 1725529669,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(strings):\n    def to_signature(word):\n        return ''.join(sorted(word.lower()))\n    \n    def has_anagram(word, seen_words):\n        word_signature = to_signature(word)\n        return any(to_signature(seen) == word_signature for seen in seen_words)\n    \n    seen_words = []\n    max_pairs = 6\n    anagram_pairs = 0\n\n    for word in strings:\n        if not word or len(word) < 3:\n            continue\n\n        if has_anagram(word, seen_words):\n            anagram_pairs += 1\n            if anagram_pairs > max_pairs:\n                return False\n        else:\n            seen_words.append(word)\n\n    return True\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 147,
+    "total_tokens": 358,
+    "completion_tokens": 211
+  }
+}

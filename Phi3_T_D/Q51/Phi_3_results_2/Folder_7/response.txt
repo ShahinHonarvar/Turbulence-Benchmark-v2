@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-c3ed1a2372514f5299580de5233af20a",
+  "object": "chat.completion",
+  "created": 1725529720,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom collections import defaultdict\nfrom itertools import combinations\n\ndef if_contains_anagrams(strings):\n    def str_signature(s):\n        lowered = s.lower()\n        return ''.join(sorted(filter(str.isalpha, lowered)))\n\n    anagram_counts = defaultdict(int)\n\n    for string in strings:\n        if len(string) >= 3:\n            signature = str_signature(string)\n            anagram_counts[signature] += 1\n\n    return sum(1 for count in anagram_counts.values() if count > 1) <= 445\n\n# Example:\n# result = if_contains_anagrams(['listen', 'enlist', 'google', 'gooegl'])\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 149,
+    "total_tokens": 336,
+    "completion_tokens": 187
+  }
+}

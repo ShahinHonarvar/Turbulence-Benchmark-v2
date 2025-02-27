@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-e0cc7bcb2bfb4799b0816b7d81ccd483",
+  "object": "chat.completion",
+  "created": 1725536693,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef all_right_truncatable_prime(input_tuple):\n    rightmost = [i for i in range(2, input_tuple[96]) if all(not (i % j) for j in range(2, int(i ** 0.5) + 1))]\n   \n    truncatable_set = set()\n    truncatable_candidates = set(rightmost)\n   \n    for prime in rightmost:\n        i = 10\n        while i * prime < 10:\n            truncatable_candidates.discard(i * prime)\n            i += 1\n\n        for pc in sorted(truncatable_candidates, reverse=True):\n            if pc // 10 in rightmost:\n                truncatable_set.add(pc)\n\n    return sorted(list(truncatable_set), reverse=True)\n\n# Get result as per the 96th element in passed tuple\nprimes_less_than_x = all_right_truncatable_prime((2,)*96 + (78431,))\nprint(primes_less_than_x)\n```\n\nExplanation:\n\n1. Determine all primes less than the 96th element in the input tuple.\n2. Iterate through these primes and construct truncatable prime candidates by appending digits to the right.\n3. Verify each candidate, checking that each truncation is also prime.\n4. Return a sorted list of these primes in descending order.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 169,
+    "total_tokens": 536,
+    "completion_tokens": 367
+  }
+}

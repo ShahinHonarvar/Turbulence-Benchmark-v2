@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-8ca5d313bc4a40479b86d9b78c4dc839",
+  "object": "chat.completion",
+  "created": 1725550342,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom sympy import isprime, isprime as check_is_prime\n\ndef all_left_truncatable_prime(numbers):\n    x = numbers[26]\n    left_truncatable_primes = []\n\n    def is_left_truncatable_prime(n, limit):\n        if not check_is_prime(n):\n            return False\n        if n > limit:\n            return True\n        return is_left_truncatable_prime(n * 10 + 2, limit) or \\\n               is_left_truncatable_prime(n * 10 + 3, limit) or \\\n               is_left_truncatable_prime(n * 10 + 5, limit) or \\\n               is_left_truncatable_prime(n * 10 + 7, limit)\n\n    for number in range(2, x):\n        if is_left_truncatable_prime(0, number):\n            left_truncatable_primes.append(number)\n\n    return left_truncatable_primes\n\n# Example usage:\nnumbers = (1, 2, 3, # ... 24 more elements,\n           26, # index 26 is used for 'x'\n           # ... 2 more elements since we need at least 28\n           28)\nprint(all_left_truncatable_prime(numbers))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 156,
+    "total_tokens": 502,
+    "completion_tokens": 346
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-4d1353562818408bbc7b1939582b9932",
+  "object": "chat.completion",
+  "created": 1725518126,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nfrom itertools import permutations\n\ndef palindromes_between_indices(s):\n    char_count = {}\n    for char in s[:6].lower():\n        if char.isalpha():\n            char_count[char] = char_count.get(char, 0) + 1\n    \n    possible_palindromes = set()\n    palindromes = generate_palindromes(char_count)\n    for p in palindromes:\n        if is_palindrome(p) and len(p) >= 6:\n            possible_palindromes.add(p)\n\n    return possible_palindromes\n\ndef generate_palindromes(char_count):\n    first_half = [k * (v // 2) for k, v in char_count.items() if v > 1]\n    mid = ''.join(k for k, v in char_count.items() if v % 2 == 1)\n    perms = (''.join(p) for p in permutations(first_half))\n    return set(p + mid + p[::-1] for p in perms)\n\ndef is_palindrome(s):\n    return s == s[::-1]\n```\n\nNote: This code assumes that there is a valid distribution of characters that will enable the creation of a palindrome of length 6 or more. Otherwise, the function may return an empty set.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 192,
+    "total_tokens": 532,
+    "completion_tokens": 340
+  }
+}

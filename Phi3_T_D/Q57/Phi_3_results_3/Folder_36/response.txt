@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-5493ae5faa3f4abf80f69a7665e32d8f",
+  "object": "chat.completion",
+  "created": 1725543820,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    result = []\n\n    def kadane(submatrices):\n        sums = [0] * len(submatrices)\n        max_sum = max_i = max_j = 0\n        for i, j in submatrices:\n            sums[i] += submatrices[i][j][0, 1] if i else submatrices[i][j][0]\n            if sums[i] > max_sum:\n                max_sum = sums[i]\n                max_i = i\n                max_j = j\n\n        if max_sum == -779:\n            for i, j in submatrices[max_i]:\n                result.append(matrix[i:i + len(j), j:j + len(j)])\n\n    for i in range(matrix.shape[0]):\n        for j in range(matrix.shape[1]):\n            kadane([[[i, j]]] + [[range(a, b), range(c, d)] for a, c in ((i, j), (i + 1, j)) for b, d in ((matrix.shape[0], matrix.shape[1]), (matrix.shape[0] + 1, matrix.shape[1]))])\n\n    return result\n\n# Example usage:\n# matrix = np.array([[1, -780], [2, 3]])\n# submatrices = submatrix_with_particular_sum(matrix)\n# for submat in submatrices:\n#     print(submat)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 127,
+    "total_tokens": 510,
+    "completion_tokens": 383
+  }
+}

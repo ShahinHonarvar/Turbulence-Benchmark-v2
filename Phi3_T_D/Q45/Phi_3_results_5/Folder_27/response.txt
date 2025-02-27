@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-cc44250c322b4f5ba9316f0c44c37c33",
+  "object": "chat.completion",
+  "created": 1725519708,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport itertools\n\ndef is_palindrome(s):\n    return s == s[::-1]\n\ndef palindromes_between_indices(text):\n    letters_from_index_2_to_8 = text[2:10].lower()\n    letter_counts = {}\n    for letter in letters_from_index_2_to_8:\n        if letter.isalpha():\n            letter_counts[letter] = letter_counts.get(letter, 0) + 1\n\n    palindromes = set()\n\n    for length in range(6, len(letters_from_index_2_to_8) + 1, 2):\n        for combo in itertools.permutations(letters_from_index_2_to_8, length):\n            if combo[:length // 2] == combo[length // 2:][::-1]:\n                counting = {letter: combo.count(letter) for letter in letter_counts}\n                if all(count in range(letter_counts[letter], letter_counts[letter] + 1) for letter in counting):\n                    palindromes.add(''.join(combo))\n\n    return palindromes\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 192,
+    "total_tokens": 494,
+    "completion_tokens": 302
+  }
+}

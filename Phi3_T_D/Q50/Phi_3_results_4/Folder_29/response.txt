@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-92d7e3a31ab3431a9fd8992a70794963",
+  "object": "chat.completion",
+  "created": 1725528519,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom collections import defaultdict\n\ndef if_contains_anagrams(strings):\n    def are_anagrams(s1, s2):\n        return len(s1) >= 3 and sorted(s1.lower()) == sorted(s2.lower())\n\n    anagram_pairs = 0\n    sorted_anagrams = defaultdict(list)\n\n    for string in strings:\n        sorted_str = tuple(sorted(string.lower()))\n        sorted_anagrams[sorted_str].append(string)\n\n    for group in sorted_anagrams.values():\n        if len(group) > 1:\n            anagram_pairs += sum(are_anagrams(string1, string2) for i, string1 in enumerate(group) for string2 in group[i+1:])\n\n    return anagram_pairs >= 35\n```\n```\n```\n\nPlease keep in mind that the above code returns the total number of anagrams found between pairs, but it does not explicitly count the distinct \"pairs\" of strings. Modifying the code to strictly count pairs of anagrams would be a bit more complex, involving nested loops over the anagram groups and condition checks to avoid double-counting pairs.\n\nThe provided solution is efficient by sorting and storing strings once rather than repeatedly comparing every string with every other string.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 134,
+    "total_tokens": 446,
+    "completion_tokens": 312
+  }
+}

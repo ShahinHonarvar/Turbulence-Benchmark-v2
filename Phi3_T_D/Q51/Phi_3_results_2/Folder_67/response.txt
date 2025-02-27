@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-ce2e196c3a5f49e7aa0eeeca8d3d5fed",
+  "object": "chat.completion",
+  "created": 1725529973,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(words):\n    from collections import defaultdict\n\n    def normalize(word):\n        word = word.lower()\n        return ''.join(sorted(filter(str.isalpha, word)))\n\n    anagram_groups = defaultdict(list)\n\n    for word in words:\n        if len(word) >= 3:\n            normalized_word = normalize(word)\n            anagram_groups[normalized_word].append(word)\n\n    return sum(len(group) - 1 for group in anagram_groups.values() if len(group) > 1) <= 10\n\n# Example usage:\nprint(if_contains_anagrams(['stop', 'pots', 'tops', 'opts', 'post', 'spot', 'kite']))  # True\nprint(if_contains_anagrams(['stop', 'pots', 'tops', 'opts', 'post', 'spot', 'kite', 'pots', 'stpo', 'ptso']))  # True\nprint(if_contains_anagrams(['stop', 'pots', 'tops', 'opts', 'post', 'spot', 'pots', 'stpo', 'ptso', 'kite', 'lamp']))  # True\nprint(if_contains_anagrams(['stop', 'pots', 'tops', 'opts', 'post', 'spot', 'pots', 'stpo', 'ptso', 'kite', 'lamp', 'kipt']))  # True\nprint(if_contains_anagrams(['stop', 'pots', 'tops', 'opts', 'post', 'spot', 'pots', 'stpo', 'ptso', 'kite', 'lamp', 'kipt', 'pots', 'stpo']))  # False\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 147,
+    "total_tokens": 571,
+    "completion_tokens": 424
+  }
+}

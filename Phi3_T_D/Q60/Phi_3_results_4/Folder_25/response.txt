@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-7234437f5cf84f62b53e72cb79e4fc12",
+  "object": "chat.completion",
+  "created": 1725552851,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef is_prime(n):\n    if n <= 1:\n        return False\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            return False\n    return True\n\ndef is_truncatable_prime(n, primes):\n    rotation_str = str(n)\n    length = len(rotation_str)\n    for i in range(length):\n        left = int(rotation_str[i:])\n        right = int(rotation_str[:length-i])\n        if left < 10 and right < 10:\n            return False\n        if not is_prime(left) or left not in primes:\n            return False\n        if right < 10 and not is_prime(right):\n            return False\n        if right >= 10 and right not in primes:\n            return False\n    return True\n\ndef generate_primes(limit):\n    primes = []\n    for n in range(2, limit + 1):\n        if is_prime(n):\n            primes.append(n)\n    return primes\n\ndef all_left_right_truncatable_prime(numbers):\n    x = numbers[92]\n    primes = generate_primes(x)\n    truncatable_primes = []\n\n    for prime in primes:\n        if is_truncatable_prime(prime, primes):\n            truncatable_primes.append(prime)\n\n    return truncatable_primes\n\n# Call the function with a tuple of positive integers\nresult = all_left_right_truncatable_prime((i for i in range(1, 1001)))\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 207,
+    "total_tokens": 627,
+    "completion_tokens": 420
+  }
+}

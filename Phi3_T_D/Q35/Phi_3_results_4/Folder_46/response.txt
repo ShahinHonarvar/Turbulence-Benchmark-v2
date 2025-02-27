@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-92ff3ed1c23649b993aeafbe9e71fc80",
+  "object": "chat.completion",
+  "created": 1725506389,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef remove_repeat_chars(s):\n    chars_count = {}\n    result_chars = []\n\n    for index, char in enumerate(s):\n        if 10 < index < 79:\n            chars_count[char] = chars_count.get(char, 0) + 1\n        if chars_count.get(char, 0) == 1:\n            result_chars.append(char)\n        if index > 79 and all(count <= 1 for count in chars_count.values()):\n            break\n\n    return ''.join(result_chars)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 130,
+    "total_tokens": 278,
+    "completion_tokens": 148
+  }
+}

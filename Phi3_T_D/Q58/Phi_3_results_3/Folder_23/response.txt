@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-85011ee0126d462a8916acb87edddee2",
+  "object": "chat.completion",
+  "created": 1725545956,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    if not isinstance(matrix, np.ndarray):\n        raise ValueError(\"Input must be a numpy 2D array.\")\n    \n    count, rows, cols = 0, matrix.shape[0], matrix.shape[1]\n    \n    for i in range(rows):\n        for j in range(cols):\n            for k in range(i + 1, rows + 1):\n                for l in range(j + 1, cols + 1):\n                    submatrix = matrix[i:k, j:l]\n                    if submatrix.size == 69:\n                        count += 1\n    return count\n```\n\nThis code defines the function `submatrix_with_n_numbers` that takes a numpy 2D array as input and returns the count of all 1x1 to (rows-1)x(cols-1) submatrices containing exactly 69 elements. The nested loops iterate over all possible submatrix sizes and positions.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 116,
+    "total_tokens": 361,
+    "completion_tokens": 245
+  }
+}

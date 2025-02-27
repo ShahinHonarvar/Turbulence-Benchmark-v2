@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-1c0304b9dec24b4a97713fe0b7a3cbbb",
+  "object": "chat.completion",
+  "created": 1725548419,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            return False\n    return True\n\ndef all_left_truncatable_prime(numbers):\n    x = numbers[55]\n    primes = []\n    for i in range(2, x):\n        if is_prime(i):\n            string_number = str(i)\n            j = 1\n            while j < len(string_number):\n                if not is_prime(int(string_number[j:])):\n                    break\n                j += 1\n            else:\n                primes.append(i)\n    return primes\n```\n\n```python\ndef all_left_truncatable_prime(numbers):\n    x = numbers[55]\n    primes = []\n    for prime in primes_under(x):\n        if prime == 2 or prime % 10 not in {0, 2, 4, 5, 6, 8}:\n            primes_str = str(prime)\n            is_truncatable = all(is_prime(int(primes_str[i:])) for i in range(len(primes_str)))\n            if is_truncatable:\n                primes.append(prime)\n    return primes\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 156,
+    "total_tokens": 497,
+    "completion_tokens": 341
+  }
+}

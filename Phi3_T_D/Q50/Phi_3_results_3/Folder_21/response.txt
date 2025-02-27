@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-7a674f1dc85446c4976500fba89d921a",
+  "object": "chat.completion",
+  "created": 1725528071,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(string_list):\n    from collections import defaultdict\n    from itertools import permutations\n    \n    anagram_dict = defaultdict(list)\n    for word in string_list:\n        if len(word) >= 3:\n            sorted_word = ''.join(sorted(word.lower()))\n            anagram_dict[sorted_word].append(word)\n    \n    def generate_permutations(lst):\n        return [''.join(p) for p in permutations(lst) if p[0] == lst[0]]\n    \n    anagram_pairs = 0\n    for sorted_word, words in anagram_dict.items():\n        if len(words) > 1:\n            for perm in generate_permutations(sorted_word):\n                for w in words:\n                    if perm in w.lower():\n                        anagram_pairs += 1\n                        break\n    return anagram_pairs >= 136\n\n# Test the function\n# print(if_contains_anagrams(['cat', 'tac', 'dog', 'god', 'actogad']))\n```\n\nPlease note that for a large list of strings, this solution might not be the most efficient due to the use of permutations, but it should work for the specific requirements as stated. Efficiency improvements could be made by employing an anagram finding algorithm rather than permutations, for a large dataset.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 135,
+    "total_tokens": 471,
+    "completion_tokens": 336
+  }
+}

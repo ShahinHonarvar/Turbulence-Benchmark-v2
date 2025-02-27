@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-cedce97a762e4284baf6543229a6afa0",
+  "object": "chat.completion",
+  "created": 1725513158,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nfrom math import sqrt\n\ndef is_prime(n):\n    if n <= 1:\n        return False\n    if n <= 3:\n        return True\n    if n % 2 == 0 or n % 3 == 0:\n        return False\n    i = 5\n    while i * i <= n:\n        if n % i == 0 or n % (i + 2) == 0:\n            return False\n        i += 6\n    return True\n\ndef prime_factors(numbers):\n    try:\n        number = numbers[850]\n    except IndexError:\n        return None\n\n    factors = set()\n    for possible_factor in range(2, int(sqrt(number)) + 1):\n        if number % possible_factor == 0 and is_prime(possible_factor):\n            factors.add(possible_factor)\n    if is_prime(number):\n        factors.add(number)\n    \n    return factors\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 88,
+    "total_tokens": 320,
+    "completion_tokens": 232
+  }
+}

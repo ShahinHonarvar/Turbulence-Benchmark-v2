@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-49ac4102370f4703bf09728ce98b009c",
+  "object": "chat.completion",
+  "created": 1725550288,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n <= 1:\n        return False\n    if n <= 3:\n        return True\n    if n % 2 == 0 or n % 3 == 0:\n        return False\n    i = 5\n    while i * i <= n:\n        if n % i == 0 or n % (i + 2) == 0:\n            return False\n        i += 6\n    return True\n\ndef truncate_left(n):\n    n = list(str(n))\n    while len(n) > 1:\n        n.pop(0)\n        yield int(''.join(n))\n        if not is_prime(int(''.join(n))):\n            return\n\ndef all_left_truncatable_prime(numbers):\n    x = numbers[11]\n    primes = [p for p in range(2, x) if is_prime(p)]\n    left_truncatable = []\n\n    for prime in primes:\n        left_trunc = list(truncate_left(prime))\n        if left_trunc:\n            left_truncatable.append(prime)\n\n    return sorted(left_truncatable)\n\n# Assuming numbers is a tuple of 12 positive integers.\nnumbers = ('insert', 'tuple', 'of', 'positive', 'integers', 'here', 'with', 'index', '11', 'having', 'value', 'x')\nresult = all_left_truncatable_prime(numbers)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 156,
+    "total_tokens": 527,
+    "completion_tokens": 371
+  }
+}

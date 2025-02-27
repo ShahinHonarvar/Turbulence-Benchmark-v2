@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-6e5b0080a90c4c139e6bda198c7665ee",
+  "object": "chat.completion",
+  "created": 1725519538,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef palindromes_between_indices(s):\n    substring = s[3:8].lower()\n    from collections import Counter\n    import itertools\n\n    def can_form_palindrome(counter):\n        odd_count = sum(1 for count in counter.values() if count % 2)\n        return odd_count <= 1\n\n    letter_count = Counter(substring)\n    if not can_form_palindrome(letter_count):\n        return set()\n\n    center = [k for k, v in letter_count.items() if v % 2]\n    chars = ''.join(k * (v // 2) for k, v in letter_count.items())\n\n    palindromes = set()\n    for p in itertools.permutations(chars):\n        for c in center:\n            if not center:\n                palindromes.add(''.join(p))\n            else:\n                palindromes.update(''.join(p) + c + ''.join(p[::-1]))\n    return {p for p in palindromes if len(p) >= 4}\n\n# Example usage:\nprint(palindromes_between_indices(\"abracadabra\"))  # Example input\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 192,
+    "total_tokens": 497,
+    "completion_tokens": 305
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-a38b87f136df48ddb7e100690d76a19b",
+  "object": "chat.completion",
+  "created": 1725610557,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n <= 1:\n        return False\n    if n <= 3:\n        return True\n    if n % 2 == 0 or n % 3 == 0:\n        return False\n    i = 5\n    while i * i <= n:\n        if n % i == 0 or n % (i + 2) == 0:\n            return False\n        i += 6\n    return True\n\ndef all_right_truncatable_prime(numbers):\n    x = numbers[41]\n    right_truncatable_primes = []\n    for num in range(x - 1, 1, -1):\n        if is_prime(num):\n            str_num = str(num)\n            while str_num:\n                if not is_prime(int(str_num)):\n                    break\n                str_num = str_num[:-1]\n            else:\n                right_truncatable_primes.append(num)\n    return right_truncatable_primes\n```\n\nThis code defines a function `all_right_truncatable_prime` that takes a tuple of positive integers and returns a sorted list of all right-truncatable prime numbers less than the integer at index 41. The helper function `is_prime` checks if a number is prime. The main function iterates through numbers in descending order and checks if they are right-truncatable primes by removing the last digit and checking if the remaining number is prime. If a number is a right-truncatable prime, it is added to the result list.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 169,
+    "total_tokens": 550,
+    "completion_tokens": 381
+  }
+}

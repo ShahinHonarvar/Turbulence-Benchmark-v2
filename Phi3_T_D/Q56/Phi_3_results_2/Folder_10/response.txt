@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-057a167082b247c89ee7d7040dd8713a",
+  "object": "chat.completion",
+  "created": 1725541676,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef is_duplicate_free(substring):\n    seen = set()\n    for char in substring:\n        if char in seen:\n            return False\n        seen.add(char)\n    return True\n\ndef all_substring_of_size_n(s):\n    if len(s) < 55:\n        return []\n    substrings = set()\n    for i in range(len(s) - 54):\n        substring = s[i:i+55]\n        if is_duplicate_free(substring):\n            substrings.add(substring)\n    return list(substrings)\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 130,
+    "total_tokens": 279,
+    "completion_tokens": 149
+  }
+}

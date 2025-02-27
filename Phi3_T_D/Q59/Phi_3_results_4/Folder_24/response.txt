@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-29cdffc8e170488cb44723f0896bcda1",
+  "object": "chat.completion",
+  "created": 1725549219,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef is_prime(n):\n    if n <= 1:\n        return False\n    p = 2\n    while p * p <= n:\n        if n % p == 0:\n            return False\n        p += 1\n    return True\n\ndef all_left_truncatable_prime(bounds):\n    x = bounds[65]\n    truncatable_primes = []\n    for num in range(x, 1, -1):\n        if not any(digit == '0' for digit in str(num)):\n            if is_prime(num):\n                is_truncatable = True\n                temp = str(num)\n                while temp:\n                    temp = temp[:-1]  # Remove the rightmost digit\n                    if not is_prime(int(temp)):\n                        is_truncatable = False\n                        break\n                if is_truncatable:\n                    truncatable_primes.append(num)\n    return truncatable_primes\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 156,
+    "total_tokens": 400,
+    "completion_tokens": 244
+  }
+}

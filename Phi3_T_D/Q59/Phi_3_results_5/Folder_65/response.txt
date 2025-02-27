@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-c6d713615baa4e8abd043cfee5b5de27",
+  "object": "chat.completion",
+  "created": 1725550104,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef all_left_truncatable_prime(numbers):\n    x = numbers[32]\n\n    def is_prime(n):\n        if n <= 1:\n            return False\n        for i in range(2, int(n**0.5) + 1):\n            if n % i == 0:\n                return False\n        return True\n\n    def is_left_truncatable(n, primes_cache):\n        if n not in primes_cache:\n            return False\n        str_n = str(n)\n        return all(is_left_truncatable(int(str_n[:i]), primes_cache) for i in range(1, len(str_n)))\n\n    primes_cache = {2, 3, 5, 7}\n    for prime in range(11, x, 2):\n        if all(prime % d != 0 for d in range(3, int(prime**0.5) + 1, 2)):\n            str_prime = str(prime)\n            primes_cache.add(prime)\n            if is_left_truncatable(prime, primes_cache):\n                yield prime\n\nresult = sorted(set(all_left_truncatable_prime((1,) * 33)))\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 156,
+    "total_tokens": 472,
+    "completion_tokens": 316
+  }
+}

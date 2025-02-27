@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-668acb3755f9444fa5d0c74e5d522784",
+  "object": "chat.completion",
+  "created": 1725552649,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n <= 1:\n        return False\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            return False\n    return True\n\ndef is_truncatable(n, prime_cache):\n    old_n = n\n    while n > 0:\n        if n not in prime_cache:\n            return False\n        n = n % (10 ** (len(str(old_n)) - 1)) // 10\n        old_n = old_n % (10 ** (len(str(old_n)) - 1))\n    return True\n\ndef find_truncatables(up_to):\n    result = []\n    digits = list(str(num) for num in range(2, up_to) if is_prime(num))\n    prime_cache = {num: is_truncatable(num, digits) for num in float(digits)}\n\n    for prime in prime_cache:\n        result.extend(prime for prime in prime_cache if prime_cache[prime] and int(prime) <= up_to)\n    return sorted(set(result))\n\ndef all_left_right_truncatable_prime(numbers_tuple):\n    x = numbers_tuple[758]\n    return find_truncatables(x)\n\n# Example usage\nnumbers_tuple = (1000,) * 759  # Fill the tuple with numbers\nresult = all_left_right_truncatable_prime(numbers_tuple)\nprint(result)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 208,
+    "total_tokens": 598,
+    "completion_tokens": 390
+  }
+}

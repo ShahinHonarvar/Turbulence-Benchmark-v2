@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-c7a7f58446ee458493e2de6358b30aa7",
+  "object": "chat.completion",
+  "created": 1725533188,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef palindrome_of_length_at_least_n(text):\n    from collections import defaultdict\n    def is_pal_centre(start, end, length):\n        while start < end:\n            if text[start].lower() != text[end].lower():\n                return False\n            start, end = start + 1, end - 1\n        return True\n\n    palindromes = set()\n    char_index = defaultdict(set)\n\n    for index, char in enumerate(text):\n        if char.isalpha():\n            char_index[char.lower()].add(index)\n\n    for char, positions in char_index.items():\n        for pos1 in positions:\n            length = max_possible_length(positions, pos1, text)\n            if length >= 69:\n                centers = find_pal_centres(positions, pos1, text, length)\n                for center in centers:\n                    palindrome = text[center-length//2: center+length//2+1].lower()\n                    if len(palindrome) >= 69 and len(palindrome) == length:\n                        palindromes.add(palindrome)\n\n    return palindromes\n\ndef max_possible_length(positions, pos1, text):\n    left, right = pos1, pos1\n    while left - 1 in positions and right + 1 in positions:\n        left, right = left - 1, right + 1\n    return right - left + 1\n\ndef find_pal_centres(positions, pos1, text, length):\n    left, right = pos1, pos1\n    start_from, end_to = left // 2, (right + length) // 2\n    pal_centres = []\n    while start_from >= 0 and end_to < length:\n        if text[start_from] == text[end_to]:\n            pal_centres.append(positions[text[start_from].lower()].pop())\n        else:\n            break\n        start_from, end_to = start_from - 1, end_to + 1\n\n    return pal_centres\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 155,
+    "total_tokens": 679,
+    "completion_tokens": 524
+  }
+}

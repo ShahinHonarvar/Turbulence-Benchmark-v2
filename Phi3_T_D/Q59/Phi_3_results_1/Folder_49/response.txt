@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-88e40994c1d74ed683b8ccbabee64b19",
+  "object": "chat.completion",
+  "created": 1725547404,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nfrom itertools import product\n\ndef all_left_truncatable_prime(numbers):\n    def is_prime(n):\n        if n < 2:\n            return False\n        for i in range(2, int(n**0.5) + 1):\n            if n % i == 0:\n                return False\n        return True\n\n    def all_combinations(prefix, length):\n        if length == 1:\n            return [str(prime) for prime in primes if str(prime).startswith(prefix)]\n        return [combo for combo in product(digits, repeat=length-1)\n                for prime in all_combinations(prefix + str(combo[0]), length-1)]\n\n    x = numbers[14]\n    primes = [11, 13, 17, 31, 37, 71, 73, 79, 97]\n    digits = '1379'\n    truncatable_primes = set()\n\n    for length in range(1, len(str(x)) + 1):\n        for combo in all_combinations('', length):\n            candidates = [combo + digit for digit in digits]\n            for num in candidates:\n                if num > x:\n                    break\n                if is_prime(int(num)):\n                    truncatable_primes.add(int(num))\n\n    return sorted(list(truncatable_primes))\n\n# Example usage:\nnumbers_tuple = (1, 2, [0] * 14) + (x, [0] * 15)  # x is the integer at index 14\nprint(all_left_truncatable_prime(numbers_tuple))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 156,
+    "total_tokens": 582,
+    "completion_tokens": 426
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-6053fcffe2f346d1adc4c369e7569e33",
+  "object": "chat.completion",
+  "created": 1725546740,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix, n=46):\n    m, n = matrix.shape\n    count = 0\n    for i in range(m):\n        for j in range(n):\n            for k in range(i, m):\n                for l in range(j, n):\n                    if np.all(matrix[i:k+1, j:l+1] == 46):\n                        count += 1\n    return count\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 116,
+    "total_tokens": 237,
+    "completion_tokens": 121
+  }
+}

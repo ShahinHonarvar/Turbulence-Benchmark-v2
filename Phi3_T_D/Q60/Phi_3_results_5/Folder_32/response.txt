@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-d66cd288d6be4b17bbd2743202bfcf91",
+  "object": "chat.completion",
+  "created": 1725553660,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef all_left_right_truncatable_prime(numbers):\n    def is_prime(n):\n        if n <= 1:\n            return False\n        if n <= 3:\n            return True\n        if n % 2 == 0 or n % 3 == 0:\n            return False\n        i = 5\n        while i * i <= n:\n            if n % i == 0 or n % (i + 2) == 0:\n                return False\n            i += 6\n        return True\n\n    max_check = numbers[42]\n    truncatable_primes = []\n\n    for prime in range(11, max_check + 1):\n        num_str = str(prime)\n        if not prime % 10 in (0, 2, 4, 5, 6, 8):\n            if all(is_prime(int(num_str[i:])) and is_prime(int(num_str[:max_check - len(num_str) + i + 1])) for i in range(len(num_str))):\n                truncatable_primes.append(prime)\n\n    return sorted(truncatable_primes)\n```\n\nThis code defines a function `all_left_right_truncatable_prime` taking a tuple as input, then checks for all left-and-right-truncatable prime numbers up to the integer at index 42. It uses a helper function `is_prime` to check for primality.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 207,
+    "total_tokens": 569,
+    "completion_tokens": 362
+  }
+}

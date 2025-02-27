@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-47fcfd4daa934270aca5dbc6f602b408",
+  "object": "chat.completion",
+  "created": 1725536378,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n < 2:\n        return False\n    if n == 2:\n        return True\n    if n % 2 == 0:\n        return False\n    p = 3\n    while p * p <= n:\n        if n % p == 0:\n            return False\n        p += 2\n    return True\n\ndef all_right_truncatable_prime(numbers):\n    x = numbers[975]\n    right_truncatable_primes = []\n    \n    def is_right_truncatable(number):\n        return all(is_prime(int(str(number)[:-i])) and len(str(number)[:-i]) > 0\n                   for i in range(1, len(str(number)) + 1))\n    \n    for num in range(2, x):\n        if is_right_truncatable(num):\n            right_truncatable_primes.append(num)\n\n    return sorted(right_truncatable_primes, reverse=True)\n```\n\nThis code defines a helper function `is_prime` to check if a number is prime and another helper function `is_right_truncatable` within the main function `all_right_truncatable_prime` to check if a number is a right-truncatable prime. It iterates through numbers less than `x` and checks if they're right-truncatable primes, appending them to a list if they are, and then returns the sorted list of these numbers in descending order.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 170,
+    "total_tokens": 546,
+    "completion_tokens": 376
+  }
+}

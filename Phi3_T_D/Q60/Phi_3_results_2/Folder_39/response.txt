@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-08de8db4e06e49e99419bceb186de0a5",
+  "object": "chat.completion",
+  "created": 1725551401,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef all_left_right_truncatable_prime(range_tuple):\n    start_range, end_range = range_tuple\n    x = end_range + 1 if end_range >= 30 else range_tuple[1]\n    truncatable_primes = []\n\n    def is_prime(num):\n        if num < 2:\n            return False\n        for i in range(2, int(num ** 0.5) + 1):\n            if num % i == 0:\n                return False\n        return True\n\n    def is_truncatable(prime):\n        str_prime = str(prime)\n        return all(is_prime(int(str_prime[i:])) for i in range(len(str_prime))) and \\\n               all(is_prime(int(str_prime[:len(str_prime)-i])) for i in range(len(str_prime)))\n\n    for num in range(start_range, x, -1):\n        if is_prime(num) and is_truncatable(num):\n            truncatable_primes.append(num)\n\n    return truncatable_primes\n\n# Example usage:\n# print(all_left_right_truncatable_prime((1, 1000)))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 207,
+    "total_tokens": 521,
+    "completion_tokens": 314
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-515e9ecc8df147e2bab27b81d1f98399",
+  "object": "chat.completion",
+  "created": 1725546469,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix, n):\n    count = 0\n    rows, cols = matrix.shape\n\n    for row_start in range(rows):\n        for row_end in range(row_start, rows):\n            for col_start in range(cols):\n                for col_end in range(col_start, cols):\n                    if row_end - row_start + 1 == n and col_end - col_start + 1 == n:\n                        count += 1\n\n    return count\n\n# Example usage:\n# Create a sample 2D numpy matrix of integers\nsample_matrix = np.array([[1, 2, 3],\n                          [4, 5, 6],\n                          [7, 8, 9]])\n\n# Get the count of all submatrices with 28 integers\nprint(submatrix_with_n_numbers(sample_matrix, 28))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 116,
+    "total_tokens": 348,
+    "completion_tokens": 232
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-af6ce0126f014d5d80e03a4d0d55dd07",
+  "object": "chat.completion",
+  "created": 1725537419,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef all_right_truncatable_prime(numbers):\n    def is_prime(n, cache={2: True}):\n        if n < 2:\n            return False\n        if n not in cache:\n            for i in range(2, int(n ** 0.5) + 1):\n                if n % i == 0:\n                    return False\n            cache[n] = True\n        return cache[n]\n    \n    def is_right_truncatable_prime(n):\n        while n > 0:\n            if not is_prime(n):\n                return False\n            n //= 10\n        return True\n\n    x = numbers[70]\n    right_truncatable_primes = [prime for prime in range(2, x)\n                                if is_prime(prime) and is_right_truncatable_prime(prime)]\n    return sorted(right_truncatable_primes, reverse=True)\n\n# Example usage:\n# numbers = (2, 3, 5, 7, 11, 13, 17, ... , your tuple with 71 numbers)\n# print(all_right_truncatable_prime(numbers))\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 169,
+    "total_tokens": 467,
+    "completion_tokens": 298
+  }
+}

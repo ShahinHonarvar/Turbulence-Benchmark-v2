@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-86e474846ece429ab9a159f9d0c5cc78",
+  "object": "chat.completion",
+  "created": 1725528888,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(strings):\n    def normalize(s):\n        return ''.join(sorted(s.lower()))\n    \n    def count_unique_keys(lst):\n        return len({normalize(entry) for entry in lst if len(entry) >= 3})\n\n    unique_count = count_unique_keys(strings)\n    return unique_count - len(strings) >= 4 * (len(strings) * 2 - unique_count)\n\n# Example usage\nprint(if_contains_anagrams([\"bat\", \"tab\", \"cat\", \"tac\", \"act\"])) # True\nprint(if_contains_anagrams([\"hello\", \"world\", \"llohe\"])) # False\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 133,
+    "total_tokens": 309,
+    "completion_tokens": 176
+  }
+}

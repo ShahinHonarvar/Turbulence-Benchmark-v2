@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-d7770c2ea68d4e2bb6ebc63a38c55e13",
+  "object": "chat.completion",
+  "created": 1725527528,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom collections import defaultdict, Counter\n\ndef if_contains_anagrams(lst):\n    def normalize(s):\n        return ''.join(sorted(s.lower()))\n\n    anagrams = defaultdict(list)\n    for word in lst:\n        if len(word) >= 3:\n            anagrams[normalize(word)].append(word)\n\n    return sum(len(group) >= 2 for group in anagrams.values()) >= 34\n\n# Example usage:\n# contains_anagrams = if_contains_anagrams(['listen', 'silent', 'enlist', 'inlets', 'other', 'nonagrams'])\n# print(contains_anagrams)  # Output: False or True based on the list provided\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 134,
+    "total_tokens": 322,
+    "completion_tokens": 188
+  }
+}

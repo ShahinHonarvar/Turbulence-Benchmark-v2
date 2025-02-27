@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-c64d38e5f0944b5b9671161cd946b7fc",
+  "object": "chat.completion",
+  "created": 1725530424,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(strings):\n    def to_key(s):\n        return ''.join(sorted(s.lower()))\n\n    anagram_groups = {}\n    for s in strings:\n        key = to_key(s)\n        if key.isalpha() and len(s) >= 3:\n            anagram_groups.setdefault(key, []).append(s)\n\n    anagram_pairs = sum(len(group) // 2 for group in anagram_groups.values())\n    return anagram_pairs <= 59\n\n# Example usage:\nstrings = [\"rat\", \"car\", \"arc\", \"tar\", \"elbow\", \"below\", \"state\", \"tastes\"]\nresult = if_contains_anagrams(strings)\nprint(result)  # True if there are up to 59 anagram pairs, False otherwise\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 148,
+    "total_tokens": 359,
+    "completion_tokens": 211
+  }
+}

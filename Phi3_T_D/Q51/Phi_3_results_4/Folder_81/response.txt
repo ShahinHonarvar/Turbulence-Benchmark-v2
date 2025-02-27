@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-67c0b313f1dd4a3ca626b1663cd21fe4",
+  "object": "chat.completion",
+  "created": 1725530946,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef if_contains_anagrams(strings):\n    def count_chars(s):\n        from collections import Counter\n        return Counter(c.lower() for c in s if c.isalpha())\n\n    anagrams = {}\n    for s in strings:\n        char_count = frozenset(count_chars(s).items())\n        if char_count in anagrams:\n            anagrams[char_count].append(s)\n        else:\n            anagrams[char_count] = [s]\n\n    count_pairs = sum(len(lst) * (len(lst) - 1) // 2 for lst in anagrams.values() if len(lst) >= 2)\n    if count_pairs > 79:\n        return False\n    \n    return True\n```\n```\n\nHere's how the code works:\n\n1. For each string, count the characters regardless of their case using the `count_chars` inner function. It ignores non-alphabetic characters based on `c.isalpha()`.\n\n2. Use a Counter to transform each string into a set of character counts, which allows for easy comparisons.\n\n3. Store the strings in a dictionary called `anagrams`, using the character count as the key.\n\n4. If there's a key already present, it means we have encountered an anagram of a previous entry, so add the string to the list. Otherwise, create a new entry in the dictionary with the current string.\n\n5. Iterate through the list of values in the `anagrams` dictionary and count the number of possible anagram pairs in each list. If any list contains more than two strings, calculate the number of pairs and add it to the `count_pairs` variable.\n\n6. If there are more than 79 pairs, return False. Otherwise, return True.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 148,
+    "total_tokens": 580,
+    "completion_tokens": 432
+  }
+}

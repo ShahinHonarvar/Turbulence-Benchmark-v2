@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-1fef65cd1d17400dbd39ab8aae975db9",
+  "object": "chat.completion",
+  "created": 1725534343,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef palindrome_of_length_at_least_n(s):\n    s = s.lower()\n    def is_palindrome(word):\n        return word == word[::-1]\n\n    def find_palindromes(seg, lo, hi):\n        if hi <= lo:\n            return []\n        results = []\n        for i in range(lo, hi):\n            wing_left, wing_right = 1, 0\n            while lo - wing_left >= 0 and hi + wing_right < len(seg) and seg[lo-wing_left] == seg[hi+wing_right]:\n                wing_left += 1\n                wing_right += 1\n            center_mirrored = [[lo-wing_left+1, hi+wing_right]]\n            j = lo - wing_left\n            k = hi + wing_right\n            while j >= 0 and k < len(seg) and seg[j] == seg[k]:\n                j -= 1\n                k += 1\n            center_mirrored.append([j + 1, k - 1])\n            results += center_mirrored\n        return results\n\n    results = []\n    for center in range(len(s)):\n        left, right = find_palindromes(s, center, center)\n        results += left + right\n\n    return {s[lo:hi+1] for lo, hi in results if hi + 1 - lo >= 27}\n\n# Example usage:\n# print(palindrome_of_length_at_least_n('A man a plan a canal Panama'))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 155,
+    "total_tokens": 542,
+    "completion_tokens": 387
+  }
+}

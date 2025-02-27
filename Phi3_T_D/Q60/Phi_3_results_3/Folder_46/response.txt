@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-6ef042b4524a4a818e9512143f89b4df",
+  "object": "chat.completion",
+  "created": 1725552217,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            return False\n    return True\n\ndef is_left_right_truncatable_prime(n):\n    while n > 0:\n        if not is_prime(n):\n            return False\n        n = n % (10 ** (len(str(n)) - 1))\n    return True\n\ndef all_left_right_truncatable_prime(numbers):\n    x = numbers[33]\n    return sorted([p for p in range(2, x + 1) if is_left_right_truncatable_prime(p)])\n\n# Example usage:\nnumbers = (1, 2, 3, ... , 33)  # Insert remaining up to index 33 integers here\nresult = all_left_right_truncatable_prime(numbers)\nprint(result)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 207,
+    "total_tokens": 457,
+    "completion_tokens": 250
+  }
+}

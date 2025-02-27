@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-654b7cdadb2149b7af848f840a3365c5",
+  "object": "chat.completion",
+  "created": 1725546577,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    if not isinstance(matrix, np.ndarray) or len(matrix.shape) != 2:\n        return 0\n\n    count = 0\n    rows, cols = matrix.shape\n\n    for i in range(rows):\n        for j in range(cols):\n            if i + 3 < rows and j + 3 < cols:\n                submatrix = matrix[i:i+4, j:j+4]\n                if np.all(submatrix == 1):\n                    count += 1\n    \n    return count\n\n# Example usage\n# matrix = np.array([[1, 1, 0, 0],\n#                    [1, 1, 0, 0],\n#                    [0, 0, 0, 0],\n#                    [0, 0, 0, 0]])\n# print(submatrix_with_n_numbers(matrix))\n```\n\nIn this code, the function `submatrix_with_n_numbers` checks all possible 2x2 submatrices of the input matrix, and increments the count if the submatrix contains only 1s. This can be a starting point, but finding submatrices of size 4x4 containing only 1s (16 numbers) requires a more complex approach. To find 4x4 submatrices, we can iterate over the matrix with a sliding window of size 4x4 and check if all elements within this window are 1s.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 116,
+    "total_tokens": 477,
+    "completion_tokens": 361
+  }
+}

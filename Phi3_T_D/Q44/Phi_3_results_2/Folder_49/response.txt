@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-eba4809df7fc460282f47506168a149a",
+  "object": "chat.completion",
+  "created": 1725516551,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef composite_nums_between_indices(int_list):\n    def is_composite(num):\n        if num < 2:\n            return False\n        for i in range(2, int(num**0.5)+1):\n            if num % i == 0:\n                return True\n        return False\n\n    comps_set = set()\n    for i in range(90, min(201, len(int_list))):\n        if is_composite(int_list[i]):\n            comps_set.add(int_list[i])\n    return comps_set\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 126,
+    "total_tokens": 276,
+    "completion_tokens": 150
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-7ca874a896d54fdeab129caac30d5299",
+  "object": "chat.completion",
+  "created": 1725516580,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef composite_nums_between_indices(lst):\n    if len(lst) > 10:\n        lst = lst[:10]\n    composite_set = set()\n    for i in lst[0:10]:\n        if i > 1:\n            for j in range(2, int(i**0.5) + 1):\n                if i % j == 0:\n                    composite_set.add(i)\n                    break\n    return composite_set\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 123,
+    "total_tokens": 243,
+    "completion_tokens": 120
+  }
+}

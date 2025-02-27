@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-8d25100338b847e68e4ac12ddbc279ca",
+  "object": "chat.completion",
+  "created": 1725542575,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef all_substring_of_size_n(s):\n    if len(s) < 86: return []\n    used_chars = set()\n    substrings = []\n    def helper(start, substring):\n        if len(substring) == 86:\n            if substring not in substrings:\n                substrings.append(substring)\n            return\n        for i in range(start, len(s)):\n            char = s[i]\n            if char not in used_chars:\n                used_chars.add(char)\n                helper(i + 1, substring + char)\n                used_chars.remove(char)\n    helper(0, \"\")\n    return substrings\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 130,
+    "total_tokens": 298,
+    "completion_tokens": 168
+  }
+}

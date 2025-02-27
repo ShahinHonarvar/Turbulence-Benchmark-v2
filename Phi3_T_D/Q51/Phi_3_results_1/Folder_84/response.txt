@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-76a4e06f118c48b0a95e8d7212525a4a",
+  "object": "chat.completion",
+  "created": 1725529618,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(strings):\n    def normalize(s):\n        return ''.join(sorted(filter(str.isalpha, s.lower())))\n\n    count = 0\n    normalized_strings = {normalize(s): [] for s in strings}\n    for string in strings:\n        normalized_strings[normalize(string)].append(string)\n\n    for key in normalized_strings:\n        if len(normalized_strings[key]) > 1:\n            pairs = sum(1 for i in range(len(normalized_strings[key])) for j in range(i+1, len(normalized_strings[key])) if sorted(normalized_strings[key][i]) == sorted(normalized_strings[key][j]))\n            count += pairs\n\n    return count <= 16\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 148,
+    "total_tokens": 348,
+    "completion_tokens": 200
+  }
+}

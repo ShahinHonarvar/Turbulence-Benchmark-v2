@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-a2633dd784ca473594473086c68ee989",
+  "object": "chat.completion",
+  "created": 1725517973,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef palindromes_between_indices(s):\n    extracted_string = s[1:8]\n    letter_counts = {}\n    for letter in extracted_string:\n        letter_counts[letter.lower()] = letter_counts.get(letter.lower(), 0) + 1\n\n    palindromes_set = set()\n    for length in range(6, sum(letter_counts.values()) + 1):\n        combos = _find_palindromes(letter_counts, [], length // 2)\n        palindromes_set.update([combo + combo[::-1] for combo in combos if combo])\n\n    return palindromes_set\n\ndef _find_palindromes(letter_counts, partial_combo, length_needed):\n    if length_needed == 0:\n        return [partial_combo]\n\n    letter = next((k for k, v in letter_counts.items() if v), None)\n    if letter is None:\n        return []\n\n    new_partial_combo = partial_combo + letter.lower()\n    new_letter_counts = letter_counts.copy()\n    new_letter_counts[letter.lower()] -= 1\n\n    if new_letter_counts[letter.lower()] == 0:\n        del new_letter_counts[letter.lower()]\n\n    combos = []\n    for combo in _find_palindromes(new_letter_counts, new_partial_combo, length_needed - 1):\n        combos.append(combo)\n    \n    return combos\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 192,
+    "total_tokens": 598,
+    "completion_tokens": 406
+  }
+}

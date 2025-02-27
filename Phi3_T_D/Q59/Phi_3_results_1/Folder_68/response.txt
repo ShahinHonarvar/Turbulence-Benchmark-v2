@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-5902293da1c04d15a80d698ed9d58f69",
+  "object": "chat.completion",
+  "created": 1725547521,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            return False\n    return True\n\ndef is_left_truncatable_prime(n, sieve):\n    while n > 0:\n        if not sieve[n]:\n            return False\n        n = n % (10 ** (len(str(n)) - 1))\n    return True\n\ndef all_left_truncatable_prime(numbers):\n    x = numbers[1]\n    sieve = [True] * (x + 1)\n    for i in range(2, int(x**0.5) + 1):\n        if sieve[i]:\n            for j in range(i*i, x + 1, i):\n                sieve[j] = False\n\n    result = []\n    for num in range(x, 1, -1):\n        if is_prime(num) and is_left_truncatable_prime(num, sieve):\n            result.append(num)\n    return result\n```\n```\n\nThis Python code defines a function `all_left_truncatable_prime` which returns a list of all left-truncatable prime numbers less than `x`, a positive integer provided as the second value in the input tuple `numbers`. The list is sorted in descending order as specified. The function includes helper functions `is_prime` and `is_left_truncatable_prime` to assist in checking the prime number conditions.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 155,
+    "total_tokens": 537,
+    "completion_tokens": 382
+  }
+}

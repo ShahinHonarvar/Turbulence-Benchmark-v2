@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-a4a0a09afd544af9bb9238e0971011e6",
+  "object": "chat.completion",
+  "created": 1725536545,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef is_prime(n):\n    if n <= 1:\n        return False\n    if n <= 3:\n        return True\n    if n % 2 == 0 or n % 3 == 0:\n        return False\n    i = 5\n    while i * i <= n:\n        if n % i == 0 or n % (i + 2) == 0:\n            return False\n        i += 6\n    return True\n\ndef right_truncatable_prime(n, primes):\n    if n < 10:\n        return primes[-1] == n\n    return all(right_truncatable_prime(int(str(n)[:-1]), primes) for primes[-1] % 10 in (2, 3, 5, 7)) and is_prime(n)\n\ndef all_right_truncatable_primes(limit):\n    leading_primes = [11, 13, 17, 31, 37, 71, 73, 79]\n    primes = [11]\n    for prime in leading_primes:\n        if is_prime(prime) and right_truncatable_prime(prime, primes):\n            primes.append(prime)\n    \n    while primes[-1] < limit:\n        next_prime = primes[-1] + 2\n        if is_prime(next_prime) and right_truncatable_prime(next_prime, primes):\n            primes.append(next_prime)\n    \n    return [p for p in primes if p < limit]\n\nresult = all_right_truncatable_primes((98,))\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 169,
+    "total_tokens": 585,
+    "completion_tokens": 416
+  }
+}

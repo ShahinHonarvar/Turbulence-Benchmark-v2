@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-38f0dc2144624e6b9f34641d83507a6c",
+  "object": "chat.completion",
+  "created": 1725551555,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            return False\n    return True\n\ndef is_left_and_right_truncatable_prime(number, primes):\n    if not all(digit not in ('0', '2', '4', '5', '6', '8') for digit in str(number)):\n        return False\n    for i in range(1, len(str(number))):\n        if not (str(number)[i:] in primes and str(number)[:-i] in primes):\n            return False\n    return True\n\ndef get_all_left_and_right_truncatable_primes(threshold):\n    primes = set(filter(is_prime, range(2, threshold + 1)))\n    return sorted([prime for prime in primes if is_left_and_right_truncatable_prime(prime, primes)], reverse=True)\n\ndef all_left_right_truncatable_prime(numbers):\n    x = numbers[975] if len(numbers) > 975 else 0\n    return get_all_left_and_right_truncatable_primes(x)\n\n# Example usage:\n# numbers = tuple(range(1, 10000))  # Example tuple containing 10000 positive integers\n# result = all_left_right_truncatable_prime(numbers)\n# print(result)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 208,
+    "total_tokens": 592,
+    "completion_tokens": 384
+  }
+}

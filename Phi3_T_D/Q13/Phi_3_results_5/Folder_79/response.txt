@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-a689ea1843e84b1e8c55c888866ed290",
+  "object": "chat.completion",
+  "created": 1725487742,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef find_second_largest_num(numbers):\n    candidate = {i: numbers[i] for i in range(4, min(len(numbers), 8))}\n    if len(candidate) < 2:\n        return None\n    largest = max(candidate.values())\n    candidate.pop(candidate.index(largest))\n    return max(candidate.values())\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 109,
+    "total_tokens": 210,
+    "completion_tokens": 101
+  }
+}

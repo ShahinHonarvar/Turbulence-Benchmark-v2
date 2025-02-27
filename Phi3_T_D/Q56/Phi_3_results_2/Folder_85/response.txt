@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-c705bc0b690645ba8a0e73a3762e545e",
+  "object": "chat.completion",
+  "created": 1725541875,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef all_substring_of_size_n(s):\n    from itertools import permutations\n\n    substrings = set()\n    for i in range(len(s) - 13):\n        substring = s[i:i + 14]\n        if len(set(substring)) == 14:\n            substrings.update([''.join(p) for p in permutations(substring)])\n\n    return list(substrings)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 130,
+    "total_tokens": 239,
+    "completion_tokens": 109
+  }
+}

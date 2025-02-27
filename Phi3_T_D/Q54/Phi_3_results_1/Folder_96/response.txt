@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-834237e9b3294081afb8c815f63ec573",
+  "object": "chat.completion",
+  "created": 1725535955,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef is_prime(n):\n    if n <= 1:\n        return False\n    if n <= 3:\n        return True\n    if n % 2 == 0 or n % 3 == 0:\n        return False\n    i = 5\n    while i * i <= n:\n        if n % i == 0 or n % (i + 2) == 0:\n            return False\n        i += 6\n    return True\n\ndef right_truncatable(n, prime_set):\n    n_str = str(n)\n    if n < 10 or len(prime_set) == 0:\n        return n in prime_set\n    return all(is_prime(int(n_str[:-i])) for i in range(1, len(n_str))) and n in prime_set\n    \ndef all_right_truncatable_prime(numbers):\n    primes = [i for i in range(2, numbers[29]) if is_prime(i)]\n    return sorted([p for p in primes if right_truncatable(p, set(primes))])\n```\n\nIn this code, we first define a helper function `is_prime` to check if a number `n` is prime. Then, we define a function `right_truncatable` to check if a positive integer is right-truncatable. Finally, we implement the main function `all_right_truncatable_prime` that generates all right-truncatable prime numbers less than the integer at index 29 in the input tuple, and returns them sorted in ascending order as a list.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 169,
+    "total_tokens": 551,
+    "completion_tokens": 382
+  }
+}

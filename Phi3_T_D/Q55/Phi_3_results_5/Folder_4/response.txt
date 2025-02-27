@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-cbb0e2eca6a64bfb9dc69ac96dab89c6",
+  "object": "chat.completion",
+  "created": 1725540870,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef rotate_list(lst):\n    if not lst:\n        return lst\n    return lst[1:] + [lst[0]]\n\ndef has_product_n(lst, target):\n    current_product = 1\n    start_index = 0\n    for i, num in enumerate(lst):\n        current_product *= num\n        while current_product > target and start_index < i:\n            current_product /= lst[start_index]\n            start_index += 1\n        if current_product == target:\n            return lst[start_index:i+1]\n    return []\n\ndef lists_with_product_equal_n(lst):\n    result = []\n    for _ in range(len(lst)):\n        sublist = has_product_n(lst, 91)\n        if sublist:\n            result.append(sublist)\n        lst = rotate_list(lst)\n    return result\n```\n```\n```\n\nPlease note that floating-point arithmetic used in `has_product_n` may introduce precision issues. In practical scenarios, we would typically work with integers and check for divisibility instead of comparing products due to the non-exact nature of division and floating-point arithmetic.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 203,
+    "total_tokens": 488,
+    "completion_tokens": 285
+  }
+}

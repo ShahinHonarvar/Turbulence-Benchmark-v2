@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-16b938e9ac74435bba5d9772fd9a6359",
+  "object": "chat.completion",
+  "created": 1725538042,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef is_prime(n):\n    if n <= 1:\n        return False\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            return False\n    return True\n\ndef all_right_truncatable_prime(numbers):\n    x = numbers[74]\n    truncatable_primes = []\n    for num in range(2, x):\n        if is_prime(num):\n            s = str(num)\n            for i in range(len(s) - 1, 0, -1):\n                if not is_prime(int(s[:i])):\n                    break\n            else:\n                truncatable_primes.append(num)\n    return sorted(truncatable_primes)\n\n# Call the function with the appropriate tuple\n# Example usage:\n# numbers_tuple = ... # assume this is a tuple of positive integers with 75th index at 74\n# result = all_right_truncatable_prime(numbers_tuple)\n# print(result)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 169,
+    "total_tokens": 433,
+    "completion_tokens": 264
+  }
+}

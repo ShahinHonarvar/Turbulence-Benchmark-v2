@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-6588cde057c74e1b8e9a420e39744d87",
+  "object": "chat.completion",
+  "created": 1725537770,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef all_right_truncatable_prime(numbers):\n    if len(numbers) < 25 or not isinstance(numbers[24], int):\n        raise ValueError(\"The tuple must contain at least 25 elements with the integer at index 24.\")\n    x = numbers[24]\n    primes = [2, 3, 5, 7]\n\n    def is_prime(n):\n        if n < 2 or n % 2 == 0:\n            return False\n        for i in range(3, int(n**0.5) + 1, 2):\n            if n % i == 0:\n                return False\n        return True\n\n    def trim_last_digit(n):\n        return n // 10 if n > 9 else 0\n\n    def is_right_truncatable(n):\n        while n > 0:\n            if not is_prime(n):\n                return False\n            n = trim_last_digit(n)\n        return True\n\n    right_truncatable_primes = [p for p in range(7, x) if is_right_truncatable(p)]\n    return sorted(right_truncatable_primes, reverse=True)\n\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 169,
+    "total_tokens": 471,
+    "completion_tokens": 302
+  }
+}

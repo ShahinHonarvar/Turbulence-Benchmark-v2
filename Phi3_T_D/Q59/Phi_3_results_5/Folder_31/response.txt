@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-424d4ef86f6a485186bf022d42dfcff8",
+  "object": "chat.completion",
+  "created": 1725549889,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            return False\n    return True\n\ndef left_truncatable_primes(n):\n    truncatable_primes = []\n    for prime in filter(is_prime, range(23, n)):\n        str_prime = str(prime)\n        if all(is_prime(int(str_prime[i:])) for i in range(len(str_prime))):\n            truncatable_primes.append(prime)\n    return truncatable_primes\n\ndef all_left_truncatable_prime(numbers):\n    x = numbers[50]\n    return sorted(left_truncatable_primes(x), reverse=True)\n```\n\nUsing the function `all_left_truncatable_prime` with a tuple of positive integers, it will return the sorted list of all left-truncatable prime numbers less than the integer at index 50, in descending order.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 156,
+    "total_tokens": 428,
+    "completion_tokens": 272
+  }
+}

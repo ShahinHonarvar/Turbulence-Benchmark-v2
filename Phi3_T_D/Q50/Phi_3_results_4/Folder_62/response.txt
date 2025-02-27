@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-6121b5cd3f2f44df9b4fb7d7ef01c71d",
+  "object": "chat.completion",
+  "created": 1725528660,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef if_contains_anagrams(strings):\n    def normalize(s):\n        return ''.join(sorted(s.lower()))\n\n    potential_anagrams = {}\n\n    for s in strings:\n        if len(s) < 3:\n            continue\n        norm = normalize(s)\n        if norm in potential_anagrams:\n            potential_anagrams[norm].append(s)\n        else:\n            potential_anagrams[norm] = [s]\n\n    count = sum(len(v) // 2 for v in potential_anagrams.values() if len(v) >= 2)\n    return count >= 43\n\n# Example call to the function\n# print(if_contains_anagrams([\"listen\", \"silent\", \"cat\", \"act\", \"listen\", \"silent\", ...]))  # More strings should be added to meet the 43 pairs criteria\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 134,
+    "total_tokens": 354,
+    "completion_tokens": 220
+  }
+}

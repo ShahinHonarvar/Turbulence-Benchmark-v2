@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-b336c36e634045708008cb363d1a45e0",
+  "object": "chat.completion",
+  "created": 1725534172,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef palindrome_of_length_at_least_n(text):\n    from collections import defaultdict\n\n    text = text.lower()\n    max_length = 74\n\n    def is_palindrome(s):\n        return s == s[::-1]\n\n    def all_substrings(text):\n        length = len(text)\n        return {text[i:j] for i in range(length) for j in range(i + 1, length + 1)}\n\n    def filter_palindromes(substrings):\n        return {s for s in substrings if is_palindrome(s) and len(s) >= max_length and s.isalpha()}\n\n    all_subs = all_substrings(text)\n    return filter_palindromes(all_subs)\n\n# Example Usage (you can test with your own string):\nexample_string = 'A longpalindrome like racecar and some words like radar in the text'\nprint(palindrome_of_length_at_least_n(example_string))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 155,
+    "total_tokens": 417,
+    "completion_tokens": 262
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-62f41224d6a84153b811b98d7b2f4960",
+  "object": "chat.completion",
+  "created": 1725544422,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    def check_sum(top, left, bottom, right):\n        return np.sum(matrix[top:bottom+1, left:right+1])\n\n    rows, cols = matrix.shape\n    result = []\n    for top in range(rows):\n        for left in range(cols):\n            for bottom in range(top, rows):\n                for right in range(left, cols):\n                    if check_sum(top, left, bottom, right) == 394:\n                        result.append(matrix[top:bottom+1, left:right+1])\n    return result\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 127,
+    "total_tokens": 290,
+    "completion_tokens": 163
+  }
+}

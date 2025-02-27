@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-766a070e21aa4b819aadcb7283365c08",
+  "object": "chat.completion",
+  "created": 1725542210,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef all_substring_of_size_n(s):\n    n = 47\n    length = len(s)\n    seen = set()\n    distinct_substrings = set()\n    \n    for i in range(length - n + 1):\n        current_substring = s[i:i+n]\n        if len(set(current_substring)) == n:\n            if current_substring not in seen:\n                seen.add(current_substring)\n                distinct_substrings.add(current_substring)\n                \n    return list(distinct_substrings)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 130,
+    "total_tokens": 268,
+    "completion_tokens": 138
+  }
+}

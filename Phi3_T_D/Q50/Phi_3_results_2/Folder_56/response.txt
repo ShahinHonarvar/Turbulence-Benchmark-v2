@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-263c55bed5904d76a630ecd497195cea",
+  "object": "chat.completion",
+  "created": 1725527803,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef if_contains_anagrams(string_list):\n    def normalize(s):\n        return ''.join(sorted(s.lower()))\n\n    count = 0\n    checked = set()\n    for i in range(len(string_list)):\n        if string_list[i] in checked:\n            continue\n        key = normalize(string_list[i])\n        potential_anagrams = [j for j in range(i+1, len(string_list)) if len(string_list[j]) >= 3 and normalize(string_list[j]) == key]\n        count += len(potential_anagrams)\n        checked.update(potential_anagrams)\n\n    return count >= 77\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 134,
+    "total_tokens": 312,
+    "completion_tokens": 178
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-ce10043c4b9d4f11a8c0695c09c45da9",
+  "object": "chat.completion",
+  "created": 1725543040,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    def find_submatrices(row_start, col_start, current_sum, submatrix):\n        submatrices = []\n        for i in range(row_start, len(matrix)):\n            for j in range(col_start, len(matrix[0])):\n                current_sum[i][j] = 0 if i == row_start and j == col_start else current_sum[i][j-1]\n                current_sum[i][j] += matrix[i][j]\n\n                for k in range(row_start, i+1):\n                    if current_sum[i][j] - current_sum[k][j] == 40:\n                        submatrix.append(matrix[k:i+1, col_start:j+1])\n\n        return submatrices\n\n    current_sum = np.zeros((len(matrix), len(matrix[0]) + 1), dtype=int)\n    all_submatrices = []\n    for row_start in range(len(matrix)):\n        for col_start in range(len(matrix[0])):\n            if row_start > 0:\n                current_sum[row_start] = current_sum[row_start-1]\n                current_sum[row_start, :-1] = current_sum[row_start-1, :-1]\n            all_submatrices.extend(find_submatrices(row_start, col_start, current_sum, []))\n\n    return all_submatrices\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 126,
+    "total_tokens": 506,
+    "completion_tokens": 380
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-6ff12e95d6d8404283231360ab872904",
+  "object": "chat.completion",
+  "created": 1725501799,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_perfect_num(nums):\n    if len(nums) > 78 and is_perfect(nums[78]):\n        return True\n    return False\n\ndef is_perfect(num):\n    sum_of_divisors = 1\n    i = 2\n    while i * i <= num:\n        if num % i == 0:\n            sum_of_divisors += i\n            if i != num // i:\n                sum_of_divisors += num // i\n        i += 1\n    return sum_of_divisors == num and num != 1\n\n# Example usage:\n# nums_list = [ ... ]\n# result = if_perfect_num(nums_list)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 94,
+    "total_tokens": 279,
+    "completion_tokens": 185
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-149ff9f4f1ce48a39a26d74864c21f92",
+  "object": "chat.completion",
+  "created": 1725505342,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef find_original_set(*args):\n    if not args or len(args) != 37:\n        raise ValueError(\"Exactly 37 arguments are required, each being a set of integers.\")\n\n    result = set().union(*args)\n    for s in args:\n        if not s.issubset(result):\n            result.update(s)\n\n    return result\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 98,
+    "total_tokens": 192,
+    "completion_tokens": 94
+  }
+}

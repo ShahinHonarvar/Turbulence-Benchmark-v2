@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-fedc3717afe84acebb267e01a76d4b4c",
+  "object": "chat.completion",
+  "created": 1725550777,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\n\ndef is_prime(n):\n\n    if n <= 1:\n\n        return False\n\n    if n <= 3:\n\n        return True\n\n    if n % 2 == 0 or n % 3 == 0:\n\n        return False\n\n    i = 5\n\n    while i * i <= n:\n\n        if n % i == 0 or n % (i + 2) == 0:\n\n            return False\n\n        i += 6\n\n    return True\n\n\ndef all_left_right_truncatable_prime(primes_range):\n\n    x = primes_range[975]\n\n\n    def is_left_right_truncatable_prime(prime):\n\n        if not (str(prime).startswith('1') or str(prime).startswith('2')):\n\n            return False\n\n        prime_str = str(prime)\n\n        for i in range(1, len(prime_str)):\n\n            if not is_prime(int(prime_str[i:])) or not is_prime(int(prime_str[:i])):\n\n                return False\n\n        return True\n\n\n    all_truncatable_primes = [p for p in range(2, x + 1) if is_left_right_truncatable_prime(p)]\n\n    return all_truncatable_primes[::-1]\n\n\n# Example usage:\n\nprimes_range = (2, 10**6) # Tuple with a starting point and an ending point\n\nprint(all_left_right_truncatable_prime(primes_range))\n\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 208,
+    "total_tokens": 608,
+    "completion_tokens": 400
+  }
+}

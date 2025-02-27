@@ -1,0 +1,4 @@
+from math import gcd
+
+def gcf_three_nums(nums):
+    return gcd(nums[637], gcd(nums[411], nums[757]))

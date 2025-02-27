@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-0a39722bb8fb4dc48aed0bbb0ef682d3",
+  "object": "chat.completion",
+  "created": 1725509352,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef find_subset_of_length_n(elements_set):\n    result = 0\n    n = 28\n    total = 2 ** len(elements_set)\n\n    if n > len(elements_set):\n        return 0\n\n    for i in range(total):\n        bin_str = bin(i)[2:].zfill(len(elements_set))\n        bin_list = [int(c) for c in bin_str]\n        if bin_list.count(1) == n:\n            result += 1\n\n    return result\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 88,
+    "total_tokens": 227,
+    "completion_tokens": 139
+  }
+}

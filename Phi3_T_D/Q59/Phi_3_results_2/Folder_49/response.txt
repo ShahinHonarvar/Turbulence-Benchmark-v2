@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-436dba6f834940c5b326dce0909d058f",
+  "object": "chat.completion",
+  "created": 1725548062,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef all_left_truncatable_prime(numeric_tuple):\n    def is_prime(n):\n        if n <= 1:\n            return False\n        for i in range(2, int(n ** 0.5) + 1):\n            if n % i == 0:\n                return False\n        return True\n\n    def is_left_truncatable(n, sieve):\n        while n > 0:\n            n, d = divmod(n, 10)\n            if n == 0 and not is_prime(d) or d == 0 or not sieve[d]:\n                return False\n        return True\n\n    x = numeric_tuple[14]\n    primes = [2, 3, 5, 7]\n    prime_set = set(primes)\n    max_prime = int('9' * len(str(x)))\n\n    while primes[-1] < max_prime:\n        p = primes[-1] + 2\n        if p >= x:\n            break\n        if is_prime(p):\n            prime_set.add(p)\n            primes.append(p)\n\n    return [p for p in primes if is_left_truncatable(p, prime_set)]\n\n# Example call to the function\nnumeric_tuple = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20)\nprint(all_left_truncatable_prime(numeric_tuple))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 156,
+    "total_tokens": 564,
+    "completion_tokens": 408
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-3aa31679e72d49a6aeb88e96068a688c",
+  "object": "chat.completion",
+  "created": 1725530230,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(words):\n    def get_signature(word):\n        return ''.join(sorted(word.lower()))\n\n    signature_count_map = {}\n    for word in words:\n        if len(word) >= 3:\n            signature = get_signature(word)\n            if signature in signature_count_map:\n                signature_count_map[signature] += 1\n            else:\n                signature_count_map[signature] = 1\n\n            if signature_count_map[signature] > 1:\n                return True\n\n    return False\n\n# Example usage:\nwords = [\"Cat\", \"act\", \"Titled\", \"Deli\", \"amle\", \"lame\", \"Live\", \"evil\", \"List\"]\nprint(if_contains_anagrams(words))  # True\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 148,
+    "total_tokens": 353,
+    "completion_tokens": 205
+  }
+}

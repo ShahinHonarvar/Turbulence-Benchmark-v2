@@ -1,0 +1,13 @@
+import numpy as np
+
+def submatrix_with_n_numbers(matrix):
+    rows, cols = matrix.shape
+    count = 0
+    for row_start in range(rows):
+        for col_start in range(cols):
+            for h in range(1, rows - row_start + 1):
+                for w in range(1, cols - col_start + 1):
+                    submatrix = matrix[row_start:row_start + h, col_start:col_start + w]
+                    if submatrix.size == 115:
+                        count += 1
+    return count

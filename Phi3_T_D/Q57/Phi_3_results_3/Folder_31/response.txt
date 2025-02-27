@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-83bef492bcd44e45ab8757a58bebb337",
+  "object": "chat.completion",
+  "created": 1725543792,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    rows, cols = matrix.shape\n    submatrices = []\n\n    # Iterate through each cell and for each cell consider it the top-left corner of a submatrix\n    for i in range(rows):\n        for j in range(cols):\n            # For the current top-left corner, calculate prefix sums for the rows\n            row_sums = np.cumsum(matrix[i:], axis=0)\n            for k in range(i, rows):\n                # Now find column sums and consider them along with row sums\n                col_sums = np.cumsum(matrix[:, j:k+1], axis=1)\n                for l in range(j, cols):\n                    # Calculate sum of submatrix with the current top-left corner (i, j) and bottom-right corners (k, l)\n                    submatrix_sum = row_sums[k, l] - (row_sums[k, j] if k-i > 0 else 0) - (col_sums[k, l] - (col_sums[i, l] if l-j > 0 else 0))\n                    if submatrix_sum == -44:\n                        submatrices.append(matrix[i:k+1, j:l+1])\n\n    return submatrices\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 126,
+    "total_tokens": 458,
+    "completion_tokens": 332
+  }
+}

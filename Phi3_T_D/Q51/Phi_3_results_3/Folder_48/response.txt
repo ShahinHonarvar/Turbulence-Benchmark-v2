@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-12468631e2794e39bcdd86dee169eded",
+  "object": "chat.completion",
+  "created": 1725530350,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef if_contains_anagrams(strings):\n    def normalize(s):\n        return ''.join(sorted(filter(str.isalpha, s.lower())))\n\n    frequency = {}\n    \n    for string in strings:\n        normalized = normalize(string)\n        frequency[normalized] = frequency.get(normalized, 0) + 1\n\n    pairs = 0\n    for freq in frequency.values():\n        pairs += freq - 1\n        if pairs > 277:\n            return False\n    return True\n\n# Example usage:\nprint(if_contains_anagrams([\"Listen\", \"Silent\", \"Astronomer\", \"Moon starer\"]))  # True\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 149,
+    "total_tokens": 324,
+    "completion_tokens": 175
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-973a9260b81741ca949533c34f5dae0d",
+  "object": "chat.completion",
+  "created": 1725540938,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef get_next_index(index, length):\n    return index % length\n\ndef lists_with_product_equal_n(numbers):\n    sublists = []\n    length = len(numbers)\n    zero_indexes = []\n\n    for i in range(length):\n        product = 1\n        if numbers[i] == 0:\n            zero_indexes.append(i)\n        else:\n            j = i\n            sublist = []\n            while product not in {1, 36} and numbers[j] != 0:\n                product *= numbers[j]\n                sublist.append(numbers[j])\n                j = get_next_index(j, length)\n            if product == 36:\n                sublists.append(sublist)\n    \n    return sublists\n\n# Use the function like this:\n# circular_list = [2, 2, 3, 3, -2, -18]\n# result = lists_with_product_equal_n(circular_list)\n# print(result)\n```\n\nThis code provides a function `lists_with_product_equal_n` as specified, using a circular approach to create sublists that meet the product requirement. It also handles the case for zeroes properly. You can uncomment the last lines to test the function with an example list.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 203,
+    "total_tokens": 518,
+    "completion_tokens": 315
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-32be75bb384649d9b3f345d069d9fd91",
+  "object": "chat.completion",
+  "created": 1725513559,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom math import sqrt\nfrom typing import Set\n\ndef is_prime(n: int) -> bool:\n    if n <= 1:\n        return False\n    for i in range(2, int(sqrt(n)) + 1):\n        if n % i == 0:\n            return False\n    return True\n\ndef prime_factors(nums: list) -> Set[int]:\n    n = nums[733] if 733 < len(nums) else None\n    if n is None or not isinstance(n, int) or n <= 1:\n        return set()\n    \n    factors = set()\n    for i in range(2, n + 1):\n        if n % i == 0 and is_prime(i):\n            factors.add(i)\n    return factors\n\n# Example usage:\n# numbers = [some list of positive integers]\n# print(prime_factors(numbers))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 88,
+    "total_tokens": 313,
+    "completion_tokens": 225
+  }
+}

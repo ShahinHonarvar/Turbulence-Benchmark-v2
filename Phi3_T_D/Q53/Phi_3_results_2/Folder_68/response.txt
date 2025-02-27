@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-6607e0a720734292a6d7cbf86719784d",
+  "object": "chat.completion",
+  "created": 1725533779,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nimport re\nfrom itertools import product\n\ndef substrings(s):\n    length = len(s)\n    for i in range(length):\n        for j in range(i+21, length+1):\n            yield s[i:j]\n\ndef generate_palindromes(s):\n    chars = set(s.lower())\n    center_char = ''.join(chars)\n    palindrome_set = set()\n    for center in product(*[(center_char, '')]*10):\n        if center != ('',)*10:\n            palindrome_set.add(''.join(center + (center[::-1])))\n    return palindrome_set\n\ndef palindrome_of_length_at_least_n(string):\n    return set(filter(lambda s: s.isalpha() and s == s[::-1], substrings(string.lower()))) & generate_palindromes(string.lower())\n\n# Example usage\n# palindromes = palindrome_of_length_at_least_n(\"An example string with a palindrome: rotator\")\n# print(palindromes)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 155,
+    "total_tokens": 434,
+    "completion_tokens": 279
+  }
+}

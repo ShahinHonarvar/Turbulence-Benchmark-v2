@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-b96c3281eb0a4f87b7d91f703c3d0e8c",
+  "object": "chat.completion",
+  "created": 1725552066,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n <= 1:\n        return False\n    if n <= 3:\n        return True\n    if n % 2 == 0 or n % 3 == 0:\n        return False\n    i = 5\n    while i * i <= n:\n        if n % i == 0 or n % (i + 2) == 0:\n            return False\n        i += 6\n    return True\n\ndef is_truncatable(n):\n    n = str(n)\n    if len(n) == 1 or len(n) == 2:\n        return is_prime(int(n))\n    if not is_prime(int(n)):\n        return False\n    for i in range(1, len(n)):\n        if not (is_prime(int(n[i:])) and is_prime(int(n[:i]))):\n            return False\n    return True\n\ndef all_left_right_truncatable_prime(numbers):\n    x = numbers[81]\n    return sorted(filter(is_truncatable, range(2, x + 1)), reverse=True)\n\n# You can test the function with the specified tuple of positive integers,\n# for example:\ntest_numbers = (256, 31, 888, 19, 7, 1024, 49, 23, 1234, 2345, 2322)\nprint(all_left_right_truncatable_prime(test_numbers))\n```\n\nThis code includes a helper function `is_prime` to check if a number is prime and a function `is_truncatable` to check if a number is left-and-right-truncatable. The main function `all_left_right_truncatable_prime` uses these helper functions to identify and sort accordingly all left-and-right-truncatable primes up to the specified value `x`.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 207,
+    "total_tokens": 681,
+    "completion_tokens": 474
+  }
+}

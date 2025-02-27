@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-c44ad0c013ef43c59fea5f2adaf24a2b",
+  "object": "chat.completion",
+  "created": 1725529902,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(lst):\n    def is_anagram(s1, s2):\n        return len(s1) == len(s2) and sorted(s1.lower()) == sorted(s2.lower())\n\n    anagram_pairs = 0\n    for i in range(len(lst)):\n        for j in range(i + 1, len(lst)):\n            if is_anagram(lst[i], lst[j]):\n                anagram_pairs += 1\n\n    return anagram_pairs <= 116\n\n# Example usage:\n# result = if_contains_anagrams([\"listen\", \"enlist\", \"google\", \"gooegl\"])\n# print(result)  # Output: True\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 149,
+    "total_tokens": 334,
+    "completion_tokens": 185
+  }
+}

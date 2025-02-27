@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-18f4b44d6abb4caab61bc6c211465a8a",
+  "object": "chat.completion",
+  "created": 1725547845,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef all_left_truncatable_prime(numbers):\n    primes = [2, 3, 5, 7]\n    def is_prime(n):\n        for prime in primes:\n            if n % prime == 0:\n                return False\n        return True\n\n    x = numbers[792]\n    left_truncatable = []\n\n    for number in range(11, x): # 11 is the smallest 2-digit left-truncatable prime\n        str_num = str(number)\n        if all(is_prime(int(str_num[i:])) and int(str_num[i]) != 0 for i in range(len(str_num))):\n            left_truncatable.append(number)\n\n    return left_truncatable\n```\n\nNote: Given the performance consideration, it's assumed that we have a precomputed list of prime numbers (like the initial primes list \"primes\") and we're using a dynamic programming approach to check if a number is prime, which significantly reduces the time complexity compared to checking divisibility up to the number itself. However, if you need to compute primes dynamically or need more details in the `is_prime` function, the code may need to be adjusted accordingly.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 157,
+    "total_tokens": 457,
+    "completion_tokens": 300
+  }
+}

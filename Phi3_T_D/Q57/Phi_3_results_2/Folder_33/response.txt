@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-cfdd2e737a7948ecabadee2dd078f6ee",
+  "object": "chat.completion",
+  "created": 1725543353,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(mat):\n    rows, cols = mat.shape\n    result = []\n    for x in range(rows):\n        for y in range(cols):\n            for dx in range(1, rows - x + 1):\n                for dy in range(1, cols - y + 1):\n                    submat = mat[x : x + dx, y : y + dy]\n                    if submat.sum() == -811:\n                        result.append(submat)\n    return result\n\n# Example usage:\n# my_matrix = np.array([[...]])  # Define your 2D numpy matrix here with integers\n# submatrices = submatrix_with_particular_sum(my_matrix)\n# print(submatrices)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 127,
+    "total_tokens": 324,
+    "completion_tokens": 197
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-028a6b9eed5b41e9a50d52609931f26c",
+  "object": "chat.completion",
+  "created": 1725547269,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef all_left_truncatable_prime(nums):\n    def is_prime(n):\n        if n <= 1: return False\n        if n <= 3: return True\n        if n % 2 == 0 or n % 3 == 0: return False\n        for i in range(5, int(n ** 0.5) + 1, 6):\n            if n % i == 0 or n % (i + 2) == 0: return False\n        return True\n\n    def recursive_left_truncatable(n, primes):\n        if not n or n < 0: return\n        if is_prime(n):\n            primes.append(n)\n            for digit in str(n)[1:]:\n                recursive_left_truncatable(int(digit), primes)\n    \n    x = nums[19]\n    rightmost_digit = str(x)[-1]\n    truncated_primes = []\n\n    for digit in map(str, range(2, int(rightmost_digit) + 1)):\n        recursive_left_truncatable(int(digit), truncated_primes)\n\n    return truncated_primes\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 156,
+    "total_tokens": 450,
+    "completion_tokens": 294
+  }
+}

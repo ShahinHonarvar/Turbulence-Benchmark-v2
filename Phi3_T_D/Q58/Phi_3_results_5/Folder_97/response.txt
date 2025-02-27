@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-af4ba9564f664679a27b01c5c2f2e214",
+  "object": "chat.completion",
+  "created": 1725547082,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    if not isinstance(matrix, np.ndarray) or len(matrix.shape) != 2:\n        return 0\n\n    rows, cols = matrix.shape\n    count = 0\n\n    for r1 in range(rows):\n        for r2 in range(r1, rows):\n            for c1 in range(cols):\n                for c2 in range(c1, cols):\n                    submat = matrix[r1:r2+1, c1:c2+1]\n                    if submat.size == 120:\n                        count += 1\n    return count\n\n# Here, test the function with a sample matrix if needed\n# Example usage:\n# test_matrix = np.random.randint(0, 10, (6, 6))\n# print(submatrix_with_n_numbers(test_matrix))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 117,
+    "total_tokens": 344,
+    "completion_tokens": 227
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-b7bba8017d454dcca187b47ac8e18f26",
+  "object": "chat.completion",
+  "created": 1725504920,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef find_original_set(*sets):\n    if not isinstance(sets, (list, tuple)) or len(sets) != 51:\n        raise ValueError('Exactly 51 arguments are required.')\n\n    original_set = set()\n    prev = set()\n\n    for s in sets:\n        if not (isinstance(s, set) and len(s) == len(set(s))):\n            raise ValueError('Each argument must be a set of integers.')\n\n        original_set.update(s)\n        if prev != prev.union(s):\n            return None\n        prev = original_set.copy()\n\n    return original_set\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 98,
+    "total_tokens": 259,
+    "completion_tokens": 161
+  }
+}

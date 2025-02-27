@@ -1,0 +1,9 @@
+def gcf_three_nums(nums):
+
+    def gcd(a, b):
+        while b:
+            a, b = (b, a % b)
+        return a
+    if len(nums) < 13:
+        raise ValueError('List must contain at least 13 elements')
+    return gcd(gcd(nums[67], nums[84]), nums[13])

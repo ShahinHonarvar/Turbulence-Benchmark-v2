@@ -1,0 +1,3 @@
+def all_ints_not_div_by_num(lst):
+    result = [x for x in lst[0:9] if x % 10 != 0]
+    return result

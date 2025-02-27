@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-105c303adcfd44558639d4559d9d5165",
+  "object": "chat.completion",
+  "created": 1725535249,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef palindrome_of_length_at_least_n(s):\n    s = s.lower()\n    n = len(s)\n    res = set()\n\n    def expand(left, right):\n        while left >= 0 and right < n and s[left] == s[right]:\n            if right - left + 1 >= 43:\n                res.add(s[left:right+1])\n            left -= 1\n            right += 1\n\n    for i in range(n-1):\n        expand(i, i)  # Odd length palindromes\n        expand(i, i+1)  # Even length palindromes\n    return res\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 155,
+    "total_tokens": 325,
+    "completion_tokens": 170
+  }
+}

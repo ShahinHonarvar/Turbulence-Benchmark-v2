@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-ad866771b8f54d899eb843acadb9ae8c",
+  "object": "chat.completion",
+  "created": 1725546759,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    if not isinstance(matrix, np.ndarray) or len(matrix.shape) != 2:\n        raise ValueError(\"Input must be a 2D NumPy matrix\")\n\n    rows, cols = matrix.shape\n    count = 0\n\n    for i in range(rows):\n        for j in range(cols):\n            if i + 3 < rows and j + 3 < cols:\n                submatrix = matrix[i:i+4, j:j+4]\n                if np.sum(submatrix) == 166:\n                    count += 1\n\n    return count\n\n# Example usage:\nmatrix = np.array([[1, 2, 3],\n                   [4, 5, 6],\n                   [7, 8, 9],\n                   [10, 11, 12]])\n\nprint(submatrix_with_n_numbers(matrix))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 117,
+    "total_tokens": 357,
+    "completion_tokens": 240
+  }
+}

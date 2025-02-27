@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-507fc1e5406542e29c3950b8b9d09cba",
+  "object": "chat.completion",
+  "created": 1725544283,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    def find_submatrices(start_row, start_col, current_sum, current_submatrix):\n        if current_sum == 901:\n            result.append(np.array(current_submatrix))\n            return\n        if current_sum > 901 or start_row >= rows or start_col >= cols:\n            return\n        for i in range(start_row, rows):\n            for j in range(start_col if i == start_row else 0, cols):\n                current_sum += matrix[i][j]\n                current_submatrix.append(matrix[i][j])\n                find_submatrices(i, j + 1, current_sum, current_submatrix)\n                current_submatrix.pop()\n                current_sum -= matrix[i][j]\n\n    rows, cols = matrix.shape\n    result = []\n    find_submatrices(0, 0, 0, [])\n    return result\n\n# Example usage:\n# matrix = np.array([[...], [...], ...])\n# print(submatrix_with_particular_sum(matrix))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 127,
+    "total_tokens": 417,
+    "completion_tokens": 290
+  }
+}

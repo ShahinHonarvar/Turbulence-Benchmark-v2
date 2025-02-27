@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-71480c80d41a4af0a353f2e6b53d635d",
+  "object": "chat.completion",
+  "created": 1725544263,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    rows, cols = matrix.shape\n    results = []\n\n    def explore(r1, c1, r2, c2):\n        current_sum = np.sum(matrix[r1:r2+1,c1:c2+1])\n        if current_sum == 15:\n            results.append(matrix[r1:r2+1,c1:c2+1].copy())\n        for i in range(r1, r2+1):\n            explore(i, c1, i, c2)\n        for i in range(c1, c2+1):\n            explore(r1, i, r2, i)\n        for i in range(r1, r2+1):\n            for j in range(c1, c2+1):\n                matrix[i, j] += current_sum\n        for i in range(r1, r2+1):\n            matrix[i, c1] -= current_sum\n        for i in range(c1, c2+1):\n            matrix[r2, i] -= current_sum\n        matrix[r1, c1] -= current_sum\n\n    for r1 in range(rows):\n        for c1 in range(cols):\n            for r2 in range(r1, rows):\n                for c2 in range(c1, cols):\n                    matrix_copy = matrix.copy()\n                    explore(r1, c1, r2, c2)\n                    matrix_copy = matrix.copy()\n                    if matrix_copy[r1, c1] == matrix_copy[r2, c2]:\n                        results.append(matrix[r1:r2+1,c1:c2+1])\n\n    return results\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 126,
+    "total_tokens": 559,
+    "completion_tokens": 433
+  }
+}

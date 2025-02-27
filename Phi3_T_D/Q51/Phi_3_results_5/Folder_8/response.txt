@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-e65552a0b5b7498c91a5da1385965ad9",
+  "object": "chat.completion",
+  "created": 1725531078,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom collections import defaultdict\nimport math\n\ndef if_contains_anagrams(string_list):\n    def count_chars(s):\n        counter = defaultdict(int)\n        for c in s.lower():\n            if c.isalpha() and len(s) >= 3:\n                counter[c] += 1\n        return frozenset(counter.items())\n    \n    anagram_count = 0\n    seen = set()\n    for s in string_list:\n        s_key = count_chars(s)\n        other_key_matches = sum(1 for k in seen if math.prod(seen[k]) == math.prod(s_key))\n        seen[s_key] = 1\n        anagram_count += other_key_matches\n        if anagram_count > 68:\n            return False\n    \n    return True\n```\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 148,
+    "total_tokens": 364,
+    "completion_tokens": 216
+  }
+}

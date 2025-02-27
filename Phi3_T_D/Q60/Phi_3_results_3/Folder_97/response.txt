@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-67eb048a4dfd423090b26326f266c76e",
+  "object": "chat.completion",
+  "created": 1725552629,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            return False\n    return True\n\ndef is_left_right_truncatable_prime(n, primes):\n    str_n = str(n)\n    for i in range(1, len(str_n)):\n        if not is_prime(int(str_n[i:])) or not is_prime(int(str_n[:-i])):\n            return False\n    return str_n not in str(primes)  # Ensure it's not in long form in prime index list\n\ndef all_left_right_truncatable_prime(numbers):\n    primes = set(sieve_of_eratosthenes(numbers[645]))\n    truncatable_primes = []\n    for number in range(2, numbers[645] + 1):\n        if is_left_right_truncatable_prime(number, primes):\n            truncatable_primes.append(number)\n    return sorted(truncatable_primes)\n\ndef sieve_of_eratosthenes(limit):\n    mark = [True] * (limit + 1)\n    primes = []\n    for number in range(2, limit + 1):\n        if mark[number]:\n            primes.append(number)\n            for multiple in range(number*number, limit+1, number):\n                mark[multiple] = False\n    return primes\n\nall_left_right_truncatable_prime((100, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 208,
+    "total_tokens": 855,
+    "completion_tokens": 647
+  }
+}

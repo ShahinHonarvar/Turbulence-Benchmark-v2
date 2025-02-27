@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-248feaf4be52423abf4cab3b57b30c73",
+  "object": "chat.completion",
+  "created": 1725527588,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom collections import defaultdict\nfrom itertools import permutations\n\ndef if_contains_anagrams(strings):\n    sorted_strings = [\n        (''.join(sorted(s.lower())), len(s)) for s in strings\n        if len(s) >= 3\n    ]\n    anagram_dict = defaultdict(int)\n\n    for _, length in sorted_strings:\n        anagram_dict[length] += 1\n\n    count = 0\n    for length, frequency in anagram_dict.items():\n        if frequency > 1:\n            perms = set(''.join(p) for p in permutations('abcdefghijklmnopqrstuvwxyz', length))\n            found_chars = set()\n            unique_perms = set()\n\n            for _, sorted_str in sorted_strings:\n                if sorted_str in perms and sorted_str not in found_chars:\n                    found_chars.add(sorted_str)\n                    unique_perms.add(sorted_str)\n                    if len(unique_perms) == frequency:\n                        count += frequency\n\n                    if count >= 30:\n                        return True\n\n    return False\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 134,
+    "total_tokens": 426,
+    "completion_tokens": 292
+  }
+}

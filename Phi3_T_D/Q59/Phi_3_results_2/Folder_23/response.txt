@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-a01643b1ec3d4c9fbd78a8fd6c35f5ae",
+  "object": "chat.completion",
+  "created": 1725547887,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n <= 1:\n        return False\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            return False\n    return True\n\ndef is_left_truncatable(number, primes):\n    str_num = str(number)\n    for i in range(len(str_num)):\n         if not is_prime(int(str_num[i:])):\n             return False\n    return True\n\ndef all_left_truncatable_primes(range_end):\n    primes = [n for n in range(2, range_end) if is_prime(n)]\n    return [p for p in primes if is_left_truncatable(p, primes)][::-1]\n\n# Extract x from the tuple and filter primes accordingly\nx = tuple_argument[77]  # Assuming 'tuple_argument' is the given tuple\nall_left_truncs = all_left_truncatable_primes(x)\nprint(all_left_truncs)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 156,
+    "total_tokens": 430,
+    "completion_tokens": 274
+  }
+}

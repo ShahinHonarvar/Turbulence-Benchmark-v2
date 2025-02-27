@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-a08bb12b997d41289d8c454b0a1f8441",
+  "object": "chat.completion",
+  "created": 1725534741,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef palindrome_of_length_at_least_n(s):\n    def is_letter(c):\n        return 'a' <= c.lower() <= 'z'\n\n    def expand_around_center(left, right):\n        while left >= 0 and right < len(s) and is_letter(s[left]) and is_letter(s[right]):\n            if s[left] == s[right]:\n                yield left, right\n            if right - left + 1 < 96:\n                return\n            if s[left + 1] == s[right] and left + 1 >= 0 and right - 1 < len(s):\n                yield left + 1, right - 1\n            left -= 1; right += 1\n\n    palindromes = set()\n    for i in range(len(s)):\n        for left, right in expand_around_center(i, i):\n            for left, right in expand_around_center(i, i + 1):\n                palindrome = s[left:right+1]\n                if len(palindrome) >= 96:\n                    palindromes.add(palindrome.lower())\n    return palindromes\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 155,
+    "total_tokens": 452,
+    "completion_tokens": 297
+  }
+}

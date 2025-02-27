@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-ed9015c2d23c4d2f877e9adaed9a032c",
+  "object": "chat.completion",
+  "created": 1725537478,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            return False\n    return True\n\ndef is_right_truncatable_prime(p, primes):\n    while p:\n        if not primes.get(p, False):\n            return False\n        p //= 10\n    return True\n\ndef find_truncatable_primes(max_len):\n    primes = {p: is_prime(p) for p in range(2, 11)}\n    right_truncatable_primes = []\n    for p in range(11, max_len):\n        primes[p] = is_prime(p)\n        if primes[p] and is_right_truncatable_prime(p, primes):\n            right_truncatable_primes.append(p)\n    right_truncatable_primes.sort()\n    return right_truncatable_primes\n\ndef all_right_truncatable_prime(nums):\n    x = nums[175]\n    return find_truncatable_primes(x)\n\nresult = all_right_truncatable_prime((*range(200),)))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 170,
+    "total_tokens": 502,
+    "completion_tokens": 332
+  }
+}

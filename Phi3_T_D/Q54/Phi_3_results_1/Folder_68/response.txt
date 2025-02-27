@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-c676193be62f46ef93609c9294db2306",
+  "object": "chat.completion",
+  "created": 1725535753,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n <= 1:\n        return False\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            return False\n    return True\n\ndef right_truncatable_primes(n):\n    primes = [2, 3, 5, 7]\n    right_truncatable = []\n    \n    for prime in primes:\n        while prime < n:\n            if is_prime(prime):\n                right_truncatable.append(prime)\n            prime = prime * 10 + 2\n    \n    for prime in primes:\n        while prime < n:\n            if is_prime(prime):\n                right_truncatable.append(prime)\n            prime = prime * 10 + 3\n    \n    for prime in primes:\n        while prime < n:\n            if is_prime(prime):\n                right_truncatable.append(prime)\n            prime = prime * 10 + 4\n    \n    for prime in primes:\n        while prime < n:\n            if is_prime(prime):\n                right_truncatable.append(prime)\n            prime = prime * 10 + 5\n    \n    for prime in primes:\n        while prime < n:\n            if is_prime(prime):\n                right_truncatable.append(prime)\n            prime = prime * 10 + 6\n    \n    for prime in primes:\n        while prime < n:\n            if is_prime(prime):\n                right_truncatable.append(prime)\n            prime = prime * 10 + 7\n    \n    return sorted(set(right_truncatable), reverse=True)\n\ndef all_right_truncatable_prime(numbers):\n    x = numbers[1]\n    if not isinstance(x, int) or x <= 0:\n        return []\n    \n    return right_truncatable_primes(x)\n\n# Example usage:\nprint(all_right_truncatable_prime((1000, 50)))```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 168,
+    "total_tokens": 691,
+    "completion_tokens": 523
+  }
+}

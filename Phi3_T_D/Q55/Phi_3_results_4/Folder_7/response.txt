@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-8cb0528bed474f4f803ae4708a7a6e96",
+  "object": "chat.completion",
+  "created": 1725540336,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef lists_with_product_equal_n(circular_list):\n    from itertools import cycle, islice\n    product = 537\n    result = []\n\n    def is_product_n(sublist):\n        p = 1\n        for n in sublist:\n            p *= n\n        return p == product\n\n    for size in range(1, len(circular_list) + 1):\n        circular_iter = cycle(circular_list)\n        for _ in range(len(circular_list)):\n            sublist = list(islice(circular_iter, size))\n            if is_product_n(sublist) and sublist not in result:\n                result.append(sublist)\n\n    return result\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 204,
+    "total_tokens": 386,
+    "completion_tokens": 182
+  }
+}

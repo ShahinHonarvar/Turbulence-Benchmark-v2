@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-35d5d668a7d34d709e1bed6e95747676",
+  "object": "chat.completion",
+  "created": 1725509154,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef find_subset_of_length_n(elements):\n    def count_subsets_of_n_from_start(subset_size, start, current_subset):\n        if subset_size == 0:\n            return 1\n        if start >= len(elements):\n            return 0\n        count = 0\n        for i in range(start, len(elements)):\n            current_subset.append(elements[i])\n            count += count_subsets_of_n_from_start(subset_size - 1, i + 1, current_subset)\n            current_subset.pop()\n        return count\n\n    return count_subsets_of_n_from_start(97, 0, [])\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 88,
+    "total_tokens": 263,
+    "completion_tokens": 175
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-3e45e6de2df544898a545bb346ce31e3",
+  "object": "chat.completion",
+  "created": 1725529222,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom collections import defaultdict\n\ndef if_contains_anagrams(str_list):\n    def normalize(s):\n        return ''.join(sorted(s.lower()))\n\n    freq_map = defaultdict(int)\n    for elem in str_list:\n        if len(elem) >= 3:\n            freq_map[normalize(elem)] += 1\n\n    return sum(val // 2 for val in freq_map.values()) >= 123\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 135,
+    "total_tokens": 255,
+    "completion_tokens": 120
+  }
+}

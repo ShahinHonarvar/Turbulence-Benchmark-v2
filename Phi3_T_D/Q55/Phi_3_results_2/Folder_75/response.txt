@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-22c144d5ed01426192158fdc006dc2b0",
+  "object": "chat.completion",
+  "created": 1725539603,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef lists_with_product_equal_n(nums):\n    head, *tail = nums\n    return [[head] + tail[i:i+n-1] for n in range(2, len(nums) + 1)\n            for i in range(len(tail) + 1) if head * product(tail[i:i+n-1]) == 13]\n\ndef product(lst):\n    result = 1\n    for num in lst:\n        result *= num\n    return result\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 203,
+    "total_tokens": 330,
+    "completion_tokens": 127
+  }
+}

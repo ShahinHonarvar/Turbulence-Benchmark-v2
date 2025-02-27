@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-342ed26988ec49efa7699cba542db6c1",
+  "object": "chat.completion",
+  "created": 1725519245,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom itertools import permutations\n\ndef palindromes_between_indices(text):\n    from collections import Counter\n    s = text[0:8].lower()\n    c = Counter(s)\n    center = ''.join([i * (f // 2) for i, f in c.items() if f > 1])\n    odd_char = ''.join([i for i, f in c.items() if f % 2 == 1])\n    all_perms = set(permutations(''.join(c.elements())))\n\n    palindromes = set()\n    for perm in all_perms:\n        perm_str = ''.join(perm)\n        if len(perm_str) < 5:\n            continue\n        if center:\n            palindrome = perm_str[:(len(perm_str) // 2)]\n            if (len(perm_str) % 2 == 1):\n                palindrome += odd_char[0]\n            palindrome += palindrome[::-1]\n            if palindrome == palindrome[::-1]:\n                palindromes.add(palindrome)\n        else:\n            palindrome = ''.join(sorted(perm_str))\n            palindrome += palindrome[::-1]\n            if palindrome == palindrome[::-1]:\n                palindromes.add(palindrome)\n\n    return palindromes\n```\n```\n\nThis code defines a function `palindromes_between_indices` which implements the logic as described in the specification to find all palindromes of at least 5 characters formed with characters in the given string between indices 1 to 7.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 192,
+    "total_tokens": 600,
+    "completion_tokens": 408
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-a831f2a5f5ce4c89b9b3371f5d8e49de",
+  "object": "chat.completion",
+  "created": 1725545891,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    if not isinstance(matrix, np.ndarray):\n        return 0\n    m, n = matrix.shape\n    count = 0\n    for i in range(m):\n        for j in range(n):\n            for k in range(i, m):\n                for l in range(j, n):\n                    if (k - i + 1) * (l - j + 1) == 29:\n                        count += 1\n    return count\n\n# Example usage:\n# matrix = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])\n# print(submatrix_with_n_numbers(matrix))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 116,
+    "total_tokens": 307,
+    "completion_tokens": 191
+  }
+}

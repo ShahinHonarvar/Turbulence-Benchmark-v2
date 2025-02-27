@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-e1380a426d3041099b7597515459ce28",
+  "object": "chat.completion",
+  "created": 1725528347,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef if_contains_anagrams(lst):\n    anagram_count = 0\n    min_length = 3\n    sorted_words = [\"\".join(sorted(word.lower())) for word in lst if len(word) >= min_length]\n    unique_words = set(sorted_words)\n\n    for word in unique_words:\n        count = sorted_words.count(word)\n        if count > 1:\n            anagram_count += (count * (count - 1)) // 2\n\n    return anagram_count >= 36\n\n# Example usage:\nprint(if_contains_anagrams(['listen', 'silent', 'enlist', 'inlets', 'google', 'gooegl', 'banana']))  # Output: False\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 134,
+    "total_tokens": 319,
+    "completion_tokens": 185
+  }
+}

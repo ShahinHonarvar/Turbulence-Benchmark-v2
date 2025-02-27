@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-02bdcef766554d71827de496ed2cd877",
+  "object": "chat.completion",
+  "created": 1725504592,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef find_original_set(*sets):\n    if not isinstance(sets, tuple) or len(sets) != 7 or len(set(map(len, sets))) != 1:\n        raise ValueError(\"Input should be exactly 7 distinct sets of integers.\")\n    original_set = set().union(*sets)\n    return original_set\n```\n\n```python\n# Example usage:\ns1 = {1, 2, 3}\ns2 = {2, 4}\ns3 = {3, 5}\ns4 = {1, 6}\ns5 = {1, 2, 7}\ns6 = {2, 8}\ns7 = {9, 3}\noriginal_set = find_original_set(s1, s2, s3, s4, s5, s6, s7)\nprint(original_set)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 97,
+    "total_tokens": 307,
+    "completion_tokens": 210
+  }
+}

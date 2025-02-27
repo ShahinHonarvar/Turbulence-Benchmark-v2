@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-565178a3b21c4c248f78f114f11f97bb",
+  "object": "chat.completion",
+  "created": 1725538971,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef lists_with_product_equal_n(nums):\n    from itertools import cycle\n\n    def find_sublists(head, tail, product, result):\n        contiguous_nums = [head]\n        while head != tail:\n            head = next(c)\n            if sum(contiguous_nums) == 0 or next(c) == 0 or product % next(c) != 0:\n                yield None\n                head = next(tailcycle)\n                contiguous_nums = [head]\n            else:\n                product //= next(c)\n                contiguous_nums.append(next(c))\n                if product == 1:\n                    yield tuple(startnum for startnum in contiguous_nums if startnum)\n                    head = next(c)\n                    contiguous_nums = [head]\n        yield None\n\n    def circular():\n        if not nums:\n            return\n        c = cycle(nums)\n        while True:\n            yield next(c)\n\n    tailcycle = circular()\n    found_sublists = set()\n    for startnum in nums:\n        tail = next(tailcycle)\n        for sublist in find_sublists(startnum, tail, -65, result=None):\n            if sublist is not None:\n                if min(sublist) * max(sublist) == -65:\n                    found_sublists.add(sublist)\n    return [list(s) for s in found_sublists]\n\n```\n\nPlease note, Python's native list type does not support being circular natively, thus the above implementation provides a way to iterate over a \"circular\" list using generators and itertools.cycle. However, the requirement for finding sublists with a product equal to -65 could mean no solution exists for a given input because the product of contiguous integers is always positive or zero, except if you allow the inclusion of negative pairs. Since that's not a standard interpretation, the function is not optimized for this \"product equal to -65\" scenario.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 203,
+    "total_tokens": 690,
+    "completion_tokens": 487
+  }
+}

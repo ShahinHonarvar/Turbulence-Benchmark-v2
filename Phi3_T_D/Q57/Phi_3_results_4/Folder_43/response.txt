@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-382279e899b747b2b782440b682b1756",
+  "object": "chat.completion",
+  "created": 1725544334,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    m = matrix.shape[0]\n    n = matrix.shape[1]\n    result = []\n    \n    def valid_sum(submat):\n        return np.sum(submat) == -81\n    \n    def find_submatrices(r1, c1, r2, c2, current_sum=np.array([0])):\n        if r1 <= r2 and c1 <= c2:\n            submat = matrix[r1:r2+1, c1:c2+1]\n            if valid_sum(submat):\n                result.append(submat)\n            sum_submat = current_sum + np.sum(submat)\n            for new_r2 in range(r2, m):\n                for new_c2 in range(c2, n):\n                    find_submatrices(r1, c1, new_r2, new_c2, sum_submat)\n    \n    for row_start in range(m):\n        for col_start in range(n):\n            find_submatrices(row_start, col_start, row_start, col_start)\n            find_submatrices(row_start, col_start, m-1, col_start)\n            find_submatrices(row_start, col_start, row_start, n-1)\n            find_submatrices(row_start, col_start, m-1, n-1)\n    \n    return result\n```\n\nYou can use this function by passing a NumPy matrix to it as the argument. For example:\n\n```python\nimport numpy as np\nmatrix = np.array([[1, 2, -90],\n                   [0, -80,  0],\n                   [-1,  0,  10]])\n\nsubmatrices = submatrix_with_particular_sum(matrix)\nfor submat in submatrices:\n    print(submat)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 126,
+    "total_tokens": 607,
+    "completion_tokens": 481
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-34c1976199c743e4ac24c81c86c36110",
+  "object": "chat.completion",
+  "created": 1725545378,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix, n=47):\n    if matrix.size < n:\n        return 0\n\n    count = 0\n    rows, cols = matrix.shape\n    for i in range(rows):\n        for j in range(cols):\n            for k in range(j+n, cols+1):\n                submatrix = matrix[i:i+k-j, j:k]\n                if np.count_nonzero(submatrix == n) == n:\n                    count += 1\n\n    return count\n\n# Example usage:\n# matrix = np.array([\n#     [1, 2, 3, 4],\n#     [5, 2, 7, 8],\n#     [1, 2, 47, 4],\n#     [1, 1, 47, 47]\n# ])\n# print(submatrix_with_n_numbers(matrix))\n```\n\nThis code snippet defines the function `submatrix_with_n_numbers` that iterates over all possible submatrices of the input numpy matrix to count those containing exactly 47 integers. Note, however, that this method may not be the most efficient for large matrices or for matrices where potential submatrices with 47 integers are numerous.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 116,
+    "total_tokens": 426,
+    "completion_tokens": 310
+  }
+}

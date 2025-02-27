@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-61887949afac4b718cee5026e23a36a0",
+  "object": "chat.completion",
+  "created": 1725517882,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef palindromes_between_indices(s):\n    from itertools import permutations\n    from collections import Counter\n\n    def is_palindrome(chars):\n        counter = Counter(chars)\n        return sum(count % 2 for count in counter.values()) <= 1\n\n    def get_palindromes(chars):\n        mid = [c for c, _ in Counter(chars).items() if _ % 2]\n        perms = set()\n        combs = [p for l in range(len(mid)) for p in combinations(mid * (len(mid) + 1), len(chars) - 2 * l)]\n        for comb in combs:\n            unpaired = \"\".join(mid) + \"\".join(comb)\n            perms |= set(\"\".join(p) for p in permutations(unpaired))\n        return sorted(set(p for p in perms if is_palindrome(p)))\n\n    start, end = 4, 9\n    if end - start + 1 < 4:\n        return set()\n    chars = s[start:end + 1].lower()\n    return get_palindromes(chars)\n\n\nfrom itertools import combinations\n\n# Example usage\nprint(palindromes_between_indices(\"abcdefgh\"))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 192,
+    "total_tokens": 517,
+    "completion_tokens": 325
+  }
+}

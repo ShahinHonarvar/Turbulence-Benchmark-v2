@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-0e0eeab10e2c428b84375f4588d6db75",
+  "object": "chat.completion",
+  "created": 1725534355,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef find_center(s, l, r):\n    while l >= 0 and r < len(s) and s[l].lower() == s[r].lower():\n        l -= 1\n        r += 1\n    return l+1, r-1\n\ndef expand_around_center(s, center, left, right):\n    while left >= 0 and right < len(s) and s[left].lower() == s[right].lower():\n        left -= 1\n        right += 1\n    return left+1, right-1\n\ndef palindrome_of_length_at_least_n(s):\n    n, result = 140, set()\n    s = s.lower().replace(\" \", \"\")\n\n    for center in range(len(s)):\n        left, right = expand_around_center(s, center, center, center)\n        if right - left + 1 >= n:\n            result.add(s[left:right+1])\n        \n        left, right = expand_around_center(s, center, center-1, center)\n        if right - left + 1 >= n:\n            result.add(s[left:right+1])\n\n    return result\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 156,
+    "total_tokens": 450,
+    "completion_tokens": 294
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-a683cf83b17f4159a2ac6f41c369b556",
+  "object": "chat.completion",
+  "created": 1725507418,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef filter_chars(s):\n    start, stop = 46, 74\n    char_set = set([chr(i) for i in range(ord('&'), ord('M'))])\n\n    result = ''\n    for idx, char in enumerate(s):\n        if start <= idx < stop:\n            if char in char_set:\n                continue\n        result += char\n\n    return result\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 141,
+    "total_tokens": 241,
+    "completion_tokens": 100
+  }
+}

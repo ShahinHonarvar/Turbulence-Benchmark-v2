@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-90db9d3833004c099e9e7d6f1872ce79",
+  "object": "chat.completion",
+  "created": 1725489014,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef find_second_smallest_num(lst):\n    start, end = 75, 88\n    return find_kth_smallest(lst, start, end, 2) if len(lst[start:end+1]) >= 2 else None\n\ndef find_kth_smallest(lst, start, end, k):\n    def partition(base_idx, end_idx):\n        pivot = lst[end_idx]\n        i = base_idx - 1\n        for j in range(base_idx, end_idx):\n            if lst[j] <= pivot:\n                i += 1\n                lst[i], lst[j] = lst[j], lst[i]\n        lst[i+1], lst[end_idx] = lst[end_idx], lst[i+1]\n        return i + 1\n\n    def quickselect(base_idx, end_idx, position):\n        if base_idx < end_idx:\n            pivot_index = partition(base_idx, end_idx)\n            if pivot_index == position:\n                return lst[pivot_index]\n            elif pivot_index < position:\n                return quickselect(pivot_index + 1, end_idx, position)\n            else:\n                return quickselect(base_idx, pivot_index - 1, position)\n        return lst[pivot_index]\n\n    if start < end:\n        return quickselect(start, end, k - 1)\n\nlst = [13, 17, 12, 10, 16, 19, 10, 7, 12, 14, 11, 19, 18, 20, 13, 11, 15]\nresult = find_second_smallest_num(lst)\nprint(result)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 112,
+    "total_tokens": 553,
+    "completion_tokens": 441
+  }
+}

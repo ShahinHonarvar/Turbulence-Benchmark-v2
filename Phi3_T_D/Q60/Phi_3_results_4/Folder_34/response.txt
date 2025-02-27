@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-d8e58b5dc6ce42648b148a97e74c7fa1",
+  "object": "chat.completion",
+  "created": 1725552927,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef all_left_right_truncatable_prime(numbers_tuple):\n    def is_prime(n):\n        if n <= 1:\n            return False\n        for i in range(2, int(n ** 0.5) + 1):\n            if n % i == 0:\n                return False\n        return True\n\n    def all_digit_truncatable(num):\n        if num < 10 and is_prime(num):\n            return num\n        temp = str(num)\n        for i in range(len(temp)):\n            if num < 10 or not is_prime(int(temp[i:])) or not is_prime(int(temp[:i+1])):\n                return False\n        return True\n\n    x = numbers_tuple[18]\n    left_right_truncatable_primes = []\n    for num in range(2, x+1):\n        if all_digit_truncatable(num):\n            left_right_truncatable_primes.append(num)\n    return sorted(left_right_truncatable_primes, reverse=True)\n\n# Example tuple call\nresult = all_left_right_truncatable_prime((25,) * 20)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 207,
+    "total_tokens": 513,
+    "completion_tokens": 306
+  }
+}

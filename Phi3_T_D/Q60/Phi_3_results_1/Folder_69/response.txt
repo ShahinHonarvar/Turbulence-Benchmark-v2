@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-2a4019a0d1524019b45ec3e52b16314c",
+  "object": "chat.completion",
+  "created": 1725550866,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef all_left_right_truncatable_prime(numbers):\n    from sympy import isprime\n\n    def truncatable(n):\n        return all(isprime(int(str(n)[:i] + str(n)[i+1:])) for i in range(len(str(n))))\n\n    x = numbers[759]\n    result = []\n    for prime in filter(isprime, range(2, x + 1)):\n        if truncatable(prime):\n            result.append(prime)\n    return sorted(result, reverse=True)\n\n# Example usage:\nnumbers_tuple = (0,) * 760 + (123456789,)  # Assuming other elements are not relevant for the calculation\nprint(all_left_right_truncatable_prime(numbers_tuple))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 208,
+    "total_tokens": 415,
+    "completion_tokens": 207
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-3f9c230f15224e2b8d37a133a7449cd6",
+  "object": "chat.completion",
+  "created": 1725546768,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    count = 0\n    rows, cols = matrix.shape\n    for row in range(rows):\n        for col in range(cols):\n            if np.sum(matrix[row:, col:][:17, :17]) == 17:\n                count += 1\n    return count\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 116,
+    "total_tokens": 211,
+    "completion_tokens": 95
+  }
+}

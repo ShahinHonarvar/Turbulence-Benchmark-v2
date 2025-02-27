@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-0d1a3f2e3f7746819ab43afc1468187a",
+  "object": "chat.completion",
+  "created": 1725543282,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    if not isinstance(matrix, np.ndarray):\n        raise ValueError(\"Input must be a numpy matrix\")\n\n    rows, cols = matrix.shape\n    target_sum = 398\n    results = []\n\n    def get_all_submatrices(r1, c1, rows, cols):\n        for i in range(r1, rows):\n            for j in range(c1, cols):\n                for k in range(i, rows):\n                    for l in range(j, cols):\n                        submatrix = matrix[i:k+1, j:l+1]\n                        if np.sum(submatrix) == target_sum:\n                            results.append(submatrix)\n\n    for row_start in range(rows):\n        for col_start in range(cols):\n            get_all_submatrices(row_start, col_start, rows, cols)\n\n    return results\n```\n\nThis code defines a function `submatrix_with_particular_sum` which accepts a numpy matrix as its argument and iterates through all possible submatrices, returning those whose sum equals 398.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 127,
+    "total_tokens": 415,
+    "completion_tokens": 288
+  }
+}

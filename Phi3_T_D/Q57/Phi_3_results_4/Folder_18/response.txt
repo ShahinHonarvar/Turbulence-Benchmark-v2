@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-d5cd3c2b492443038c8d448adc76f385",
+  "object": "chat.completion",
+  "created": 1725544221,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    rows, cols = matrix.shape\n    submatrices = []\n    \n    for i in range(rows):\n        for j in range(cols):\n            for width in range(1, min(rows-i, cols-j) + 1):\n                for height in range(1, min(rows-i, cols-j) + 1):\n                    if width * height < cols - j or height < rows - i:\n                        continue\n                    submatrix_sum = np.sum(matrix[i:i+width, j:j+height])\n                    if submatrix_sum == 616:\n                        submatrices.append(matrix[i:i+width, j:j+height])\n    \n    return submatrices\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 127,
+    "total_tokens": 327,
+    "completion_tokens": 200
+  }
+}

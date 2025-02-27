@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-442213a0580943a6ade3108d6dd747e6",
+  "object": "chat.completion",
+  "created": 1725548427,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nfrom sympy import isprime\n\ndef all_left_truncatable_prime(numbers):\n    x = numbers[74]\n    truncatables = []\n    for i in range(2, x):\n        original_i = i\n        while i > 0:\n            if not isprime(i):\n                break\n            i = int(str(i)[1:])\n        if i == 0:\n            truncatables.append(original_i)\n    return sorted(truncatables)\n\n# Generate a tuple of the first 75 integers for example\nnumbers = tuple(range(1, 76))\nall_left_truncatable_prime(numbers)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 156,
+    "total_tokens": 325,
+    "completion_tokens": 169
+  }
+}

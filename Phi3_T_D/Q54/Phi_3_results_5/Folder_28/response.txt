@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-7bd598f11c7f45f8aea15f3ecb261973",
+  "object": "chat.completion",
+  "created": 1725538192,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef is_right_truncatable_prime(n, prime_set):\n    while n > 0:\n        if not is_prime(n, prime_set):\n            return False\n        n //= 10\n    return True\n\ndef all_right_truncatable_prime(numbers):\n    if len(numbers) < 20:\n        raise ValueError(\"Tuple must contain at least 20 positive integers.\")\n    \n    x = numbers[19]\n    return sorted([p for p in range(2, x) if is_right_truncatable_prime(p, primes_sieve(x))])\n\n# Helper function to generate prime numbers up to x using the Sieve of Eratosthenes\ndef primes_sieve(x):\n    sieve = [True] * (x + 1)\n    for p in range(2, x+1):\n        if sieve[p]:\n            for i in range(p * p, x+1, p):\n                sieve[i] = False\n    return set(p for p in range(2, x) if sieve[p])\n\ndef is_prime(n, prime_set):\n    return n in prime_set\n\n# Example usage:\n# result = all_right_truncatable_prime((20, 21, 22, ..., 40))\n# print(result)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 169,
+    "total_tokens": 506,
+    "completion_tokens": 337
+  }
+}

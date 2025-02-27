@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-893dbbfe7d6643e29dbc72bf6895b5fe",
+  "object": "chat.completion",
+  "created": 1725539311,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef lists_with_product_equal_n(seq):\n    from itertools import product\n\n    result = []\n    for length in range(1, len(seq) + 1):\n        for indices in product(range(len(seq)), repeat=length):\n            if 0 in indices or 0 not in seq[index % len(seq) for index in indices]:\n                continue\n            if seq[index % len(seq) for index in indices][0] == 0:\n                multiples, first_zero = 1, seq[indices.index(0)]\n            else:\n                multiples, first_zero = seq[index % len(seq) for index in indices], None\n                for num in seq[index % len(seq) for index in indices]:\n                    multiples *= num\n            if multiples == -69:\n                result.append(seq[index % len(seq) for index in indices])\n            elif first_zero is not None and multiples % first_zero == 0 and multiples // first_zero == -69:\n                divider = multiples // first_zero\n                other_elements = [num for num in seq[index % len(seq) for index in indices] if num != first_zero]\n                if divider in other_elements:\n                    result.append(other_elements + [first_zero])\n    return result\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 203,
+    "total_tokens": 527,
+    "completion_tokens": 324
+  }
+}

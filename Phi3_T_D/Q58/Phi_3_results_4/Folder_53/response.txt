@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-7000d0ed9f6b40218f3f1c2ee0df9d37",
+  "object": "chat.completion",
+  "created": 1725546501,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    if not isinstance(matrix, np.ndarray):\n        raise ValueError(\"Input must be a numpy ndarray\")\n    if len(matrix.shape) != 2:\n        raise ValueError(\"Matrix must be two-dimensional\")\n\n    h, w = matrix.shape\n    count = 0\n\n    for size in range(1, min(h, w) + 1):\n        for x in range(h - size + 1):\n            for y in range(w - size + 1):\n                count += np.all(matrix[x:x+size, y:y+size] == 24)\n    \n    return count\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 116,
+    "total_tokens": 292,
+    "completion_tokens": 176
+  }
+}

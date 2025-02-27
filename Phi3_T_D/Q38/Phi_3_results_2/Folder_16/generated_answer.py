@@ -1,0 +1,4 @@
+def find_subset_of_length_n(elements):
+    if len(elements) < 327:
+        return 0
+    return 1

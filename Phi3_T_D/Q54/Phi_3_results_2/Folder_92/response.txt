@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-d1f96ebb252343cda4f88b55907295df",
+  "object": "chat.completion",
+  "created": 1725536618,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n <= 1:\n        return False\n    if n <= 3:\n        return True\n    if n % 2 == 0 or n % 3 == 0:\n        return False\n    i = 5\n    while i * i <= n:\n        if n % i == 0 or n % (i + 2) == 0:\n            return False\n        i += 6\n    return True\n\ndef is_right_truncatable_prime(n):\n    return all(is_prime(int(str(n)[:i])) for i in range(len(str(n)), 0, -1))\n\ndef all_right_truncatable_prime(limit_tuple):\n    x = limit_tuple[7]\n    trunc_primes = []\n    for prime_candidate in range(23, x):  # start from 23 because single digit primes are not truncable\n        if is_prime(prime_candidate) and is_right_truncatable_prime(prime_candidate):\n            trunc_primes.append(prime_candidate)\n    return sorted(trunc_primes)\n```\n\n```python\nprint(all_right_truncatable_prime(((), (), (), (), (), (), (), (701,))))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 168,
+    "total_tokens": 494,
+    "completion_tokens": 326
+  }
+}

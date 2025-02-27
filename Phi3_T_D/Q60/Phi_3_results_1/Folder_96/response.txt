@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-c1be5ec68803431aafa8f70161b44a44",
+  "object": "chat.completion",
+  "created": 1725551064,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef all_left_right_truncatable_prime(numbers):\n    primes = {2, 3, 5, 7}\n    for i in range(11, numbers[29] + 1, 2):\n        if all(i % p != 0 for p in primes):\n            primes.add(i)\n\n    def is_truncatable_prime(n, primes):\n        str_n = str(n)\n        for i in range(len(str_n)):\n            if not int(str_n[i:]) in primes or not int(str_n[:i+1]) in primes:\n                return False\n        return True\n\n    return [n for n in primes if n <= numbers[29] and is_truncatable_prime(n, primes)]\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 207,
+    "total_tokens": 409,
+    "completion_tokens": 202
+  }
+}

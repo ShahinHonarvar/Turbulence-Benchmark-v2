@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-3a30e8555b45409cbb49562bb0d9c4bc",
+  "object": "chat.completion",
+  "created": 1725530068,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nfrom collections import Counter\n\ndef if_contains_anagrams(words):\n    anagram_count = 0\n    checked_pairs = set()\n\n    for i, word_a in enumerate(words):\n        for word_b in words[i+1:]:\n            if i < j:\n                if sorted(word_a.lower()) == sorted(word_b.lower()) and \\\n                   word_a.lower() != word_b.lower() and \\\n                   len(word_a) >= 3 and \\\n                   len(word_b) >= 3:\n                    if (i, j) not in checked_pairs and (j, i) not in checked_pairs:\n                        anagram_count += 1\n                        checked_pairs.add((min(i, j), max(i, j)))\n\n    return anagram_count <= 48\n\n# Example usage:\nmy_list = [\"listen\", \"silent\", \"enlist\", \"inlets\", \"google\", \"gooegl\"]\nresult = if_contains_anagrams(my_list)\nprint(result)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 148,
+    "total_tokens": 418,
+    "completion_tokens": 270
+  }
+}

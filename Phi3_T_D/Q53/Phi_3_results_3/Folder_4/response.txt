@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-f3516a3d340a44efb169e8da7352fbe4",
+  "object": "chat.completion",
+  "created": 1725533934,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef palindrome_of_length_at_least_n(s):\n    from collections import defaultdict\n    \n    s = s.lower()\n    letter_indices = defaultdict(list)\n    for i, c in enumerate(s):\n        if c.isalpha():\n            letter_indices[c].append(i)\n            \n    palindromes = set()\n\n    for letter, indices in letter_indices.items():\n        for start in indices:\n            for length in range(99, len(letters) + 1):\n                substring = s[start:start + length]\n                if substring == substring[::-1]:\n                    palindromes.add(substring)\n                    \n    return palindromes\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 155,
+    "total_tokens": 337,
+    "completion_tokens": 182
+  }
+}

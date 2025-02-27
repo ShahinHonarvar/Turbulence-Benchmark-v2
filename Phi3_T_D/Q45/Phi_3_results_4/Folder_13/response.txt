@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-c6da4a14f18048ffb267214443ad35bb",
+  "object": "chat.completion",
+  "created": 1725519154,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_palindrome(s):\n    return s.lower() == s[::-1].lower()\n\ndef valid_combinations(text):\n    alphabet = set('abcdefghijklmnopqrstuvwxyz')\n    chars = {}\n    for char in text[3:10]:\n        if char.lower() in alphabet:\n            chars[char.lower()] = chars.get(char.lower(), 0) + 1\n    return chars\n\ndef palindromes_between_indices(text):\n    valid_chars = valid_combinations(text)\n    candidates = []\n\n    def generate_palindromes(half, counts):\n        if len(half) == 5:\n            if is_palindrome(half):\n                candidates.append(half.lower())\n            return\n        \n        for char in sorted(counts.keys()):\n            if counts[char] > 0 and half.count(char)//2 < valid_chars[char]//2:\n                counts_new = counts.copy()\n                counts_new[char] -= 1\n                generate_palindromes(half + char, counts_new)\n\n    generate_palindromes(\"\", valid_chars)\n\n    return set(candidates)\n\n# Example usage:\nprint(palindromes_between_indices(\"aabbaabba\"))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 192,
+    "total_tokens": 528,
+    "completion_tokens": 336
+  }
+}

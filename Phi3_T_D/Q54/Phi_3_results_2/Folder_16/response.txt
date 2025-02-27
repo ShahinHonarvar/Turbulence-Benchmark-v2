@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-377eb693dc7842dcb1019477eddff18d",
+  "object": "chat.completion",
+  "created": 1725536083,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            return False\n    return True\n\ndef is_right_truncatable_prime(n):\n    while n > 0:\n        if not is_prime(n):\n            return False\n        n = n // 10\n    return True\n\ndef all_right_truncatable_prime(numbers):\n    x = numbers[792]\n    primes = [i for i in range(2, x) if is_right_truncatable_prime(i)]\n    return primes\n\n# Example usage\nnumbers_tuple = (2, 200, 300, 300)\nresult = all_right_truncatable_prime(numbers_tuple)\nprint(result)\n```\n\nThis code defines three functions. The `is_prime` function checks if a number is prime. The `is_right_truncatable_prime` function checks if a number is a right-truncatable prime by continuously truncating its last digit and checking for primality. The `all_right_truncatable_prime` function generates a list of right-truncatable primes up to the specified integer.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 170,
+    "total_tokens": 492,
+    "completion_tokens": 322
+  }
+}

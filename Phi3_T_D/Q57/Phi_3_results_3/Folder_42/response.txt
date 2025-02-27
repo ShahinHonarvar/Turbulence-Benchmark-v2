@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-6b495ceb6cb448dc83cab362d427bd54",
+  "object": "chat.completion",
+  "created": 1725543854,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\nfrom itertools import product\n\ndef submatrix_with_particular_sum(matrix):\n    def is_valid_submatrix(submatrix):\n        return np.sum(submatrix) == 862\n    \n    results = []\n    nrows, ncols = matrix.shape\n    for size in range(1, nrows + 1):\n        for row_slice in range(nrows - size + 1):\n            for col_slice in range(ncols - size + 1):\n                submatrix = matrix[row_slice:row_slice + size, col_slice:col_slice + size]\n                if is_valid_submatrix(submatrix):\n                    results.append(submatrix.tolist())\n    return results\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 127,
+    "total_tokens": 312,
+    "completion_tokens": 185
+  }
+}

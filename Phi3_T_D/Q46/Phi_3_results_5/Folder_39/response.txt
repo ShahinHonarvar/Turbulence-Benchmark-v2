@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-35789dce11fd4d98992865a3167aba48",
+  "object": "chat.completion",
+  "created": 1725521001,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef gcf_three_nums(nums):\n    def gcd(a, b):\n        while b:\n            a, b = b, a % b\n        return a\n\n    first_num = nums[85] if 85 < len(nums) else None\n    second_num = nums[36] if 36 < len(nums) else None\n    third_num = nums[54] if 54 < len(nums) else None\n\n    if None in [first_num, second_num, third_num]:\n        return None\n\n    result = gcd(first_num, gcd(second_num, third_num))\n    return result\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 96,
+    "total_tokens": 267,
+    "completion_tokens": 171
+  }
+}

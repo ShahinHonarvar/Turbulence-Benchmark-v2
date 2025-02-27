@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-5bd0dc705bf84fee866743eea8f66569",
+  "object": "chat.completion",
+  "created": 1725552816,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef all_left_right_truncatable_prime(numbers):\n    def is_prime(n):\n        if n < 2:\n            return False\n        for i in range(2, int(n**0.5) + 1):\n            if n % i == 0:\n                return False\n        return True\n    \n    def is_truncatable_prime(n, primes):\n        str_n = str(n)\n        for i in range(len(str_n)):\n            if int(str_n[i:]) not in primes or int(str_n[:i+1]) not in primes:\n                return False\n        return True\n    \n    limit = numbers[85]\n    primes = [2, 3, 5, 7]\n    possible = [2, 3, 5, 7]\n    for num in range(11, limit + 1):\n        if all(num % prime != 0 for prime in primes):\n            primes.append(num)\n            possible.append(num)\n    \n    truncatable_primes = [prime for prime in possible if is_truncatable_prime(prime, primes)]\n    \n    return truncatable_primes\n\n# Specify the tuple of positive integers containing index 85\nnumbers = (0,) * 85 + (123456789,)\nresult = all_left_right_truncatable_prime(numbers)\nprint(result)\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 207,
+    "total_tokens": 573,
+    "completion_tokens": 366
+  }
+}

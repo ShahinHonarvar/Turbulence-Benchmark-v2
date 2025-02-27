@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-917fc23a67384360ad7cdd4fd4a29937",
+  "object": "chat.completion",
+  "created": 1725509326,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef find_subset_of_length_n(elements):\n    n = 72\n    total_subsets = 0\n\n    def count_subsets(index, selected):\n        nonlocal total_subsets\n        if len(selected) == n:\n            total_subsets += 1\n            return\n        for i in range(index, len(elements)):\n            count_subsets(i + 1, selected + [elements[i]])\n\n    count_subsets(0, [])\n    return total_subsets\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 88,
+    "total_tokens": 217,
+    "completion_tokens": 129
+  }
+}

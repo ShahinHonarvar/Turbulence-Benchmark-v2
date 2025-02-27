@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-db0f5d7d0f3f4cb1b00fc77b6e8eb2eb",
+  "object": "chat.completion",
+  "created": 1725544177,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    result = []\n    n, m = matrix.shape\n    prefix_sum = np.zeros((n+1, m+1))\n\n    for i in range(n):\n        for j in range(m):\n            prefix_sum[i+1, j+1] = matrix[i, j] + prefix_sum[i, j+1] + prefix_sum[i+1, j] - prefix_sum[i, j]\n\n    for i1 in range(n):\n        for j1 in range(m):\n            for i2 in range(i1, n):\n                for j2 in range(j1, m):\n                    if prefix_sum[i2+1, j2+1] - (prefix_sum[i1, j2+1] + prefix_sum[i2+1, j1] - prefix_sum[i1, j1]) == -61:\n                      result.append(matrix[i1:i2+1, j1:j2+1])\n    return result\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 126,
+    "total_tokens": 392,
+    "completion_tokens": 266
+  }
+}

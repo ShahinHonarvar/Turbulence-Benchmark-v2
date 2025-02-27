@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-bc35e0d62b6344bc95e531e5be485f4a",
+  "object": "chat.completion",
+  "created": 1725529488,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(strings):\n    from collections import defaultdict\n    def freq_hash(s):\n        return ''.join(sorted(s.lower()))\n    freq_dict = defaultdict(int)\n    for string in strings:\n        if len(string) >= 3:\n            freq_dict[freq_hash(string)] += 1\n    count_pairs = sum(v * (v - 1) // 2 for v in freq_dict.values())\n    return count_pairs <= 74\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 148,
+    "total_tokens": 285,
+    "completion_tokens": 137
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-84f587b0d0e946f482787f555a81e20e",
+  "object": "chat.completion",
+  "created": 1725536190,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n < 2: return False\n    for i in range(2, int(n**0.5)+1):\n        if n % i == 0: return False\n    return True\n\ndef is_right_truncatable_prime(n, primes_set):\n    while n > 0:\n        if not is_prime(n): return False\n        n //= 10\n    return True\n\ndef all_right_truncatable_prime(numbers):\n    if len(numbers) <= 37:\n        x = numbers[37]\n    else:\n        raise ValueError(\"Tuple size must be at least 38\")\n    \n    if x < 11: return []\n    \n    truncatable_primes = []\n    primes_set = {2, 3, 5, 7}  # Starting with single-digit primes\n    \n    for num in range(x - 1, 11, -1):\n        if num in primes_set:\n            if is_right_truncatable_prime(num, primes_set):\n                truncatable_primes.append(num)\n    \n    return truncatable_primes\n\n# Usage example:\nprint(all_right_truncatable_prime((10,) * 40 + (100,)))  # full tuple with 41 digits\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 169,
+    "total_tokens": 515,
+    "completion_tokens": 346
+  }
+}

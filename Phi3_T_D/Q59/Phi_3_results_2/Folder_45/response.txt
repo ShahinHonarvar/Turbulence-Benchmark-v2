@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-e0967a851cc947038b904987401d59b3",
+  "object": "chat.completion",
+  "created": 1725548037,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom sympy import isprime\n\ndef all_left_truncatable_prime(nums):\n    x = nums[61]\n    truncable_primes = []\n    for num in range(2, x):\n        if num < 10 and isprime(num):\n            truncable_primes.append(num)\n        elif isprime(num) and all(isprime(num // 10**i % 10**len(str(num))) for i in range(len(str(num))-1)):\n            truncable_primes.append(num)\n    return truncable_primes\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 156,
+    "total_tokens": 307,
+    "completion_tokens": 151
+  }
+}

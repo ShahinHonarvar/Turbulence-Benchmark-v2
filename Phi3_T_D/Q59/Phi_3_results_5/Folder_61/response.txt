@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-79f786d187f4417084ccc1487fde5b49",
+  "object": "chat.completion",
+  "created": 1725550079,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom sympy import primerange, isprime\n\ndef all_left_truncatable_prime(numbers):\n    x = numbers[3]\n    left_truncatable_primes = []\n    primes = set(primerange(2, x))\n\n    while primes:\n        prime = primes.pop()\n        if all((prime % 10**i) in primes for i in range(len(str(prime)))):\n            left_truncatable_primes.insert(0, prime)\n\n    left_truncatable_primes.sort(reverse=True)\n    return left_truncatable_primes\n\n# Example usage\nnumbers_tuple = (0, 1, 2, 100, 1000)\nprint(all_left_truncatable_prime(numbers_tuple))\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 155,
+    "total_tokens": 365,
+    "completion_tokens": 210
+  }
+}

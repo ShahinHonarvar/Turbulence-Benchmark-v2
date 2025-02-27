@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-80626a3786fe45c891da0d3ef22d8654",
+  "object": "chat.completion",
+  "created": 1725550811,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n <= 1:\n        return False\n    if n <= 3:\n        return True\n    if n % 2 == 0 or n % 3 == 0:\n        return False\n    i = 5\n    while i * i <= n:\n        if n % i == 0 or n % (i + 2) == 0:\n            return False\n        i += 6\n    return True\n\ndef all_left_right_truncatable_prime(numbers):\n    x = numbers[70]\n    truncatable_primes = []\n\n    def is_left_right_truncatable_prime(p):\n        if not is_prime(p):\n            return False\n        str_p = str(p)\n        while len(str_p) > 1:\n            str_p = str_p[1:-1]\n            if not is_prime(int(str_p)):\n                return False\n        return True\n\n    for i in range(2, x + 1):\n        if is_left_right_truncatable_prime(i):\n            truncatable_primes.append(i)\n\n    return truncatable_primes\n\n# Call the function with a tuple containing integer values, 71st value in the tuple should be 'x'\n# result = all_left_right_truncatable_prime((some_tuple_of_integers))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 207,
+    "total_tokens": 558,
+    "completion_tokens": 351
+  }
+}

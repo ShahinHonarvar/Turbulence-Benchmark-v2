@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-1ba79cfc3d144a8397244cb8aaa49bac",
+  "object": "chat.completion",
+  "created": 1725530099,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(strings):\n    def is_anagram(s1, s2):\n        s1_map = {}\n        for char in s1.lower():\n            if char.isalpha() and len(char) >= 3:\n                s1_map[char] = s1_map.get(char, 0) + 1\n        for char in s2.lower():\n            if char.isalpha() and len(char) >= 3:\n                if char in s1_map:\n                    s1_map[char] -= 1\n                    if s1_map[char] == 0:\n                        del s1_map[char]\n                else:\n                    return False\n        return len(s1_map) == 0\n\n    count = 0\n    for i in range(len(strings)):\n        for j in range(i + 1, len(strings)):\n            if is_anagram(strings[i], strings[j]):\n                count += 1\n                if count > 34:\n                    return False\n    return True\n```\n\nTo test this function, you can call the following:\n\n```python\nprint(if_contains_anagrams([\"listen\", \"enlist\", \"inlets\", \"silent\", \"tinsel\", \"banana\"]))\nprint(if_contains_anagrams([\"apple\", \"orange\", \"xylophone\", \"banana\"]))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 148,
+    "total_tokens": 495,
+    "completion_tokens": 347
+  }
+}

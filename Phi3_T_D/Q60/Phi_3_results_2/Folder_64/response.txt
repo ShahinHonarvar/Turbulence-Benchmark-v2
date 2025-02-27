@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-9939e51f93ab426491d6259d4bd7ded7",
+  "object": "chat.completion",
+  "created": 1725551603,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef all_left_right_truncatable_prime(numbers):\n    def is_prime(n):\n        if n < 2:\n            return False\n        for i in range(2, int(n**0.5) + 1):\n            if n % i == 0:\n                return False\n        return True\n\n    def is_truncatable_left(n):\n        while n > 0:\n            if not is_prime(n):\n                return False\n            n = n % (10 ** (len(str(n)) - 1))\n        return True\n\n    def is_truncatable_right(n):\n        while n > 0:\n            if not is_prime(n):\n                return False\n            n //= 10\n        return True\n\n    def generate_primes():\n        primes = []\n        for n in range(2, 100000):  # Hard cap to avoid infinite loop\n            if is_prime(n):\n                primes.append(n)\n        return primes\n\n    def is_left_right_truncatable(prime):\n        return is_truncatable_left(prime) and is_truncatable_right(prime)\n\n    x = numbers[4]\n    primes = generate_primes()\n    return [p for p in primes if p <= x and is_left_right_truncatable(p)]\n\n# Instead of running the below code, the actual requirement asks for the function's definition in the triple backticks above.\n# print(all_left_right_truncatable_prime((20, 30, 40, 50, 100)))  # Example usage; uncomment to test.\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 206,
+    "total_tokens": 627,
+    "completion_tokens": 421
+  }
+}

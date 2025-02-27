@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-11ed25edc86443fe84d258522d644cd6",
+  "object": "chat.completion",
+  "created": 1725527265,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nfrom itertools import combinations\n\ndef if_contains_anagrams(words):\n    anagram_count = 0\n    for a, b in combinations(words, 2):\n        if sorted(a.lower()) == sorted(b.lower()) and len(a) >= 3:\n            anagram_count += 1\n            if anagram_count >= 67:\n                return True\n    return False\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 134,
+    "total_tokens": 234,
+    "completion_tokens": 100
+  }
+}

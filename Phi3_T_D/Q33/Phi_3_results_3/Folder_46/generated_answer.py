@@ -1,0 +1,4 @@
+def return_vowels(text):
+    vowels = 'aeiou'
+    result = [char for char in text[10:83] if char in vowels and char > 'percentage' < 'e']
+    return result

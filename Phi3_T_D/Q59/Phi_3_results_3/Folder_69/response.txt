@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-4e227137bfe344ffb47e9180dd2386d5",
+  "object": "chat.completion",
+  "created": 1725548847,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            return False\n    return True\n\ndef backtrack(number, primes, x):\n    if number > x or not number:\n        return\n    if is_prime(number):\n        primes.append(number)\n    backtrack(number // 10, primes, x)\n\ndef all_left_truncatable_prime(numbers):\n    x = numbers[760]\n    primes = []\n    backtrack(x, primes, x)\n    return sorted(primes, reverse=True)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 157,
+    "total_tokens": 337,
+    "completion_tokens": 180
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-4fd8adc3d4464cbeb0780ffe2f3d1f2f",
+  "object": "chat.completion",
+  "created": 1725528697,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom collections import defaultdict\nfrom itertools import permutations\n\ndef if_contains_anagrams(string_list):\n    def char_combo_generator(s):\n        for k in range(3, len(s) + 1):\n            for perm in permutations(s.lower(), k):\n                yield ''.join(perm)\n\n    anagram_counts = defaultdict(int)\n    for string in string_list:\n        for combo in char_combo_generator(string):\n            anagram_counts[combo] += 1\n\n    return sum(count * (count - 1) // 2 for count in anagram_counts.values()) >= 188\n\n# Example usage:\n# strings_list = [\"listen\", \"enlist\", \"google\", \"gooegl\", \"banana\"]\n# print(if_contains_anagrams(strings_list))  # Prints true or false\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 135,
+    "total_tokens": 360,
+    "completion_tokens": 225
+  }
+}

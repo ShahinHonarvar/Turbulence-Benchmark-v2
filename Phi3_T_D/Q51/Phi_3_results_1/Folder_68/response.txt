@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-7b67b21953f74b0690d57f4a95067d5e",
+  "object": "chat.completion",
+  "created": 1725529535,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(strings_list):\n    from collections import Counter\n\n    def sorted_tuple(s):\n        return tuple(sorted(s.lower()))\n\n    anagram_counts = Counter()\n    for string in strings_list:\n        if len(string) >= 3:\n            sorted_str = sorted_tuple(string)\n            anagram_counts[sorted_str] += 1\n\n    num_at_least_two_pairs = sum(count // 2 for count in anagram_counts.values())\n    return num_at_least_two_pairs <= 94\n\n# Example usage:\n# contents = [\"elvis\", \"lives\", \"silent\", \"listen\"]\n# print(if_contains_anagrams(contents))  # This should return True\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 148,
+    "total_tokens": 351,
+    "completion_tokens": 203
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-010998fa58c34d438f5225523c90c5b1",
+  "object": "chat.completion",
+  "created": 1725543277,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    M, N = matrix.shape\n    result = []\n    \n    def check_sum(submatrix):\n        return np.sum(submatrix) == -157\n    \n    for i in range(M):\n        for j in range(N):\n            for s1 in range(i, M):\n                for s2 in range(j, N):\n                    submatrix = matrix[i:s1+1, j:s2+1]\n                    if check_sum(submatrix):\n                        result.append(submatrix)\n    \n    return result\n\n# Example usage:\n# matrix = np.array([[...], [...], ...])\n# print(submatrix_with_particular_sum(matrix))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 127,
+    "total_tokens": 324,
+    "completion_tokens": 197
+  }
+}

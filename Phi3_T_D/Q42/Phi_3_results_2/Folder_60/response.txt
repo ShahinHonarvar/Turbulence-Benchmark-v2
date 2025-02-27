@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-2fb775c05e654b7cadc696c40af57390",
+  "object": "chat.completion",
+  "created": 1725512944,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef prime_factors(numbers):\n    def is_prime(n):\n        if n <= 1:\n            return False\n        for i in range(2, int(n**0.5) + 1):\n            if n % i == 0:\n                return False\n        return True\n\n    def prime_factors_of(n):\n        factors = set()\n        for i in range(2, n + 1):\n            if n % i == 0 and is_prime(i):\n                factors.add(i)\n        return factors\n\n    if 88 < len(numbers):\n        return prime_factors_of(numbers[88])\n    else:\n        raise IndexError('List does not contain an element at index 88')\n\n# Example usage:\nnumber_list = [4, 6, 8, 9, 10, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101, 103, 107, 109, 113, 127, 131, 137, 139, 149, 151, 157, 163, 167, 173, 179, 181, 191, 193, 197, 199, 211, 223, 227, 229, 233, 239, 241, 251]\nfactors = prime_factors(number_list)\nprint(factors)\n```\n\nNote: The function provided assumes that the input list contains at least 89 positive integers. If the list has fewer than 89 elements, an IndexError will be raised.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 87,
+    "total_tokens": 581,
+    "completion_tokens": 494
+  }
+}

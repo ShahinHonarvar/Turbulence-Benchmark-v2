@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-7a0489e1bf624f8e81e8e20693e41b05",
+  "object": "chat.completion",
+  "created": 1725529401,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom collections import defaultdict\n\ndef if_contains_anagrams(words):\n    def count_anagrams(word_map):\n        count = 0\n        for anagrams in word_map.values():\n            if len(anagrams) > 1:\n                count += len(anagrams) * (len(anagrams) - 1) // 2\n        return count\n\n    anagram_map = defaultdict(list)\n    \n    for word in words:\n        if len(word) >= 3:\n            sorted_word = ''.join(sorted(word.lower()))\n            anagram_map[sorted_word].append(word)\n\n    anagram_count = count_anagrams(anagram_map)\n    return anagram_count <= 416\n\n# Example usage:\nexample_words = ['listen', 'enlist', 'google', 'inlets', 'banana']\nprint(if_contains_anagrams(example_words))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 149,
+    "total_tokens": 386,
+    "completion_tokens": 237
+  }
+}

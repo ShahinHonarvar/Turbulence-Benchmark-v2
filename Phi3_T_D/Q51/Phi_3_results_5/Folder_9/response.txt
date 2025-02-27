@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-9d3bb7e6a54a47b3b6d4a442bbc6493d",
+  "object": "chat.completion",
+  "created": 1725531084,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef char_count(s):\n    count = [0] * 26\n    for char in s:\n        count[ord(char.lower()) - ord('a')] += 1\n    return tuple(count)\n\ndef if_contains_anagrams(words):\n    anagrams_count = 0\n    word_map = {}\n    for word in words:\n        if len(word) >= 3:\n            sorted_word = (''.join(sorted(word)).lower())\n            if sorted_word in word_map:\n                anagrams_count += word_map[sorted_word]\n                word_map[sorted_word] += 1\n            else:\n                word_map[sorted_word] = 1\n    return anagrams_count <= 475\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 149,
+    "total_tokens": 339,
+    "completion_tokens": 190
+  }
+}

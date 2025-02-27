@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-a486940abcc845d19e305f0d2deeb920",
+  "object": "chat.completion",
+  "created": 1725550264,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_left_truncatable_prime(n, prime_checker, primes):\n    if n not in primes:\n        return False\n    n_str = str(n)\n    for i in range(len(n_str)):\n        if not prime_checker(int(n_str[i:])):\n            return False\n    return True\n\ndef all_left_truncatable_prime(tup):\n    primes = [2, 3, 5, 7]\n    numbers = range(2, tup[465], 2)[3:]  # Assuming x at index 465, range to ensure odd numbers and >10\n    # Including known left truncatable primes for faster checking\n    for prime in [23, 37, 53, 73, 313, 317, 373, 797, 3137, 3797, 739397]:\n        primes.append(prime)\n    \n    prime_checker = lambda num: num in primes or not [x for x in primes if x % num != 0]\n    \n    left_truncatable_primes = [num for num in numbers if is_left_truncatable_prime(num, prime_checker, primes)]\n    return left_truncatable_primes\n\n# Example usage:\ntup = (2,) * 466 + (1000,)  # Assuming tup has appropriate values, 2's and a 1000 at index 466\nprint(all_left_truncatable_prime(tup))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 157,
+    "total_tokens": 565,
+    "completion_tokens": 408
+  }
+}

@@ -1,0 +1,7 @@
+def find_original_set(*sets):
+    if len(sets) != 276:
+        raise ValueError('Exactly 276 arguments are required.')
+    original_set = set()
+    for s in sets:
+        original_set.update(s)
+    return original_set

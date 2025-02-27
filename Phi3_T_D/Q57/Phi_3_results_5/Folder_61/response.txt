@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-4dad936b86484af884d9c856ae7dc718",
+  "object": "chat.completion",
+  "created": 1725544860,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    result = []\n    rows, cols = matrix.shape\n    \n    for row_start in range(rows):\n        for row_end in range(row_start, rows):\n            for col_start in range(cols):\n                for col_end in range(col_start, cols):\n                    submat = matrix[row_start:row_end+1, col_start:col_end+1]\n                    if np.sum(submat) == 8:\n                        result.append(submat)\n    return result\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 125,
+    "total_tokens": 275,
+    "completion_tokens": 150
+  }
+}

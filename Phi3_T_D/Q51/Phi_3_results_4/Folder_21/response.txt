@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-85cec53e3f6541de8ad614781d81cba1",
+  "object": "chat.completion",
+  "created": 1725530669,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(strings_list):\n    from collections import defaultdict\n    \n    # Function to convert string to tuple of UTF-8 code point\n    def string_to_sorted_tuple(s):\n        return tuple(sorted(c for c in s.lower() if c.isalpha() and c.isascii()))\n    \n    # Count occurrences of each sorted tuple\n    counts = defaultdict(int)\n    for s in strings_list:\n        if len(s) >= 3:\n            counts[string_to_sorted_tuple(s)] += 1\n    \n    # Count the number of pairs of anagrams\n    anagram_pairs = sum(n * (n - 1) // 2 for n in counts.values() if n > 1)\n    return anagram_pairs <= 26\n\n# Example usage:\nprint(if_contains_anagrams([\"arc\", \"car\", \"hello\", \"world\"]))  # Should return True\nprint(if_contains_anagrams([\"cat\", \"dog\", \"tac\", \"god\", \"good\", \"act\"]))  # Should return False\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 148,
+    "total_tokens": 420,
+    "completion_tokens": 272
+  }
+}

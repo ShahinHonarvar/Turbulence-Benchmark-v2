@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-d652a0f8236b43de9f6ce0008eb37326",
+  "object": "chat.completion",
+  "created": 1725508558,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef filter_chars(s):\n    target_chars = [chr(i) for i in range(ord('!'), ord('T') + 1)]\n    altered_chars = [char for idx, char in enumerate(s)\n                     if idx < 20 or idx > 79 or char not in target_chars]\n    return ''.join(altered_chars)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 145,
+    "total_tokens": 244,
+    "completion_tokens": 99
+  }
+}

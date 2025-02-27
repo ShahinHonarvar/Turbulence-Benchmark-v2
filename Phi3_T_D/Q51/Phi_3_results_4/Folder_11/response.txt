@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-900d768247244354bdbcbcb46b7021e8",
+  "object": "chat.completion",
+  "created": 1725530626,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom collections import defaultdict\n\ndef if_contains_anagrams(lst):\n    anagrams = defaultdict(int)\n    for word in lst:\n        word_key = ''.join(sorted(word.lower()))\n        anagrams[word_key] += 1\n    \n    count = 0\n    for key in anagrams:\n        if anagrams[key] >= 2:\n            count += anagrams[key] // 2\n    \n    return count <= 41\n```\n```\n\nPlease note that the function implementation should accurately follow the text specification, and as requested, the code does not contain any comments and is enclosed within triple backticks. The code should function and accurately perform the task described, considering the definition and handling of anagrams.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 148,
+    "total_tokens": 333,
+    "completion_tokens": 185
+  }
+}

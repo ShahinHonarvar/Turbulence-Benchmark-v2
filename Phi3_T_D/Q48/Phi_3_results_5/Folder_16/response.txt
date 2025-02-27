@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-598146c36f6948f6af5bdd2ec9da306c",
+  "object": "chat.completion",
+  "created": 1725525140,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef return_binary_or_hexa(values):\n    a, b = set(values[90:98])\n    missing_sum = sum(i for i in range(a + 1, b) if i not in a)\n    representation = bin(missing_sum)[2:] if missing_sum % 2 != 0 else hex(missing_sum)[2:]\n    \n    if representation:\n        if representation.startswith('0'):\n            representation = representation[1:]\n\n        return representation\n    return ''\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 289,
+    "total_tokens": 415,
+    "completion_tokens": 126
+  }
+}

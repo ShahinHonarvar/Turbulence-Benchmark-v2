@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-0148a672fddf4a01bf8d0ac9c0e5ca69",
+  "object": "chat.completion",
+  "created": 1725504267,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef find_original_set(*args):\n    if len(args) != 23 or any(len(arg) != len(set(arg)) or not isinstance(arg, set) for arg in args):\n        raise ValueError(\"Function requires exactly 23 unique sets as arguments.\")\n    original_set = set()\n    for arg in args:\n        original_set.update(arg)\n    return original_set\n```\n\nThis Python function takes 23 arguments, each of which should be a set of distinct integers. It then merges these sets into one single set and returns it, ensuring that the original 23 sets are all subsets of the returned set.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 98,
+    "total_tokens": 253,
+    "completion_tokens": 155
+  }
+}

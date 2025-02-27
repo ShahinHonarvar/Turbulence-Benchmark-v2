@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-adcf51fb910044ee8cf4fbf867af909b",
+  "object": "chat.completion",
+  "created": 1725541457,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nfrom itertools import combinations\n\ndef all_substring_of_size_n(input_string):\n    substrings = list(set([''.join(substring) for i in range(len(input_string)) \n                           for j in range(i+1, len(input_string)+1) \n                           for substring in combinations(input_string[i:j], 57)]))\n    return [s for s in substrings if len(set(s)) == len(s)]\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 130,
+    "total_tokens": 247,
+    "completion_tokens": 117
+  }
+}

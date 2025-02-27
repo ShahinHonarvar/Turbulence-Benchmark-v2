@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-903eabd2197e4b4b9f2bd6e7cac09fa4",
+  "object": "chat.completion",
+  "created": 1725553861,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n <= 1:\n        return False\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            return False\n    return True\n\ndef all_left_right_truncatable_primes(numbers):\n    x = numbers[84]\n    truncatable_primes = [p for p in range(23, min(x, 10**6)) if is_prime(p)]\n    result = []\n    \n    def is_truncatable(prime):\n        s = str(prime)\n        return all(is_prime(int(s[i:])) and is_prime(int(s[:i+1])) for i in range(len(s)))\n    \n    for p in truncatable_primes:\n        if is_truncatable(p):\n            result.append(p)\n    \n    result.sort(reverse=True)\n    return result if result else []\n\n# Call the function with a tuple of positive integers, where index 84 is used.\nresult = all_left_right_truncatable_primes((0 for _ in range(84)) + (1,))\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 207,
+    "total_tokens": 510,
+    "completion_tokens": 303
+  }
+}

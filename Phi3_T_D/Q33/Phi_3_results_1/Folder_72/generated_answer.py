@@ -1,0 +1,4 @@
+def return_vowels(s):
+    vowels = ['a', 'e', 'i', 'o', 'u']
+    desired_vowels = [char for char in s[37:57] if char in vowels and char > '*' and (char <= 'P')]
+    return desired_vowels

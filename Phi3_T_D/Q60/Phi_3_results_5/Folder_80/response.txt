@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-b951ee52627f474fa3f0a76f86ef1dd1",
+  "object": "chat.completion",
+  "created": 1725554019,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(n ** 0.5) + 1):\n        if n % i == 0:\n            return False\n    return True\n\ndef is_truncatable_prime(n, primes):\n    if n not in primes:\n        return False\n    for i in range(1, len(str(n))):\n        if is_prime(int(str(n)[:i])) is False or is_prime(int(str(n)[-i:])) is False:\n            return False\n    return True\n\ndef left_right_truncatable_prime(max_value, primes):\n    result = []\n    for prime in sorted(primes, reverse=True):\n        if prime > max_value:\n            continue\n        if is_truncatable_prime(prime, primes):\n            result.append(prime)\n            max_value = prime\n    return result\n\ndef all_left_right_truncatable_prime(nums):\n    primes = [n for n in range(2, nums[14] + 1) if is_prime(n)]\n    return left_right_truncatable_prime(nums[14], primes)\n\n# Example usage:\n# result = all_left_right_truncatable_prime((1, 2, ..., nums[14], ..., 20))\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 207,
+    "total_tokens": 567,
+    "completion_tokens": 360
+  }
+}

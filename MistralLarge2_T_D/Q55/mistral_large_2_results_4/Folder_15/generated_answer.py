@@ -1,0 +1,13 @@
+def lists_with_product_equal_n(circular_list):
+    n = len(circular_list)
+    result = []
+    for start in range(n):
+        product = 1
+        sublist = []
+        for i in range(start, start + n):
+            index = i % n
+            product *= circular_list[index]
+            sublist.append(circular_list[index])
+            if product == -7:
+                result.append(sublist[:])
+    return result

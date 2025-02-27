@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-63c260e91de3410382099265c8aada3a",
+  "object": "chat.completion",
+  "created": 1725544481,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    res = []\n    n_rows = len(matrix)\n    n_cols = len(matrix[0]) if matrix else 0\n    \n    for i in range(n_rows):\n        for j in range(n_cols):\n            for k in range(i, n_rows):\n                for l in range(j, n_cols):\n                    submatrix = matrix[i:k+1, j:l+1]\n                    if np.sum(submatrix) == 16:\n                        res.append(submatrix)\n    return res\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 126,
+    "total_tokens": 283,
+    "completion_tokens": 157
+  }
+}

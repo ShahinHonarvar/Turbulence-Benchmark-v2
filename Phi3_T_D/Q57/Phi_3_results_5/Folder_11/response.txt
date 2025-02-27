@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-6e7ad79eb0be43ef80ef859393193aa4",
+  "object": "chat.completion",
+  "created": 1725544646,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    m, n = matrix.shape\n    result = []\n    \n    for size in range(1, min(m, n) + 1):\n        for row in range(m - size + 1):\n            for col in range(n - size + 1):\n                sub_matrix = matrix[row:row+size, col:col+size]\n                if sub_matrix.sum() == 38:\n                    result.append(sub_matrix)\n    return result\n```\n\nUse this code like so:\n\n```python\nmatrix = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])\nsubmatrices = submatrix_with_particular_sum(matrix)\nprint(submatrices)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 126,
+    "total_tokens": 335,
+    "completion_tokens": 209
+  }
+}

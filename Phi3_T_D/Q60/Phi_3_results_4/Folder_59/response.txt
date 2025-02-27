@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-14a94be97426461390dde51096c93963",
+  "object": "chat.completion",
+  "created": 1725553105,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom sympy import isprime\n\ndef all_left_right_truncatable_prime(numbers):\n    x = numbers[84]\n    is_left_right_truncatable = lambda n: all(isprime(n) and isprime(int(str(n)[1:])) and isprime(int(str(n)[:-1])) for _ in range(len(str(n)) - 1))\n\n    result = [n for n in range(23, x + 1) if is_left_right_truncatable(n)]\n    return sorted(result, reverse=True)\n\n# Example Usage:\nnumbers = (23, 128456, 324, ..., another integer)\nprimes = all_left_right_truncatable_prime(numbers)\nprint(primes)\n```\nNote: The ellipsis `...` in `numbers` should be replaced with actual integers up to the 84th index.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 207,
+    "total_tokens": 442,
+    "completion_tokens": 235
+  }
+}

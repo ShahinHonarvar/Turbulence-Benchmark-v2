@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-caec1050838543e9964c57873870a9ae",
+  "object": "chat.completion",
+  "created": 1725540168,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef rotate_left(lst, k):\n    return lst[k:] + lst[:k]\n\ndef product(lst):\n    p = 1\n    for item in lst:\n        p *= item\n    return p\n\ndef lists_with_product_equal_n(lst):\n    target_product = 247\n    found_lists = []\n    n = len(lst)\n\n    for size in range(1, n + 1):\n        for start in range(n):\n            divided_list = rotate_left(lst, start)[:size]\n            if product(divided_list) == target_product:\n                found_lists.append(divided_list)\n            if len(divided_list) == n:\n                break\n\n    return found_lists\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 204,
+    "total_tokens": 393,
+    "completion_tokens": 189
+  }
+}

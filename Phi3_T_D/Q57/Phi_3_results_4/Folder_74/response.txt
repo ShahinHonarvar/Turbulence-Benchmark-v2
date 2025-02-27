@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-c31887ab4bcf47da8de755386b5f7f2b",
+  "object": "chat.completion",
+  "created": 1725544478,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    result = []\n\n    for i in range(matrix.shape[0]):\n        for j in range(matrix.shape[1]):\n            for k in range(i, matrix.shape[0]):\n                for l in range(j, matrix.shape[1]):\n                    submatrix = matrix[i:k+1, j:l+1]\n                    if submatrix.sum() == 88:\n                        result.append(submatrix)\n    \n    return result\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 126,
+    "total_tokens": 267,
+    "completion_tokens": 141
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-80398af6be704c9eba1b1b493ab7a57e",
+  "object": "chat.completion",
+  "created": 1725531384,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(strings):\n    def count_chars(s):\n        count = [0] * 26\n        for c in s:\n            count[ord(c.lower()) - ord('a')] += 1\n        return tuple(count)\n    \n    string_counts = {}\n    for s in strings:\n        if len(s) < 3:\n            continue\n        s_lower = s.lower()\n        s_count = count_chars(s_lower)\n        if s_count in string_counts:\n            string_counts[s_count].append(s_lower)\n        else:\n            string_counts[s_count] = [s_lower]\n\n    anagram_pairs = sum(len(strings) * (len(strings) - 1) // 2 for strings in string_counts.values() if len(strings) > 1)\n    \n    return anagram_pairs <= 255\n\n# Example usage:\nprint(if_contains_anagrams(['listen', 'enlist', 'google', 'inlets']))  # Should return True\nprint(if_contains_anagrams(['cat', 'act', 'dog', 'god', 'tac']))  # Should return True\nprint(if_contains_anagrams(['cat', 'act', 'god', 'dog', 'tac', 'cab']))  # Should return False\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 149,
+    "total_tokens": 487,
+    "completion_tokens": 338
+  }
+}

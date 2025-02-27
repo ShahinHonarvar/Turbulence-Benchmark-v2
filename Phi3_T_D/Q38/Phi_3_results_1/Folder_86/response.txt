@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-ef5876e35e0f4bd3a645309a36637728",
+  "object": "chat.completion",
+  "created": 1725509068,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef find_subset_of_length_n(elements_set):\n    if len(elements_set) < 380:\n        return 0\n    n = len(elements_set)\n    def combinations(n, r):\n        r = min(r, n-r)\n        numerator = denominator = 1\n        for i in range(r):\n            numerator *= n\n            n -= 1\n            denominator *= (i+1)\n        return numerator // denominator\n    return combinations(n, 380)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 89,
+    "total_tokens": 223,
+    "completion_tokens": 134
+  }
+}

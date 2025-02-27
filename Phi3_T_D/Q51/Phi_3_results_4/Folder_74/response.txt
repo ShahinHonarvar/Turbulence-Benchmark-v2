@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-a972288e8a694019baf9caf2f9a50cd8",
+  "object": "chat.completion",
+  "created": 1725530909,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(lst):\n    from collections import defaultdict\n    \n    def count_letters(word):\n        return ''.join(sorted(word.lower()))\n    \n    def meets_conditions(word):\n        return len(word) >= 3 and word.isalpha()\n    \n    anagram_groups = defaultdict(list)\n    for word in lst:\n        if meets_conditions(word):\n            anagram_groups[count_letters(word)].append(word)\n    \n    count = 0\n    for group in anagram_groups.values():\n        if len(group) > 1:\n            count += sum(range(len(group)))\n    \n    return count <= 57\n```\n```\ndef if_contains_anagrams(words):\n    from collections import defaultdict\n    \n    def is_anagram(word1, word2):\n        return sorted(word1.lower()) == sorted(word2.lower())\n    \n    pairs = [(word1, word2) for i, word1 in enumerate(words)\n             for word2 in words[i+1:] if is_anagram(word1, word2) and len(word1) >= 3 and len(word2) >= 3]\n    \n    return len(pairs) <= 57\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 148,
+    "total_tokens": 465,
+    "completion_tokens": 317
+  }
+}

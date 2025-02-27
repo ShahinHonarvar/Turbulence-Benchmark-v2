@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-baff169862c140d29e1f86e40f264e38",
+  "object": "chat.completion",
+  "created": 1725531025,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(words):\n    words = [word.lower() for word in words]\n    sorted_words = [''.join(sorted(word)) for word in words if len(word) >= 3]\n    \n    from collections import Counter\n    frequency = Counter(sorted_words)\n    \n    anagram_pairs = sum(val > 1 for val in frequency.values())\n    \n    return anagram_pairs <= 4  # at most 2 pairs means at most 4 strings are anagrams of each other\n\n# Example usage:\n# result = if_contains_anagrams([\"cat\", \"act\", \"dog\", \"god\", \"tac\"])\n# print(result)  # Output: True\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 147,
+    "total_tokens": 325,
+    "completion_tokens": 178
+  }
+}

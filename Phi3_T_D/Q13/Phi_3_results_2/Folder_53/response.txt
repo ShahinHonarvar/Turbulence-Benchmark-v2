@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-31a874daadeb4df88d9da668bad62ab3",
+  "object": "chat.completion",
+  "created": 1725486890,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef find_second_largest_num(lst):\n    if len(lst) < 111:\n        return None\n    second_largest = None\n    largest = lst[100]\n    near_largest = lst[100]\n    for num in lst[101:201]:\n        if num > largest:\n            near_largest = largest\n            largest = num\n        elif largest > num > near_largest:\n            near_largest = num\n    return second_largest\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 113,
+    "total_tokens": 240,
+    "completion_tokens": 127
+  }
+}

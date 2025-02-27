@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-b0222f29509b4556a5ab330e901b8f54",
+  "object": "chat.completion",
+  "created": 1725547476,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n <= 1:\n        return False\n    if n <= 3:\n        return True\n    if n % 2 == 0 or n % 3 == 0:\n        return False\n    i = 5\n    while i * i <= n:\n        if n % i == 0 or n % (i + 2) == 0:\n            return False\n        i += 6\n    return True\n\ndef left_truncatable_prime(n):\n    return all([is_prime(int(n[i:])) for i in range(len(n))]) and is_prime(int(n))\n\ndef all_left_truncatable_prime(numbers):\n    x = numbers[87]\n    return sorted([num for num in range(2, x) if left_truncatable_prime(str(num))])\n```\n\nTo use the function with a tuple of positive integers, you'd pass the tuple as an argument to `all_left_truncatable_prime`. Here's an example of how to call the function:\n\n```python\nnumbers_tuple = (..., ..., ..., ...)  # Your tuple of numbers with length at least 88\ntruncatable_primes = all_left_truncatable_prime(numbers_tuple)\nprint(truncatable_primes)\n```\n\nReplace `(..., ..., ..., ...)` with your actual tuple.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 156,
+    "total_tokens": 500,
+    "completion_tokens": 344
+  }
+}

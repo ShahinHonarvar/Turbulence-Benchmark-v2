@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-5d49c465890c487b8f1af260a97f4e61",
+  "object": "chat.completion",
+  "created": 1725543933,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    if not isinstance(matrix, np.ndarray):\n        raise ValueError(\"Input must be a numpy ndarray\")\n    \n    result = []\n    rows, cols = matrix.shape\n    \n    for i in range(rows):\n        for j in range(cols):\n            for k in range(i, rows):\n                for l in range(j, cols):\n                    submatrix = matrix[i:k+1, j:l+1]\n                    if submatrix.sum() == 2:\n                        result.append(submatrix.tolist())\n    return result\n```\n\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 125,
+    "total_tokens": 290,
+    "completion_tokens": 165
+  }
+}

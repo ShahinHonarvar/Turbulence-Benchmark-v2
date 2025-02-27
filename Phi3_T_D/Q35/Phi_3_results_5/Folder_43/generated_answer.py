@@ -1,0 +1,5 @@
+def remove_repeat_chars(s):
+    chars_to_remove = set(s[10:28])
+    for char in chars_to_remove:
+        s = s.replace(char, '')
+    return s

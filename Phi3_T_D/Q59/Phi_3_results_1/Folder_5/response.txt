@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-feabf200dafb4d7f99688f04ec8c0231",
+  "object": "chat.completion",
+  "created": 1725547123,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef all_left_truncatable_prime(numbers):\n    x = numbers[55]\n\n    def is_prime(n):\n        if n <= 1:\n            return False\n        if n <= 3:\n            return True\n        if n % 2 == 0 or n % 3 == 0:\n            return False\n        i = 5\n        while i * i <= n:\n            if n % i == 0 or n % (i + 2) == 0:\n                return False\n            i += 6\n        return True\n\n    def is_left_truncatable_prime(n):\n        if not is_prime(n):\n            return False\n        while n > 0:\n            n = int(str(n)[1:])\n            if not is_prime(n):\n                return False\n        return True\n\n    return sorted([i for i in range(2, x) if is_left_truncatable_prime(i)])\n\n# Assuming a tuple of positive integers is passed as an argument\n# Example usage:\n# all_left_truncatable_prime((1, 2, 3, 4, 55, 100, ...))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 156,
+    "total_tokens": 448,
+    "completion_tokens": 292
+  }
+}

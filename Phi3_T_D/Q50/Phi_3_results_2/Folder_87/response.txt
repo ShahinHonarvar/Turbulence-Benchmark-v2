@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-14a7adf532f240a299e4a80a62ff3faa",
+  "object": "chat.completion",
+  "created": 1725527930,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom collections import defaultdict\n\ndef if_contains_anagrams(strings):\n    def normalize(s):\n        return ''.join(sorted(s.lower()))\n\n    anagram_dict = defaultdict(int)\n    for string in strings:\n        if len(string) >= 3:\n            norm = normalize(string)\n            anagram_dict[norm] += 1\n\n    anagram_pairs = sum(count // 2 for count in anagram_dict.values())\n    return anagram_pairs >= 88\n\n# Example usage\nif_contains_anagrams([\"bat\", \"tab\", \"cat\", \"tac\", \"atom\", \"moat\", \"toma\", \"moot\", \"atoms\", \"some\", \"lemon\", \"melon\"])\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 134,
+    "total_tokens": 324,
+    "completion_tokens": 190
+  }
+}

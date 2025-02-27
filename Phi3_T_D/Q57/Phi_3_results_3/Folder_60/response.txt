@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-98c587755c774b5189e23275a36f2c26",
+  "object": "chat.completion",
+  "created": 1725543937,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    if not isinstance(matrix, np.ndarray):\n        raise ValueError(\"Input must be a numpy matrix\")\n\n    nrows, ncols = matrix.shape\n    submatrices = []\n\n    for i in range(nrows):\n        for j in range(ncols):\n            for p in range(i, nrows):\n                for q in range(j, ncols):\n                    submatrix = matrix[i:p+1, j:q+1]\n                    if submatrix.sum() == 94:\n                        submatrices.append(submatrix)\n\n    return submatrices\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 126,
+    "total_tokens": 295,
+    "completion_tokens": 169
+  }
+}

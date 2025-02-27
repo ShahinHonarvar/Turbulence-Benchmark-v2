@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-28df3dfbf63f42fbb043af58da280397",
+  "object": "chat.completion",
+  "created": 1725509173,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef find_subset_of_length_n(elements):\n    n = len(elements)\n    if n < 31:\n        return 0\n    total = 1\n    for i in range(n, n - 31, -1):\n        total *= i\n    for i in range(2, 32):\n        total //= i\n    return total\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 88,
+    "total_tokens": 181,
+    "completion_tokens": 93
+  }
+}

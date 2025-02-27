@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-a796516f6cc146ffa824a49067b66578",
+  "object": "chat.completion",
+  "created": 1725513465,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef prime_factors(integers):\n    def prime_factors_of_single_number(number):\n        factors = set()\n        divisor = 2\n        while divisor * divisor <= number:\n            while number % divisor == 0:\n                factors.add(divisor)\n                number //= divisor\n            divisor += 1\n        if number > 1:\n            factors.add(number)\n        return factors\n\n    if len(integers) > 91:\n        return prime_factors_of_single_number(integers[91])\n    else:\n        raise ValueError(\"The list does not contain an integer at index 91.\")\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 87,
+    "total_tokens": 254,
+    "completion_tokens": 167
+  }
+}

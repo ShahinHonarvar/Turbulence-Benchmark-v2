@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-b05560534dcd4b2a84dbaea932c16015",
+  "object": "chat.completion",
+  "created": 1725546391,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    if not isinstance(matrix, np.ndarray):\n        raise TypeError('Input should be a two-dimensional numpy matrix')\n    height, width = matrix.shape\n    count = 0\n    for size in range(1, min(height, width) + 1):\n        for i in range(height - size + 1):\n            for j in range(width - size + 1):\n                submatrix = matrix[i:i+size, j:j+size]\n                if np.all(submatrix == 66):\n                    count += 1\n    return count\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 116,
+    "total_tokens": 274,
+    "completion_tokens": 158
+  }
+}

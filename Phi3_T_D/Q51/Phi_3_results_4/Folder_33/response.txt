@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-da9ee03aec1e4dfa974c6ac0d2774766",
+  "object": "chat.completion",
+  "created": 1725530720,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(lst):\n    pairs_count = 0\n    seen = {}\n    for word in lst:\n        sorted_word = ''.join(sorted(word.lower()))\n        if sorted_word in seen:\n            pairs_count += seen[sorted_word]\n            seen[sorted_word] += 1\n        else:\n            seen[sorted_word] = 1\n    return pairs_count <= 85\n\n# Example usage:\n# if_contains_anagrams(['listen', 'enlist', 'google', 'gooegl'])\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 148,
+    "total_tokens": 289,
+    "completion_tokens": 141
+  }
+}

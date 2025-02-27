@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-864094013fdc488ca30d2c2049471ef4",
+  "object": "chat.completion",
+  "created": 1725550061,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef all_left_truncatable_prime(primes):\n    x = primes[975]\n    def is_left_truncatable(p, prime_set):\n        str_p = str(p)\n        for i in range(len(str_p)):\n            if int(str_p[i:]) not in prime_set:\n                return False\n        return True\n    \n    prime_set = set(p for p in primes if p < x)\n    left_truncatables = [p for p in prime_set if is_left_truncatable(p, prime_set)]\n    return left_truncatables[::-1]\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 157,
+    "total_tokens": 324,
+    "completion_tokens": 167
+  }
+}

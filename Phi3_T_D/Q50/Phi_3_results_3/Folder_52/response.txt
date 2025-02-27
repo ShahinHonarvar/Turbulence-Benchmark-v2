@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-875c90e7e4f04aaabbecf35c27b77c67",
+  "object": "chat.completion",
+  "created": 1725528201,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nfrom collections import defaultdict\n\ndef if_contains_anagrams(lst):\n    def is_anagram(s1, s2):\n        return sorted(s1.lower()) == sorted(s2.lower())\n\n    count = 0\n    anagram_dict = defaultdict(set)\n\n    for i in range(len(lst)):\n        for j in range(i + 1, len(lst)):\n            if is_anagram(lst[i], lst[j]) and len(lst[i]) >= 3 and len(lst[j]) >= 3:\n                if lst[j] in anagram_dict[lst[i]]:\n                    count += 1\n                else:\n                    anagram_dict[lst[i]].add(lst[j])\n                    count += 1\n\n                if count >= 58:\n                    return True\n\n    return False\n```\n```\n\nMake sure to use this Python code snippet within a Python environment to test the 'if_contains_anagrams' function.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 134,
+    "total_tokens": 378,
+    "completion_tokens": 244
+  }
+}

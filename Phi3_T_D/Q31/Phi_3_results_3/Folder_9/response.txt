@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-c83dc8807e3640faa5a9402a74ec6254",
+  "object": "chat.completion",
+  "created": 1725501894,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom math import sqrt\n\ndef is_perfect(n):\n    sum_of_factors = 1\n    for i in range(2, int(sqrt(n)) + 1):\n        if n % i == 0:\n            sum_of_factors += i\n            if i != n // i:\n                sum_of_factors += n // i\n    return sum_of_factors == n\n\ndef if_perfect_num(numbers):\n    return is_perfect(numbers[24]) if len(numbers) > 24 else False\n\n# Example usage:\nnumbers_list = [1, 2, 4, 9, 15, 28, 30, 49, 55, ...] # Continue the list up to 24 numbers\nresult = if_perfect_num(numbers_list)\nprint(result)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 94,
+    "total_tokens": 308,
+    "completion_tokens": 214
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-45da6c76b4f64ece9ccf955eb0166a9b",
+  "object": "chat.completion",
+  "created": 1725541625,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom itertools import permutations\n\ndef all_substring_of_size_n(s):\n    unique_chars = set(s)\n    substrings = set(s[i:i+6] for i in range(len(s)-5))\n    \n    result = []\n    for substring in substrings:\n        if len(set(substring)) == 6:\n            perms = set(permutations(substring))\n            if all(permutation in ascii_lowercase for permutation in perms):\n                result.append(''.join(permutation))\n                \n    return result\n\nfrom string import ascii_lowercase as alphabet \n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 129,
+    "total_tokens": 287,
+    "completion_tokens": 158
+  }
+}

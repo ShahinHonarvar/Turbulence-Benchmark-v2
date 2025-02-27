@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-d7db1621328f49dfae3ff83b32c9ce15",
+  "object": "chat.completion",
+  "created": 1725530081,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef if_contains_anagrams(strings):\n    def get_canonical(s):\n        return ''.join(sorted(s.lower()))\n    \n    canonical_counts = {}\n    for string in strings:\n        canonical = get_canonical(string)\n        if len(string) >= 3:\n            canonical_counts[canonical] = canonical_counts.get(canonical, 0) + 1\n    \n    anagram_pairs = sum(v - 1 for v in canonical_counts.values() if v > 1)\n    return anagram_pairs <= 73\n\n# Test the function\nprint(if_contains_anagrams([\"abc\", \"cba\", \"aaa\", \"bbb\"]))  # Should return True\nprint(if_contains_anagrams([\"abcd\", \"dcba\", \"abed\", \"dabe\", \"eee\", \"cba\"]))  # Should return False\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 148,
+    "total_tokens": 380,
+    "completion_tokens": 232
+  }
+}

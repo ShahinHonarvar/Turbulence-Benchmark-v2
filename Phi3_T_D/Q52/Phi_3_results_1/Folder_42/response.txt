@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-fc9c7fcf65824565b20d538edb008752",
+  "object": "chat.completion",
+  "created": 1725531610,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nfrom collections import defaultdict\n\ndef all_substrings(s):\n    length = len(s)\n    return {s[i: j] for i in range(length) for j in range(i + 1, length + 1)}\n\ndef extend_palindromes(string, length, palindromes):\n    for i in range(len(string) - length + 1):\n        if string[i].isalpha() and string[i-1:i+length+1].lower() == string[i-1:i+length+1][::-1].lower():\n            palindromes.add(string[i:i+length])\n    return palindromes\n\ndef palindrome_of_length_n(input_string):\n    half_length = 279 // 2\n    palindromes = set()\n    extensions_queue = [(input_string, half_length)]\n\n    while extensions_queue:\n        string, length = extensions_queue.pop(0)\n        substring_set = all_substrings(string)\n\n        if length == 1:\n            for sub in substring_set:\n                if sub.isalpha():\n                    palindromes.add(sub)\n        else:\n            for sub in substring_set:\n                if len(sub) < length:\n                    continue\n                if sub.lower() == sub[::-1].lower():\n                    palindromes.add(sub)\n                if sub.isalpha():\n                    extensions_queue.append((sub, length - 1))\n\n    return palindromes\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 161,
+    "total_tokens": 539,
+    "completion_tokens": 378
+  }
+}

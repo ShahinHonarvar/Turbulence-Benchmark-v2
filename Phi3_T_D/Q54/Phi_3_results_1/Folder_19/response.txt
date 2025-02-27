@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-a42b06b7630b495f82dc89e95f010e48",
+  "object": "chat.completion",
+  "created": 1725535421,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n <= 1: return False\n    if n <= 3: return True\n    if n % 2 == 0 or n % 3 == 0: return False\n    i = 5\n    while i * i <= n:\n        if n % i == 0 or n % (i + 2) == 0:\n            return False\n        i += 6\n    return True\n\ndef all_right_truncatable_prime(numbers):\n    x = numbers[67]\n    primes = [2, 3, 5, 7]\n    right_truncatable_primes = []\n    for num in range(11, x, 2):\n        s = str(num)\n        right_truncated = True\n        for i in range(len(s)):\n            truncated = int(s[:len(s)-i])\n            if not is_prime(truncated):\n                right_truncated = False\n                break\n        if right_truncated:\n            primes.append(num)\n    return sorted(primes, reverse=True)\n```\n\nThis code defines a function `all_right_truncatable_prime` that utilizes a helper function `is_prime` to check for primality. It then calculates all right-truncatable primes up to the specified value `x` and returns them sorted in descending order.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 169,
+    "total_tokens": 507,
+    "completion_tokens": 338
+  }
+}

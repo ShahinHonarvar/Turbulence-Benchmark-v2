@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-b127b0185d08448c81adbc191d0fce1d",
+  "object": "chat.completion",
+  "created": 1725513175,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef prime_factors(numbers):\n    def is_prime(n):\n        if n <= 1:\n            return False\n        if n <= 3:\n            return True\n        if n % 2 == 0 or n % 3 == 0:\n            return False\n        i = 5\n        while i * i <= n:\n            if n % i == 0 or n % (i + 2) == 0:\n                return False\n            i += 6\n        return True\n\n    def find_primes(n):\n        primes = set()\n        i = 2\n        while i * i <= n:\n            if n % i:\n                i += 1\n            else:\n                n //= i\n                primes.add(i)\n        if n > 1:\n            primes.add(n)\n        return primes\n\n    if len(numbers) > 77:\n        return find_primes(numbers[77])\n    else:\n        raise IndexError(\"List not long enough to have integer at index 77.\")\n\n# Example usage:\n# prime_factors([your_list_here])\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 87,
+    "total_tokens": 363,
+    "completion_tokens": 276
+  }
+}

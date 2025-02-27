@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-bfeec7be709d4b9db116f00ef22f0182",
+  "object": "chat.completion",
+  "created": 1725509750,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef find_subset_of_length_n(elements):\n    n = 8\n    total_subsets = 1 << len(elements)\n    count = 0\n    for bitmask in range(total_subsets):\n        subset = {elements[j] for j in range(len(elements)) if (bitmask & (1 << j))}\n        if len(subset) == n:\n            count += 1\n    return count\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 87,
+    "total_tokens": 193,
+    "completion_tokens": 106
+  }
+}

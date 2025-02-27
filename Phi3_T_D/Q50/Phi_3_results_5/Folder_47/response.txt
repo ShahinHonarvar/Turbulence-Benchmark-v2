@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-95d6a1ea372a422f8a0d54b70babf99d",
+  "object": "chat.completion",
+  "created": 1725529017,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(lst):\n    from collections import defaultdict\n\n    def sort_signature(s):\n        return ''.join(sorted(s.lower()))\n\n    anagram_buckets = defaultdict(list)\n    count = 0\n\n    for item in lst:\n        if len(item) >= 3:\n            anagram_buckets[sort_signature(item)].append(item)\n\n    for bucket in anagram_buckets.values():\n        if len(bucket) >= 2:\n            count += (len(bucket) * (len(bucket) - 1)) // 2\n\n    return count >= 47\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 134,
+    "total_tokens": 297,
+    "completion_tokens": 163
+  }
+}

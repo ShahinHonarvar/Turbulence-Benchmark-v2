@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-8c799532c01c4219b294d22936b1f553",
+  "object": "chat.completion",
+  "created": 1725529435,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef if_contains_anagrams(str_list):\n    count = 0\n    memo = {}\n\n    def is_valid_anagram(s):\n        return len(s) >= 3 and ''.join(sorted(s.lower())).isalpha()\n\n    for i in range(len(str_list)):\n        now = ''.join(sorted(str_list[i].lower()))\n        if now in memo:\n            count += memo[now]\n            memo[now] += 1\n        else:\n            memo[now] = 1\n\n    return count <= 464\n```\n\nTo note, this solution creates a dictionary to keep track of the sorted versions of each string (after converting to lowercase). If a sorted version is encountered again (indicating an anagram), the count is incremented by the previous counter stored in the dictionary.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 149,
+    "total_tokens": 356,
+    "completion_tokens": 207
+  }
+}

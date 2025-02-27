@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-0c4529d930b346949f003963ed642e23",
+  "object": "chat.completion",
+  "created": 1725510702,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef return_n_smallest_chars(s):\n    chars = []\n    if len(s) < 10:\n        return sorted(s)\n    for c in s:\n        if len(chars) < 10:\n            chars.append(c)\n        else:\n            if ord(s[0]) < ord(chars[-1]):\n                chars[-1] = c\n            else:\n                chars.append(c)\n    return sorted(chars)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 110,
+    "total_tokens": 230,
+    "completion_tokens": 120
+  }
+}

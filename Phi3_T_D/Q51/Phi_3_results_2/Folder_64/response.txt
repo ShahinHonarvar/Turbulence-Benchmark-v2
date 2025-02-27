@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-cc486de3eda342568ef9ab32e3f3df41",
+  "object": "chat.completion",
+  "created": 1725529962,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(strings):\n    def canonize(s):\n        return ''.join(sorted(s.lower()))\n    \n    anagrams_count = 0\n    seen = set()\n    \n    for string in strings:\n        if len(string) < 3:\n            continue\n        canonized_string = canonize(string)\n        if canonized_string in seen:\n            anagrams_count += 1\n        else:\n            seen.add(canonized_string)\n    \n        if anagrams_count > 59:\n            return False\n    \n    return True\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 148,
+    "total_tokens": 300,
+    "completion_tokens": 152
+  }
+}

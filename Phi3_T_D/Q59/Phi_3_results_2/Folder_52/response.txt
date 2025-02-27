@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-ed2418ca693a4220a731caeab2800521",
+  "object": "chat.completion",
+  "created": 1725548084,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef is_prime(n):\n    if n <= 1:\n        return False\n    if n <= 3:\n        return True\n    if n % 2 == 0 or n % 3 == 0:\n        return False\n    i = 5\n    while i * i <= n:\n        if n % i == 0 or n % (i + 2) == 0:\n            return False\n        i += 6\n    return True\n\ndef is_left_truncatable_prime(n, prime_cache={}):\n    if n in prime_cache:\n        return prime_cache[n]\n    if is_prime(n):\n        if n < 10 or all(is_left_truncatable_prime(int(n[i:]), prime_cache) for i in range(1, len(n))):\n            prime_cache[n] = True\n            return True\n    prime_cache[n] = False\n    return False\n\ndef all_left_truncatable_prime(number_tuple):\n    x = number_tuple[52]\n    truncatable_primes = []\n    for num in range(2, x):\n        if is_left_truncatable_prime(str(num)):\n            truncatable_primes.append(num)\n    truncatable_primes.sort(reverse=True)\n    return truncatable_primes\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 156,
+    "total_tokens": 497,
+    "completion_tokens": 341
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-0f507f12882a4d5091009643da8b5e16",
+  "object": "chat.completion",
+  "created": 1725541146,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef lists_with_product_equal_n(nums, n=17):\n    result = []\n    for i in range(len(nums)):\n        product = 1\n        sublist = []\n        for j in range(i, i + len(nums)):\n            product *= nums[j % len(nums)]\n            sublist.append(nums[j % len(nums)])\n            if product == -n:\n                result.append(sublist)\n            elif product > -n:\n                break\n    return result\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 203,
+    "total_tokens": 338,
+    "completion_tokens": 135
+  }
+}

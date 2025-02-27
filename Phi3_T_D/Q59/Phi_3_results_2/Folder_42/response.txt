@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-9c12c11aad554f908d5649fc5bb56d5e",
+  "object": "chat.completion",
+  "created": 1725548019,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n <= 1:\n        return False\n    if n <= 3:\n        return True\n    if n % 2 == 0 or n % 3 == 0:\n        return False\n    i = 5\n    while i * i <= n:\n        if n % i == 0 or n % (i + 2) == 0:\n            return False\n        i += 6\n    return True\n\ndef left_truncatable_primes_less_than(n):\n    res = []\n    for p in range(7, n):\n        if is_prime(p):\n            num = str(p)\n            while len(num) > 1:\n                num = num[1:]\n                if not is_prime(int(num)):\n                    break\n            else:\n                res.append(p)\n    return res\n\ndef all_left_truncatable_prime(numbers):\n    x = numbers[64]\n    return sorted(left_truncatable_primes_less_than(x), reverse=True)\n\n# Assuming you have a tuple with 65 positive integers\nnumbers_tuple = (/* ... */) # Imagine tuple is filled here.\nprint(all_left_truncatable_prime(numbers_tuple))\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 156,
+    "total_tokens": 472,
+    "completion_tokens": 316
+  }
+}

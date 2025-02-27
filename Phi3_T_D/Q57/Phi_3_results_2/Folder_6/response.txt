@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-1b7a33daccc54a46956f257aa1c9254b",
+  "object": "chat.completion",
+  "created": 1725543232,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix, target_sum=126):\n    def search(x, y, size):\n        nonlocal total\n        if total == target_sum:\n            result.append(matrix[x:x+size, y:y+size])\n            return\n\n        if total > target_sum:\n            return\n\n        if x + size > matrix.shape[0]:\n            return\n\n        for end_x in range(x + size, matrix.shape[0]):\n            total += np.sum(matrix[x:end_x, y:y+size])\n            search(end_x, y, size)\n            total -= np.sum(matrix[x:end_x, y:y+size])\n\n        if y+size < matrix.shape[1]:\n            search(x, y + size, size)\n\n    result = []\n    size = 1\n    total = 0\n    while size <= min(matrix.shape):\n        search(0, 0, size)\n        size += 1\n    \n    return result\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 127,
+    "total_tokens": 392,
+    "completion_tokens": 265
+  }
+}

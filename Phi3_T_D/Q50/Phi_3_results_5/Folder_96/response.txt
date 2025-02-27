@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-294716fa148e42a5b45b1c8dadc00028",
+  "object": "chat.completion",
+  "created": 1725529219,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(lst):\n    def count_anagrams(word, sublst):\n        word = word.lower()\n        return sum(sorted(w.lower()) == sorted(word) for w in sublst if len(w) >= 3 and sorted(w.lower()) != sorted(word))\n\n    total_pairs = sum(count_anagrams(word, lst) for word in lst)\n    return total_pairs >= 98\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 134,
+    "total_tokens": 250,
+    "completion_tokens": 116
+  }
+}

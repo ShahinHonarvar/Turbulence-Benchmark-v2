@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-c5f93df6806f42578fabb5b70759daea",
+  "object": "chat.completion",
+  "created": 1725527781,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nfrom collections import defaultdict\n\ndef if_contains_anagrams(lst):\n    def simplify_word(word):\n        return ''.join(sorted(word.lower()))\n\n    anagram_map = defaultdict(int)\n    count = 0\n\n    for word in lst:\n        if len(word) >= 3:\n            simplified = simplify_word(word)\n            count += anagram_map[simplified]\n            anagram_map[simplified] += 1\n\n    return count >= 39\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 134,
+    "total_tokens": 263,
+    "completion_tokens": 129
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-e462136195a24ed6b68a15e481eab4c8",
+  "object": "chat.completion",
+  "created": 1725544872,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    (M, N), sums = matrix.shape, {}\n    result = []\n    \n    if not M or not N:\n        return result\n    \n    for i in range(M):\n        for j in range(N):\n            sums[(-4, (i,j))]=0\n            if i > 0:\n                sums[(-4, (i,j))]=sums[(-4, (i-1,j))]+sum(matrix[i-1, j:j+1])\n            if j > 0:\n                sums[(-4, (i,j))]=sums[(-4, (i,j-1))]+matrix[i, j]\n            if i > 0 and j > 0:\n                sums[(-4, (i,j))]=min(sums[(-4, (i,j))], sums[(-4, (i-1,j))]+sum(matrix[i-1, j:j+1])-matrix[i, j])\n\n    for key, value in sorted(sums.items()):\n        if value == -4:\n            result.append([key[1][0]+i for i in range(M)] for i in range(N) if all(sum(matrix[r, q] for r in range(key[1][0], key[1][0]+i+1) for q in range(key[1][1], key[1][1]+j+1)) == -4 for j in range(N-key[1][1])))\n\n    return result\n```\n\nThis Python function efficiently finds all submatrices with a sum of -4 by precomputing sums of sub-areas and comparing them to the target sum. It returns a list of all submatrices that meet the condition.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 125,
+    "total_tokens": 557,
+    "completion_tokens": 432
+  }
+}

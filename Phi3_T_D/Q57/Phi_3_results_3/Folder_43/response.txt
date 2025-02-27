@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-323d8ce065724498b83940312ec60361",
+  "object": "chat.completion",
+  "created": 1725543859,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    m, n = matrix.shape\n    result = []\n\n    def helper(i, j):\n        if i > m or j > n:\n            return\n        curr_sum = sum(sum(matrix[i:i+k, j:j+l]) for k in range(1, m-i+1) for l in range(1, n-j+1))\n        if curr_sum == -81:\n            result.append(matrix[i:i+k, j:j+l])\n        for x in range(i, m):\n            for y in range(j, n):\n                helper(x+1, y+1)\n                \n    helper(0, 0)\n    return result\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 126,
+    "total_tokens": 319,
+    "completion_tokens": 193
+  }
+}

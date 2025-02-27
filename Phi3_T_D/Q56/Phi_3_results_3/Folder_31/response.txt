@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-e4f409df1a2f4deebe1751b14df19e10",
+  "object": "chat.completion",
+  "created": 1725541992,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef all_substring_of_size_n(input_string):\n    def has_duplicate_chars(substring):\n        return len(substring) != len(set(substring))\n\n    unique_substrings = set()\n    for i in range(len(input_string) - 45):\n        substring = input_string[i:i + 46]\n        if not has_duplicate_chars(substring):\n            unique_substrings.add(substring)\n\n    return list(unique_substrings)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 130,
+    "total_tokens": 258,
+    "completion_tokens": 128
+  }
+}

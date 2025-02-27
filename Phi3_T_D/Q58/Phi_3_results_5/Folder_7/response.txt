@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-9ed11e6bd67246e8bfaa716f1afe8ee5",
+  "object": "chat.completion",
+  "created": 1725546720,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    if not isinstance(matrix, np.ndarray) or len(matrix.shape) != 2:\n        return 0\n\n    rows, cols = matrix.shape\n    count = 0\n\n    for sr in range(rows):\n        for sc in range(cols):\n            for hr in range(rows - sr):\n                for hc in range(cols - sc):\n                    submatrix = matrix[sr:sr+hr+1, sc:sc+hc+1]\n                    if submatrix.size == 121:\n                        count += 1\n\n    return count\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 117,
+    "total_tokens": 279,
+    "completion_tokens": 162
+  }
+}

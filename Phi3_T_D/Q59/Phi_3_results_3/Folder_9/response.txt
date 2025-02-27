@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-fc7787ea882d47788e53a8941e48588c",
+  "object": "chat.completion",
+  "created": 1725548443,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n <= 1:\n        return False\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            return False\n    return True\n\ndef all_left_truncatable_prime(numbers):\n    x = numbers[29]\n    primes = [s for s in map(str, range(2, x)) if s != '0']\n    output = []\n\n    for prime in primes:\n        num = int(prime)\n        if all(is_prime(int(prime[i:])) for i in range(len(prime))):\n            output.append(num)\n\n    return sorted(output, reverse=True)\n\n# Assuming the tuple of positive integers is provided\n# Example: positive_integers = (10, 20, 30, ..., 99999999999)\npositive_integers_tuple = (...)  # Replace with actual tuple\nprint(all_left_truncatable_prime(positive_integers_tuple))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 156,
+    "total_tokens": 425,
+    "completion_tokens": 269
+  }
+}

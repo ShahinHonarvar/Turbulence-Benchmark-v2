@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-4fe228c38d774ad99cf225313bf75044",
+  "object": "chat.completion",
+  "created": 1725529855,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef if_contains_anagrams(str_list):\n    def get_sorted_string(s):\n        return ''.join(sorted(s.lower()))\n\n    count = 0\n    seen = dict()\n\n    for word in str_list:\n        if len(word) < 3:\n            continue\n\n        sorted_word = get_sorted_string(word)\n        if sorted_word not in seen:\n            seen[sorted_word] = 1\n        else:\n            count += 1\n\n        if count > 29:\n            return False\n\n    return True\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 148,
+    "total_tokens": 292,
+    "completion_tokens": 144
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-3e329ae47ed24b5da03dfee886f29f21",
+  "object": "chat.completion",
+  "created": 1725546089,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef submatrix_with_n_numbers(matrix):\n    import numpy as np\n    def count_submatrices(mat, target_count):\n        m, n = mat.shape\n        counts = 0\n        for i in range(m):\n            for j in range(n):\n                for new_m in range(i, m):\n                    for new_n in range(j, n):\n                        submat = mat[i:new_m+1, j:new_n+1]\n                        if (submat == 0).sum() == target_count:\n                            counts += 1\n        return counts\n    target_submatrix_size = 147\n    total_elements = matrix.size\n    if total_elements < target_submatrix_size:\n        return 0\n    return count_submatrices(matrix, target_submatrix_size)\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 117,
+    "total_tokens": 330,
+    "completion_tokens": 213
+  }
+}

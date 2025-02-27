@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-85d16cd16bca4250ba246008e6f3ddf1",
+  "object": "chat.completion",
+  "created": 1725529007,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nfrom collections import defaultdict\n\ndef if_contains_anagrams(str_list):\n    anagram_dict = defaultdict(list)\n    \n    for s in str_list:\n        if len(s) >= 3:\n            sorted_str = ''.join(sorted(s.lower()))\n            anagram_dict[sorted_str].append(s)\n    \n    anagram_pairs = 0\n    for anagrams in anagram_dict.values():\n        if len(anagrams) > 1:\n            anagram_pairs += len(anagrams) * (len(anagrams) - 1) // 2\n            \n    return anagram_pairs >= 277\n\n# Example usage:\n# result = if_contains_anagrams(['act', 'tac', 'a', 'bat', 'tab'])\n# print(result)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 135,
+    "total_tokens": 346,
+    "completion_tokens": 211
+  }
+}

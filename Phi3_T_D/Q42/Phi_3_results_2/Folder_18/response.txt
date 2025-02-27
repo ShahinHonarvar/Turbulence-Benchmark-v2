@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-606465e9e55846daa84c81673dd578ec",
+  "object": "chat.completion",
+  "created": 1725512747,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef prime_factors(num_list):\n    def is_prime(n):\n        if n <= 1:\n            return False\n        if n <= 3:\n            return True\n        if n % 2 == 0 or n % 3 == 0:\n            return False\n        i = 5\n        while i * i <= n:\n            if n % i == 0 or n % (i + 2) == 0:\n                return False\n            i += 6\n        return True\n\n    def get_prime_factors(n):\n        factors = set()\n        for i in range(2, n + 1):\n            if n % i == 0 and is_prime(i):\n                factors.add(i)\n        return factors\n\n    return get_prime_factors(num_list[312]) if len(num_list) > 312 else set()\n\n# Example usage:\n# integer_list = [10, 15, 21, ..., 1000]  # Assuming it's a list with more than 312 elements\n# print(prime_factors(integer_list))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 88,
+    "total_tokens": 366,
+    "completion_tokens": 278
+  }
+}

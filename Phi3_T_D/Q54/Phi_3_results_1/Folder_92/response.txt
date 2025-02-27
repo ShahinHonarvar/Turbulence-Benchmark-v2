@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-07abdbd33bad4b70beb89d79049e8198",
+  "object": "chat.completion",
+  "created": 1725535930,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            return False\n    return True\n\ndef is_right_truncatable_prime(n, primes):\n    if n < 10:\n        return is_prime(n) and n in primes\n    return is_prime(n) and is_right_truncatable_prime(n // 10, primes)\n\ndef all_right_truncatable_prime(numbers):\n    x = numbers[7]\n    primes = [2, 3, 5, 7]\n    right_truncatables = []\n    for num in range(2, x):\n        if is_right_truncatable_prime(num, primes):\n            right_truncatables.append(num)\n    return sorted(right_truncatables)\n```\n\nThis script defines a function `all_right_truncatable_prime`, which takes a tuple of positive integers as an argument. Given the integer at index 7, it returns the sorted list of all right-truncatable prime numbers less than that integer. If none are found, it returns an empty list. It uses helper functions `is_prime` and `is_right_truncatable_prime` to check if a number is prime and a right-truncatable prime, respectively.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 168,
+    "total_tokens": 520,
+    "completion_tokens": 352
+  }
+}

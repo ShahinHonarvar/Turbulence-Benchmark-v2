@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-186ada39923f42d598580d9fca123c26",
+  "object": "chat.completion",
+  "created": 1725542075,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef all_substring_of_size_n(s):\n    from itertools import combinations\n\n    if len(s) < 32:\n        return []\n\n    unique_chars = {char for char in s}\n    if len(unique_chars) < 32:\n        return []\n\n    substrings = [\"\".join(substring) for i in range(32, len(s)+1) for substring in combinations(s, i) if len(substring) == 32]\n    \n    return list(set(substrings))\n\n# Example usage\nsubstrings = all_substring_of_size_n(\"abcdefghijklmnopqrstuvwxyzABCDEF\")\nprint(substrings)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 130,
+    "total_tokens": 305,
+    "completion_tokens": 175
+  }
+}

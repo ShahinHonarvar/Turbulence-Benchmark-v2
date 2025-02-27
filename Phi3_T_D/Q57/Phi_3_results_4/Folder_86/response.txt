@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-a4d67233f02a48a3b4b90c41fda76961",
+  "object": "chat.completion",
+  "created": 1725544534,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    result_submatrices = []\n    rows, cols = matrix.shape\n    target_sum = -394\n\n    # Iterate over every possible top-left corner of a submatrix\n    for i in range(rows):\n        for j in range(cols):\n            # Try all possible sizes of submatrices that start at (i, j)\n            for m in range(1, rows - i + 1):\n                for n in range(1, cols - j + 1):\n                    # Extract the submatrix\n                    submatrix = matrix[i:i+m, j:j+n]\n                    # Check if the sum of the submatrix equals the target sum\n                    if submatrix.sum() == target_sum:\n                        result_submatrices.append(submatrix)\n\n    return result_submatrices\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 127,
+    "total_tokens": 348,
+    "completion_tokens": 221
+  }
+}

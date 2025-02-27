@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-04a07542887a407a9091e82354e770b9",
+  "object": "chat.completion",
+  "created": 1725505271,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nfrom itertools import chain\n\ndef find_original_set(*sets):\n    if len(sets) != 733:\n        raise ValueError(\"Exactly 733 sets required\")\n    if any(not isinstance(s, set) for s in sets):\n        raise TypeError(\"All arguments must be sets\")\n    if any(len(s) != len(s.intersection(*sets)) for s in sets):\n        raise ValueError(\"Sets must be distinct and intersect with each other\")\n    \n    union_set = set().union(*sets)\n    return union_set\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 99,
+    "total_tokens": 238,
+    "completion_tokens": 139
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-5de3c7e62ce447cca817f0ee01ef579f",
+  "object": "chat.completion",
+  "created": 1725545920,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    if not isinstance(matrix, np.ndarray):\n        return 0\n    \n    count = 0\n    rows, cols = matrix.shape\n\n    for i in range(rows):\n        for j in range(cols):\n            for k in range(1, rows - i + 1):\n                for l in range(1, cols - j + 1):\n                    submatrix = matrix[i:i+k, j:j+l]\n                    flat_submatrix = submatrix.flatten()\n                    unique_elements = len(np.unique(flat_submatrix))\n                    \n                    if unique_elements == 2:\n                        count += 1\n                        \n    return count\n```\n\nYou can call the function with a 2D numpy array like this:\n\n```python\nmatrix = np.array([[1, 2], [3, 4]])\nresult = submatrix_with_n_numbers(matrix)\nprint(result)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 115,
+    "total_tokens": 367,
+    "completion_tokens": 252
+  }
+}

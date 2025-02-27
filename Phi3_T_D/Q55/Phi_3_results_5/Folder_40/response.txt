@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-cebe5cc1b29446c3bab3b62b255d0f34",
+  "object": "chat.completion",
+  "created": 1725541069,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef lists_with_product_equal_n(circular_list):\n    def find_sublists(start, target, seen=None):\n        if seen is None:\n            seen = []\n        if start == len(circular_list):\n            return []\n        product = 1\n        sublist = []\n        for i in range(start, len(circular_list)):\n            if circular_list[i] in seen:\n                continue\n            product *= circular_list[i]\n            sublist.append(circular_list[i])\n            if product == target:\n                left_sublists = find_sublists(0, target, sublist)\n                right_sublists = find_sublists(i + 1, target, [x for x in seen if x != circular_list[i]])\n                return [sublist] + left_sublists + right_sublists\n            seen.append(circular_list[i])\n        return []\n\n    return find_sublists(0, -9, [])\n\n# Use the function with a circular list example\ncircular_list = [2, -3, 4, -3, -1, -3]\nprint(lists_with_product_equal_n(circular_list))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 202,
+    "total_tokens": 499,
+    "completion_tokens": 297
+  }
+}

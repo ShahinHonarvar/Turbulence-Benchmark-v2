@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-d808fbfa8b124b9daf8cb7206a6f5362",
+  "object": "chat.completion",
+  "created": 1725528892,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef if_contains_anagrams(strings):\n    def normalize(s):\n        return ''.join(sorted(s.lower()))\n    \n    def count_anagrams(candidates):\n        count = 0\n        looks = {}\n        for word in candidates:\n            if len(word) < 3: continue\n            key = normalize(word)\n            if key in looks:\n                count += 1\n                looks[key].append(word)\n            else:\n                looks[key] = [word]\n        return count\n    \n    unique_keys = set(map(normalize, filter(lambda s: len(s) >= 3, strings)))\n    return count_anagrams(unique_keys) >= 155\n\n# Example usage:\n# result = if_contains_anagrams(['silent', 'listen', 'enlist', ...])\n# print(result) # should return True or False\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 135,
+    "total_tokens": 357,
+    "completion_tokens": 222
+  }
+}

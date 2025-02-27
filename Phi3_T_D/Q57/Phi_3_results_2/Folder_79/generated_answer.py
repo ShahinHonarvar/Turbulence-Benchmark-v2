@@ -1,0 +1,12 @@
+import numpy as np
+
+def submatrix_with_particular_sum(matrix):
+    result = []
+    rows, cols = matrix.shape
+    for size in range(1, rows + 1):
+        for i in range(rows - size + 1):
+            for j in range(cols - size + 1):
+                submatrix = matrix[i:i + size, j:j + size]
+                if np.sum(submatrix) == -47:
+                    result.append(submatrix)
+    return result

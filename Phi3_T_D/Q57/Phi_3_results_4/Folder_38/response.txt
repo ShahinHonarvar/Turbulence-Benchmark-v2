@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-16a6077294b64c5982d4b847a070a640",
+  "object": "chat.completion",
+  "created": 1725544310,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    if not isinstance(matrix, np.ndarray):\n        raise ValueError(\"Input should be a numpy array\")\n\n    submatrices = []\n    number_of_rows, number_of_columns = matrix.shape\n    for top in range(number_of_rows):\n        for left in range(number_of_columns):\n            for bottom in range(top+1, number_of_rows+1):\n                for right in range(left+1, number_of_columns+1):\n                    submatrix = matrix[top:bottom, left:right]\n                    if submatrix.sum() == 34:\n                        submatrices.append(submatrix)\n\n    return submatrices\n\n# Example of usage:\n# matrix = np.array([[7, 2, 1, 4], [5, 3, 8, 0], [12, 4, 6, 7]])\n# print(submatrix_with_particular_sum(matrix))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 126,
+    "total_tokens": 384,
+    "completion_tokens": 258
+  }
+}

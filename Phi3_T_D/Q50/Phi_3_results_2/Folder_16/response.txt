@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-06f70737dc2e4b7a87208278d8f7622b",
+  "object": "chat.completion",
+  "created": 1725527645,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(strings):\n    anagrams = {}\n    count = 0\n\n    for string in strings:\n        if len(string) >= 3:\n            normalized = ''.join(sorted(string.lower()))\n            if normalized in anagrams:\n                count += anagrams[normalized]\n                anagrams[normalized] += 1\n            else:\n                anagrams[normalized] = 1\n\n    return count >= 155\n\n# Example usage:\n# result = if_contains_anagrams(['abc', 'bca', 'def', 'efd'])\n# print(result)  # Output should be True or False\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 135,
+    "total_tokens": 303,
+    "completion_tokens": 168
+  }
+}

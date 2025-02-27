@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-e55633e5359d44e4a8f794af8cd66a88",
+  "object": "chat.completion",
+  "created": 1725545326,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    if not isinstance(matrix, np.ndarray):\n        raise ValueError('Input must be a numpy matrix')\n\n    count = 0\n\n    rows, cols = matrix.shape\n    n = 78\n\n    for row_start in range(rows - n + 1):\n        for col_start in range(cols - n + 1):\n            submatrix = matrix[row_start:row_start + n, col_start:col_start + n]\n            if submatrix.size == n * n:\n                count += 1\n\n    return count\n\n# Example usage\n# matrix = np.array([[...], [...], ...])\n# result = submatrix_with_n_numbers(matrix)\n# print(result)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 116,
+    "total_tokens": 315,
+    "completion_tokens": 199
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-2016ef76de4e460d80be315baa2cfcf9",
+  "object": "chat.completion",
+  "created": 1725529338,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom collections import defaultdict\nimport math\n\ndef if_contains_anagrams(lst):\n    length_count = len(lst)\n    if length_count < 6:\n        return True\n\n    anagram_buckets = defaultdict(list)\n    for word in lst:\n        word = word.lower()\n        if len(word) < 3:\n            continue\n        word_permutations = [''.join(p) for p in permutations(word)]\n        anagram_buckets[word].extend(word_permutations)\n\n    total_anagrams = 0\n    seen = set()\n    for perm_list in anagram_buckets.values():\n        for word in perm_list:\n            if word in seen:\n                total_anagrams += 1\n            seen.add(word)\n\n    return total_anagrams <= 49\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 148,
+    "total_tokens": 361,
+    "completion_tokens": 213
+  }
+}

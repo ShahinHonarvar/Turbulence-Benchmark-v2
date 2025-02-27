@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-73dc715336f2470c99eceb4b61429371",
+  "object": "chat.completion",
+  "created": 1725530028,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nfrom collections import Counter\n\ndef if_contains_anagrams(strings):\n    def counter_hash(s):\n        return frozenset(Counter(c.lower() for c in s if c.isalpha()).items())\n\n    counted_strings = {counter_hash(s): s for s in strings}\n    unique_counts = {frozenset(Counter(s).items()): Counter(s.lower()) for s in counted_strings if len(s) >= 3}\n\n    count_anagrams = 0\n    for word, counter in unique_counts.items():\n        if len(counter) == 2:\n            for other in unique_counts:\n                if word != other and set(word) == set(other):\n                    count_anagrams += 1\n                    if count_anagrams > 70:\n                        return False\n\n    return True\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 148,
+    "total_tokens": 365,
+    "completion_tokens": 217
+  }
+}

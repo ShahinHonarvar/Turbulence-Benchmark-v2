@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-f4eadaddd8e14e169e774a7d6a9a6849",
+  "object": "chat.completion",
+  "created": 1725619331,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n <= 1:\n        return False\n    if n <= 3:\n        return True\n    if n % 2 == 0 or n % 3 == 0:\n        return False\n    i = 5\n    while i * i <= n:\n        if n % i == 0 or n % (i + 2) == 0:\n            return False\n        i += 6\n    return True\n\ndef all_left_truncatable_prime(numbers):\n    x = numbers[8]\n    left_truncatable_primes = []\n    for num in range(x - 1, 1, -1):\n        if is_prime(num):\n            str_num = str(num)\n            if all(is_prime(int(str_num[i:])) for i in range(len(str_num))):\n                left_truncatable_primes.append(num)\n    return left_truncatable_primes\n```\n\nThis code defines a function `all_left_truncatable_prime` that takes a tuple of positive integers and returns a list of all left-truncatable prime numbers less than the integer at index 8, sorted in descending order. The helper function `is_prime` checks if a number is prime.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 155,
+    "total_tokens": 468,
+    "completion_tokens": 313
+  }
+}

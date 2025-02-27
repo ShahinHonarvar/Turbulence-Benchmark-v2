@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-1b26fb0f6a474d65a5a19fba0106673b",
+  "object": "chat.completion",
+  "created": 1725551127,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n <= 1:\n        return False\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            return False\n    return True\n\ndef make_truncatable(n, primes):\n    n_str = str(n)\n    if len(n_str) <= 1 or not is_truncatable(n_str, primes):\n        return set()\n    if is_prime(n) and len(n_str) > 1:\n        return {n} | make_truncatable(int(n_str[1:]), primes) | make_truncatable(int(n_str[:-1]), primes)\n    return set()\n\ndef all_left_right_truncatable_prime(numbers):\n    if not isinstance(numbers, tuple) or len(numbers) != 75 or not all(isinstance(n, int) and n > 0 for n in numbers):\n        raise ValueError('Input must be a tuple of 75 positive integers.')\n    x = numbers[74]\n    primes = set(filter(is_prime, range(2, x + 1)))\n    truncatables = set()\n    for prime in primes:\n        truncatables |= make_truncatable(prime, primes)\n    return sorted(list(truncatables))\n\n# Check for specific function called 'all_left_right_truncatable_prime'\nprint(all_left_right_truncatable_prime((200,) * 75)) # Example with x being 200\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 207,
+    "total_tokens": 615,
+    "completion_tokens": 408
+  }
+}

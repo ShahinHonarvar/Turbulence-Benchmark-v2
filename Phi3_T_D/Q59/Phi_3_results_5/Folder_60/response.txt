@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-22e07b7a553a4bd7bc0d2f1c8cb05292",
+  "object": "chat.completion",
+  "created": 1725550071,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef all_left_truncatable_prime(numbers):\n    def is_prime(n):\n        if n < 2:\n            return False\n        for i in range(2, int(n**0.5) + 1):\n            if n % i == 0:\n                return False\n        return True\n\n    def is_left_truncatable(n, stashed_primes):\n        if n < 10:\n            return n in stashed_primes[n]\n        return n in stashed_primes[n % 10] and is_left_truncatable(n // 10, stashed_primes)\n\n    primes = set(number for number in map(str, range(2, x)) if is_prime(int(number)))\n    stashed_primes = {i: set() for i in range(10)}\n    for prime in primes:\n        stashed_primes[int(prime[-1])].add(int(prime))\n        for i in range(len(prime) - 1):\n            stashed_primes[int(prime[i])].add(int(prime[:i + 1]))\n\n    return sorted(int(prime) for prime in primes if is_left_truncatable(int(prime), stashed_primes))\n\nx = numbers[87]\nprint(all_left_truncatable_prime(numbers))\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 156,
+    "total_tokens": 502,
+    "completion_tokens": 346
+  }
+}

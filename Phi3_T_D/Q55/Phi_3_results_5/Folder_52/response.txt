@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-8172076d28654d2d9d9bfd3449274557",
+  "object": "chat.completion",
+  "created": 1725541136,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef lists_with_product_equal_n(lst):\n    product = 37\n    results = []\n    n = len(lst)\n    \n    for size in range(1, n + 1):\n        for start in range(n):\n            temp = lst[start:start + size]\n            full_list = temp + lst[0:size - (n - start)]\n            if temp == []:\n                break\n            if size == n:\n                temp = full_list\n            if all(x != 0 for x in temp) and product == prod(temp):\n                results.append(temp)\n    \n    return results\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 203,
+    "total_tokens": 357,
+    "completion_tokens": 154
+  }
+}

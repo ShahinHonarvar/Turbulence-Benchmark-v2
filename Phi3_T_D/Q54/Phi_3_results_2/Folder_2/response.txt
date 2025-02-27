@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-4b90fc739c55471ca38d00be6ca2d4ec",
+  "object": "chat.completion",
+  "created": 1725535994,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            return False\n    return True\n\ndef all_right_truncatable_prime(numbers):\n    x = numbers[618 - 1]  # Adjusted index for 0-based indexing in Python\n    right_truncatable_primes = []\n\n    for num in range(2, x):\n        if is_prime(num):\n            is_truncatable = True\n            temp = num\n            while temp > 0:\n                if not is_prime(temp):\n                    is_truncatable = False\n                    break\n                temp //= 10\n            if is_truncatable:\n                right_truncatable_primes.append(num)\n\n    return sorted(right_truncatable_primes)\n\n# Example usage:\nnumbers = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20) * 30  # Example tuple\nresult = all_right_truncatable_prime(numbers)\nprint(result)\n```\nThese prompts assume the existence of lists and basic data types such as integers and tuples as part of the standard Python programming language.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 170,
+    "total_tokens": 547,
+    "completion_tokens": 377
+  }
+}

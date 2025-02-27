@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-ec99ee8d09b54598b0cbfc8608ad7332",
+  "object": "chat.completion",
+  "created": 1725545494,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    count = 0\n    rows, cols = matrix.shape\n    for i in range(rows):\n        for j in range(cols):\n            for k in range(i, rows):\n                for l in range(j, cols):\n                    if (k - i + 1) * (l - j + 1) == 38:\n                        count += 1\n    return count\n\n# Example usage:\n# matrix = np.array([[1, 2], [3, 4]])\n# print(submatrix_with_n_numbers(matrix))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 116,
+    "total_tokens": 273,
+    "completion_tokens": 157
+  }
+}

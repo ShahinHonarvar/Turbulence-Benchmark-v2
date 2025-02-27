@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-10695e1f05274847a2ae5c6c0cc09de2",
+  "object": "chat.completion",
+  "created": 1725543603,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef submatrix_with_particular_sum(matrix):\n    result = []\n    rows, cols = matrix.shape\n    for i in range(rows):\n        for j in range(i, rows):\n            for k in range(cols):\n                for l in range(k, cols):\n                    submatrix_sum = sum(matrix[x][y] for x in range(i, j+1) for y in range(k, l+1))\n                    if submatrix_sum == -394:\n                        result.append(matrix[i:j+1, k:l+1])\n    return result\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 127,
+    "total_tokens": 277,
+    "completion_tokens": 150
+  }
+}

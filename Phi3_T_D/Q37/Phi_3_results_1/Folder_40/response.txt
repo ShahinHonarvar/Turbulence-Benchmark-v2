@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-d0a2966e4f904a39ac1ed78fc769de99",
+  "object": "chat.completion",
+  "created": 1725507959,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef filter_chars(s):\n    if not s or s[0] < '*' or s[1] > 's':\n        return s\n\n    target_char = chr(ord(s[0]) + 1)\n    while target_char <= s[1]:\n        s = s.replace(target_char, '')\n        target_char = chr(ord(target_char) + 1)\n\n    return s\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 144,
+    "total_tokens": 251,
+    "completion_tokens": 107
+  }
+}

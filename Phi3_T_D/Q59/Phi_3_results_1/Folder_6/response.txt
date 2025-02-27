@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-c04cc3072b63434c8cc8368d0e8000dc",
+  "object": "chat.completion",
+  "created": 1725547129,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n <= 1:\n        return False\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            return False\n    return True\n\ndef is_left_truncatable_prime(n, digits):\n    while n > 0:\n        if not is_prime(n):\n            return False\n        n = n % (10 ** (len(str(n)) - 1))\n    return True\n\ndef generate_left_truncatable_primes(limit):\n    primes = []\n    for i in range(limit, 1, -1):\n        if is_left_truncatable_prime(i, 74):\n            primes.append(i)\n    primes.reverse()\n    return primes\n\ndef all_left_truncatable_prime(numbers):\n    x = numbers[74]\n    return generate_left_truncatable_primes(x)\n```\n\nKeep in mind that this code will work, but it may not be the most efficient way to generate the required primes, especially for very large values of `x`. There are optimizations that can be implemented, such as using a sieve for prime generation, but they are beyond the scope of this initial implementation.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 156,
+    "total_tokens": 473,
+    "completion_tokens": 317
+  }
+}

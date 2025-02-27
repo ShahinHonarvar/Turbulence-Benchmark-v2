@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-aa812381a4a145f09ad1ec8fb52466d8",
+  "object": "chat.completion",
+  "created": 1725546448,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    if not isinstance(matrix, np.ndarray):\n        raise ValueError(\"Input must be a numpy matrix.\")\n        \n    if matrix.dtype != np.int:\n        raise ValueError(\"Matrix elements must be integers.\")\n    \n    rows, cols = matrix.shape\n    count = 0\n    \n    for r in range(rows):\n        for c in range(cols):\n            if matrix[r, c] == 1:\n                count += 1\n                size = 1\n                while True:\n                    end_pos = min(rows - r, cols - c)\n                    for s in range(1, end_pos + 1):\n                        if matrix[r+s-1, c+s-1] != 1:\n                            break\n                    else:  # if the loop was not broken, all next cells contain 1\n                        count += 1\n                        continue\n                    break\n    return count\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 115,
+    "total_tokens": 360,
+    "completion_tokens": 245
+  }
+}

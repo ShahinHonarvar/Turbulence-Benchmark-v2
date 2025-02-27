@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-efb24a6cc1d949ae8db1b6837fc51301",
+  "object": "chat.completion",
+  "created": 1725530303,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(strings):\n    def normalize(s):\n        return ''.join(sorted(s.lower()))\n\n    def pairs_count(s):\n        from itertools import combinations\n        key_counts = {}\n        for a, b in combinations(strings, 2):\n            if len(a) >= 3 and len(b) >= 3 and normalize(a) == normalize(b):\n                pair = tuple(sorted((a, b)))\n                key_counts[pair] = key_counts.get(pair, 0) + 1\n        return len(key_counts)\n\n    return pairs_count(strings) <= 416\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 149,
+    "total_tokens": 318,
+    "completion_tokens": 169
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-20967171f06f42619bc33649d0d369ac",
+  "object": "chat.completion",
+  "created": 1725542480,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef all_substring_of_size_n(s):\n    if len(s) < 30:\n        return []\n    \n    substrings = set()\n    \n    for i in range(len(s) - 29):\n        substring = s[i:i+30]\n        if len(set(substring)) == 30:\n            substrings.add(substring)\n    \n    return list(substrings)\n\n# Test the function\nprint(all_substring_of_size_n(\"abcd...zzzz\"))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 130,
+    "total_tokens": 263,
+    "completion_tokens": 133
+  }
+}

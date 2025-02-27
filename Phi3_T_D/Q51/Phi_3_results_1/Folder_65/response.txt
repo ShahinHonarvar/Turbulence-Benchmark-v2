@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-e659d6f9568a4ca2acc1c6592458085a",
+  "object": "chat.completion",
+  "created": 1725529523,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport itertools\nfrom collections import Counter\n\ndef normalize(s):\n    return Counter(''.join(sorted(filter(str.isalpha, s.lower()))))\n\ndef is_anagram(a, b):\n    return normalize(a) == normalize(b)\n\ndef calculate_anagram_pairs(words):\n    pairs = list(itertools.combinations(words, 2))\n    count = 0\n    for word1, word2 in pairs:\n        if is_anagram(word1, word2):\n            count += 1\n    return count\n\ndef if_contains_anagrams(strings):\n    anagram_pairs = calculate_anagram_pairs(strings)\n    return anagram_pairs <= 72\n\n# Example Usage\nresult = if_contains_anagrams([\"listen\", \"silent\", \"enlist\", \"hello\", \"world\"])\nprint(result)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 148,
+    "total_tokens": 374,
+    "completion_tokens": 226
+  }
+}

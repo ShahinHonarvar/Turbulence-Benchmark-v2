@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-fc5151708d1a48fea19f7884e200732a",
+  "object": "chat.completion",
+  "created": 1725530370,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(strings):\n    def normalize(s):\n        return ''.join(sorted(s.lower()))\n    \n    def is_valid_pair(a, b):\n        return len(a) >= 3 and len(b) >= 3\n    \n    anagram_pairs = 0\n    checked_pairs = set()\n    for i, string1 in enumerate(strings):\n        for string2 in strings[i+1:]:\n            if (string1, string2) in checked_pairs or (string2, string1) in checked_pairs:\n                continue\n            if normalize(string1) == normalize(string2) and is_valid_pair(string1, string2):\n                anagram_pairs += 1\n                checked_pairs.add((string1, string2))\n                checked_pairs.add((string2, string1))\n    \n    return anagram_pairs <= 43\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 148,
+    "total_tokens": 380,
+    "completion_tokens": 232
+  }
+}

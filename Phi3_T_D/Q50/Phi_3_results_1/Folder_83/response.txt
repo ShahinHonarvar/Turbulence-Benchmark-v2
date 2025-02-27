@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-8c0a46cd9673478f8d72acee2f088890",
+  "object": "chat.completion",
+  "created": 1725527507,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom collections import defaultdict\n\ndef if_contains_anagrams(words):\n    word_groups = defaultdict(list)\n    for word in words:\n        if len(word) >= 3:\n            sorted_word = ''.join(sorted(word.lower()))\n            word_groups[sorted_word].append(word)\n\n    total_pairs = sum(len(group) * (len(group) - 1) // 2 for group in word_groups.values())\n    return total_pairs >= 48\n\n# Example usage:\nwords_list = [\"cat\", \"dog\", \"tac\", \"act\", \"AnotherWord\", \"anotherwrord\", \"dOg\"]\nprint(if_contains_anagrams(words_list))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 134,
+    "total_tokens": 317,
+    "completion_tokens": 183
+  }
+}

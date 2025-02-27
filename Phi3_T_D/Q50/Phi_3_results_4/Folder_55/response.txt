@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-db30cc81e6be41408ee98a33ced3d7c3",
+  "object": "chat.completion",
+  "created": 1725528631,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(strings):\n    from collections import defaultdict\n    \n    def count_chars(s):\n        return ''.join(sorted(s.lower()))\n\n    anagrams = defaultdict(list)\n    for string in strings:\n        if len(string) >= 3:\n            key = count_chars(string)\n            anagrams[key].append(string)\n    \n    pairs = sum(len(v) * (len(v) - 1) // 2 for v in anagrams.values())\n    return pairs >= 15\n\n# Example usage:\n# print(if_contains_anagrams([\"listen\", \"silent\", \"tea\", \"eat\", \"ate\", \"nor\", \"onr\", \"enr\", \"nore\"]))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 134,
+    "total_tokens": 330,
+    "completion_tokens": 196
+  }
+}

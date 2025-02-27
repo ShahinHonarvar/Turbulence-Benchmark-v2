@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-abaf88d531a74ad791d5c316225d590f",
+  "object": "chat.completion",
+  "created": 1725528164,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef if_contains_anagrams(strings):\n    def normalize(s):\n        return sorted(s.lower())\n\n    def count_anagrams(ngrams):\n        counter = {}\n        for key in ngrams:\n            count = counter.get(key, 0) + 1\n            counter[key] = count\n        pairs = sum(c * (c - 1) // 2 for c in counter.values())\n        return pairs >= 61 and all(len(n) >= 3 for n in ngrams.keys())\n\n    ngrams = {}\n    for s in strings:\n        ngrams[normalize(s)] = ngrams.get(normalize(s), 0) + 1\n    return count_anagrams(ngrams)\n\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 134,
+    "total_tokens": 328,
+    "completion_tokens": 194
+  }
+}

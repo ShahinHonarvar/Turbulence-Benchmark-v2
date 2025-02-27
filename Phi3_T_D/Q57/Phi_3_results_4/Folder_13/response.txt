@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-f6e7668591504d3cbd6fa64177cd1a99",
+  "object": "chat.completion",
+  "created": 1725544200,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\nfrom itertools import product\n\ndef submatrix_with_particular_sum(matrix):\n    rows, cols = matrix.shape\n    result = []\n\n    for i, j in product(range(rows), range(cols)):\n        for m in range(i, rows):\n            for n in range(j, cols):\n                submatrix = matrix[i:m+1, j:n+1]\n                if submatrix.sum() == 382:\n                    result.append(submatrix)\n\n    return result\n\n# Example usage:\nif __name__ == \"__main__\":\n    # Define a sample 2D numpy matrix\n    sample_matrix = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])\n    # Get submatrices with a particular sum\n    submatrices = submatrix_with_particular_sum(sample_matrix)\n    print(\"Submatrices with sum 382:\", submatrices)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 127,
+    "total_tokens": 375,
+    "completion_tokens": 248
+  }
+}

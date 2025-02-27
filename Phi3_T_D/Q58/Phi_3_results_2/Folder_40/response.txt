@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-b27f0faa94c74b1da5a0536c2f449016",
+  "object": "chat.completion",
+  "created": 1725545612,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    if not isinstance(matrix, np.ndarray):\n        raise ValueError(\"Input must be a numpy matrix.\")\n    if matrix.dtype.kind != 'i':\n        raise ValueError(\"Matrix elements must be of integer type.\")\n    m, n = matrix.shape[0], matrix.shape[1]\n    count = 0\n    for i in range(m):\n        for j in range(n):\n            for a in range(i, m):\n                for b in range(j, n):\n                    submatrix = matrix[i:a+1, j:b+1].flatten()\n                    if len(set(submatrix)) == 1 and submatrix[0] == 1:\n                        count += 1\n    return count\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 115,
+    "total_tokens": 315,
+    "completion_tokens": 200
+  }
+}

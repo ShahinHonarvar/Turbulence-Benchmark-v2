@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-a8b2e0b0fc004c6caa1e1a0e7c363748",
+  "object": "chat.completion",
+  "created": 1725532179,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom collections import defaultdict\n\ndef palindrome_of_length_n(s):\n    s = s.lower()\n    n = len(s)\n    palindromes = set()\n\n    def extend(i, j, matched):\n        left, right = i-1, j+1\n        while left >= 0 and right < n:\n            if left >= 0 and right < n and s[left] == s[right] and not matched[left] and not matched[right]:\n                matched[left] = matched[right] = True\n                left -= 1; right += 1\n            else:\n                break\n        return j if left < 0 or not matched[left] else i, left\n    \n    # Check and extend odd length palindromes\n    def check_odd(center):\n        i, j = center, center\n        matched = [False] * n\n        matched[i] = True\n        mentre i >= 0 and j < n and s[i] == s[j]:\n            if i > 0 and j < n-1 and s[i-1] == s[j+1]:\n                i, j = i-1, j+1\n            i -= 1\n            j += 1\n            matched[i] = matched[j] = True\n        if len(s[i+1:j]) == 66:\n            palindromes.add(s[i+1:j])\n\n    # Check and extend even length palindromes\n    def check_even(center_1, center_2):\n        i, j = center_1, center_2\n        matched = [False] * n\n        matched[i] = matched[j] = True\n        while i >= 0 and j < n and s[i] == s[j]:\n            if i > 0 and j < n-1 and s[i-1] == s[j+1]:\n                i -= 1\n                j += 1\n            i -= 1\n            j += 1\n            matched[i] = matched[j] = True\n        if len(s[i+1:j]) == 66:\n            palindromes.add(s[i+1:j])\n\n    for center in range(n):\n        check_odd(center)\n        if center+1 < n and s[center] == s[center+1]:\n            check_even(center, center+1)\n\n    return palindromes\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 160,
+    "total_tokens": 744,
+    "completion_tokens": 584
+  }
+}

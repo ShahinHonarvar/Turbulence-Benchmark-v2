@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-b80190e2090f48dfbb9a45e4e2547106",
+  "object": "chat.completion",
+  "created": 1725529778,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(lst):\n    def normalize(s):\n        return ''.join(sorted(s.lower()))\n    \n    normalized_lst = [normalize(s) for s in lst if len(s) >= 3]\n    seen = set()\n    count = 0\n    \n    for s in normalized_lst:\n        if s in seen:\n            count += 1\n        else:\n            seen.add(s)\n    \n    return count <= 14\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 148,
+    "total_tokens": 275,
+    "completion_tokens": 127
+  }
+}

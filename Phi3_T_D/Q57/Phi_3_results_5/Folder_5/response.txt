@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-53e21e8c584b4050aa2ed413bd632bfa",
+  "object": "chat.completion",
+  "created": 1725544614,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    rows, cols = matrix.shape\n    target_sum = -43\n    result = []\n\n    def kadane(arr):\n        max_ending_here = max_so_far = 0\n        for x in arr:\n            max_ending_here += x\n            if max_ending_here < 0:\n                max_ending_here = 0\n            elif max_ending_here > max_so_far:\n                max_so_far = max_ending_here\n        return max_so_far\n\n    for size in range(1, min(rows, cols) + 1):\n        for i in range(rows - size + 1):\n            for j in range(cols - size + 1):\n                submatrix = matrix[i:i+size, j:j+size]\n                if kadane(submatrix.flatten()) == target_sum:\n                    result.append(submatrix.tolist())\n\n    return result\n\n# Example usage:\nmatrix = np.array([[1, -1, 1], [-1, -2, 5], [1, 1, -2]])\nprint(submatrix_with_particular_sum(matrix))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 126,
+    "total_tokens": 432,
+    "completion_tokens": 306
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-467977b5d70244208e7e85a8a34b017d",
+  "object": "chat.completion",
+  "created": 1725518548,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef palindromes_between_indices(s):\n    letters = [c.lower() for c in s[3:10]]\n    letter_counts = {}\n    for letter in letters:\n        if letter in letter_counts:\n            letter_counts[letter] += 1\n        else:\n            letter_counts[letter] = 1\n\n    def make_palindrome(length, letters):\n        half_palindrome = []\n        odd_char = ''\n        for letter, count in letters.items():\n            half_palindrome.extend([letter] * (count // 2))\n            if count % 2 != 0:\n                odd_char = letter\n        if length % 2 == 0:\n            assert odd_char == '', 'Cannot form palindrome of even length with odd letter counts'\n            palindromes = set(''.join(p) for p in permutations(''.join(half_palindrome)))\n        else:\n            other_half = half_palindrome.copy()\n            if odd_char:\n                other_half.remove(odd_char)\n            palindromes = set(''.join(odd + ''.join(p) + odd for p in permutations(''.join(other_half)))\n                              for odd in (odd_char, ''))\n        return {''.join(p + p[::-1]) for p in palindromes}\n\n    length = 3\n    palindromes = set()\n    while length <= len(letters):\n        palindromes |= make_palindrome(length, {letter: letter_counts[letter] for letter in letters} if length % 2 == 0\n                                       else {letter: letter_counts[letter] + (1 if letters.count(letter) % 2 else 0)\n                                             for letter in letters})\n        length += 1\n    return palindromes\n\nfrom itertools import permutations\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 192,
+    "total_tokens": 658,
+    "completion_tokens": 466
+  }
+}

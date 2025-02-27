@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-621340169f494b66b96a2f837ffce516",
+  "object": "chat.completion",
+  "created": 1725543496,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    if matrix.size == 0:\n        return []\n    rows, cols = matrix.shape\n    result = []\n    \n    for sr in range(rows):\n        for sc in range(cols):\n            for er in range(sr, rows):\n                for ec in range(sc, cols):\n                    sub_matrix = matrix[sr:er+1, sc:ec+1]\n                    if np.sum(sub_matrix) == 64:\n                        result.append(sub_matrix)\n    return result\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 126,
+    "total_tokens": 274,
+    "completion_tokens": 148
+  }
+}

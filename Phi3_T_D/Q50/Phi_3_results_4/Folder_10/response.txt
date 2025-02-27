@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-3837ebd3f20d49db8e36128201a984bf",
+  "object": "chat.completion",
+  "created": 1725528436,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom collections import defaultdict\nimport itertools\n\ndef char_count_key(word):\n    return tuple(sorted(word.lower()))\n\ndef if_contains_anagrams(word_list):\n    filtered = [word for word in word_list if len(word) >= 3]\n    count_dict = defaultdict(int)\n    \n    for word in filtered:\n        count_dict[char_count_key(word)] += 1\n\n    return sum(count > 1 for count in count_dict.values()) >= 52\n\n# Example usage:\nwords = [\"Anagram\", \"nagaram\", \"Aangeamr\", \"bar\", \"rab\", \"car\", \"rac\" \"tea\"]\nresult = if_contains_anagrams(words)\nprint(result)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 134,
+    "total_tokens": 325,
+    "completion_tokens": 191
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-7ccd1ccc0f434f29bb8f8ede5886f190",
+  "object": "chat.completion",
+  "created": 1725547171,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            return False\n    return True\n\n\ndef is_left_truncatable(n, prime_set):\n    str_n = str(n)\n    for i in range(1, len(str_n)):\n        if int(str_n[i:]) not in prime_set:\n            return False\n    return True\n\n\ndef all_left_truncatable_prime(numbers):\n    x = numbers[784]\n    prime_set = set()\n    left_trunc_primes = []\n\n    for num in range(2, x):\n        if is_prime(num):\n            prime_set.add(num)\n            if is_left_truncatable(num, prime_set):\n                left_trunc_primes.append(num)\n\n    return sorted(left_trunc_primes)\n```\n\nHere is an explanation of the code:\n\n- The function `is_prime` checks if a number `n` is prime.\n  - If `n` is less than 2, return False.\n  - Iterate over every number `i` from 2 to the square root of `n` (inclusive) and check if `n` is divisible by `i`. If it is, the number is not prime and the function returns False.\n  - If no divisors are found, return True.\n\n- The function `is_left_truncatable` checks if a number `n` is left-truncatable.\n  - It converts the number `n` into a string and iterates over its digits, excluding the first digit one by one.\n  - For each new number created by dropping the left-most digit, this function checks if the number is in the set of prime numbers we've found so far. If not, `n` is not left-truncatable and the function returns False.\n  - If the function hasn't returned False until now, `n` is left-truncatable and it returns True.\n\n- The main function `all_left_truncatable_prime` takes a tuple of positive integers as an argument and returns a sorted list of all left-truncatable prime numbers less than the integer at index 784 of the input tuple.\n  - It first assigns the integer at index 784 to `x`.\n  - It initializes an empty set, `prime_set`, to store the prime numbers it finds.\n  - It also initializes an empty list, `left_trunc_primes`, to store the left-truncatable prime numbers.\n  - Then it iterates over every number `num` from 2 to `x` (exclusive) and checks if `num` is prime.\n  - If `num` is prime, it adds it to `prime_set`.\n  - Then it checks if `num` is left-truncatable by calling the `is_left_truncatable` function.\n  - If it returns True, `num` is a left-truncatable prime, and it's added to `left_trunc_primes`.\n  - Finally, when the loop is finished, it returns the list of left-truncatable primes sorted in ascending order.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 157,
+    "total_tokens": 955,
+    "completion_tokens": 798
+  }
+}

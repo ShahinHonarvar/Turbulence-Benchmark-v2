@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-a2aca51810b74d0c894711777f5b49eb",
+  "object": "chat.completion",
+  "created": 1725536642,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n <= 1:\n        return False\n    if n <= 3:\n        return True\n    if n % 2 == 0 or n % 3 == 0:\n        return False\n    i = 5\n    while i * i <= n:\n        if n % i == 0 or n % (i + 2) == 0:\n            return False\n        i += 6\n    return True\n\ndef is_right_truncatable_prime(n, primes):\n    str_n = str(n)\n    for i in range(len(str_n)):\n        if not is_prime(int(str_n[:len(str_n)-i])):\n            return False\n    return True\n\ndef all_right_truncatable_prime(int_tuple):\n    x = int_tuple[29]\n    right_truncatables = []\n    for num in range(2, x):\n        if is_prime(num) and is_right_truncatable_prime(num, right_truncatables):\n            right_truncatables.append(num)\n    return sorted(right_truncatables)\n```\n\nGiven a tuple `int_tuple`, you can call the function like this:\n\n```python\nresult = all_right_truncatable_prime(int_tuple)\n```\n\nAnd `result` will contain the sorted list of all the right-truncatable prime numbers less than the integer at index 29 in the tuple.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 169,
+    "total_tokens": 536,
+    "completion_tokens": 367
+  }
+}

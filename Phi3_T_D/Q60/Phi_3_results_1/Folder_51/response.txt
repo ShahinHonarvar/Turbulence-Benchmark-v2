@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-127d6fbd21024fa4b1e5d0b3a449bed9",
+  "object": "chat.completion",
+  "created": 1725550721,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n < 2:\n        return False\n    if n == 2:\n        return True\n    if n % 2 == 0:\n        return False\n    p = 3\n    while p * p <= n:\n        if n % p == 0:\n            return False\n        p += 2\n    return True\n\ndef all_left_right_truncatable_prime(numbers):\n    x = numbers[54]\n    truncatable_primes = []\n    \n    for num in range(2, x + 1):\n        num_str = str(num)\n        if not num_str.startswith('0') and is_prime(num):\n            if all(is_prime(int(num_str[i:])) and is_prime(int(num_str[:len(num_str)-i])) for i in range(len(num_str))):\n                truncatable_primes.append(num)\n\n    return truncatable_primes\n\n# Assuming 'numbers' is already defined as a tuple of positive integers\n# result = all_left_right_truncatable_prime(numbers)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 207,
+    "total_tokens": 491,
+    "completion_tokens": 284
+  }
+}

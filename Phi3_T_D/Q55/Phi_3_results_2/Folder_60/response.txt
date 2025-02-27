@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-b749d35dd42d4633a18be63fc276b5c4",
+  "object": "chat.completion",
+  "created": 1725539523,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom itertools import tee, cycle\n\ndef lists_with_product_equal_n(circular_list):\n    target_product = 49\n    sublists = []\n\n    def contiguous_sublists(iterable, length):\n        iterables = tee(circular_list, length)\n        return list(zip(*iterables))\n\n    for size in range(1, len(circular_list) + 1):\n        for sublist in contiguous_sublists(cycle(circular_list), size):\n            if all(x != 1 and x == target_product//x for x in sublist) and \\\n               all(x == sublist[0] for x in sublist):\n                sublists.append(sublist)\n\n    return sublists\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 203,
+    "total_tokens": 392,
+    "completion_tokens": 189
+  }
+}

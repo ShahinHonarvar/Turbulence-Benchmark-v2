@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-baf790a6e70a4aeaab8d5b64a481ad5e",
+  "object": "chat.completion",
+  "created": 1725551839,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            return False\n    return True\n\n\ndef is_truncatable_prime(prime):\n    str_prime = str(prime)\n    for i in range(1, len(str_prime)):\n        if not is_prime(int(str_prime[i:])) or not is_prime(int(str_prime[:-i])):\n            return False\n    return True\n\n\ndef all_left_right_truncatable_prime(numbers):\n    x = numbers[29]\n    result = []\n    for num in range(23, x + 1):\n        if is_prime(num) and is_truncatable_prime(num):\n            result.append(num)\n    return result\n\n\n# Triple backticks to delimit the code block\n```\n\nPlease replace the argument tuple with your desired values in the function call. The current function call `all_left_right_truncatable_prime((...))` assumes a tuple of positive integers is passed, with the integer at index 29 to be used as the upper limit 'x'. Change the contents in the tuple according to your requirements.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 207,
+    "total_tokens": 522,
+    "completion_tokens": 315
+  }
+}

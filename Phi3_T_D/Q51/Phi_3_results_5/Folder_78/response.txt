@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-beae104773324b79b4923cf3474d0a2e",
+  "object": "chat.completion",
+  "created": 1725531377,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef if_contains_anagrams(strings_list):\n    def count_letters(word):\n        counter = {}\n        for letter in word.lower():\n            if letter.isalpha():\n                counter[letter] = counter.get(letter, 0) + 1\n        return counter\n\n    anagram_count = {}\n    for string in strings_list:\n        if len(string) >= 3:\n            str_letters = count_letters(string)\n            anagram_key = tuple(sorted(str_letters.items()))\n            anagram_count[anagram_key] = anagram_count.get(anagram_key, 0) + 1\n\n    return sum(count for count in anagram_count.values() if count > 1) <= 70\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 148,
+    "total_tokens": 340,
+    "completion_tokens": 192
+  }
+}

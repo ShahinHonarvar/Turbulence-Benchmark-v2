@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-d867c02a4b7448eab031d50d358c6f03",
+  "object": "chat.completion",
+  "created": 1725547894,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nfrom typing import List, Tuple\n\ndef is_prime(n: int) -> bool:\n    if n <= 1:\n        return False\n    if n <= 3:\n        return True\n    if n % 2 == 0 or n % 3 == 0:\n        return False\n    i = 5\n    while i * i <= n:\n        if n % i == 0 or n % (i + 2) == 0:\n            return False\n        i += 6\n    return True\n\ndef all_left_truncatable_prime(numbers: Tuple[int]) -> List[int]:\n    x = numbers[65]\n    candidate_primes = sorted(filter(is_prime, range(2, x)), reverse=True)\n    left_truncatable_primes = []\n\n    for candidate in candidate_primes:\n        prime = True\n        temp = candidate\n        while temp > 0:\n            if not is_prime(temp):\n                prime = False\n                break\n            temp //= 10\n        if prime:\n            left_truncatable_primes.append(candidate)\n\n    return left_truncatable_primes\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 156,
+    "total_tokens": 444,
+    "completion_tokens": 288
+  }
+}

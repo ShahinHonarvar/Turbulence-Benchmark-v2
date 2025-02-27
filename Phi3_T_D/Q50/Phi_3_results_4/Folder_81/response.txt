@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-91f2c23b5ced4f638d017ee555bebc48",
+  "object": "chat.completion",
+  "created": 1725528743,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nfrom collections import defaultdict\n\ndef if_contains_anagrams(strings):\n    def create_signature(s):\n        return ''.join(sorted(s.lower()))\n\n    counter = defaultdict(int)\n    for string in strings:\n        if len(string) >= 3:\n            counter[create_signature(string)] += 1\n\n    anagram_pairs = sum(count * (count - 1) // 2 for count in counter.values() if count > 1)\n    return anagram_pairs >= 16\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 134,
+    "total_tokens": 269,
+    "completion_tokens": 135
+  }
+}

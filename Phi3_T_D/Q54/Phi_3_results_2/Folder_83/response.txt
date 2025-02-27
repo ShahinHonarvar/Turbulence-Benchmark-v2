@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-c407129b118a4865b485ea74946e75d1",
+  "object": "chat.completion",
+  "created": 1725536560,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n <= 1:\n        return False\n    if n <= 3:\n        return True\n    if n % 2 == 0 or n % 3 == 0:\n        return False\n    i = 5\n    while i * i <= n:\n        if n % i == 0 or n % (i + 2) == 0:\n            return False\n        i += 6\n    return True\n\ndef all_right_truncatable_primes(numbers):\n    if len(numbers) < 24 or not isinstance(numbers[24], int):\n        raise ValueError(\"The tuple must contain at least 25 positive integers.\")\n    \n    x = numbers[24]\n    base_primes = [2, 3, 5, 7]\n    \n    def truncatable(prime, limit, base_primes):\n        str_prime = str(prime)\n        while str_prime:\n            if not is_prime(int(str_prime)):\n                return False\n            str_prime = str_prime[:-1]\n        return int(str_prime) > 1\n        \n    truncatable = [prime for prime in range(2, x)\n                   if prime in base_primes or truncatable(prime, x, base_primes)]\n    return sorted(truncatable)\n\n# Example usage:\nnumbers = tuple(range(1, 101))\nprint(all_right_truncatable_primes(numbers))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 169,
+    "total_tokens": 535,
+    "completion_tokens": 366
+  }
+}

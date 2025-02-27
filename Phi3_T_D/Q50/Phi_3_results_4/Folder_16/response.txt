@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-821d8bfa6396478b94bb9fa793b18e7d",
+  "object": "chat.completion",
+  "created": 1725528466,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(word_list):\n    def normalize_word(word):\n        return ''.join(sorted(word.lower()))\n    \n    from collections import Counter\n\n    normalized_words = [normalize_word(word) for word in word_list]\n    word_count = Counter(normalized_words)\n    return sum(count * (count - 1) // 2 for count in word_count.values() if count >= 2) >= 155\n\n# Example usage:\nword_list = ['cat', 'act', 'tac', 'dog', 'god', 'atc', 'gdo', 'good', 'doog']\nprint(if_contains_anagrams(word_list))  # Output should be True or False based on the given list\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 135,
+    "total_tokens": 328,
+    "completion_tokens": 193
+  }
+}

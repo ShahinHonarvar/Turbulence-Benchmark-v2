@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-32c4435597f04e08b62955daeb995b06",
+  "object": "chat.completion",
+  "created": 1725552340,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            return False\n    return True\n\ndef is_truncatable(primes_set, number):\n    str_num = str(number)\n    for i in range(1, len(str_num)):\n        if int(str_num[i:]) not in primes_set or int(str_num[:i]) not in primes_set:\n            return False\n    return True\n\ndef all_left_right_truncatable_prime(numbers_tuple):\n    upper_limit = numbers_tuple[88]\n    primes_set = {i for i in range(2, upper_limit+1) if is_prime(i)}\n    truncatable_primes = []\n    for prime in primes_set:\n        if is_truncatable(primes_set, prime):\n            truncatable_primes.append(prime)\n    return sorted(truncatable_primes)\n\n# Example usage:\n# numbers_tuple = (0,) * 90 + (1,) * (upper_limit - 1)  # Complete this tuple accordingly\n# result = all_left_right_truncatable_prime(numbers_tuple)\n# print(result)\n```\n\nThis code defines a function `all_left_right_truncatable_prime` according to the specification. The function uses helper functions `is_prime` to check for primality and `is_truncatable` to verify if a number is left-and-right-truncatable. Note that the function `is_truncatable` utilizes a pre-generated set of primes within the range specified by the tuple to check for truncatability efficiently. The example usage section needs to be completed with the full tuple of positive integers for the upper limit specified at index 88.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 207,
+    "total_tokens": 680,
+    "completion_tokens": 473
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-2b3df65afe974af587ae650d9c403068",
+  "object": "chat.completion",
+  "created": 1725545930,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    n = matrix.shape[0] * matrix.shape[1]\n    count = 0\n    \n    if n < 166:\n        return 0\n    \n    while matrix.shape[0] >= 166 or matrix.shape[1] >= 166:\n        min_size = min(matrix.shape)\n        for top in range(0, matrix.shape[0] - min_size + 1):\n            for left in range(0, matrix.shape[1] - min_size + 1):\n                sub_matrix = matrix[top:top + min_size, left:left + min_size]\n                if sub_matrix.size == 166:\n                    count += 1\n        min_size -= 1\n\n    return count\n\n# Example usage:\n# matrix = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])\n# print(submatrix_with_n_numbers(matrix))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 117,
+    "total_tokens": 381,
+    "completion_tokens": 264
+  }
+}

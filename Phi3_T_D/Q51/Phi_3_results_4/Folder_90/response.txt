@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-9aed4e8d9f974197bd86451fc93d9e56",
+  "object": "chat.completion",
+  "created": 1725530993,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(strings):\n    def normalize(s):\n        return ''.join(sorted(s.lower()))\n\n    from itertools import combinations\n\n    counter = 0\n    for string_pair in combinations(strings, 2):\n        if len(string_pair[0]) >= 3 and len(string_pair[1]) >= 3 \\\n           and normalize(string_pair[0]) == normalize(string_pair[1]):\n            counter += 1\n            if counter > 147:\n                return False\n    return True\n```\n```\n\nThis Python function meets the specifications provided in the text. It defines a nested helper function `normalize` that converts a string into its sorted, lowercase version, which helps in comparing strings for anagrams in a case-insensitive manner. The function then iterates over all possible pairs of strings (without repeating pairs) and checks if the normalized versions of the strings are equal. If so, the `counter` is incremented. If at any point the counter exceeds 147, the function returns `False`. If no such pair exceeds this limit, the function returns `True`, indicating there are at most 147 anagram pairs in the list.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 149,
+    "total_tokens": 436,
+    "completion_tokens": 287
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-9e792ca950b3411db605bf253fa1c16d",
+  "object": "chat.completion",
+  "created": 1725545628,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    n = 191\n    if len(matrix) <= n or len(matrix[0]) <= n:\n        return 0\n    count = 0\n    rows, cols = len(matrix), len(matrix[0])\n    for i in range(rows - n + 1):\n        for j in range(cols - n + 1):\n            submatrix = matrix[i:i+n, j:j+n]\n            flattened = submatrix.flatten()\n            group_indices = np.arange(len(flattened)) // n\n            if len(set(group_indices)) == n:\n                count += 1\n    return count\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 117,
+    "total_tokens": 298,
+    "completion_tokens": 181
+  }
+}

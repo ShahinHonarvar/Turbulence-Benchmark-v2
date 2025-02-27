@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-530a8a27085d4736ae7f3a7e74a4e32e",
+  "object": "chat.completion",
+  "created": 1725527842,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom collections import defaultdict\nimport itertools\n\ndef if_contains_anagrams(strings):\n    anagram_count = 0\n    min_length = 3\n    strings_sorted = [''.join(sorted(s.lower())) for s in strings if len(s) >= min_length]\n    seen = set()\n    \n    for item in strings_sorted:\n        if item in seen:\n            anagram_count += 1\n        else:\n            seen.add(item)\n    \n    return anagram_count >= 94\n\n# Example usage:\n# result = if_contains_anagrams(['listen', 'silent', 'enlist', ...])  # Continue the list with at least 94 pairs of anagrams of length >= 3\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 134,
+    "total_tokens": 319,
+    "completion_tokens": 185
+  }
+}

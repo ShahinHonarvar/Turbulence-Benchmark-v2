@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-bae57c1fd1fb40239f8b025cd28fc772",
+  "object": "chat.completion",
+  "created": 1725540639,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom itertools import cycle, combinations\n\ndef lists_with_product_equal_n(circular_list):\n    target_product = -10\n    sublists = []\n    \n    n = len(circular_list)\n    circular_cycle = cycle(circular_list)\n    \n    for r in range(1, n + 1):\n        for combination in combinations(circular_cycle, r):\n            if n == len(set(combination)):\n                product = 1\n                for number in combination:\n                    product *= number\n                if product == target_product and combination not in sublists:\n                    sublists.append(list(combination))\n                    \n    return sublists\n\n# Example usage:\ncircular_list = [1, -10, 2, 5]\nprint(lists_with_product_equal_n(circular_list))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 203,
+    "total_tokens": 418,
+    "completion_tokens": 215
+  }
+}

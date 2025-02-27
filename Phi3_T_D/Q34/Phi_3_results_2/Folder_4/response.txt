@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-567435997aeb43ff968f3cf5db03f291",
+  "object": "chat.completion",
+  "created": 1725504451,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef find_original_set(*args):\n    if not (40 <= len(args) <= 40):\n        raise ValueError(\"Function should be called with exactly 40 arguments.\")\n    \n    result_set = set()\n    for arg in args:\n        if not (isinstance(arg, set) and len(arg) == 40):\n            raise ValueError(\"Each argument should be a set of 40 distinct integers.\")\n        result_set.update(arg)\n    return result_set\n\n# Example usage:\ns1 = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30}\ns2 = {11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40}\ns3 = {21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50}\ncombined_set = find_original_set(s1, s2, s3)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 98,
+    "total_tokens": 611,
+    "completion_tokens": 513
+  }
+}

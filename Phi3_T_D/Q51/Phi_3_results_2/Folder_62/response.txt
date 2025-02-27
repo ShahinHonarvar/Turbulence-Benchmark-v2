@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-d9e52543af1a49b5bbdaae85f33f2723",
+  "object": "chat.completion",
+  "created": 1725529951,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(words):\n    if len(words) < 289 * 2:\n        return True\n\n    def normalize(word):\n        return ''.join(sorted(word.lower()))\n\n    from itertools import combinations\n    anagram_counts = {}\n\n    for w1, w2 in combinations(words, 2):\n        if len(w1) >= 3 and len(w2) >= 3 and normalize(w1) == normalize(w2):\n            anagram_counts[normalize(w1)] = anagram_counts.get(normalize(w1), 0) + 1\n\n    return sum(anagram_counts.values()) <= 289\n\n# Example usage\nwords_list = [\"Listen\", \"Silent\", \"There\", \"Terh\", \"Here\", \"Earth\"]\nprint(if_contains_anagrams(words_list))  # Should return True\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 149,
+    "total_tokens": 383,
+    "completion_tokens": 234
+  }
+}

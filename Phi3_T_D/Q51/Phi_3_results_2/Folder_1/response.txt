@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-174aaa22ebcf4de0a492e1a527ced989",
+  "object": "chat.completion",
+  "created": 1725529695,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom collections import defaultdict\n\ndef if_contains_anagrams(string_list):\n    def char_count(s):\n        s = s.lower()\n        counts = defaultdict(int)\n        for char in s:\n            counts[char] += 1\n        return frozenset(counts.items())\n    \n    anagram_counts = defaultdict(int)\n    for s in string_list:\n        if len(s) >= 3:\n            anagram_counts[char_count(s)] += 1\n    \n    anagram_pairs = sum(val*(val-1)//2 for val in anagram_counts.values())\n    \n    return anagram_pairs <= 30\n\n# Usage\n# print(if_contains_anagrams([\"listen\", \"silent\", \"enlist\"]))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 148,
+    "total_tokens": 355,
+    "completion_tokens": 207
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-93ce8e9a65814e0eb59f50e374ec37ef",
+  "object": "chat.completion",
+  "created": 1725540442,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef circular_product(list_, head, tail, product, result, depth):\n    if product == 0 and depth > 0:\n        return True\n    if tail == (head + 1) % len(list_):\n        return circular_product(list_, head + 1, head + 1, product // list_[head], result, depth + 1)\n    if product % list_[tail] == 0:\n        for next_index in range(tail + 1 if tail < head else tail):\n            if circular_product(list_, head, next_index, product // list_[tail], result, depth + 1):\n                result.append(list_[head:next_index])\n                break\n    return False\n\ndef lists_with_product_equal_n(nums):\n    result = []\n    for head in range(len(nums)):\n        circular_product(nums, head, head, -82, result, 0)\n        circular_product(nums, head, head, -82, result, 0)\n    return result\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 203,
+    "total_tokens": 461,
+    "completion_tokens": 258
+  }
+}

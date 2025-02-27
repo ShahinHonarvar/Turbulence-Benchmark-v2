@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-ffbfa828495d4f788f541995a2d8b2e5",
+  "object": "chat.completion",
+  "created": 1725545850,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    if not isinstance(matrix, np.ndarray) or len(matrix.shape) != 2:\n        raise ValueError('Input must be a two-dimensional NumPy matrix.')\n    \n    n = 9\n    rows, cols = matrix.shape\n    count = 0\n    \n    for i in range(rows):\n        for j in range(cols):\n            for k in range(i, rows):\n                for l in range(j, cols):\n                    submatrix = matrix[i:k+1, j:l+1]\n                    if submatrix.size == n:\n                        count += 1\n    return count\n```\n```\n\nThis Python code defines the function `submatrix_with_n_numbers`, which takes a two-dimensional NumPy matrix as input and returns the count of all submatrices containing exactly 9 integers. The function checks the size of each submatrix created by varying starting and ending rows and columns, and increments the `count` if the size is correct.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 115,
+    "total_tokens": 367,
+    "completion_tokens": 252
+  }
+}

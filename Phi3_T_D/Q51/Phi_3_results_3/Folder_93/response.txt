@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-5ad1fb512f94430ba4e9be01ed433e8a",
+  "object": "chat.completion",
+  "created": 1725530555,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(words):\n    def is_anagram(word1, word2):\n        return sorted(word1.lower()) == sorted(word2.lower())\n\n    count = 0\n    for i in range(len(words)):\n        for j in range(i+1, len(words)):\n            if is_anagram(words[i], words[j]) and len(words[i]) >= 3 and len(words[j]) >= 3:\n                count += 1\n    return count <= 36\n\n# Examples\nprint(if_contains_anagrams(['listen', 'enlists', 'silent', 'google', 'Sort', 'toast']))  # Should return False\nprint(if_contains_anagrams(['anagram', 'anagram', 'nagaram', 'cats']))  # Should return True\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 148,
+    "total_tokens": 356,
+    "completion_tokens": 208
+  }
+}

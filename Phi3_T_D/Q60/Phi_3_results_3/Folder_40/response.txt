@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-8f0877fd709f402abd30e80fdac0da7c",
+  "object": "chat.completion",
+  "created": 1725552175,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_left_right_truncatable(n, primes):\n    while n > 0:\n        if not is_prime(n, primes):\n            return False\n        if str(n)[0] == '0' or str(n)[-1] == '0':\n            return False\n        n = int(str(n)[1:-1])\n    return True\n\ndef all_left_right_truncatable_prime(tup):\n    max_val = tup[10]\n    primes = set(sieve_of_eratosthenes(max_val))\n    res = [p for p in primes if is_left_right_truncatable(p, primes)]\n    return sorted(res, reverse=True)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 207,
+    "total_tokens": 394,
+    "completion_tokens": 187
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-c3fa3443ce4a4a51a9727fc9712a1eda",
+  "object": "chat.completion",
+  "created": 1725537178,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            return False\n    return True\n\ndef is_right_truncatable_prime(n):\n    while n > 0:\n        if not is_prime(n):\n            return False\n        n = n // 10\n    return True\n\ndef all_right_truncatable_prime(numbers):\n    x = numbers[767] if 767 < len(numbers) else None\n    if x is None:\n        return []\n    right_truncatable_primes = [i for i in range(2, x) if is_right_truncatable_prime(i)]\n    return sorted(right_truncatable_primes, reverse=True)\n\n# Assuming the tuple is provided and contains at least 768 elements, e.g.:\n# numbers = (3, 7, 11, ...)\n# result = all_right_truncatable_prime(numbers)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 170,
+    "total_tokens": 444,
+    "completion_tokens": 274
+  }
+}

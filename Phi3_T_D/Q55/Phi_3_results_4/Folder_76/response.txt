@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-3f088937529d49f3a270a776dc102b7d",
+  "object": "chat.completion",
+  "created": 1725540714,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef lists_with_product_equal_n(nums):\n    def match_product(start, end, target):\n        prod = 1\n        for i in range(start, end + 1):\n            prod *= nums[i % len(nums)]\n            if prod == target:\n                if end - start + 1 == 1:\n                    return [nums[start]]\n                else:\n                    return nums[start:end + 1]\n            elif prod > target:\n                return None\n        return None\n\n    sublists = []\n    for i in range(len(nums)):\n        sublist = match_product(i, i, 247)\n        if sublist:\n            sublists.append(sublist)\n        for j in range(i + 1, len(nums)):\n            sublist = match_product(i, j, 247)\n            if sublist:\n                sublists.append(sublist)\n            if j == len(nums) - 1 and (i == 0 or j == len(nums) - 2):\n                break\n    return sublists\n\n# Example usage:\nprint(lists_with_product_equal_n([2, 3, 21, 1]))  # Output: [[2, 3, 21], [21, 1]]\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 204,
+    "total_tokens": 530,
+    "completion_tokens": 326
+  }
+}

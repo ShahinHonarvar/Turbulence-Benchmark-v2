@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-730f5657618f49d28f3162483e736fbf",
+  "object": "chat.completion",
+  "created": 1725528803,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom collections import defaultdict\n\ndef if_contains_anagrams(strings):\n    def make_key(s):\n        return ''.join(sorted(s.lower()))\n    \n    anagram_groups = defaultdict(list)\n    for s in strings:\n        if len(s) >= 3:\n            anagram_groups[make_key(s)].append(s)\n\n    pair_count = 0\n    for group in anagram_groups.values():\n        if len(group) > 1:\n            pair_count += len(group) * (len(group) - 1) // 2\n\n    return pair_count >= 93\n\n# Example usage:\n# result = if_contains_anagrams(['aabb', 'Bbaa', 'hello', 'llohe'])\n# print(result) # Should be True or False based on the anagrams in the list\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 134,
+    "total_tokens": 351,
+    "completion_tokens": 217
+  }
+}

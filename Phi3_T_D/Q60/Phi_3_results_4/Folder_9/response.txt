@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-268488b1164047189c6f24f0e91ba6da",
+  "object": "chat.completion",
+  "created": 1725552723,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(n ** 0.5) + 1):\n        if n % i == 0:\n            return False\n    return True\n\ndef is_truncatable(primes):\n    def truncatable(n, primes):\n        str_n = str(n)\n        if len(str_n) == 1:\n            return True\n        if not is_prime(n):\n            return False\n        for i in range(1, len(str_n)):\n            if not is_prime(int(str_n[i:])) or int(str_n[i:]) not in primes:\n                return False\n            if not is_prime(int(str_n[:i])) or int(str_n[:i]) not in primes:\n                return False\n        return True\n\n    primes_set = set(primes)\n    return [n for n in range(11, n + 1) if truncatable(n, primes_set)]\n\ndef all_left_right_truncatable_prime(numbers):\n    x = numbers[29]\n    primes = set([2, 3, 5, 7])\n    num = 11\n    while num <= x:\n        if is_prime(num):\n            primes.add(num)\n        num += 2\n\n    return is_truncatable(primes)\n\n# Example usage:\nnumbers = (1, 2, 3, ..., 29)  # Replace with actual tuple of numbers\nprint(all_left_right_truncatable_prime(numbers))\n```\n\nPlease note that this code is not optimized for very large numbers because it uses a brute-force method to check prime numbers and filter out the truncatable ones.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 207,
+    "total_tokens": 656,
+    "completion_tokens": 449
+  }
+}

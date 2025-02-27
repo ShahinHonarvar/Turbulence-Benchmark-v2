@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-01e8c2a076ff4fbe91bd09166c5f4fe7",
+  "object": "chat.completion",
+  "created": 1725542860,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    submatrices = []\n    rows, cols = matrix.shape\n    \n    def is_valid_submatrix(start_row, start_col, end_row, end_col):\n        if end_row > rows or end_col > cols:\n            return False\n        return np.sum(matrix[start_row:end_row+1, start_col:end_col+1]) == 84\n    \n    for size in range(1, min(rows, cols) + 1):\n        for row in range(rows - size + 1):\n            for col in range(cols - size + 1):\n                if is_valid_submatrix(row, col, row + size - 1, col + size - 1):\n                    submatrices.append(matrix[row:row + size, col:col + size])\n    \n    return submatrices\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 126,
+    "total_tokens": 355,
+    "completion_tokens": 229
+  }
+}

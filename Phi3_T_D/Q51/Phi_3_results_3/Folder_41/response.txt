@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-b2abb726b3734c12b84f43c28e7a74cc",
+  "object": "chat.completion",
+  "created": 1725530316,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom collections import defaultdict\nimport itertools\nimport string\n\ndef if_contains_anagrams(words):\n    anagram_count = 0\n    letter_counts = [defaultdict(int) for _ in range(52)]\n    clean_words = [''.join(filter(str.isalpha, word)).lower() for word in words]\n\n    for word in clean_words:\n        if len(word) < 3:\n            continue\n\n        index = 0\n        for letter in word:\n            if letter in string.ascii_letters:\n                letter_counts[string.ascii_letters.index(letter)][letter] += 1\n                index += 1\n        count_tuple = tuple(letter_counts[i][char] for i, char in enumerate(string.ascii_letters))\n        letter_counts = letter_counts[len(count_tuple):]\n        letter_counts.append(defaultdict(int))\n\n        seen = set()\n        for i in range(len(clean_words)):\n            if clean_words[i] == word:\n                continue\n            current_count_tuple = tuple(letter_counts[i][char] for i, char in enumerate(string.ascii_letters))\n            if current_count_tuple == count_tuple:\n                seen.add(i)\n                anagram_count += 1\n            if anagram_count >= 52:\n                return False\n\n    return True\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 148,
+    "total_tokens": 504,
+    "completion_tokens": 356
+  }
+}

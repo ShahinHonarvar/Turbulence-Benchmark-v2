@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-b213bfff3d0e4fdabbdaeb7d6f7539aa",
+  "object": "chat.completion",
+  "created": 1725543947,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    rows, cols = matrix.shape\n    result = []\n\n    for r1 in range(rows):\n        for r2 in range(r1, rows):\n            for c1 in range(cols):\n                for c2 in range(c1, cols):\n                    submatrix = matrix[r1:r2+1, c1:c2+1]\n                    if submatrix.sum() == 394:\n                        result.append(submatrix)\n\n    return result\n```\n```\n\nIn the provided code, function named `submatrix_with_particular_sum` iterates through all possible submatrices of the input matrix by adjusting its row and column boundaries. For each submatrix potential, its sum is calculated and compared to the target sum 394. If equal, the submatrix is then appended to the list of resultant submatrices. The function finally returns the list of all qualifying submatrices or an empty list if none are found.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 127,
+    "total_tokens": 372,
+    "completion_tokens": 245
+  }
+}

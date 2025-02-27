@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-ceb9874d4f174f37967262b4ea261bc2",
+  "object": "chat.completion",
+  "created": 1725531291,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(lst):\n    def count_char_freq(s):\n        return sorted(s.lower().count(''.join(filter(str.isalpha, s))))\n\n    anagrams_freq = {}\n    for word in lst:\n        freq = count_char_freq(word)\n        anagrams_freq[freq] = anagrams_freq.get(freq, 0) + 1\n    \n    pairs = sum(v * (v - 1) // 2 for v in anagrams_freq.values())\n    return pairs <= 60\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 148,
+    "total_tokens": 302,
+    "completion_tokens": 154
+  }
+}

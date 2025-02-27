@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-1a9f2c6b6406417ab77db1c077cbe05a",
+  "object": "chat.completion",
+  "created": 1725541198,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef lists_with_product_equal_n(circular_list):\n    n = 96\n    size = len(circular_list)\n    res = []\n    \n    def backtrack(start, path):\n        if len(path) > 1 and path[0] == circular_list[-1]:\n            temp = [circular_list[start], path[1]]\n            if len(temp) < size:\n                if product(temp) == n:\n                    temp.append(temp[0])\n                    res.append(temp)\n            return\n        if product(path) == n:\n            res.append(path + [path[0]])\n            return\n        \n        for i in range(size):\n            if start + i >= size:\n                break\n            backtrack(start + i + 1, path + [circular_list[start + i]])\n    \n    def product(sub_list):\n        prod = 1\n        for num in sub_list:\n            prod *= num\n        return prod\n    \n    backtrack(0, [])\n    return res\n```\n```\n\nIn this code, `backtrack` is the helper function used to create all possible sublists of the circular list. The function `product` calculates the product of elements in a sublist. The main function `list_with_product_equal_n` initializes the result list and calls the helper function `backtrack`.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 203,
+    "total_tokens": 537,
+    "completion_tokens": 334
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-34223d68a27245abbe133777fb72a9f2",
+  "object": "chat.completion",
+  "created": 1725544369,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    result = []\n    rows, cols = matrix.shape\n    for i in range(rows):\n        for j in range(cols):\n            for size in range(rows - i, 0, -1):\n                for k_row in range(i, i + size):\n                    for k_col in range(j, j + size):\n                        submatrix = matrix[i:k_row + 1, j:k_col + 1]\n                        if np.sum(submatrix) == 95:\n                            result.append(submatrix)\n    return result\n```\n```\n\nThis code defines the function `submatrix_with_particular_sum` that performs the specified computation without any comments as per your request. It iterates over the matrix, considering submatrices of different sizes, and checks if their sums equate to 95. All such submatrices are collected into a list and returned.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 126,
+    "total_tokens": 359,
+    "completion_tokens": 233
+  }
+}

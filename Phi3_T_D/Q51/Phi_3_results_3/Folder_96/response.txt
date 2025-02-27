@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-bbc99fcb72e84b568c6351c64b4ff697",
+  "object": "chat.completion",
+  "created": 1725530568,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport collections\n\ndef if_contains_anagrams(strings):\n    counts = collections.defaultdict(int)\n    for string in strings:\n        if len(string) >= 3:\n            key = ''.join(sorted(string.lower()))\n            counts[key] += 1\n\n    pairs = 0\n    for count in counts.values():\n        pairs += count - 1\n        if pairs > 4:\n            return False\n\n    return True\n\n# Examples of function usage:\nprint(if_contains_anagrams(['car', 'arc', 'dare', 'read', 'lord', 'drol']))  # True\nprint(if_contains_anagrams(['listen', 'silent', 'enlist', 'inlets', 'google']))  # False\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 147,
+    "total_tokens": 335,
+    "completion_tokens": 188
+  }
+}

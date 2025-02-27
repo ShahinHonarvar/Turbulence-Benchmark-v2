@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-1db39359a8e54938ac5734d9a1ebe319",
+  "object": "chat.completion",
+  "created": 1725529411,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom collections import defaultdict\n\ndef if_contains_anagrams(strings):\n    def get_sorted_tuple(s):\n        return tuple(sorted(c.lower() for c in s if c.isalpha()))\n    \n    anagram_count = defaultdict(int)\n    for s in strings:\n        if len(s) >= 3:\n            sorted_tuple = get_sorted_tuple(s)\n            anagram_count[sorted_tuple] += 1\n    \n    return sum(count * (count - 1) // 2 for count in anagram_count.values()) <= 29\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 148,
+    "total_tokens": 296,
+    "completion_tokens": 148
+  }
+}

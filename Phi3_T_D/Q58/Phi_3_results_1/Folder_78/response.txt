@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-1208e3eff804493aa551c8686b314a2e",
+  "object": "chat.completion",
+  "created": 1725545357,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    if not isinstance(matrix, np.ndarray):\n        matrix = np.array(matrix)\n    if matrix.ndim != 2:\n        raise ValueError(\"The input must be a 2D numpy matrix\")\n    \n    shape = matrix.shape\n    count = 0\n    for a in range(shape[0]):\n        for b in range(shape[1]):\n            length = 0\n            submatrix_count = 0\n            for x in range(a, shape[0]):\n                for y in range(b, shape[1]):\n                    length += 1\n                    if length == 91:\n                        submatrix_count += 1\n                        break\n                if length == 91:\n                    break\n            count += submatrix_count\n    return count\n\n# Example usage:\n# matrix_example = np.array([[...], ...])\n# result = submatrix_with_n_numbers(matrix_example)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 116,
+    "total_tokens": 368,
+    "completion_tokens": 252
+  }
+}

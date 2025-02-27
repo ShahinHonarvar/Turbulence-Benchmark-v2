@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-3aaa37fc50a8452fb22f24ef1d55d9c4",
+  "object": "chat.completion",
+  "created": 1725548437,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nfrom sympy import isprime\n\ndef is_left_truncatable_prime(n, primes):\n    while n > 0:\n        if not isprime(n):\n            return False\n        n = int(n / 10)\n    return True\n\ndef all_left_truncatable_prime(numbers):\n    x = numbers[41]\n    primes = set(range(2, x))\n    for i in range(2, int(x**0.5) + 1):\n        if i in primes:\n            primes.difference_update(range(i*2, x, i))\n    \n    left_truncatable_primes = []\n    for prime in sorted(primes, reverse=True):\n        if prime < 10 or is_left_truncatable_prime(prime, primes):\n            left_truncatable_primes.append(prime)\n\n    return left_truncatable_primes\n```\n\nThis Python code defines the `all_left_truncatable_prime` function as requested.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 156,
+    "total_tokens": 417,
+    "completion_tokens": 261
+  }
+}

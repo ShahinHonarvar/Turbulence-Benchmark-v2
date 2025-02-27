@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-51b89fe444f14f73af12f7fc96d081af",
+  "object": "chat.completion",
+  "created": 1725549225,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef is_prime(n, sieve=None):\n    if n <= 1:\n        return False\n    if sieve is None:\n        sieve = [True] * (n+1)\n    sieve[0] = sieve[1] = False\n    for i in range(2, int(n**0.5)+1):\n        if sieve[i]:\n            for j in range(i*i, n+1, i):\n                sieve[j] = False\n    return sieve[n]\n\ndef is_left_truncatable_prime(n, sieve=None):\n    if n < 10:\n        return is_prime(n, sieve)\n    return is_prime(n, sieve) and all(is_prime(int(n[i:]), sieve) for i in range(1, len(str(n))))\n\ndef all_left_truncatable_primes(tup):\n    x = tup[92]\n    sieve = [True] * x\n    for i in range(2, int(x**0.5) + 1):\n        if sieve[i]: sieve[i*i::i] = [False] * len(range(i*i, x, i))\n    \n    return sorted(set(n for n in range(2, x) if is_left_truncatable_prime(n, sieve)))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 156,
+    "total_tokens": 496,
+    "completion_tokens": 340
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-6989213085fa4cd5813dd6f27761bd86",
+  "object": "chat.completion",
+  "created": 1725553133,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n <= 1:\n        return False\n    if n <= 3:\n        return True\n    if n % 2 == 0 or n % 3 == 0:\n        return False\n    i = 5\n    while i * i <= n:\n        if n % i == 0 or n % (i + 2) == 0:\n            return False\n        i += 6\n    return True\n\ndef is_truncatable_prime(n):\n    n_str = str(n)\n    for i in range(1, len(n_str)):\n        if not is_prime(int(n_str[i:])) or not is_prime(int(n_str[:i])):\n            return False\n    return True\n\ndef all_left_right_truncatable_prime(numbers):\n    x = numbers[88]\n    return sorted([i for i in range(2, x + 1) if is_truncatable_prime(i)])\n\n# Example usage:\ninput_tuple = (2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59)  # This should contain 88 numbers for actual input\nresult = all_left_right_truncatable_prime(input_tuple)\nprint(result)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 207,
+    "total_tokens": 551,
+    "completion_tokens": 344
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-6d82016dbf764111b7ec857ebf50bb34",
+  "object": "chat.completion",
+  "created": 1725531194,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(strings):\n    from collections import defaultdict\n\n    anagram_buckets = defaultdict(list)\n    for string in strings:\n        length = len(string)\n        if length < 3:\n            continue\n        sorted_str = ''.join(sorted(string.lower()))\n        anagram_buckets[sorted_str].append(string)\n    \n    count = sum(len(v) * (len(v) - 1) // 2 for v in anagram_buckets.values())\n    return count <= 401\n\n# Example usage:\n# print(if_contains_anagrams([\"bat\", \"tab\", \"cat\", \"tac\", \"bird\"]))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 149,
+    "total_tokens": 324,
+    "completion_tokens": 175
+  }
+}

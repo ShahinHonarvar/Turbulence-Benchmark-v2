@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-fadc019816c34e378fa00a75a9a7d06a",
+  "object": "chat.completion",
+  "created": 1725528683,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef if_contains_anagrams(words):\n    def normalize(word):\n        return sorted(word.lower())\n\n    def has_anagrams(word_list):\n        anagram_buckets = {}\n        for word in word_list:\n            nword = normalize(word)\n            if nword in anagram_buckets:\n                anagram_buckets[nword].append(word)\n            else:\n                anagram_buckets[nword] = [word]\n\n        pairs = 0\n        for anagrams in anagram_buckets.values():\n            if len(anagrams) > 1:\n                pairs += len(anagrams) * (len(anagrams) - 1) // 2\n\n        return pairs\n\n    return has_anagrams(words) >= 92\n\n# Example usage\nprint(if_contains_anagrams([\"cat\", \"act\", \"talk\", \"lake\", \"silent\", \"listen\"]))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 134,
+    "total_tokens": 374,
+    "completion_tokens": 240
+  }
+}

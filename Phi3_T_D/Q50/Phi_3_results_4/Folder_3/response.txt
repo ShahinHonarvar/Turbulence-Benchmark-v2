@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-7d36414542ce40699469bba042a3dd94",
+  "object": "chat.completion",
+  "created": 1725528407,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nfrom itertools import combinations\n\ndef count_anagrams(word_list):\n    anagram_count = 0\n    for word1, word2 in combinations(word_list, 2):\n        if sorted(word1.lower()) == sorted(word2.lower()):\n            anagram_count += 1\n    return anagram_count\n\ndef if_contains_anagrams(words):\n    three_letter_words = [word.lower() for word in words if len(word) >= 3]\n    return count_anagrams(three_letter_words) >= 30\n\n# Test the function\nprint(if_contains_anagrams([\"rat\", \"tar\", \"arc\", \"car\", \"elbow\", \"below\", \"state\", \"taste\", \"brag\", \"grab\"]))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 134,
+    "total_tokens": 329,
+    "completion_tokens": 195
+  }
+}

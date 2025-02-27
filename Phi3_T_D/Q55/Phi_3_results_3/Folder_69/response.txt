@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-bd6f54e1e26f4eaf8963c707398aa163",
+  "object": "chat.completion",
+  "created": 1725540118,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef lists_with_product_equal_n(circular_list):\n    from itertools import cycle, islice\n\n    def find_sublists_with_product(sublist):\n        from itertools import accumulate\n        from operator import mul\n        cumulative_product = list(accumulate(sublist, mul))\n        results = []\n        for i in range(len(sublist)):\n            for j in range(i + 1, len(cumulative_product)):\n                if cumulative_product[j] % cumulative_product[i] == cumulative_product[-1] % cumulative_product[i] == 90:\n                    results.append(sublist[i:j+1])\n        return results\n\n    def get_sublists(list_cycle):\n        sublists = []\n        for start in range(len(list_cycle)):\n            sublist = list(islice(cycle(list_cycle), start, None))\n            if len(sublist) == len(list_cycle):\n                break\n            if len(sublist) > 0:\n                sublists.extend(find_sublists_with_product(sublist))\n        return sublists\n\n    circular_list_cycle = cycle(circular_list)\n    sublists = get_sublists(circular_list_cycle)\n    # Removing duplicates\n    seen = set()\n    unique_sublists = [sublist for sublist in sublists if tuple(sublist) not in seen and not seen.add(tuple(sublist))]\n\n    return unique_sublists\n\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 203,
+    "total_tokens": 575,
+    "completion_tokens": 372
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-1ad316ad2a42426992c29c58b47542be",
+  "object": "chat.completion",
+  "created": 1725548959,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef all_left_truncatable_prime(numbers):\n    def is_prime(n, sieve):\n        return sieve[n]\n\n    def eratosthenes_sieve(limit):\n        sieve = [True] * (limit+1)\n        sieve[0] = sieve[1] = False\n        for i in range(2, int(limit ** 0.5) + 1):\n            if sieve[i]:\n                for j in range(i*i, limit+1, i):\n                    sieve[j] = False\n        return sieve\n\n    def left_truncatable(n, sieve):\n        if not is_prime(n, sieve):\n            return False\n        str_n = str(n)\n        for i in range(1, len(str_n)):\n            if not is_prime(int(str_n[i:]), sieve):\n                return False\n        return True\n\n    limit = numbers[39]\n    primes = eratosthenes_sieve(limit)\n    result = [num for num in range(2, limit) if left_truncatable(num, primes)]\n    return sorted(result, reverse=True)\n\nprint(all_left_truncatable_prime((200, 200, 200, 200, 200, 200, 200, 200, 200, 200, \n                                  200, 200, 200, 200, 200, 200, 200, 200, 200, 200, \n                                  200, 200, 200, 200, 200, 200, 200, 200, 200, 200, \n                                  200, 200, 200, 200, 200, 200, 200, 200, 200, 200, \n                                  200, 200, 200, 200, 200, 200, 200, 200, 200, 200, \n                                  200, 200, 200, 200, 200, 200, 200, 200, 200, 200,\n                                  200, 200, 200, 200, 200, 200, 200, 200, 200, 200))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 156,
+    "total_tokens": 840,
+    "completion_tokens": 684
+  }
+}

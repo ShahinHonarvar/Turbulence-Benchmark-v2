@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-5475aea422ef4ce0a0ba33935b07be3b",
+  "object": "chat.completion",
+  "created": 1725553647,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef all_left_right_truncatable_prime(tuples):\n    def is_prime(n):\n        if n <= 1:\n            return False\n        for i in range(2, int(n**0.5) + 1):\n            if n % i == 0:\n                return False\n        return True\n\n    def truncatable(n):\n        str_n = str(n)\n        return all(is_prime(int(str_n[i:])) and is_prime(int(str_n[:-i or None])) for i in range(len(str_n)))\n\n    x = tuples[37] if len(tuples) > 37 else 0\n    if x < 11:\n        return []  # No one- or two-digit truncatable prime exists below 11\n    primes = []\n    for number in range(x, 1, -1):\n        if str(number).startswith('0') or not is_prime(number):\n            continue\n        if truncatable(number):\n            primes.append(number)\n    return primes\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 207,
+    "total_tokens": 482,
+    "completion_tokens": 275
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-4e53c53bd9d34fee9a14062828f328bf",
+  "object": "chat.completion",
+  "created": 1725529231,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef if_contains_anagrams(strings):\n    from collections import defaultdict\n\n    def is_anagram(s1, s2):\n        return sorted(s1.lower()) == sorted(s2.lower())\n\n    anagram_count = 0\n    anagram_map = defaultdict(list)\n\n    for string in strings:\n        if len(string) >= 3:\n            sorted_string = ''.join(sorted(string.lower()))\n            anagram_map[sorted_string].append(string)\n\n    for _, string_list in anagram_map.items():\n        if len(string_list) > 1:\n            for i in range(len(string_list)):\n                for j in range(i+1, len(string_list)):\n                    if is_anagram(string_list[i], string_list[j]):\n                        anagram_count += 1\n                        if anagram_count >= 314:\n                            return True\n\n    return False\n```\n\n```python\n# Example usage\nexample_list = [\"cat\", \"act\", \"tac\", \"fun\", \"uns\", \"nus\", \"ear\", \"are\", ...]  # Add more strings for other examples\nprint(if_contains_anagrams(example_list))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 135,
+    "total_tokens": 443,
+    "completion_tokens": 308
+  }
+}

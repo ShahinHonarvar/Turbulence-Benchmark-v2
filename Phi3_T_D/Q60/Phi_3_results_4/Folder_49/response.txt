@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-2d4383da599b436e82d8eac997dbef85",
+  "object": "chat.completion",
+  "created": 1725553027,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_right_truncatable_prime(n, primes):\n    while n > 0:\n        if n not in primes:\n            return False\n        n = n % (10 ** (len(str(n)) - 1))\n    return True\n\ndef all_left_right_truncatable_prime(numbers):\n    if len(numbers) <= 14:\n        raise ValueError(\"Tuple must have at least 15 elements, with the 14th being the upper limit for search.\")\n    \n    upper_limit = numbers[14]\n    if upper_limit < 11:\n        return []  # No two-digit truncatable primes exist below 11.\n\n    primes = {2, 3, 5, 7}\n    for num in range(11, upper_limit + 1):\n        for prime in primes:\n            if num % prime == 0:\n                break\n        else:  # No break occurred, it's not divisible by any of known primes\n            is_truncatable_right = True\n            str_num = str(num)\n            for i in range(len(str_num)):\n                if not is_right_truncatable_prime(int(str_num[i:]), primes):\n                    is_truncatable_right = False\n                    break\n\n            str_num_reversed = str_num[::-1]\n            is_truncatable_left = True\n            for i in range(1, len(str_num_reversed)):\n                if not is_right_truncatable_prime(int(str_num_reversed[:i]), primes):\n                    is_truncatable_left = False\n                    break\n\n            if is_truncatable_right and is_truncatable_left:\n                primes.add(num)\n    \n    return sorted(primes)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 207,
+    "total_tokens": 677,
+    "completion_tokens": 470
+  }
+}

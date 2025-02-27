@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-9e451d4414be4c538699f4322e07514e",
+  "object": "chat.completion",
+  "created": 1725535672,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef all_right_truncatable_prime(number_tuple):\n    x = number_tuple[30]\n    end = ['2', '3', '5', '7']\n    result_list = get_truncatable_primes(end, [], x)\n    return result_list\n\ndef is_prime(n, primes):\n    if n in primes:\n        return True\n    if n < 2 or n % 2 == 0:\n        return False\n    for i in range(3, int(n**0.5) + 1, 2):\n        if n % i == 0:\n            return False\n    primes.add(n)\n    return True\n\ndef get_truncatable_primes(possible_endings, primes, x):\n    result = []\n    for start in possible_endings:\n        if int(start) > x:\n            return result\n        if is_prime(int(start), primes):\n            primes.add(int(start))\n            for tail in get_truncatable_primes(end, primes, int(start)):\n                result.append(tail)\n    result.append(possible_endings[0])\n    return result\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 169,
+    "total_tokens": 468,
+    "completion_tokens": 299
+  }
+}

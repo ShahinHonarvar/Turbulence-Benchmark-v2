@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-ee3e358e7e8d4e84833632f62f23f3a7",
+  "object": "chat.completion",
+  "created": 1725543665,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    def count_submatrix(matrix, target_sum=-863):\n        rows, cols = matrix.shape\n        count = 0\n        for left in range(cols):\n            temp_sum = [0] * rows\n            for right in range(left, cols):\n                for i in range(rows):\n                    temp_sum[i] += matrix[i][right]\n                sum_submatrix = {0: []}\n                for i in range(rows):\n                    if temp_sum[i] in sum_submatrix:\n                        submatrices = sum_submatrix[temp_sum[i]]\n                        for sub in submatrices:\n                            start_row, end_row = sub\n                            sum_submatrix[(temp_sum[i] - sum_submatrix[target_sum])] = sum_submatrix.get((temp_sum[i] - sum_submatrix[target_sum]), []) + [(start_row, i)]\n                    else:\n                        sum_submatrix[temp_sum[i]] = []\n                    if temp_sum[i] - target_sum in sum_submatrix:\n                        sum_submatrix[temp_sum[i]] += [(sum_submatrix[temp_sum[i] - target_sum][-1][1]+1, i)]\n\n                for sub in sum_submatrix.get(target_sum, []):\n                    for start_row, end_row in sum_submatrix.get(target_sum, []):\n                        if start_row >= sub[0] and end_row <= sub[1]:\n                            yield matrix[start_row:end_row+1, left:right+1]\n\n        return count\n\n    return [submat for submat in count_submatrix(matrix)]\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 127,
+    "total_tokens": 569,
+    "completion_tokens": 442
+  }
+}

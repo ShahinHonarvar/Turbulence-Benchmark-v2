@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-bea20f00b5804d7ba22b07e8b017e147",
+  "object": "chat.completion",
+  "created": 1725545873,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    rows, cols = matrix.shape\n    count = 0\n    for row_start in range(rows):\n        for col_start in range(cols):\n            for row_len in range(1, rows - row_start + 1):\n                for col_len in range(1, cols - col_start + 1):\n                    submatrix = matrix[row_start:row_start+row_len, col_start:col_start+col_len]\n                    if np.sum(submatrix == 15) == 15:\n                        count += 1\n    return count\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 116,
+    "total_tokens": 282,
+    "completion_tokens": 166
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-bae930efcb0e4774bcfe4053eb7b2d41",
+  "object": "chat.completion",
+  "created": 1725543119,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    rows, cols = matrix.shape\n    result = []\n\n    def check_submatrix(r1, c1, r2, c2):\n        return np.sum(matrix[r1:r2+1, c1:c2+1]) == -15\n\n    for size in range(1, rows + 1):\n        for top in range(rows - size + 1):\n            for left in range(cols - size + 1):\n                if check_submatrix(top, left, top + size - 1, left + size - 1):\n                    result.append(matrix[top:top + size, left:left + size])\n\n    return result\n```\n\nTo use the above code, the user needs to input a two-dimensional numpy matrix as an argument. For example:\n\n```\nA = np.array([[2, -3, 1, 8], [-1, 7, 5, -4], [8, -9, -2, 2], [3, -6, 9, -3]])\nsubmatrices = submatrix_with_particular_sum(A)\nprint(submatrices)\n```\n\nIt will output the list of all submatrices with the sum of integers equal to -15.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 126,
+    "total_tokens": 442,
+    "completion_tokens": 316
+  }
+}

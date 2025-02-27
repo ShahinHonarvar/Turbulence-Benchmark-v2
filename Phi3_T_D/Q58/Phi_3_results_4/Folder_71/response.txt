@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-7a3c11acbb1e4db6abdab5e87cb451d2",
+  "object": "chat.completion",
+  "created": 1725546573,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    sub_count = 0\n    rows, cols = matrix.shape\n    for i in range(rows):\n        for j in range(cols):\n            for k in range(i, rows):\n                for l in range(j, cols):\n                    if np.all(matrix[i:k+1, j:l+1].flatten() == 78):\n                        sub_count += 1\n    return sub_count\n\n# Example usage:\n# matrix = np.array([[78, 78], [78, 78]])\n# print(submatrix_with_n_numbers(matrix))\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 116,
+    "total_tokens": 286,
+    "completion_tokens": 170
+  }
+}

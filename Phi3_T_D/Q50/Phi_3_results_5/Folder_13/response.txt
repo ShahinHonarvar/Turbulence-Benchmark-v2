@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-6d875e5c97cc445ca5e3f62ad9909362",
+  "object": "chat.completion",
+  "created": 1725528880,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(strings):\n    from collections import defaultdict\n\n    isograms = defaultdict(int)\n    for s in strings:\n        s_key = ''.join(sorted(s.lower()))\n        isograms[s_key] += 1\n\n    count = sum(v * (v - 1) // 2 for v in isograms.values() if isograms[s_key] >= 3)\n    return count >= 144\n\n# Example usage:\nstrings_list = ['listen', 'silent', 'enlist', 'inlets', 'google', 'gooegl', 'apple', 'papel']\nresult = if_contains_anagrams(strings_list)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 135,
+    "total_tokens": 314,
+    "completion_tokens": 179
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-99809e1e4768409790eb538975190240",
+  "object": "chat.completion",
+  "created": 1725536734,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef all_right_truncatable_prime(numbers):\n    x = numbers[38]\n    primes = [2, 3, 5, 7]  # base primes to start from\n    rt_primes = []\n\n    def is_prime(n):\n        for p in primes:\n            if p * p > n:\n                break\n            if n % p == 0:\n                return False\n        return True\n\n    def truncate(n):\n        return n // 10 if n > 0 else None\n\n    def extend_primes(prime):\n        if prime > x:\n            return\n        primes.append(prime)\n        n = truncate(prime)\n        while n is not None:\n            shorter = n * 10 + (prime % 10)\n            if is_prime(shorter):\n                truncate(shorter)\n            else:\n                break\n\n    # Initialize with single-digit primes\n    for prime in primes:\n        extend_primes(prime)\n\n    # Filter out non-truncatable primes\n    rt_primes = [p for p in primes if is_prime(p) and truncate(p) is not None]\n\n    return sorted(rt_primes, reverse=True)\n```\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 169,
+    "total_tokens": 483,
+    "completion_tokens": 314
+  }
+}

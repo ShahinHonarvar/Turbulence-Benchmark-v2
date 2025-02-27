@@ -1,0 +1,14 @@
+from collections import defaultdict
+
+def if_contains_anagrams(strings):
+    anagram_dict = defaultdict(list)
+    for string in strings:
+        if len(string) >= 3:
+            sorted_string = ''.join(sorted(string.lower()))
+            anagram_dict[sorted_string].append(string)
+    anagram_pairs = 0
+    for key in anagram_dict:
+        num_strings = len(anagram_dict[key])
+        if num_strings > 1:
+            anagram_pairs += num_strings * (num_strings - 1) // 2
+    return anagram_pairs >= 108

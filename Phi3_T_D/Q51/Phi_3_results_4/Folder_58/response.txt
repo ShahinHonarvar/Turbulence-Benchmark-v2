@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-34d93c99488a463484580f8032ba7832",
+  "object": "chat.completion",
+  "created": 1725530827,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\ndef if_contains_anagrams(strings):\n    count = 0\n    seen = set()\n    strings = [s.lower().replace(\" \", \"\") for s in strings]\n\n    for s in strings:\n        s_key = ''.join(sorted(s))\n        if s_key in seen:\n            count += 1\n        else:\n            seen.add(s_key)\n\n    return count <= 60\n\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 148,
+    "total_tokens": 255,
+    "completion_tokens": 107
+  }
+}

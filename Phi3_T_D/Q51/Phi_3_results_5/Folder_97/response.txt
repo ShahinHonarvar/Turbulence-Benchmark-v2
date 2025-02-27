@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-121a7898600742e5b4fd2980357b199a",
+  "object": "chat.completion",
+  "created": 1725531461,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(string_list):\n    def normalize(s):\n        s = s.lower()\n        return ''.join(sorted(s))\n    \n    from collections import Counter\n    \n    def count_anagram_pairs(sorted_strings):\n        start = 0\n        end = 1\n        count = 0\n        \n        while end < len(sorted_strings):\n            if Counter(sorted_strings[start]) == Counter(sorted_strings[end]):\n                count += 1\n                start += 2\n                end += 2\n            else:\n                end += 1\n                \n            if count > 18:\n                return True\n                \n        return count <= 18\n    \n    sorted_strings = [normalize(s) for s in string_list if len(s) >= 3]\n    return count_anagram_pairs(sorted_strings)\n\n# Example usage:\nstrings = ['bat', 'tab', 'cat', 'dog', 'god']\nresult = if_contains_anagrams(strings)\nprint(result)  # Should print: True\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 148,
+    "total_tokens": 419,
+    "completion_tokens": 271
+  }
+}

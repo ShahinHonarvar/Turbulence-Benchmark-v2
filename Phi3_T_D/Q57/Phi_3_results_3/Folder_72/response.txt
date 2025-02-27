@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-96e33ddda4c34befb8dd9c7c5857effb",
+  "object": "chat.completion",
+  "created": 1725543995,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\n```\n\n```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    if not isinstance(matrix, np.ndarray) or len(matrix.shape) != 2:\n        raise ValueError(\"Input must be a two-dimensional numpy matrix\")\n\n    results = []\n    rows, cols = matrix.shape[0], matrix.shape[1]\n    for i in range(rows):\n        for j in range(cols):\n            for m in range(i, rows):\n                for n in range(j, cols):\n                    submatrix = matrix[i:m+1, j:n+1]\n                    if submatrix.sum() == 41:\n                        results.append(submatrix)\n    return results\n```\n\n\nThe solution employs four nested loops to iterate through all possible top left positions of a submatrix, and then through all potential bottom right positions for a given top left position. For each submatrix formed, it computes the sum and adds it to the result list if the sum is equal to 41. It handles the input validation by checking if the input is a two-dimensional numpy array.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 126,
+    "total_tokens": 395,
+    "completion_tokens": 269
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-27672919778f4ab6b70a930dae0c186e",
+  "object": "chat.completion",
+  "created": 1725527175,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef if_contains_anagrams(words):\n    def is_anagram(s1, s2):\n        return sorted(s1.lower()) == sorted(s2.lower()) and len(s1) >= 3 and len(s2) >= 3\n\n    count = 0\n    words = sorted(words, key=lambda x: sorted(x.lower()))\n    i, j = 0, 1\n\n    while i < len(words) and j < len(words):\n        if is_anagram(words[i], words[j]):\n            count += 1\n            j += 1\n            if j == len(words):\n                break\n        elif words[i].lower() < words[j].lower():\n            i += 1\n            j = max(i + 1, j)\n        else:\n            j += 1\n        \n    return count >= 246\n\n# Example usage\nwords_list = [\"earth\", \"heart\", \"careth\", \"teach\", \"cheat\", \"heart\", \"act\"]\nresult = if_contains_anagrams(words_list)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 135,
+    "total_tokens": 403,
+    "completion_tokens": 268
+  }
+}

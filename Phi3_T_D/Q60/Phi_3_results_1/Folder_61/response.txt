@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-442b1fe9835f407fbd999592dc8ac0f9",
+  "object": "chat.completion",
+  "created": 1725550799,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            return False\n    return True\n\ndef all_left_right_truncatable_prime(numbers):\n    x = numbers[3]\n    truncatable_primes = []\n\n    def is_truncatable(n, truncs=()):\n        if not n or n == 1:\n            return True\n        if n < 0 or any(digit == '0' for digit in str(n)):\n            return False\n        if not is_prime(n):\n            return False\n        new_truncs = truncs + (n,)\n        return all_left_right_truncatable_prime(n // 10, new_truncs) and is_truncatable(n // 10, new_truncs)\n\n    for prime in (p for p in range(2, x + 1) if is_prime(p)):\n        if is_truncatable(prime):\n            truncatable_primes.append(prime)\n\n    return sorted(truncatable_primes, reverse=True)\n\n# Example usage:\nnumbers = (1, 10, 100, 1000)  # This is the tuple whose fourth element is `x`\nprint(all_left_right_truncatable_prime(numbers))\n```\nThis Python code defines a function `all_left_right_truncatable_prime` that takes a tuple of positive integers, extracts the fourth element as the upper limit `x`, and calculates all left-and-right-truncatable prime numbers up to `x`. It returns this list in descending order. The helper function `is_prime` checks if a number is prime, and `is_truncatable` checks if a prime number is left-and-right-truncatable.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 206,
+    "total_tokens": 686,
+    "completion_tokens": 480
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-8baab97b54c542ee9fd38f5b6fe9dd35",
+  "object": "chat.completion",
+  "created": 1725528250,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```\nfrom collections import defaultdict\n\ndef if_contains_anagrams(lst):\n    def get_sorted_str(s):\n        return ''.join(sorted(s.lower()))\n\n    sorted_strings = [get_sorted_str(s) for s in lst if len(s) >= 3]\n    counts = defaultdict(int)\n   \n    for sorted_str in sorted_strings:\n        counts[sorted_str] += 1\n   \n    return sum(count // 2 for count in counts.values()) >= 94\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 134,
+    "total_tokens": 265,
+    "completion_tokens": 131
+  }
+}

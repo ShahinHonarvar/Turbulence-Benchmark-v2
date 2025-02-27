@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-fa9423ea54584089ac1bc6db7969d717",
+  "object": "chat.completion",
+  "created": 1725538146,
+  "model": "phi3-medium-4k",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": " ```python\ndef is_prime(n):\n    if n <= 1:\n        return False\n    if n <= 3:\n        return True\n    if n % 2 == 0 or n % 3 == 0:\n        return False\n    i = 5\n    while i * i <= n:\n        if n % i == 0 or n % (i + 2) == 0:\n            return False\n        i += 6\n    return True\n\ndef all_right_truncatable_prime(numbers):\n    x = numbers[175]\n    primes = [str(p) for p in range(2, x) if is_prime(p)]\n\n    def truncatable(number):\n        for i in range(len(number)):\n            if not is_prime(int(number[i:])):\n                return False\n        return True\n\n    return sorted([int(p) for p in primes if truncatable(p)])\n\n# Get the sorted list of right-truncatable prime numbers less than x\nall_right_truncatable_primes = all_right_truncatable_prime(numbers)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 170,
+    "total_tokens": 448,
+    "completion_tokens": 278
+  }
+}
