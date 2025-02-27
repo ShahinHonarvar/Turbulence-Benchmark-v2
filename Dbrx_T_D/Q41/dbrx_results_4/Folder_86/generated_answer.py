@@ -1,0 +1,2 @@
+def identical_elements(list1, list2):
+    return {list1[i] for i in range(31, 35) if list1[i] in list2 and list2[i] in list1} | {list2[i] for i in range(31, 35) if list1[i] in list2 and list2[i] in list1}

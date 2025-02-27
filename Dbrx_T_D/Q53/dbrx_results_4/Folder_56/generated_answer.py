@@ -1,0 +1,12 @@
+import re
+import string
+
+def palindrome_of_length_at_least_n(s):
+    palindromes = set()
+    s = s.lower()
+    for i in range(len(s) - 83):
+        for j in range(i + 42, len(s) - 41):
+            substring = s[i:j + 1]
+            if substring == substring[::-1] and substring.isalpha():
+                palindromes.add(substring)
+    return {p for p in palindromes if len(p) >= 84}

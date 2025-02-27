@@ -1,0 +1,4 @@
+def return_nth_smallest_ascii(s: str) -> str:
+    ascii_values = [ord(c) for c in s if 18 <= s.index(c) <= 66]
+    ascii_values.sort()
+    return chr(ascii_values[18])

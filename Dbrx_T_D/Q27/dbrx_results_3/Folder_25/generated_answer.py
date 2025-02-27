@@ -1,0 +1,4 @@
+def insert_after_index(lst):
+    index_to_insert = 30 + 1
+    lst.insert(index_to_insert, 37)
+    return lst

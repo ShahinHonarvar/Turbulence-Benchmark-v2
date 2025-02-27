@@ -1,0 +1,2 @@
+def palindromes_of_specific_lengths(s):
+    return {palindrome for palindrome in {s[i:j] for i in range(16, 95) for j in range(i + 39, i + 53)} if palindrome.isalpha() and palindrome.lower() == palindrome[::-1]}

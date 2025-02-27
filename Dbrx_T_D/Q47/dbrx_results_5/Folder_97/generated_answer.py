@@ -1,0 +1,2 @@
+def palindromes_of_specific_lengths(s):
+    return {p for r in (s[i:j] for i in range(28, 95) for j in range(i + 38, i + 50)) if (p := r.lower()) == p[::-1] and set(p).issubset('abcdefghijklmnopqrstuvwxyz')}

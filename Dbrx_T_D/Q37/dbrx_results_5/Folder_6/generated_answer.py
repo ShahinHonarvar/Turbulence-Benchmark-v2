@@ -1,0 +1,2 @@
+def filter_chars(s: str) -> str:
+    return ''.join((c for i, c in enumerate(s) if not (13 <= i <= 28 and 'c' <= c <= 'n')))

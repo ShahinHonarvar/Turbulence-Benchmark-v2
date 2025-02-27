@@ -1,0 +1,2 @@
+def insert_after_character(input_string):
+    return input_string.replace('A', 'A' + 'A', 1)

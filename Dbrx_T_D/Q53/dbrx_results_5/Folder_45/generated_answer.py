@@ -1,0 +1,2 @@
+def palindrome_of_length_at_least_n(input_string, min_length=47):
+    return {palindrome for palindrome in {input_string[i:j] for i in range(len(input_string)) for j in range(i + 1, len(input_string) + 1) if input_string[i:j].lower() == input_string[i:j][::-1].lower() and input_string[i:j].isalpha()} if len(palindrome) >= min_length}

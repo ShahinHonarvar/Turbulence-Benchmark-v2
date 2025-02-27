@@ -1,0 +1,2 @@
+def palindromes_of_specific_lengths(s):
+    return {palindrome.lower() for length in range(13, 50) for start in range(17, 96 - length + 1) for palindrome in {s[start:start + length]} if palindrome == palindrome[::-1] and set(palindrome) <= set('abcdefghijklmnopqrstuvwxyz')}

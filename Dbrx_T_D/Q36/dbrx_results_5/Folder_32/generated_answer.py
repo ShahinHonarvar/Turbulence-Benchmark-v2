@@ -1,0 +1,2 @@
+def filter_chars(input_string: str) -> str:
+    return ''.join((char for char in input_string if input_string.index(char) < 40 or input_string.index(char) >= 63 or (ord(char) <= ord('7') or ord(char) >= ord('H'))))

@@ -1,0 +1,2 @@
+def filter_chars(input_string: str) -> str:
+    return ''.join([char for char in input_string if input_string.index(char) < 54 or input_string.index(char) > 92 or (char < 'X' and char > 'J')]) if len(input_string) >= 2 else input_string

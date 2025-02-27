@@ -1,0 +1,2 @@
+def filter_chars(s: str) -> str:
+    return ''.join((char for char in s if 31 <= s.index(char) < 50 and (not '/' < char < 'J'))) if 31 < s.index(char) < 50 and (not '/' < char < 'J') else s.replace(char, '')

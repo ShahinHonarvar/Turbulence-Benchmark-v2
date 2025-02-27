@@ -1,0 +1,13 @@
+import re
+
+def if_contains_anagrams(strings):
+    anagrams = {}
+    for string in strings:
+        sorted_string = ''.join(sorted(re.findall('\\\\w+', string.lower())))
+        if len(sorted_string) >= 3:
+            if sorted_string in anagrams:
+                anagrams[sorted_string] += 1
+            else:
+                anagrams[sorted_string] = 1
+    anagram_pairs = sum((n * (n - 1) // 2 for n in anagrams.values()))
+    return anagram_pairs >= 92

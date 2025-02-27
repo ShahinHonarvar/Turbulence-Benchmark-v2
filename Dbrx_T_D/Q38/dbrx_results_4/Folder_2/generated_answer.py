@@ -1,0 +1,2 @@
+def find_subset_of_length_n(some_set, n=616):
+    return len(list(filter(lambda subset: len(subset) == n, itertools.chain.from_iterable((itertools.combinations(some_set, i) for i in range(len(some_set) + 1))))))

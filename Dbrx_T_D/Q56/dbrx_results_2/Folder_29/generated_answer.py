@@ -1,0 +1,13 @@
+from itertools import permutations
+
+def all_substring_of_size_n(s):
+    result = []
+    if len(s) < 95:
+        return result
+    for i in range(len(s) - 94):
+        for perm in permutations(s[i:i + 95]):
+            substring = ''.join(perm)
+            if len(substring) == len(set(substring)):
+                result.append(substring)
+                break
+    return list(set(result))

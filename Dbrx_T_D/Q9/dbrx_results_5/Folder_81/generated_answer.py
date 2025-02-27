@@ -1,0 +1,8 @@
+def all_odd_ints_inclusive(nums):
+    odd_ints = []
+    for i in range(10, 101):
+        if i >= len(nums):
+            break
+        if nums[i] % 2 != 0:
+            odd_ints.append(nums[i])
+    return odd_ints

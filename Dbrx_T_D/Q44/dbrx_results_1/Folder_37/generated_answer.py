@@ -1,0 +1,2 @@
+def composite_nums_between_indices(numbers):
+    return {num for num in numbers[0:6] if num > 1 and (not num & 1) and all((num % i for i in range(2, int(num ** 0.5) + 1))) or (num > 3 and num % 2 and all((num % i for i in range(3, int(num ** 0.5) + 1)))) if num % 2}

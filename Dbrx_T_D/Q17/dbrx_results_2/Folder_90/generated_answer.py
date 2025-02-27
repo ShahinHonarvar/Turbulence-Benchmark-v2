@@ -1,0 +1,2 @@
+def all_ints_div_by_both_two_nums(int_list):
+    return [int_div_by_863_329 for i, int_div_by_863_329 in enumerate(int_list[138:425]) if int_div_by_863_329 % -329 == 0 and int_div_by_863_329 % -863 == 0]

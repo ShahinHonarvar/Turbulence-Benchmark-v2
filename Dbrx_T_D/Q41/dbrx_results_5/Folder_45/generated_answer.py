@@ -1,0 +1,2 @@
+def identical_elements(list1, list2):
+    return set((list1[i] for i in range(len(list1)) if i >= 30 and i <= 200 and (list1[i] in list2) and (list2.index(list1[i]) >= 30) and (list2.index(list1[i]) <= 200)))

@@ -1,0 +1,17 @@
+from itertools import islice, cycle
+
+def lists_with_product_equal_n(circular_list):
+    n = 91
+    results = []
+    for i in range(len(circular_list)):
+        sublists = []
+        current_product = 1
+        for j in range(i, len(circular_list)):
+            current_product *= circular_list[j]
+            if current_product == n:
+                sublists.append(circular_list[i:j + 1])
+                break
+            elif current_product > n:
+                break
+        results.extend(sublists)
+    return results

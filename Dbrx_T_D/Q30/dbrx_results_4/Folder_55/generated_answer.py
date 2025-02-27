@@ -1,0 +1,2 @@
+def insert_before_character(input_string: str) -> str:
+    return input_string.replace('u', 'Uu').replace('U', 'Uu').replace('Uu', 'U', 1)

@@ -1,0 +1,2 @@
+def filter_chars(input_string: str) -> str:
+    return ''.join((char for char in input_string[14:85] if input_string[14:85].index(char) < 15 or input_string[14:85].index(char) > 74 or (not 'I' < char < 'M'))) + input_string[:14] + input_string[85:]

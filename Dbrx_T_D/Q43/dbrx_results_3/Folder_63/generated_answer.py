@@ -1,0 +1,20 @@
+def is_prime(n):
+    if n <= 1:
+        return False
+    if n <= 3:
+        return True
+    if n % 2 == 0 or n % 3 == 0:
+        return False
+    i = 5
+    while i * i <= n:
+        if n % i == 0 or n % (i + 2) == 0:
+            return False
+        i += 6
+    return True
+
+def find_primes_between_indices(input_list):
+    if len(input_list) < 36:
+        return []
+    prime_numbers = [x for x in input_list[28:37] if is_prime(x)]
+    prime_numbers.sort()
+    return prime_numbers

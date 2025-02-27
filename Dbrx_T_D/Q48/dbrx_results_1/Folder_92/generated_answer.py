@@ -1,0 +1,10 @@
+def return_binary_or_hexa(input_tuple):
+    a, b = (input_tuple[0], input_tuple[2])
+    missing_numbers = set(range(a + 1, b)) - set(input_tuple[1:3])
+    if not missing_numbers:
+        return ''
+    total = sum(missing_numbers)
+    if total % 2:
+        return bin(total)[2:]
+    else:
+        return hex(total)[2:].upper()

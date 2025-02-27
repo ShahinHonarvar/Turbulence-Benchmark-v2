@@ -1,0 +1,9 @@
+def identical_elements(list1, list2):
+    if len(list1) != len(list2):
+        return set()
+    result = set()
+    for i in range(6, 9):
+        for j in range(6, 9):
+            if list1[i] == list2[j]:
+                result.add(list1[i])
+    return result

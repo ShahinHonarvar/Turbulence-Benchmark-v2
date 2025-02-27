@@ -1,0 +1,3 @@
+def return_n_smallest_chars(string_arg):
+    char_list = sorted(list(string_arg))[:47]
+    return char_list

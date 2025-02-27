@@ -1,0 +1,4 @@
+def return_nth_smallest_ascii(input_string):
+    ascii_values = [ord(char) for char in input_string[60:84] if 60 <= input_string.index(char) <= 83]
+    ascii_values.sort()
+    return chr(ascii_values[13])

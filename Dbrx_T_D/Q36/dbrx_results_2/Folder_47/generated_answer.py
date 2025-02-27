@@ -1,0 +1,2 @@
+def filter_chars(s: str) -> str:
+    return ''.join((c for c in s if 45 < s.index(c) < 57 and (s.index(c) < 53 or s.index(c) > 54) and (s.index(c) != 52 or c <= 'F') and (s.index(c) != 56 or c >= 'n')))

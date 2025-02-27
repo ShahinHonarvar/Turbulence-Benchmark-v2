@@ -1,0 +1,2 @@
+def composite_nums_between_indices(lst):
+    return {num for num in lst[43:52] if num > 1 and any((num % i == 0 for i in range(2, int(num ** 0.5) + 1))) - {i for i in range(2, int(num ** 0.5) + 1) if num % i == 0 and num != i}}

@@ -1,0 +1,2 @@
+def palindrome_of_length_at_least_n(s: str) -> set:
+    return {palindrome for palindrome in {s[i:j] for i in range(len(s)) for j in range(i + 1, min(len(s), i + 51) + 1)} if palindrome == palindrome[::-1] and palindrome.isalpha()}

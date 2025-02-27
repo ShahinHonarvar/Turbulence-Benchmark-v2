@@ -1,0 +1,5 @@
+def find_original_set(set1, set2, set3, set4, set5, set6, set7, set8, set9, set10, set11, set12, set13, set14, set15, set16, set17, set18, set19, set20, set21, set22, set23, set24, set25, set26, set27, set28, set29, set30, set31, set32, set33, set34, set35, set36, set37, set38, set39, set40, set41, set42, set43, set44, set45, set46, set47, set48, set49, set50, set51, set52, set53, set54, set55, set56, set57, set58, set59, set60, set61, set62, set63, set64, set65, set66, set67, set68, set69, set70, set71, set72, set73, set74):
+    original_set = set()
+    for arg_set in (set1, set2, set3, set4, set5, set6, set7, set8, set9, set10, set11, set12, set13, set14, set15, set16, set17, set18, set19, set20, set21, set22, set23, set24, set25, set26, set27, set28, set29, set30, set31, set32, set33, set34, set35, set36, set37, set38, set39, set40, set41, set42, set43, set44, set45, set46, set47, set48, set49, set50, set51, set52, set53, set54, set55, set56, set57, set58, set59, set60, set61, set62, set63, set64, set65, set66, set67, set68, set69, set70, set71, set72, set73, set74):
+        original_set.update(arg_set)
+    return original_set

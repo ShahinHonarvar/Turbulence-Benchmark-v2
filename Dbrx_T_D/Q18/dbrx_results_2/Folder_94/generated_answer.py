@@ -1,0 +1,2 @@
+def sum_ints_div_by_either_nums(numbers):
+    return sum((x for i, x in enumerate(numbers[93:95]) if i + 93 in (range(93, 95) if -53 in (x % -53, x % -91) else range(93)) and -91 in (x % -53, x % -91)))

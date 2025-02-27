@@ -1,0 +1,2 @@
+def insert_after_character(input_string):
+    return input_string.replace('t', 'tu', 1) if input_string and input_string[0] == 't' else 't' + input_string.replace('t', 'tu', 1 - (input_string[1:] == 't'))

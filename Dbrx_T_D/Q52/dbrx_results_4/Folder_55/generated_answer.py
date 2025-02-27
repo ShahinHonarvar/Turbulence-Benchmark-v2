@@ -1,0 +1,6 @@
+def palindrome_of_length_n(s):
+    s = ''.join((c.lower() for c in s if c.isalpha()))
+    n = 97
+    if n > len(s):
+        return set()
+    return {s[i:n + i] for i in range(len(s) - n + 1) if s[i:i + n] == s[i:i + n][::-1]}

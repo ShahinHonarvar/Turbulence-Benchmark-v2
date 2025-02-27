@@ -1,0 +1,2 @@
+def filter_chars(input_string: str) -> str:
+    return ''.join((char for char in input_string if 79 > input_string.index(char) > 10 or (input_string[10] > '?' and input_string[79] < 'm' and (ord(input_string[79]) > ord(char) > ord(input_string[10])))))

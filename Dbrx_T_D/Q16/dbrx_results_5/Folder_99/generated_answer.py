@@ -1,0 +1,2 @@
+def sum_even_ints_inclusive(arg):
+    return sum(arg[309] if 310 < len(arg) else 0, arg[370] if 370 < len(arg) else 0)[1] if arg[309] % 2 == 0 or arg[370] % 2 == 0 else sum((x for x in arg[309:371:2]))

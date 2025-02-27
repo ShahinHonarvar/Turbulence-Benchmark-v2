@@ -1,0 +1,2 @@
+def composite_nums_between_indices(numbers):
+    return set((i for i in range(91, 100) if numbers[i] > 1 and any((numbers[i] % j == 0 for j in range(2, numbers[i]))))) if any((i > 1 and numbers[i] % j == 0 for i in range(91, 100) for j in range(2, i))) else set()

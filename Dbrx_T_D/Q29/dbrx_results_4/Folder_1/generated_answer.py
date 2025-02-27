@@ -1,0 +1,6 @@
+import math
+
+def gcf_two_nums(numbers):
+    a = numbers[13]
+    b = numbers[66]
+    return math.gcd(a, b) if a != b else a

@@ -1,0 +1,2 @@
+def find_smallest_num(numbers):
+    return min(numbers[23:23 + 1])

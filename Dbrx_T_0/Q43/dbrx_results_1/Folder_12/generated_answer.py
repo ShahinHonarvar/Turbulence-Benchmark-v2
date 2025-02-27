@@ -1,0 +1,14 @@
+def find_primes_between_indices(numbers):
+    primes = []
+    for i in range(16, 26):
+        if i >= len(numbers):
+            break
+        num = numbers[i]
+        if num < 2:
+            continue
+        for j in range(2, int(num ** 0.5) + 1):
+            if num % j == 0:
+                break
+        else:
+            primes.append(num)
+    return sorted(primes, reverse=True)

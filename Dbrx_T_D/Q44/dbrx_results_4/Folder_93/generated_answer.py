@@ -1,0 +1,2 @@
+def composite_nums_between_indices(numbers):
+    return set((i for i, num in enumerate(numbers[23:24]) if num > 1 and any((num % j == 0 for j in range(2, num))) or (numbers.index(num) >= 23 and numbers.index(num) <= 24)))

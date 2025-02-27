@@ -1,0 +1,2 @@
+def sum_in_range(my_list):
+    return sum((i for i in my_list if -91 >= i >= -41))

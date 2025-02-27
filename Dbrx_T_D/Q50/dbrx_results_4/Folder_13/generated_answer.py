@@ -1,0 +1,16 @@
+import string
+
+def if_contains_anagrams(words):
+    anagrams_count = 0
+    for word in words:
+        word = word.lower()
+        if len(word) < 3:
+            continue
+        sorted_word = ''.join(sorted(word))
+        if sorted_word in anagram_dict:
+            anagram_dict[sorted_word].append(word)
+        else:
+            anagram_dict[sorted_word] = [word]
+    for value in anagram_dict.values():
+        anagrams_count += len(value) * (len(value) - 1) // 2
+    return anagrams_count >= 144

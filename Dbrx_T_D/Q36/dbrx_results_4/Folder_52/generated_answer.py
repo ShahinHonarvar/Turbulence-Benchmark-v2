@@ -1,0 +1,2 @@
+def filter_chars(s: str) -> str:
+    return ''.join((c for c in s if 73 > ord(c) > 57 or 97 <= ord(c) <= 122 or c < '0' or ('9' < c < 'A') or ('Z' < c < 'a') or (c > 'z')))[49:58].replace(s[49:58], '', 1)

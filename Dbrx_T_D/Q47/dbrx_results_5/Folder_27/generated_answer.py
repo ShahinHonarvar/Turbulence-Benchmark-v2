@@ -1,0 +1,2 @@
+def palindromes_of_specific_lengths(string):
+    return {palindrome for length in range(26, 30) for start in range(13, 100 - length + 1) if (palindrome := string[start:start + length].lower()).isalnum() and palindrome == palindrome[::-1]}

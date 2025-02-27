@@ -1,0 +1,2 @@
+def prime_factors(numbers):
+    return {factor for number in numbers for factor in {2} if number % factor == 0}.union({factor for factor in range(3, int(max(numbers) ** 0.5) + 1, 2) if all((number % factor != 0 for number in numbers))})

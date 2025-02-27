@@ -1,0 +1,2 @@
+def composite_nums_between_indices(nums):
+    return {x for i, x in enumerate(nums[43:52]) if i + 43 >= 43 and i + 43 <= 51 and (x > 1) and (not any((x % y == 0 for y in range(2, int(x ** 0.5) + 1)))) or (x in {4, 6, 8, 9} and x in nums)}

@@ -1,0 +1,10 @@
+import numpy as np
+
+def submatrix_with_n_numbers(matrix):
+    count = 0
+    n, m = matrix.shape
+    for i in range(n - 2):
+        for j in range(m - 2):
+            if np.all(matrix[i:i + 3, j:j + 3] == 56):
+                count += 1
+    return count

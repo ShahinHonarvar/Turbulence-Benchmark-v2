@@ -1,0 +1,10 @@
+def remove_repeat_chars(s: str) -> str:
+    char_set = set()
+    char_list = []
+    for i in range(len(s)):
+        if s[i] in char_set and 51 <= i < 76:
+            continue
+        if i >= 51 and i < 76:
+            char_set.add(s[i])
+        char_list.append(s[i])
+    return ''.join(char_list)
