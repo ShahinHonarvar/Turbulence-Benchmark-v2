@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-ceed4f58207849c09274cdc1d1dc87c6",
+  "object": "chat.completion",
+  "created": 1725914270,
+  "model": "Meta-Llama-3.1-70B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```python\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    count = 0\n    n = 146\n    rows, cols = matrix.shape\n    min_size = int(np.sqrt(n))\n    for size in range(min_size, max(rows, cols) + 1):\n        for i in range(rows - size + 1):\n            for j in range(cols - size + 1):\n                submatrix = matrix[i:i+size, j:j+size]\n                if np.prod(submatrix.shape) == n:\n                    count += 1\n    return count\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 128,
+    "total_tokens": 252,
+    "completion_tokens": 124
+  }
+}

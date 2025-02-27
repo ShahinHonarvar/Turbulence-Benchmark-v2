@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-8335f9b901c1424a9e769114b3df5787",
+  "object": "chat.completion",
+  "created": 1725874024,
+  "model": "Meta-Llama-3.1-70B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```\ndef find_subset_of_length_n(s):\n    n = len(s)\n    count = 0\n    for i in range(1 << n):\n        subset = [ss for j, ss in enumerate(s) if (i & (1 << j))]\n        if len(subset) == 31:\n            count += 1\n    return count\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 100,
+    "total_tokens": 176,
+    "completion_tokens": 76
+  }
+}

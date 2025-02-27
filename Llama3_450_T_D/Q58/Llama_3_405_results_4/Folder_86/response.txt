@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-b6c406798f144d559f93ca601a09663b",
+  "object": "chat.completion",
+  "created": 1725695071,
+  "model": "Meta-Llama-3-405B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```python\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    count = 0\n    rows = matrix.shape[0]\n    cols = matrix.shape[1]\n    target_count = 138\n\n    for row_start in range(rows):\n        for col_start in range(cols):\n            current_count = 0\n\n            for row_end in range(row_start, rows):\n                if current_count > target_count:\n                    break\n                for col_end in range(col_start, cols):\n                    if current_count > target_count:\n                        break\n                    current_count += (row_end - row_start + 1) * (col_end - col_start + 1)\n\n                    if current_count == target_count:\n                        count += 1\n\n    return count\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 128,
+    "total_tokens": 285,
+    "completion_tokens": 157
+  }
+}

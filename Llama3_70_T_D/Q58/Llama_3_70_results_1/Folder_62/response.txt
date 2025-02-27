@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-90ac3ac3bea7479aaa744985e06af516",
+  "object": "chat.completion",
+  "created": 1725912109,
+  "model": "Meta-Llama-3.1-70B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```python\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    count = 0\n    rows, cols = matrix.shape\n    n = 186\n    for row in range(rows):\n        for col in range(cols):\n            max_row = min(row + int(np.ceil(np.sqrt(n))), rows)\n            max_col = min(col + int(np.ceil(np.sqrt(n))), cols)\n            for r in range(row, max_row + 1):\n                for c in range(col, max_col + 1):\n                    submatrix = matrix[row:r, col:c]\n                    if submatrix.size == n:\n                        count += 1\n    return count\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 128,
+    "total_tokens": 267,
+    "completion_tokens": 139
+  }
+}

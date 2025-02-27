@@ -1,0 +1,12 @@
+def remove_repeat_chars(s):
+    count_dict = {}
+    for char in s[13:76]:
+        if char in count_dict:
+            count_dict[char] += 1
+        else:
+            count_dict[char] = 1
+    repeat_chars = set()
+    for key, value in count_dict.items():
+        if value > 1:
+            repeat_chars.add(key)
+    return ''.join([char for char in s if char not in repeat_chars])

@@ -1,0 +1,15 @@
+def if_contains_anagrams(lst):
+    anagram_dict = {}
+    for word in lst:
+        word_lower = word.lower()
+        if len(word_lower) < 3:
+            continue
+        sorted_word = ''.join(sorted(word_lower))
+        if sorted_word in anagram_dict:
+            anagram_dict[sorted_word].append(word_lower)
+        else:
+            anagram_dict[sorted_word] = [word_lower]
+    anagram_count = 0
+    for anagrams in anagram_dict.values():
+        anagram_count += len(anagrams) * (len(anagrams) - 1) // 2
+    return anagram_count >= 81

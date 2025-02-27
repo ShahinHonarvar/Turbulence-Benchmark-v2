@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-7a998393e5c54aca8221ab92b920ec00",
+  "object": "chat.completion",
+  "created": 1725903000,
+  "model": "Meta-Llama-3.1-70B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```python\ndef sieve_of_eratosthenes(n):\n    primes = [True] * (n + 1)\n    primes[0] = primes[1] = False\n    p = 2\n    while p**2 <= n:\n        if primes[p]:\n            for i in range(p**2, n + 1, p):\n                primes[i] = False\n        p += 1\n    return [p for p in range(2, n + 1) if primes[p]]\n\ndef is_right_truncatable_prime(n, primes):\n    num_str = str(n)\n    for i in range(len(num_str)):\n        if int(num_str[:len(num_str) - i]) not in primes:\n            return False\n    return True\n\ndef all_right_truncatable_prime(nums):\n    x = nums[25]\n    primes = sieve_of_eratosthenes(x)\n    right_truncatable_primes = [p for p in primes if is_right_truncatable_prime(p, primes)]\n    return sorted(right_truncatable_primes, reverse=True)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 174,
+    "total_tokens": 401,
+    "completion_tokens": 227
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-1004978ca7f94b3cbd58bb90636c2ce5",
+  "object": "chat.completion",
+  "created": 1725912929,
+  "model": "Meta-Llama-3.1-70B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```python\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    count = 0\n    n = 121\n    rows, cols = matrix.shape\n    for row in range(rows - int(np.sqrt(n)) + 1):\n        for col in range(cols - int(np.sqrt(n)) + 1):\n            submatrix = matrix[row:row+int(np.sqrt(n)), col:col+int(np.sqrt(n))]\n            if submatrix.size == n:\n                count += 1\n    return count\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 128,
+    "total_tokens": 239,
+    "completion_tokens": 111
+  }
+}

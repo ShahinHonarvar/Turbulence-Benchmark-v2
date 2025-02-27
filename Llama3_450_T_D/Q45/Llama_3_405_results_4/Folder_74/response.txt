@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-73f089122503419bb86816ee5e6d6673",
+  "object": "chat.completion",
+  "created": 1725538335,
+  "model": "Meta-Llama-3-405B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```\ndef palindromes_between_indices(s):\n    from itertools import permutations\n    from collections import Counter\n\n    def is_palindrome(string):\n        return string == string[::-1]\n\n    def make_palindrome(char_counts, length, palindrome):\n        if length == 0:\n            return {palindrome} if len(palindrome) >= 6 else set()\n        for char in char_counts:\n            if char_counts[char] > 0:\n                char_counts[char] -= 1\n                palindrome += char\n                palindromes = make_palindrome(char_counts, length - 1, palindrome)\n                if palindromes:\n                    return palindromes\n                palindrome = palindrome[:-1]\n                char_counts[char] += 1\n        return set()\n\n    from collections import defaultdict\n    s = ''.join(filter(str.isalpha, s[1:7])).lower()\n    s_counter = Counter(s)\n    palindromes = set()\n    for chars_permutation in permutations(s_counter, sum(s_counter.values())):\n        palindrome = ''.join(chars_permutation)\n        if is_palindrome(palindrome):\n            palindromes.add(palindrome)\n    if len(palindromes) == 0:\n        palindromes = make_palindrome(s_counter, sum(s_counter.values()), '')\n    return palindromes\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 199,
+    "total_tokens": 481,
+    "completion_tokens": 282
+  }
+}

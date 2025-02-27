@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-0dab820ac07b4c20ad105d3ca254b112",
+  "object": "chat.completion",
+  "created": 1725906265,
+  "model": "Meta-Llama-3.1-70B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```python\ndef lists_with_product_equal_n(lst):\n    result = []\n    size = len(lst)\n    for i in range(size):\n        current_product = 1\n        for j in range(size):\n            current_product *= lst[(i + j) % size]\n            if current_product == 47:\n                if sorted(lst[i:i + j + 1]) not in [sorted(sublist) for sublist in result]:\n                    result.append(lst[i:i + j + 1])\n            elif current_product > 47:\n                break\n    return result\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 210,
+    "total_tokens": 326,
+    "completion_tokens": 116
+  }
+}

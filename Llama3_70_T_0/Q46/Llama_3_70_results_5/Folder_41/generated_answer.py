@@ -1,0 +1,4 @@
+import math
+
+def gcf_three_nums(lst):
+    return math.gcd(math.gcd(lst[19], lst[94]), lst[78])

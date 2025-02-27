@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-c546584a38174a579e283b94eac12c8b",
+  "object": "chat.completion",
+  "created": 1725659522,
+  "model": "Meta-Llama-3-405B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    target_sum = 616\n    submatrices = []\n\n    rows, cols = matrix.shape\n    for row_start in range(rows):\n        for row_end in range(row_start, rows):\n            for col_start in range(cols):\n                for col_end in range(col_start, cols):\n                    submatrix = matrix[row_start:row_end+1, col_start:col_end+1]\n                    if np.sum(submatrix) == target_sum:\n                        submatrices.append(submatrix)\n\n    return submatrices\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 138,
+    "total_tokens": 261,
+    "completion_tokens": 123
+  }
+}

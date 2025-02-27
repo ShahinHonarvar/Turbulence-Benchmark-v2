@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-8d56ffe59f7d4f0ebc52a40f4c5151f1",
+  "object": "chat.completion",
+  "created": 1725915612,
+  "model": "Meta-Llama-3.1-70B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```python\ndef is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            return False\n    return True\n\ndef all_left_truncatable_prime(nums):\n    x = nums[84]\n    left_truncatable_primes = []\n    for num in range(2, x):\n        if '0' not in str(num) and is_prime(num):\n            truncatable = True\n            truncated_num = str(num)\n            while len(truncated_num) > 1:\n                truncated_num = truncated_num[1:]\n                if not is_prime(int(truncated_num)):\n                    truncatable = False\n                    break\n            if truncatable:\n                left_truncatable_primes.append(num)\n    return sorted(left_truncatable_primes, reverse=True)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 163,
+    "total_tokens": 350,
+    "completion_tokens": 187
+  }
+}

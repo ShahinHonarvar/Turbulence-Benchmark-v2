@@ -1,0 +1,14 @@
+def find_second_largest_num(numbers):
+    if len(numbers) < 88:
+        return None
+    slice_numbers = numbers[30:88]
+    max_num = second_max = float('-inf')
+    for num in slice_numbers:
+        if num > max_num:
+            second_max = max_num
+            max_num = num
+        elif num > second_max and num < max_num:
+            second_max = num
+    if second_max == float('-inf'):
+        return None
+    return second_max

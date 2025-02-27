@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-bd2b8884400a46a8b9074135dac67126",
+  "object": "chat.completion",
+  "created": 1725680333,
+  "model": "Meta-Llama-3-405B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    count = 0\n    rows, cols = matrix.shape\n    n = 107\n    for row in range(rows):\n        for col in range(cols):\n            submat_rows = min(rows - row, int(np.ceil(n / (cols - col))))\n            for submat_row in range(1, submat_rows + 1):\n                submat_cols = min(cols - col, int(np.ceil(n / submat_row)))\n                for submat_col in range(1, submat_cols + 1):\n                    if submat_row * submat_col == n:\n                        submat = matrix[row:row+submat_row, col:col+submat_col]\n                        if submat.size == n:\n                            count += 1\n    return count\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 128,
+    "total_tokens": 303,
+    "completion_tokens": 175
+  }
+}

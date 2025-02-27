@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-27d12c2a520148e88b30939be2a5cb42",
+  "object": "chat.completion",
+  "created": 1725693419,
+  "model": "Meta-Llama-3-405B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    rows, cols = matrix.shape\n    count = 0\n    target_count = 176\n    \n    for row in range(rows):\n        for col in range(cols):\n            current_count = 0\n            for r in range(row, rows):\n                current_count += cols - col\n                if current_count == target_count:\n                    count += 1\n                elif current_count > target_count:\n                    break\n                \n    for col in range(cols):\n        for row in range(rows):\n            current_count = 0\n            for c in range(col, cols):\n                current_count += rows - row\n                if current_count == target_count:\n                    count += 1\n                elif current_count > target_count:\n                    break\n                    \n    return count\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 128,
+    "total_tokens": 296,
+    "completion_tokens": 168
+  }
+}

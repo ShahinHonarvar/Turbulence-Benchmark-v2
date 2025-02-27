@@ -1,0 +1,3 @@
+def return_n_greatest_chars(s):
+    sorted_chars = sorted(s, key=lambda x: ord(x), reverse=True)[:29]
+    return sorted(sorted_chars, key=lambda x: ord(x))

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-4a7beebafbab406395141412260deb9b",
+  "object": "chat.completion",
+  "created": 1725693107,
+  "model": "Meta-Llama-3-405B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    rows, cols = matrix.shape\n    count = 0\n    n = 147\n\n    for row in range(rows):\n        for col in range(cols):\n            curr_row, curr_col = row, col\n            curr_count = 0\n            while curr_row < rows and curr_col < cols and curr_count < n:\n                curr_count += (cols - curr_col)\n                if curr_count >= n:\n                    break\n                curr_row += 1\n\n            if curr_count >= n:\n                count += 1\n\n    for row in range(rows):\n        for col in range(cols):\n            curr_row, curr_col = row, col\n            curr_count = 0\n            while curr_row < rows and curr_col < cols and curr_count < n:\n                curr_count += (rows - curr_row)\n                if curr_count >= n:\n                    break\n                curr_col += 1\n\n            if curr_count >= n:\n                count += 1\n\n    return count // 2\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 128,
+    "total_tokens": 350,
+    "completion_tokens": 222
+  }
+}

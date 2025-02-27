@@ -1,0 +1,11 @@
+def if_contains_anagrams(lst):
+    count = 0
+    for i in range(len(lst)):
+        for j in range(i + 1, len(lst)):
+            a = sorted(lst[i].lower())
+            b = sorted(lst[j].lower())
+            if len(a) >= 3 and len(b) >= 3 and (a == b):
+                count += 1
+                if count >= 89:
+                    return True
+    return False

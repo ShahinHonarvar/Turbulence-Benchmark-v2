@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-2453192198914cd4b008eef2d69dd344",
+  "object": "chat.completion",
+  "created": 1725600850,
+  "model": "Meta-Llama-3-405B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```\ndef if_contains_anagrams(strings):\n    anagrams = {}\n    for s in strings:\n        sorted_str = \"\".join(sorted(set(c for c in s.lower() if c.isalpha())))\n        if len(sorted_str) < 3:\n            continue\n        if sorted_str in anagrams:\n            anagrams[sorted_str].append(s)\n        else:\n            anagrams[sorted_str] = [s]\n    count = sum(1 for v in anagrams.values() if len(v) > 1)\n    return count <= 2\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 156,
+    "total_tokens": 271,
+    "completion_tokens": 115
+  }
+}

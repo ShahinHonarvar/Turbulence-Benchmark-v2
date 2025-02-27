@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-ce8af823c9394f319f520ae6016fb36d",
+  "object": "chat.completion",
+  "created": 1725904882,
+  "model": "Meta-Llama-3.1-70B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```\ndef lists_with_product_equal_n(lst):\n    def all_sublists(lst):\n        sublists = []\n        n = len(lst)\n        for i in range(n):\n            for j in range(i, n + i):\n                sublists.append(lst[j % n:])\n        return sublists\n\n    def all_sublists_of_size_n(lst, size):\n        sublists = []\n        n = len(lst)\n        for i in range(n):\n            sublist = [lst[(i + j) % n] for j in range(size)]\n            sublists.append(sublist)\n        return sublists\n\n    all_sublists_less_than_or_equal_to_size_n = []\n    n = len(lst)\n    for size in range(1, n + 1):\n        all_sublists_less_than_or_equal_to_size_n.extend(all_sublists_of_size_n(lst, size))\n\n    return [sublist for sublist in all_sublists_less_than_or_equal_to_size_n if 0 not in sublist and len(sublist) > 0 and 48 % (eval('*'.join(str(x) for x in sublist))) == 0]\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 210,
+    "total_tokens": 440,
+    "completion_tokens": 230
+  }
+}

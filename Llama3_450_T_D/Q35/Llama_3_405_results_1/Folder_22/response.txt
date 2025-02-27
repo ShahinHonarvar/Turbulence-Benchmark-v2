@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-5b077734a1624207b408fca410031ac8",
+  "object": "chat.completion",
+  "created": 1725492734,
+  "model": "Meta-Llama-3-405B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```\ndef remove_repeat_chars(s):\n    mid_str = s[50:200]\n    char_counts = {}\n    for char in mid_str:\n        if char in char_counts:\n            char_counts[char] += 1\n        else:\n            char_counts[char] = 1\n    chars_to_remove = {char for char, count in char_counts.items() if count > 1}\n    result = ''.join(char for char in s if char not in chars_to_remove)\n    return result\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 139,
+    "total_tokens": 243,
+    "completion_tokens": 104
+  }
+}

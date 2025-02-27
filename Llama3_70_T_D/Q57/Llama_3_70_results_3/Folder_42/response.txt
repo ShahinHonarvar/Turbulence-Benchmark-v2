@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-f50c659e33c24828976923758b5d9f40",
+  "object": "chat.completion",
+  "created": 1725910343,
+  "model": "Meta-Llama-3.1-70B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    result = []\n    rows, cols = matrix.shape\n    submatrix_sums = np.cumsum(np.cumsum(matrix, axis=0), axis=1)\n\n    for row1 in range(rows):\n        for row2 in range(row1, rows):\n            for col1 in range(cols):\n                for col2 in range(col1, cols):\n                    total_sum = submatrix_sums[row2, col2]\n                    if row1 > 0:\n                        total_sum -= submatrix_sums[row1 - 1, col2]\n                    if col1 > 0:\n                        total_sum -= submatrix_sums[row2, col1 - 1]\n                    if row1 > 0 and col1 > 0:\n                        total_sum += submatrix_sums[row1 - 1, col1 - 1]\n                    if total_sum == 862:\n                        result.append(matrix[row1:row2 + 1, col1:col2 + 1])\n\n    return result\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 138,
+    "total_tokens": 361,
+    "completion_tokens": 223
+  }
+}

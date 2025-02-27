@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-9ce34e0f32d34c8f876f07fda07848c4",
+  "object": "chat.completion",
+  "created": 1725882853,
+  "model": "Meta-Llama-3.1-70B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```python\nfrom collections import Counter\nfrom itertools import permutations\n\ndef palindromes_between_indices(s):\n    s = s.lower()\n    letters = ''.join(filter(str.isalpha, s[4:9]))\n    counter = Counter(letters)\n    result = set()\n    \n    for r in range(5, len(letters) + 1):\n        for perm in permutations(letters, r):\n            word = ''.join(perm)\n            if word == word[::-1]:\n                mid = len(word) // 2\n                is_valid = True\n                \n                for c in word[:mid]:\n                    if counter[c] == 0:\n                        is_valid = False\n                        break\n                    counter[c] -= 1\n                \n                if is_valid:\n                    result.add(word)\n                \n                for c in word[:mid]:\n                    counter[c] += 1\n                    \n    return result\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 199,
+    "total_tokens": 381,
+    "completion_tokens": 182
+  }
+}

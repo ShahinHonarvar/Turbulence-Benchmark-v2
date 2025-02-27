@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-471f5b7831ce48b6b96e252082a45711",
+  "object": "chat.completion",
+  "created": 1725446987,
+  "model": "Meta-Llama-3-405B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```\ndef find_second_largest_num(num_list):\n    if len(num_list) < 201:\n        return None\n    num_slice = num_list[200:201]\n    if len(num_slice) < 2:\n        return None\n    max_num = second_max = float('-inf')\n    for num in num_slice:\n        if num > max_num:\n            second_max = max_num\n            max_num = num\n        elif num > second_max and num != max_num:\n            second_max = num\n    if second_max == float('-inf'):\n        return None\n    return second_max\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 122,
+    "total_tokens": 248,
+    "completion_tokens": 126
+  }
+}

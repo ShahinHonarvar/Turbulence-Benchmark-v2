@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-e0190185e9a74e4bb2cde8379202ae47",
+  "object": "chat.completion",
+  "created": 1725912356,
+  "model": "Meta-Llama-3.1-70B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```python\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    rows = matrix.shape[0]\n    cols = matrix.shape[1]\n    count = 0\n    for row in range(rows):\n        for col in range(cols):\n            for sub_row in range(row + 1, rows + 1):\n                for sub_col in range(col + 1, cols + 1):\n                    submatrix = matrix[row:sub_row, col:sub_col]\n                    if submatrix.size == 29:\n                        count += 1\n    return count\n```\n\nNote: This function works by iterating over all possible submatrices of the given matrix, and for each one, it checks if the number of elements is equal to 29. If it is, it increments the count. The function returns the count at the end. \n\nPlease note that this function may be slow for large matrices because it has a time complexity of O(n^6), where n is the number of rows (or columns) in the matrix.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 128,
+    "total_tokens": 342,
+    "completion_tokens": 214
+  }
+}

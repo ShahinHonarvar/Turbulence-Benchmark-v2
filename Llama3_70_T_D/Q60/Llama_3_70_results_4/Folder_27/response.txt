@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-712143cb39e2467a9c0cf48f7f129966",
+  "object": "chat.completion",
+  "created": 1725923407,
+  "model": "Meta-Llama-3.1-70B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```python\nimport sympy\n\ndef all_left_right_truncatable_prime(nums):\n    x = nums[79]\n    def is_left_right_truncatable_prime(n):\n        if n < 10:\n            return sympy.isprime(n)\n        if '0' in str(n):\n            return False\n        str_n = str(n)\n        for i in range(1, len(str_n)):\n            if not sympy.isprime(int(str_n[i:])) or not sympy.isprime(int(str_n[:-i])):\n                return False\n        return True\n\n    truncatable_primes = [i for i in range(x, 7, -1) if sympy.isprime(i) and is_left_right_truncatable_prime(i)]\n    return truncatable_primes\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 204,
+    "total_tokens": 365,
+    "completion_tokens": 161
+  }
+}

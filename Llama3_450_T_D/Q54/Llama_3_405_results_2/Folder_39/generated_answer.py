@@ -1,0 +1,26 @@
+def is_prime(n):
+    if n <= 1:
+        return False
+    if n == 2:
+        return True
+    if n % 2 == 0:
+        return False
+    max_divisor = int(n ** 0.5) + 1
+    for d in range(3, max_divisor, 2):
+        if n % d == 0:
+            return False
+    return True
+
+def all_right_truncatable_prime(numbers):
+    x = numbers[30]
+    right_truncatable_primes = []
+    for i in range(2, x):
+        str_i = str(i)
+        is_right_truncatable = True
+        for j in range(len(str_i)):
+            if not is_prime(int(str_i[:len(str_i) - j])):
+                is_right_truncatable = False
+                break
+        if is_right_truncatable:
+            right_truncatable_primes.append(i)
+    return sorted(right_truncatable_primes, reverse=True)

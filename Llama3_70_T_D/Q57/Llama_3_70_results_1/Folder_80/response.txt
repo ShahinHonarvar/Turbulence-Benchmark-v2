@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-f80db3c0e206430fa0ce09d630eaed32",
+  "object": "chat.completion",
+  "created": 1725909463,
+  "model": "Meta-Llama-3.1-70B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    result = []\n    for i in range(matrix.shape[0]):\n        for j in range(matrix.shape[1]):\n            for k in range(i, matrix.shape[0]):\n                for last_col in range(j, matrix.shape[1]):\n                    submatrix_sum = np.sum(matrix[i:k+1, j:last_col+1])\n                    if submatrix_sum == 245:\n                        result.append(matrix[i:k+1, j:last_col+1].tolist())\n    return result\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 138,
+    "total_tokens": 255,
+    "completion_tokens": 117
+  }
+}

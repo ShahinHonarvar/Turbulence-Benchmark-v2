@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-05a0afbef2e94fab9a6756b074822c9d",
+  "object": "chat.completion",
+  "created": 1725921620,
+  "model": "Meta-Llama-3.1-70B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```python\ndef all_left_right_truncatable_prime(numbers):\n    def is_prime(n):\n        if n < 2:\n            return False\n        for i in range(2, int(n**0.5) + 1):\n            if n % i == 0:\n                return False\n        return True\n\n    def truncatable(n):\n        num_str = str(n)\n        if '0' in num_str:\n            return False\n        for i in range(len(num_str) - 1):\n            if not is_prime(int(num_str[i+1:])) or not is_prime(int(num_str[:len(num_str) - i - 1])):\n                return False\n        return True\n\n    x = numbers[57]\n    primes = [i for i in range(2, x + 1) if is_prime(i) and truncatable(i)]\n    return sorted(primes, reverse=True)\n```\n\n```python\ndef all_left_right_truncatable_prime(numbers):\n    def is_prime(n):\n        if n < 2:\n            return False\n        for i in range(2, int(n**0.5) + 1):\n            if n % i == 0:\n                return False\n        return True\n\n    def truncatable(n):\n        num_str = str(n)\n        if '0' in num_str:\n            return False\n        for i in range(len(num_str) - 1):\n            if not is_prime(int(num_str[i+1:])) or not is_prime(int(num_str[:len(num_str) - i - 1])):\n                return False\n        return True\n\n    x = numbers[57]\n    primes = [i for i in range(2, x + 1) if is_prime(i) and truncatable(i)]\n    return sorted(primes, reverse=True)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 204,
+    "total_tokens": 582,
+    "completion_tokens": 378
+  }
+}

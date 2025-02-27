@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-020826bcfd8e4eeebe5fae88a365ee1f",
+  "object": "chat.completion",
+  "created": 1725709249,
+  "model": "Meta-Llama-3-405B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```\ndef all_left_right_truncatable_prime(tup):\n    x = tup[100]\n    primes = []\n    for num in range(2, x + 1):\n        is_prime = True\n        for i in range(2, int(num ** 0.5) + 1):\n            if num % i == 0:\n                is_prime = False\n                break\n        if is_prime:\n            primes.append(num)\n\n    truncatable_primes = []\n    for num in primes:\n        str_num = str(num)\n        if '0' in str_num:\n            continue\n        temp = str_num\n        is_truncatable = True\n        while len(temp) > 1:\n            temp = temp[1:-1]\n            if int(temp) not in primes:\n                is_truncatable = False\n                break\n        if is_truncatable:\n            truncatable_primes.append(num)\n\n    return sorted(truncatable_primes, reverse=True)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 204,
+    "total_tokens": 408,
+    "completion_tokens": 204
+  }
+}

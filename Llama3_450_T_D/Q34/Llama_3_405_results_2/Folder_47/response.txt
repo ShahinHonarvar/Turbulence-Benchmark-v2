@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-3a7a574e0d61431fa5f281757a63ac8f",
+  "object": "chat.completion",
+  "created": 1725491313,
+  "model": "Meta-Llama-3-405B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```\ndef find_original_set(*args):\n    if len(args) != 77:\n        raise ValueError(\"Exactly 77 sets must be provided\")\n    if not all(isinstance(arg, set) for arg in args):\n        raise ValueError(\"All arguments must be sets\")\n    if not all(isinstance(x, int) for s in args for x in s):\n        raise ValueError(\"All set elements must be integers\")\n    return set.union(*args)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 112,
+    "total_tokens": 204,
+    "completion_tokens": 92
+  }
+}

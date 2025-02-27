@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-a6795a1c90584b4588600d07a5d3a1d3",
+  "object": "chat.completion",
+  "created": 1725913719,
+  "model": "Meta-Llama-3.1-70B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```python\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    count = 0\n    rows, cols = matrix.shape\n    for row in range(rows):\n        for col in range(cols):\n            for r_offset in range(rows - row + 1):\n                for c_offset in range(cols - col + 1):\n                    submatrix = matrix[row:row+r_offset, col:col+c_offset]\n                    if np.prod(submatrix.shape) == 59:\n                        count += 1\n    return count\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 128,
+    "total_tokens": 239,
+    "completion_tokens": 111
+  }
+}

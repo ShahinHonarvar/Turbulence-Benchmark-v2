@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-ee1f0999d5a84c7c822dea68004e26c4",
+  "object": "chat.completion",
+  "created": 1725868245,
+  "model": "Meta-Llama-3.1-70B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```\ndef find_original_set(*sets):\n    if len(sets) != 24:\n        raise ValueError(\"Exactly 24 sets must be provided\")\n    for s in sets:\n        if not isinstance(s, set):\n            raise ValueError(\"All arguments must be sets\")\n        if not all(isinstance(x, int) for x in s):\n            raise ValueError(\"All sets must contain only integers\")\n    original_set = set()\n    for s in sets:\n        original_set |= s\n    return original_set\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 112,
+    "total_tokens": 217,
+    "completion_tokens": 105
+  }
+}

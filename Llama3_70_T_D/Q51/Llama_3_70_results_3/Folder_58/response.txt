@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-07e1f408b0b7444a9ead1d800a2913dc",
+  "object": "chat.completion",
+  "created": 1725896235,
+  "model": "Meta-Llama-3.1-70B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```python\nfrom collections import defaultdict\nfrom math import comb\n\ndef if_contains_anagrams(list_of_strings):\n    anagram_dict = defaultdict(int)\n    for string in list_of_strings:\n        string = ''.join(filter(str.isalpha, string)).lower()\n        if len(string) < 3:\n            continue\n        sorted_string = ''.join(sorted(string))\n        anagram_dict[sorted_string] += 1\n\n    num_anagram_pairs = sum(comb(count, 2) for count in anagram_dict.values())\n    return num_anagram_pairs <= 60\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 156,
+    "total_tokens": 274,
+    "completion_tokens": 118
+  }
+}

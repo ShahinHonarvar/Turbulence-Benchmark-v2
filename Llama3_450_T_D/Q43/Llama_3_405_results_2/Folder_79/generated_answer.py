@@ -1,0 +1,16 @@
+def find_primes_between_indices(numbers):
+
+    def is_prime(n):
+        if n <= 1:
+            return False
+        if n == 2:
+            return True
+        if n % 2 == 0:
+            return False
+        max_divisor = int(n ** 0.5) + 1
+        for d in range(3, max_divisor, 2):
+            if n % d == 0:
+                return False
+        return True
+    primes = [n for i, n in enumerate(numbers) if 33 <= i <= 35 and is_prime(n)]
+    return sorted(primes)

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-86ddf5c407994409a76803bde9aabbbd",
+  "object": "chat.completion",
+  "created": 1725907110,
+  "model": "Meta-Llama-3.1-70B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```\ndef lists_with_product_equal_n(lst):\n    def is_valid(sublist):\n        product = 1\n        for num in sublist:\n            product *= num\n        return product == 415\n\n    n = len(lst)\n    result = set()\n    for i in range(n):\n        for j in range(i + 1, i + n + 1):\n            sublist = lst[i:j]\n            if is_valid(sublist):\n                result.add(tuple(sorted(sublist)))\n    return [list(sublist) for sublist in result]\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 210,
+    "total_tokens": 322,
+    "completion_tokens": 112
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-a5a9c534384e4120afe7ae7fab111289",
+  "object": "chat.completion",
+  "created": 1725919088,
+  "model": "Meta-Llama-3.1-70B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```python\ndef is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            return False\n    return True\n\ndef all_left_truncatable_prime(numbers):\n    x = numbers[74]\n    left_truncatable_primes = []\n    for num in range(2, x):\n        str_num = str(num)\n        if '0' not in str_num:\n            if all(is_prime(int(str_num[i:])) for i in range(len(str_num))):\n                left_truncatable_primes.append(num)\n    return sorted(left_truncatable_primes)\n```\n\nThis function first defines a helper function `is_prime` to check if a number is prime. Then it defines the main function `all_left_truncatable_prime`. It iterates over all numbers less than `x`, converts each number to a string, and checks if it contains any '0's. If not, it checks if all truncations of the number are prime by using the `is_prime` function and a generator expression. If all truncations are prime, the number is added to the list of left-truncatable primes. Finally, the function returns the list of left-truncatable primes, sorted in ascending order.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 163,
+    "total_tokens": 440,
+    "completion_tokens": 277
+  }
+}

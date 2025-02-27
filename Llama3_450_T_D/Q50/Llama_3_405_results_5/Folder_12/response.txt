@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-a6a7bf951eda4abcb8846a613d78598a",
+  "object": "chat.completion",
+  "created": 1725598116,
+  "model": "Meta-Llama-3-405B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```\ndef if_contains_anagrams(strs):\n    strs = [''.join(sorted(s.casefold())) for s in strs if len(s) >= 3]\n    freq = {}\n    for s in strs:\n        freq[s] = freq.get(s, 0) + 1\n    count = sum(f * (f - 1) // 2 for f in freq.values())\n    return count >= 69\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 143,
+    "total_tokens": 232,
+    "completion_tokens": 89
+  }
+}

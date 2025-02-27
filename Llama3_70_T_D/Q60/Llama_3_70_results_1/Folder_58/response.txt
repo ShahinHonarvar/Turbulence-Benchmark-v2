@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-3d50d60aeebb455a976fe50e7089bd1c",
+  "object": "chat.completion",
+  "created": 1725920446,
+  "model": "Meta-Llama-3.1-70B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```python\ndef is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            return False\n    return True\n\ndef is_left_right_truncatable(n):\n    str_n = str(n)\n    if '0' in str_n:\n        return False\n    for i in range(1, len(str_n)):\n        if not is_prime(int(str_n[:-i])) or not is_prime(int(str_n[i:])):\n            return False\n    return True\n\ndef all_left_right_truncatable_prime(numbers):\n    x = numbers[975]\n    return sorted([n for n in range(2, x + 1) if is_left_right_truncatable(n) and is_prime(n)], reverse=True)\n```\n\nThis Python code defines a function `all_left_right_truncatable_prime` that takes a tuple of positive integers as an argument. It finds the integer at index 975, which is used as the upper limit for finding left-and-right-truncatable prime numbers. The function uses two helper functions, `is_prime` and `is_left_right_truncatable`, to check if a number is prime and if it is left-and-right-truncatable, respectively. The main function generates a list of all left-and-right-truncatable prime numbers less than or equal to the specified number and returns this list in descending order. If no such numbers exist, an empty list is returned.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 204,
+    "total_tokens": 520,
+    "completion_tokens": 316
+  }
+}

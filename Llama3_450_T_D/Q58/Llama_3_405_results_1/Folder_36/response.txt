@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-6a5f77d65bf748c1a8862aee57c2e143",
+  "object": "chat.completion",
+  "created": 1725683842,
+  "model": "Meta-Llama-3-405B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    count = 0\n    rows, cols = matrix.shape\n    n = 131\n\n    for row in range(rows):\n        for col in range(cols):\n            curr_sum = 0\n            for r in range(row, rows):\n                curr_sum += np.sum(matrix[r, col:col+n])\n                if curr_sum == n and (r - row + 1) * (n) == n:\n                    count += 1\n                if curr_sum > n:\n                    break\n    return count\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 128,
+    "total_tokens": 251,
+    "completion_tokens": 123
+  }
+}

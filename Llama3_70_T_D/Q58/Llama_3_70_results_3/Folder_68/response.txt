@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-e471dd3d47a34fa1b717fa65c1eda471",
+  "object": "chat.completion",
+  "created": 1725913255,
+  "model": "Meta-Llama-3.1-70B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```python\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    count = 0\n    rows, cols = matrix.shape\n    for row in range(rows):\n        for col in range(cols):\n            for sub_row in range(row + 1, rows + 1):\n                for sub_col in range(col + 1, cols + 1):\n                    submatrix = matrix[row:sub_row, col:sub_col]\n                    if submatrix.size == 74:\n                        count += 1\n    return count\n```\n\nThis function works by iterating over all possible submatrices of the given matrix. For each submatrix, it checks if the size of the submatrix is equal to 74. If it is, it increments the count. Finally, it returns the count of all submatrices that contain 74 integers each.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 128,
+    "total_tokens": 304,
+    "completion_tokens": 176
+  }
+}

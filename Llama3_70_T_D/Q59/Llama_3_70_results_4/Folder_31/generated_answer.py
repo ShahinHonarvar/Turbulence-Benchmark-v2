@@ -1,0 +1,23 @@
+def is_prime(n):
+    if n < 2:
+        return False
+    for i in range(2, int(n ** 0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
+
+def all_left_truncatable_prime(nums):
+    x = nums[50]
+    left_truncatable_primes = []
+    for num in range(10, x):
+        if '0' not in str(num):
+            truncatable = True
+            temp = str(num)
+            for _ in range(len(temp)):
+                if not is_prime(int(temp)):
+                    truncatable = False
+                    break
+                temp = temp[1:]
+            if truncatable:
+                left_truncatable_primes.append(num)
+    return sorted(left_truncatable_primes, reverse=True)

@@ -1,0 +1,13 @@
+def if_contains_anagrams(lst):
+    anagrams = {}
+    for string in lst:
+        string = ''.join(filter(str.isalpha, string)).lower()
+        if len(string) < 3:
+            continue
+        sorted_string = ''.join(sorted(string))
+        if sorted_string in anagrams:
+            anagrams[sorted_string] += 1
+        else:
+            anagrams[sorted_string] = 1
+    pairs = sum([value * (value - 1) // 2 for value in anagrams.values()])
+    return pairs <= 96

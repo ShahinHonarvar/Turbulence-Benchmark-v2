@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-c0d4b24d126f4eb2afe4a0895d428afb",
+  "object": "chat.completion",
+  "created": 1725911660,
+  "model": "Meta-Llama-3.1-70B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    def get_submatrices(matrix):\n        submatrices = []\n        rows, cols = matrix.shape\n        for row in range(rows):\n            for col in range(cols):\n                for sub_row in range(row, rows):\n                    for sub_col in range(col, cols):\n                        submatrices.append(matrix[row:sub_row+1, col:sub_col+1])\n        return submatrices\n\n    def get_sum(submatrix):\n        return np.sum(submatrix)\n\n    submatrices = get_submatrices(matrix)\n    result = [submatrix for submatrix in submatrices if get_sum(submatrix) == 17]\n    return result\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 138,
+    "total_tokens": 290,
+    "completion_tokens": 152
+  }
+}

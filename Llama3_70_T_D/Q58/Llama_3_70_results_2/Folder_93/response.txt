@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-e09b498d0ed444ed8a4f2e05b75ede13",
+  "object": "chat.completion",
+  "created": 1725912840,
+  "model": "Meta-Llama-3.1-70B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```python\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    n = 53\n    rows, cols = matrix.shape\n    count = 0\n    for row in range(rows):\n        for col in range(cols):\n            for h in range(row, rows):\n                for w in range(col, cols):\n                    submatrix = matrix[row:h+1, col:w+1]\n                    if np.prod(submatrix.shape) == n:\n                        count += 1\n    return count\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 128,
+    "total_tokens": 234,
+    "completion_tokens": 106
+  }
+}

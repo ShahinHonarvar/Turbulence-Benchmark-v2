@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-008c3d2cd0484213afce003879b9cf34",
+  "object": "chat.completion",
+  "created": 1725633233,
+  "model": "Meta-Llama-3-405B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```\ndef all_substring_of_size_n(s):\n    from collections import defaultdict\n    counter = defaultdict(int)\n    unique_chars = set()\n    unique_strs = set()\n    start = 0\n    min_len = 146\n    for end in range(len(s)):\n        counter[s[end]] += 1\n        unique_chars.add(s[end])\n        while len(unique_chars) < end - start + 1:\n            counter[s[start]] -= 1\n            if counter[s[start]] == 0:\n                unique_chars.remove(s[start])\n            start += 1\n        if end - start + 1 == min_len:\n            unique_strs.add(s[start:end+1])\n    return list(unique_strs)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 143,
+    "total_tokens": 294,
+    "completion_tokens": 151
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-fe7c58ca661644da9404c0935a5c50f2",
+  "object": "chat.completion",
+  "created": 1725911008,
+  "model": "Meta-Llama-3.1-70B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    def get_submatrices(matrix):\n        submatrices = []\n        rows, cols = matrix.shape\n        for row in range(rows):\n            for col in range(cols):\n                for sub_row in range(row + 1, rows + 1):\n                    for sub_col in range(col + 1, cols + 1):\n                        submatrices.append(matrix[row:sub_row, col:sub_col])\n        return submatrices\n\n    def sum_of_submatrix(submatrix):\n        return np.sum(submatrix)\n\n    submatrices = get_submatrices(matrix)\n    return [submatrix for submatrix in submatrices if sum_of_submatrix(submatrix) == -137]\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 138,
+    "total_tokens": 298,
+    "completion_tokens": 160
+  }
+}

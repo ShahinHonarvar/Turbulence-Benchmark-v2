@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-6085b0a3a9a54449ac3889ba1ca34255",
+  "object": "chat.completion",
+  "created": 1725868296,
+  "model": "Meta-Llama-3.1-70B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```python\ndef find_original_set(*args):\n    if len(args) != 20:\n        raise TypeError(\"Exactly 20 distinct arguments are required\")\n    \n    if len(set(map(frozenset, args))) != 20:\n        raise TypeError(\"All 20 arguments must be distinct\")\n    \n    if not all(isinstance(arg, set) and arg.issubset(range(-2**31, 2**31)) for arg in args):\n        raise TypeError(\"All arguments must be sets of integers\")\n    \n    result = set()\n    for s in args:\n        result.update(s)\n    return result\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 112,
+    "total_tokens": 239,
+    "completion_tokens": 127
+  }
+}

@@ -1,0 +1,13 @@
+import numpy as np
+
+def submatrix_with_n_numbers(matrix):
+    count = 0
+    h, w = matrix.shape
+    for i in range(h):
+        for j in range(w):
+            for x in range(i + 1, h + 1):
+                for y in range(j + 1, w + 1):
+                    submatrix = matrix[i:x, j:y]
+                    if submatrix.size == 5:
+                        count += 1
+    return count

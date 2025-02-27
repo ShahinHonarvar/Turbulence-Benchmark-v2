@@ -1,0 +1,21 @@
+def palindromes_between_indices(s):
+    s = s[3:8].lower()
+    letters = [c for c in s if c.isalpha()]
+    palindromes = set()
+    for length in range(4, len(letters) + 1):
+        for i in range(len(letters) - length + 1):
+            for p in generate_palindromes(letters[i:i + length]):
+                palindromes.add(''.join(p))
+    return palindromes
+
+def generate_palindromes(letters):
+    if len(letters) == 1:
+        yield letters
+    elif len(letters) == 2:
+        if letters[0] == letters[1]:
+            yield letters
+    else:
+        for i in range(len(letters)):
+            for p in generate_palindromes(letters[:i] + letters[i + 1:]):
+                if letters[i] == p[0]:
+                    yield ([letters[i]] + p + [letters[i]])

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-685720ed8fff4309a007a25daaf4017a",
+  "object": "chat.completion",
+  "created": 1725903117,
+  "model": "Meta-Llama-3.1-70B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```python\ndef get_prime_numbers(n):\n    sieve = [True] * (n + 1)\n    sieve[0:2] = [False, False]\n    for current_prime in range(2, int(n ** 0.5) + 1):\n        if sieve[current_prime]:\n            for multiple in range(current_prime * current_prime, n + 1, current_prime):\n                sieve[multiple] = False\n    return [num for num, is_prime in enumerate(sieve) if is_prime]\n\n\ndef all_right_truncatable_prime(numbers):\n    limit = numbers[94]\n    primes = get_prime_numbers(limit)\n    truncatable_primes = []\n    for prime in primes:\n        str_prime = str(prime)\n        is_truncatable = True\n        for i in range(len(str_prime), 0, -1):\n            if int(str_prime[:i]) not in primes:\n                is_truncatable = False\n                break\n        if is_truncatable:\n            truncatable_primes.append(prime)\n    return sorted(truncatable_primes)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 174,
+    "total_tokens": 399,
+    "completion_tokens": 225
+  }
+}

@@ -1,0 +1,7 @@
+def all_substring_of_size_n(s):
+    substrings = set()
+    for i in range(len(s) - 69 + 1):
+        substring = s[i:i + 69]
+        if len(set(substring)) == 69:
+            substrings.add(substring)
+    return list(substrings)

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-5c7c130a61cf462b8ace5ac02517cdaf",
+  "object": "chat.completion",
+  "created": 1725874442,
+  "model": "Meta-Llama-3.1-70B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```\ndef find_subset_of_length_n(s):\n    n = 83\n    return len([subset for subset in get_all_subsets(s) if len(subset) == n])\n\ndef get_all_subsets(s):\n    if len(s) == 0:\n        return [[]]\n    subsets = []\n    first = s.pop()\n    for subset in get_all_subsets(s):\n        subsets.append(subset + [first])\n        subsets.append(subset)\n    s.add(first)\n    return subsets\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 100,
+    "total_tokens": 204,
+    "completion_tokens": 104
+  }
+}

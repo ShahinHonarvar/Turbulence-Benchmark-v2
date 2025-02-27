@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-2c2a02bee32e4713bc49be6e293dc6ef",
+  "object": "chat.completion",
+  "created": 1725628144,
+  "model": "Meta-Llama-3-405B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```\ndef lists_with_product_equal_n(lst):\n    def product(lst):\n        result = 1\n        for num in lst:\n            result *= num\n        return result\n\n    n = -20\n    result = []\n    for i in range(len(lst)):\n        for j in range(i+1, len(lst)+1):\n            sublist = lst[i:j]\n            if product(sublist) == n:\n                result.append(sublist)\n            if i != 0 and j == len(lst):\n                sublist = lst[i:] + lst[:i]\n                if product(sublist) == n:\n                    result.append(sublist)\n    return result\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 210,
+    "total_tokens": 344,
+    "completion_tokens": 134
+  }
+}

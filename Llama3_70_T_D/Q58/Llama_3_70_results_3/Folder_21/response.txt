@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-3a761767120c49318ea07b1ac3ee9346",
+  "object": "chat.completion",
+  "created": 1725913001,
+  "model": "Meta-Llama-3.1-70B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```\nimport numpy as np\nimport itertools\n\ndef submatrix_with_n_numbers(matrix):\n    count = 0\n    rows, cols = matrix.shape\n    for r in range(rows):\n        for c in range(cols):\n            for r2 in range(r + 1, rows + 1):\n                for c2 in range(c + 1, cols + 1):\n                    submatrix = matrix[r:r2, c:c2]\n                    if np.prod(submatrix.shape) == 139 and np.sum(submatrix) == 139 * submatrix[0,0]:\n                        count += 1\n    return count\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 128,
+    "total_tokens": 259,
+    "completion_tokens": 131
+  }
+}

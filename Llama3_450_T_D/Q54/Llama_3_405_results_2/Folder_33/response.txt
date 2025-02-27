@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-3b9b3b36f44d42ea9e09b7e72e01bb49",
+  "object": "chat.completion",
+  "created": 1725620095,
+  "model": "Meta-Llama-3-405B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```\ndef is_prime(n):\n    if n <= 1:\n        return False\n    if n <= 3:\n        return True\n    if n % 2 == 0 or n % 3 == 0:\n        return False\n    i = 5\n    while i * i <= n:\n        if n % i == 0 or n % (i + 2) == 0:\n            return False\n        i += 6\n    return True\n\ndef all_right_truncatable_prime(numbers):\n    x = numbers[945]\n    right_truncatable_primes = []\n    for num in range(2, x):\n        num_str = str(num)\n        is_right_truncatable_prime = True\n        for i in range(len(num_str)):\n            trunc_num = int(num_str[:len(num_str) - i])\n            if not is_prime(trunc_num):\n                is_right_truncatable_prime = False\n                break\n        if is_right_truncatable_prime:\n            right_truncatable_primes.append(num)\n    return sorted(right_truncatable_primes, reverse=True)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 174,
+    "total_tokens": 406,
+    "completion_tokens": 232
+  }
+}

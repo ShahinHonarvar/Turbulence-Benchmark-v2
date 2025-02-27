@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-d656b049e3534fce94ab1a30f7ad9993",
+  "object": "chat.completion",
+  "created": 1725696310,
+  "model": "Meta-Llama-3-405B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    rows, cols = matrix.shape\n    target_count = 53\n    count = 0\n\n    for row in range(rows):\n        for col in range(cols):\n            submatrix = []\n            for r in range(row, rows):\n                submatrix.append(matrix[r][col:])\n                flat_list = [item for sublist in submatrix for item in sublist]\n                if len(flat_list) == target_count:\n                    count += 1\n                if len(flat_list) > target_count:\n                    break\n\n    for col in range(cols):\n        for row in range(rows):\n            submatrix = []\n            for c in range(col, cols):\n                submatrix.append(matrix[row:, c])\n                flat_list = [item for sublist in submatrix for item in sublist]\n                if len(flat_list) == target_count:\n                    count += 1\n                if len(flat_list) > target_count:\n                    break\n\n    return count\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 128,
+    "total_tokens": 338,
+    "completion_tokens": 210
+  }
+}

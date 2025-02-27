@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-212cd24c92d849e393988473f4715aa3",
+  "object": "chat.completion",
+  "created": 1725510016,
+  "model": "Meta-Llama-3-405B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```\ndef find_primes_between_indices(lst):\n    def is_prime(n):\n        if n < 2: return False\n        for i in range(2, int(n**0.5) + 1):\n            if n % i == 0: return False\n        return True\n\n    return sorted([n for i, n in enumerate(lst[23:40]) if is_prime(n)])\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 135,
+    "total_tokens": 220,
+    "completion_tokens": 85
+  }
+}

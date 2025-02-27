@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-de07428af3824728889824c63c7fca20",
+  "object": "chat.completion",
+  "created": 1725924694,
+  "model": "Meta-Llama-3.1-70B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```python\ndef is_prime(n):\n    if n <= 1:\n        return False\n    if n == 2:\n        return True\n    if n % 2 == 0:\n        return False\n    max_divisor = int(n**0.5) + 1\n    for d in range(3, max_divisor, 2):\n        if n % d == 0:\n            return False\n    return True\n\ndef all_left_right_truncatable_prime(numbers):\n    x = numbers[25]\n    left_right_truncatable_primes = []\n\n    for num in range(10, x + 1):\n        if '0' in str(num):\n            continue\n        num_str = str(num)\n        is_left_right_truncatable_prime = True\n\n        for i in range(1, len(num_str)):\n            left_trunc_str = num_str[i:]\n            right_trunc_str = num_str[:-i]\n            if not (is_prime(int(left_trunc_str)) and is_prime(int(right_trunc_str))):\n                is_left_right_truncatable_prime = False\n                break\n\n        if is_left_right_truncatable_prime and is_prime(num):\n            left_right_truncatable_primes.append(num)\n\n    return sorted(left_right_truncatable_primes, reverse=True)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 204,
+    "total_tokens": 475,
+    "completion_tokens": 271
+  }
+}

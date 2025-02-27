@@ -1,0 +1,3 @@
+def filter_chars(s):
+    chars_to_filter = [chr(i) for i in range(33, 71) if '7' <= chr(i) <= 'k']
+    return ''.join((c for c in s if c not in chars_to_filter))

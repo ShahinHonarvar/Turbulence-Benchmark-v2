@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-205c204ec6b447cab34006396f7f3d40",
+  "object": "chat.completion",
+  "created": 1725526486,
+  "model": "Meta-Llama-3-405B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```\nimport itertools\nfrom collections import Counter\n\ndef palindromes_between_indices(s):\n    s = s[:7].lower()\n    letters = [c for c in s if c.isalpha()]\n    letter_counts = Counter(letters)\n    palindromes = set()\n\n    for r in range(7, len(letters) + 1):\n        for combo in itertools.combinations_with_replacement(letter_counts.elements(), r):\n            if len(combo) % 2 == 1:\n                combo_counts = Counter(combo)\n                center_counts = combo_counts - Counter({k: v // 2 * 2 for k, v in combo_counts.items()})\n                if len(center_counts) > 1 or list(center_counts.values())[0] > 1:\n                    continue\n                first_half = ''.join(combo[:len(combo) // 2])\n                second_half = first_half[::-1]\n                palindrome = first_half + ''.join(center_counts.elements()) + second_half\n                palindromes.add(palindrome)\n            else:\n                combo_counts = Counter(combo)\n                if any(v % 2 != 0 for v in combo_counts.values()):\n                    continue\n                first_half = ''.join(combo[:len(combo) // 2])\n                second_half = first_half[::-1]\n                palindrome = first_half + second_half\n                palindromes.add(palindrome)\n\n    return palindromes\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 199,
+    "total_tokens": 498,
+    "completion_tokens": 299
+  }
+}

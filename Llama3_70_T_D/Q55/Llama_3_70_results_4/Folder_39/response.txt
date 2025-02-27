@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-514695b2b05d4d82afe17406de1c91f0",
+  "object": "chat.completion",
+  "created": 1725906097,
+  "model": "Meta-Llama-3.1-70B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```\ndef lists_with_product_equal_n(lst):\n    def get_sublists(lst):\n        sublists = []\n        for i in range(len(lst)):\n            sublist = []\n            for j in range(len(lst)):\n                sublist.append(lst[(i+j)%len(lst)])\n                sublists.append(sublist[:])\n        return sublists\n\n    result = []\n    for sublist in get_sublists(lst):\n        if len(sublist) > 0 and len(sublist) <= len(lst):\n            if eval('*'.join(map(str, sublist))) == -46:\n                result.append(sublist)\n    return result\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 210,
+    "total_tokens": 334,
+    "completion_tokens": 124
+  }
+}

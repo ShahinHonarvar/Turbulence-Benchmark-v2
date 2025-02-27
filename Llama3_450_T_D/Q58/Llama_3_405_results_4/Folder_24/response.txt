@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-6ff2a390c32743d498494a654769e9c3",
+  "object": "chat.completion",
+  "created": 1725694543,
+  "model": "Meta-Llama-3-405B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    count = 0\n    rows = matrix.shape[0]\n    cols = matrix.shape[1]\n    target_sum = 51\n    for r in range(rows):\n        for c in range(cols):\n            sum_matrix = np.zeros((rows, cols))\n            sum_matrix[r, c] = matrix[r, c]\n            for i in range(r, rows):\n                for j in range(c, cols):\n                    if i > r:\n                        sum_matrix[i, j] = sum_matrix[i-1, j] + matrix[i, j]\n                    if j > c:\n                        sum_matrix[i, j] = sum_matrix[i, j-1] + matrix[i, j]\n                    if i > r and j > c:\n                        sum_matrix[i, j] = sum_matrix[i-1, j-1] + sum_matrix[i-1, j] + sum_matrix[i, j-1] - sum_matrix[i-1, j-1] + matrix[i, j]\n                    if sum_matrix[i, j] == target_sum:\n                        count += 1\n    return count\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 128,
+    "total_tokens": 371,
+    "completion_tokens": 243
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-02dae931983b4b00a7380573ce61d2f7",
+  "object": "chat.completion",
+  "created": 1725912716,
+  "model": "Meta-Llama-3.1-70B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    n = 173\n    m, l = matrix.shape\n    count = 0\n    for i in range(m):\n        for j in range(l):\n            for k in range(i, m):\n                for end_col in range(j, l):\n                    submatrix = matrix[i:k+1, j:end_col+1]\n                    if submatrix.size == n:\n                        count += 1\n    return count\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 128,
+    "total_tokens": 232,
+    "completion_tokens": 104
+  }
+}

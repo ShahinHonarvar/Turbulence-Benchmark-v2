@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-23ffe9dc03b64ff9b4826eceb44e7c8a",
+  "object": "chat.completion",
+  "created": 1725868534,
+  "model": "Meta-Llama-3.1-70B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```python\ndef find_original_set(*args):\n    if len(args) != 41:\n        raise ValueError(\"Exactly 41 arguments are required\")\n    if len(set(map(id, args))) != 41:\n        raise ValueError(\"All arguments must be distinct\")\n    result = set()\n    for s in args:\n        if not isinstance(s, set):\n            raise ValueError(\"All arguments must be sets\")\n        if not s.issubset(result):\n            result.update(s)\n    return result\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 112,
+    "total_tokens": 215,
+    "completion_tokens": 103
+  }
+}

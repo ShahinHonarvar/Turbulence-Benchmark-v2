@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-a55e2ed9bb924ae1aed6331ab9e7f9b4",
+  "object": "chat.completion",
+  "created": 1725910358,
+  "model": "Meta-Llama-3.1-70B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    rows, cols = matrix.shape\n    result = []\n    for row in range(rows):\n        for col in range(cols):\n            for sub_row in range(row + 1, rows + 1):\n                for sub_col in range(col + 1, cols + 1):\n                    submatrix = matrix[row:sub_row, col:sub_col]\n                    if np.sum(submatrix) == 830:\n                        result.append(submatrix.tolist())\n    return result\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 138,
+    "total_tokens": 252,
+    "completion_tokens": 114
+  }
+}

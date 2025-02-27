@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-104202c767714aa88894331ae33d238d",
+  "object": "chat.completion",
+  "created": 1725903688,
+  "model": "Meta-Llama-3.1-70B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```python\ndef is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            return False\n    return True\n\ndef all_right_truncatable_prime(numbers):\n    x = numbers[41]\n    truncatable_primes = []\n    for num in range(2, x):\n        digits = len(str(num))\n        if is_prime(num):\n            truncatable = True\n            for i in range(1, digits):\n                trunc_num = int(str(num)[:-i])\n                if not is_prime(trunc_num):\n                    truncatable = False\n                    break\n            if truncatable:\n                truncatable_primes.append(num)\n    return sorted(truncatable_primes)\n```\nNote: The `is_prime` function checks whether a number is prime or not. It is used in the `all_right_truncatable_prime` function to check whether a number and its truncated versions are prime or not.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 174,
+    "total_tokens": 390,
+    "completion_tokens": 216
+  }
+}

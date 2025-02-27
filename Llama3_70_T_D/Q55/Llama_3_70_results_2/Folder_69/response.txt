@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-603298494c4249c1be409f4e75738a6d",
+  "object": "chat.completion",
+  "created": 1725905180,
+  "model": "Meta-Llama-3.1-70B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```python\ndef lists_with_product_equal_n(lst):\n```\n\n    n = len(lst)\n    result = []\n    for i in range(n):\n        for j in range(i, i + n):\n            if j >= n:\n                j -= n\n            temp = lst[i:j+1]\n            product = 1\n            for k in temp:\n                product *= k\n            if product == 90:\n                if sorted(temp) not in [sorted(sublist) for sublist in result]:\n                    result.append(temp)\n    return result\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 210,
+    "total_tokens": 323,
+    "completion_tokens": 113
+  }
+}

@@ -1,0 +1,13 @@
+import itertools
+
+def palindromes_between_indices(s):
+    letters = [c for c in s[2:6] if c.isalpha()]
+    letters = [c.lower() for c in letters]
+    palindromes = set()
+    for r in range(len(letters) + 1):
+        for combo in itertools.combinations(letters, r):
+            for perm in itertools.permutations(combo):
+                p = ''.join(perm)
+                if len(p) >= 5 and p == p[::-1]:
+                    palindromes.add(p)
+    return palindromes

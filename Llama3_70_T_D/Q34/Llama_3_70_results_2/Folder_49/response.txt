@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-c6f9444aefd14873bfa3493acc413731",
+  "object": "chat.completion",
+  "created": 1725868321,
+  "model": "Meta-Llama-3.1-70B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```\ndef find_original_set(*args):\n    if len(args) != 60:\n        raise TypeError(\"Exactly 60 arguments are required\")\n    if len(set(frozenset(arg) for arg in args)) != 60:\n        raise TypeError(\"All arguments must be distinct\")\n    if not all(isinstance(arg, set) and all(isinstance(x, int) for x in arg) for arg in args):\n        raise TypeError(\"All arguments must be sets of integers\")\n    return set.union(*args)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 112,
+    "total_tokens": 217,
+    "completion_tokens": 105
+  }
+}

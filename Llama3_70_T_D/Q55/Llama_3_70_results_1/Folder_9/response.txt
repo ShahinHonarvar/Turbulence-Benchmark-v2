@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-43af7980ebcd45fe900d2ebef5b53f37",
+  "object": "chat.completion",
+  "created": 1725904491,
+  "model": "Meta-Llama-3.1-70B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```python\nimport itertools\n\ndef lists_with_product_equal_n(lst):\n    n = len(lst)\n    result = set()\n    for size in range(1, n + 1):\n        for i in range(n):\n            for sublst in itertools.islice(itertools.cycle(lst), i, i + size):\n                if sublst[0] * sublst[1] == -36 and len(sublst) == 2:\n                    result.add(tuple(sublst))\n                elif len(sublst) > 2 and sum(sublst) == -36 and len(sublst) == 3:\n                    result.add(tuple(sublst))\n                elif len(sublst) > 3:\n                    product = 1\n                    for item in sublst:\n                        product *= item\n                        if product == -36:\n                            result.add(tuple(sublst))\n    return [list(item) for item in result]\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 210,
+    "total_tokens": 394,
+    "completion_tokens": 184
+  }
+}

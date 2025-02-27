@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-3ec6ea8716364c3fafbe120f181b9eab",
+  "object": "chat.completion",
+  "created": 1725630752,
+  "model": "Meta-Llama-3-405B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```\ndef lists_with_product_equal_n(lst):\n    n = -44\n    result = []\n    length = len(lst)\n    \n    for start in range(length):\n        product = 1\n        for end in range(start, start + length):\n            product *= lst[end % length]\n            if product == n:\n                sublist = lst[start:end+1]\n                if start > end:\n                    sublist = lst[start:] + lst[:end+1]\n                result.append(sublist)\n            elif product > abs(n) and n < 0 or product < n and n >= 0:\n                break\n    \n    return result\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 210,
+    "total_tokens": 340,
+    "completion_tokens": 130
+  }
+}

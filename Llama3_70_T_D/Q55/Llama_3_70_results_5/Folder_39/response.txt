@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-5887bac60cea4a52928563838a2347a5",
+  "object": "chat.completion",
+  "created": 1725906792,
+  "model": "Meta-Llama-3.1-70B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```\ndef lists_with_product_equal_n(lst):\n    def find_sublists(lst, target, current_product=1, current_sublist=None):\n        if current_sublist is None:\n            current_sublist = []\n        if current_product == target:\n            return [current_sublist[:]]\n        if current_product < target and len(current_sublist) < len(lst):\n            result = []\n            for i in range(len(lst)):\n                new_product = current_product * lst[i]\n                if new_product <= target:\n                    result.extend(find_sublists(lst, target, new_product, current_sublist + [lst[i]]))\n            return result\n        return []\n\n    result = set()\n    for i in range(len(lst)):\n        sublists = find_sublists(lst, -46)\n        for sublist in sublists:\n            result.add(tuple(sublist))\n    return [list(sublist) for sublist in result]\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 210,
+    "total_tokens": 395,
+    "completion_tokens": 185
+  }
+}

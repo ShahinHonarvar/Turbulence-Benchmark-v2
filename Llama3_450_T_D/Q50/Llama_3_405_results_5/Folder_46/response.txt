@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-b46d263d272e4820a643fbbd0e7697de",
+  "object": "chat.completion",
+  "created": 1725598595,
+  "model": "Meta-Llama-3-405B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```\nfrom collections import defaultdict\n\ndef if_contains_anagrams(strings):\n    anagrams = defaultdict(list)\n    for s in strings:\n        if len(s) >= 3:\n            sorted_str = \"\".join(sorted(s.lower()))\n            anagrams[sorted_str].append(s)\n    pairs = sum(len(values) * (len(values) - 1) // 2 for values in anagrams.values())\n    return pairs >= 38\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 143,
+    "total_tokens": 234,
+    "completion_tokens": 91
+  }
+}

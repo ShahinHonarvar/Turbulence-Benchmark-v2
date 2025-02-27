@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-933d4e26abb74cf290ce0b9eef0532a9",
+  "object": "chat.completion",
+  "created": 1725920050,
+  "model": "Meta-Llama-3.1-70B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```python\ndef all_left_right_truncatable_prime(numbers):\n    x = numbers[36]\n    primes = [True] * (x + 1)\n    primes[0] = primes[1] = False\n    p = 2\n    while p**2 <= x:\n        if primes[p]:\n            for i in range(p**2, x + 1, p):\n                primes[i] = False\n        p += 1\n\n    left_right_truncatable_primes = []\n    for num in range(10, x + 1):\n        str_num = str(num)\n        if '0' in str_num or not primes[num]:\n            continue\n        temp_num = str_num\n        is_left_right_truncatable_prime = True\n        while len(temp_num) > 1:\n            if not primes[int(temp_num)] or not primes[int(temp_num[:-1])]:\n                is_left_right_truncatable_prime = False\n                break\n            temp_num = temp_num[1:]\n        if is_left_right_truncatable_prime:\n            left_right_truncatable_primes.append(num)\n\n    return sorted(left_right_truncatable_primes, reverse=True)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 204,
+    "total_tokens": 450,
+    "completion_tokens": 246
+  }
+}

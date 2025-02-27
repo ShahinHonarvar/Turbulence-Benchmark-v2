@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-45e3366a80be4da2bfe44e482331a81d",
+  "object": "chat.completion",
+  "created": 1725878876,
+  "model": "Meta-Llama-3.1-70B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```python\ndef find_primes_between_indices(numbers):\n    def is_prime(n):\n        if n <= 1:\n            return False\n        if n <= 3:\n            return True\n        if n % 2 == 0 or n % 3 == 0:\n            return False\n        i = 5\n        while i * i <= n:\n            if n % i == 0 or n % (i + 2) == 0:\n                return False\n            i += 6\n        return True\n\n    primes = [numbers[i] for i in range(31, 68) if is_prime(numbers[i])]\n    return sorted(primes, reverse=True)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 135,
+    "total_tokens": 279,
+    "completion_tokens": 144
+  }
+}

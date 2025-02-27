@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-6e24f07b39144af795dd30baa69d4f69",
+  "object": "chat.completion",
+  "created": 1725914449,
+  "model": "Meta-Llama-3.1-70B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```\nimport numpy as np\nimport itertools\n\ndef submatrix_with_n_numbers(matrix):\n    count = 0\n    for size in range(1, matrix.shape[0] + 1):\n        for indices in itertools.combinations(range(matrix.shape[0]), size):\n            for col_size in range(1, matrix.shape[1] + 1):\n                for col_indices in itertools.combinations(range(matrix.shape[1]), col_size):\n                    submatrix = matrix[np.ix_(indices, col_indices)]\n                    if submatrix.size == 2 and len(np.unique(submatrix)) == 2:\n                        count += 1\n    return count\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 128,
+    "total_tokens": 263,
+    "completion_tokens": 135
+  }
+}

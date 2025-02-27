@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-e568e649cd4f4e1dbbb38ec2069139ee",
+  "object": "chat.completion",
+  "created": 1725911083,
+  "model": "Meta-Llama-3.1-70B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```\nimport numpy as np\nimport itertools\n\ndef submatrix_with_particular_sum(matrix):\n    result = []\n    rows, cols = matrix.shape\n    for row_start, row_end in itertools.combinations(range(rows + 1), 2):\n        for col_start, col_end in itertools.combinations(range(cols + 1), 2):\n            submatrix = matrix[row_start:row_end, col_start:col_end]\n            if np.sum(submatrix) == 93:\n                result.append(submatrix)\n    return result\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 138,
+    "total_tokens": 249,
+    "completion_tokens": 111
+  }
+}

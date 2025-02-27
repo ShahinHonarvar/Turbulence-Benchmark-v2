@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-ec62476642c5470fba4caebb55d416da",
+  "object": "chat.completion",
+  "created": 1725539729,
+  "model": "Meta-Llama-3-405B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```\ndef palindromes_between_indices(s):\n    from collections import Counter\n    import itertools\n\n    s = s[2:10].lower()\n    s = ''.join(filter(str.isalpha, s))\n    counter = Counter(s)\n    letters = list(counter.keys())\n    counts = list(counter.values())\n    palindromes = set()\n\n    for r in range(len(letters)):\n        for combination in itertools.combinations_with_replacement(letters, r + 1):\n            if len(combination) * 2 >= 6:\n                palindrome = ''.join(combination) + ''.join(combination[::-1])\n                if all(palindrome.count(letter) <= count * 2 for letter, count in zip(letters, counts)):\n                    palindromes.add(palindrome)\n\n    return palindromes\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 199,
+    "total_tokens": 371,
+    "completion_tokens": 172
+  }
+}

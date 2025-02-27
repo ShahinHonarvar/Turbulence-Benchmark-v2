@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-5a30c99894594edc868ab9f2080c85da",
+  "object": "chat.completion",
+  "created": 1725905320,
+  "model": "Meta-Llama-3.1-70B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```python\ndef lists_with_product_equal_n(lst):\n    def get_sublists(lst):\n        n = len(lst)\n        sublists = []\n        for i in range(n):\n            sublist = []\n            product = 1\n            for j in range(i, n + i):\n                sublist.append(lst[j % n])\n                product *= lst[j % n]\n                if product == -51:\n                    sublists.append(sublist[:])\n                elif product < -51:\n                    break\n        return sublists\n\n    result = get_sublists(lst)\n    return result\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 210,
+    "total_tokens": 327,
+    "completion_tokens": 117
+  }
+}

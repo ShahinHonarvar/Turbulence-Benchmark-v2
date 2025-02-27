@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-a9ed55bde0fe4e3a84ea1a164becc740",
+  "object": "chat.completion",
+  "created": 1725924829,
+  "model": "Meta-Llama-3.1-70B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```python\ndef is_prime(n):\n    if n <= 1:\n        return False\n    if n <= 3:\n        return True\n    if n % 2 == 0 or n % 3 == 0:\n        return False\n    i = 5\n    while i * i <= n:\n        if n % i == 0 or n % (i + 2) == 0:\n            return False\n        i += 6\n    return True\n\ndef truncate_left_right(n):\n    n_str = str(n)\n    for i in range(len(n_str) - 1):\n        yield int(n_str[i + 1:])\n        yield int(n_str[:len(n_str) - i - 1])\n\ndef all_left_right_truncatable_prime(numbers):\n    x = numbers[23]\n    truncatable_primes = []\n    for num in range(10, x + 1):\n        if '0' not in str(num) and is_prime(num):\n            truncatables = [t for t in truncate_left_right(num) if t >= 10]\n            if all(is_prime(t) for t in truncatables):\n                truncatable_primes.append(num)\n    return sorted(truncatable_primes)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 204,
+    "total_tokens": 461,
+    "completion_tokens": 257
+  }
+}

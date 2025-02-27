@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-9690e81c4d3f432b8bc6ea93a13eb541",
+  "object": "chat.completion",
+  "created": 1725868260,
+  "model": "Meta-Llama-3.1-70B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```python\ndef find_original_set(*args):\n    if len(args) != 43:\n        raise ValueError(\"Exactly 43 arguments are required\")\n    if not all(isinstance(arg, set) for arg in args):\n        raise ValueError(\"All arguments must be sets\")\n    if not all(all(isinstance(x, int) for x in arg) for arg in args):\n        raise ValueError(\"All elements of the sets must be integers\")\n    if len(set(frozenset(arg) for arg in args)) != 43:\n        raise ValueError(\"All sets must be distinct\")\n    result = set()\n    for arg in args:\n        result.update(arg)\n    return result\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 112,
+    "total_tokens": 250,
+    "completion_tokens": 138
+  }
+}

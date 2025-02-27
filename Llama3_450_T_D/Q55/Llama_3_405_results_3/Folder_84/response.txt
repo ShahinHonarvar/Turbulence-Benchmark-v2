@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-9350029db3d64931b33f4f55b6da3c1e",
+  "object": "chat.completion",
+  "created": 1725629813,
+  "model": "Meta-Llama-3-405B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```\ndef lists_with_product_equal_n(circular_list):\n    target_product = -906\n    result = []\n    n = len(circular_list)\n    \n    for i in range(n):\n        product = 1\n        for j in range(n):\n            product *= circular_list[(i + j) % n]\n            if product == target_product:\n                result.append(circular_list[i:i + j + 1])\n            elif product > target_product or j == n - 1:\n                break\n            if circular_list[(i + j + 1) % n] == 0:\n                break\n    \n    for sublist in result:\n        if len(sublist) > 1 and sublist[0] == 0:\n            result.remove(sublist)\n    \n    return result\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 210,
+    "total_tokens": 372,
+    "completion_tokens": 162
+  }
+}

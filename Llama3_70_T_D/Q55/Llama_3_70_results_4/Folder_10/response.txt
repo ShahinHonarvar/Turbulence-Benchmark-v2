@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-899383d11fac499db99583dd03589489",
+  "object": "chat.completion",
+  "created": 1725905928,
+  "model": "Meta-Llama-3.1-70B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```\ndef lists_with_product_equal_n(lst):\n    n = len(lst)\n    result = []\n    for size in range(1, n + 1):\n        for i in range(n):\n            product = 1\n            for j in range(size):\n                product *= lst[(i + j) % n]\n            if product == -93:\n                sublist = tuple(sorted(lst[(i + j) % n] for j in range(size)))\n                if sublist not in result:\n                    result.append(sublist)\n    return [list(sublist) for sublist in result]\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 210,
+    "total_tokens": 329,
+    "completion_tokens": 119
+  }
+}

@@ -1,0 +1,4 @@
+def filter_chars(s):
+    chars_to_remove = [c for c in s[42:68] if 't' < c < 'x']
+    s = ''.join([c for c in s if c not in chars_to_remove])
+    return s

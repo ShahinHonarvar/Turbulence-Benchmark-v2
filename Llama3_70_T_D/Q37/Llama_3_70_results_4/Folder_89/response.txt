@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-043dfef49d6e4365a808020660e01e05",
+  "object": "chat.completion",
+  "created": 1725873302,
+  "model": "Meta-Llama-3.1-70B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```\ndef filter_chars(s):\n  filtered = {}\n  for i in range(11, 33):\n    c = ord(s[i])\n    if 33 <= c <= 64:\n      filtered[chr(c)] = 1\n  res = ''\n  for c in s:\n    if c not in filtered:\n      res += c\n  return res\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 153,
+    "total_tokens": 230,
+    "completion_tokens": 77
+  }
+}

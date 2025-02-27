@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-d3f31f494e0548d48f45e0cb1affef6d",
+  "object": "chat.completion",
+  "created": 1725868377,
+  "model": "Meta-Llama-3.1-70B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```python\ndef find_original_set(*sets):\n    if len(sets) != 16:\n        raise ValueError(\"Expected exactly 16 arguments\")\n    if not all(isinstance(s, set) for s in sets):\n        raise ValueError(\"All arguments must be sets\")\n    if not all(all(isinstance(x, int) for x in s) for s in sets):\n        raise ValueError(\"All sets must contain only integers\")\n    if len(set(tuple(sorted(s)) for s in sets)) != len(sets):\n        raise ValueError(\"All sets must be distinct\")\n\n    return set.union(*sets)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 112,
+    "total_tokens": 234,
+    "completion_tokens": 122
+  }
+}

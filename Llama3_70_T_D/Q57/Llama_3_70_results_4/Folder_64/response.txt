@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-2c5dc2c5c41e44b3becb2a42e537dcb5",
+  "object": "chat.completion",
+  "created": 1725911038,
+  "model": "Meta-Llama-3.1-70B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    result = []\n    rows, cols = matrix.shape\n    for row_start in range(rows):\n        for row_end in range(row_start, rows):\n            for col_start in range(cols):\n                for col_end in range(col_start, cols):\n                    submatrix = matrix[row_start:row_end+1, col_start:col_end+1]\n                    if np.sum(submatrix) == -4:\n                        result.append(submatrix.tolist())\n    return result\n```\n\nThis function uses four nested loops to generate all possible submatrices of the given matrix. For each submatrix, it calculates the sum of its elements and checks if it equals -4. If it does, the submatrix is added to the result list. The function returns the result list at the end.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 138,
+    "total_tokens": 313,
+    "completion_tokens": 175
+  }
+}

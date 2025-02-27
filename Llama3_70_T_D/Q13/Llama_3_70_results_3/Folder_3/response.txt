@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-74be64e656ac43fa9a5553f340242199",
+  "object": "chat.completion",
+  "created": 1725847618,
+  "model": "Meta-Llama-3.1-70B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```python\ndef find_second_largest_num(numbers):\n    second_largest = None\n    max_num = float('-inf')\n    count_max = 0\n    for num in numbers[62:93]:\n        if num > max_num:\n            second_largest = max_num\n            max_num = num\n            count_max = 1\n        elif num == max_num:\n            count_max += 1\n        elif num > second_largest and num != max_num:\n            second_largest = num\n    if count_max > 1:\n        return None\n    return second_largest\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 122,
+    "total_tokens": 247,
+    "completion_tokens": 125
+  }
+}

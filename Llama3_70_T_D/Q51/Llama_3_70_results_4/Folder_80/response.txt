@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-d1d65131ba0440a38c58e1fb6db63079",
+  "object": "chat.completion",
+  "created": 1725896882,
+  "model": "Meta-Llama-3.1-70B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```python\ndef if_contains_anagrams(lst):\n    from collections import defaultdict\n    d = defaultdict(int)\n    for s in lst:\n        s = ''.join(filter(str.isalpha, s)).lower()\n        if len(s) < 3:\n            continue\n        sorted_s = ''.join(sorted(s))\n        d[sorted_s] += 1\n    pairs = sum((v*(v-1))//2 for v in d.values())\n    return pairs <= 255\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 156,
+    "total_tokens": 257,
+    "completion_tokens": 101
+  }
+}

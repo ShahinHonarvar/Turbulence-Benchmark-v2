@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-fcdd1ddd0455436d8ee4d87f4facffe7",
+  "object": "chat.completion",
+  "created": 1725912969,
+  "model": "Meta-Llama-3.1-70B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```python\nimport numpy as np\nimport itertools\n\ndef submatrix_with_n_numbers(matrix):\n    count = 0\n    rows, cols = matrix.shape\n    for submatrix_size in [(1, 2), (2, 1), (2, 2)]:\n        for row in range(rows - submatrix_size[0] + 1):\n            for col in range(cols - submatrix_size[1] + 1):\n                submatrix = matrix[row:row+submatrix_size[0], col:col+submatrix_size[1]]\n                if len(submatrix.flatten()) == 2:\n                    count += 1\n                elif len(submatrix.flatten()) > 2:\n                    for r in range(submatrix_size[0]):\n                        for c in range(submatrix_size[1]):\n                            for r_offset in range(submatrix_size[0]):\n                                for c_offset in range(submatrix_size[1]):\n                                    if r != r_offset or c != c_offset:\n                                        submatrix_sub = np.array([[submatrix[r, c], submatrix[r, c_offset]], [submatrix[r_offset, c], submatrix[r_offset, c_offset]]])\n                                        if len(submatrix_sub.flatten()) == 2:\n                                            count += 1\n    return count\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 128,
+    "total_tokens": 393,
+    "completion_tokens": 265
+  }
+}

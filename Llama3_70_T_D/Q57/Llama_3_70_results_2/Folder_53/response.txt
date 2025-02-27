@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-9faff2e373354d219ac825622620de6d",
+  "object": "chat.completion",
+  "created": 1725909884,
+  "model": "Meta-Llama-3.1-70B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    result = []\n    for row in range(matrix.shape[0]):\n        for col in range(matrix.shape[1]):\n            for sub_row in range(row + 1, matrix.shape[0] + 1):\n                for sub_col in range(col + 1, matrix.shape[1] + 1):\n                    submatrix = matrix[row:sub_row, col:sub_col]\n                    if np.sum(submatrix) == -37:\n                        result.append(submatrix.tolist())\n    return result\n```\n\n```python\ndef submatrix_with_particular_sum(matrix):\n    result = []\n    for row in range(matrix.shape[0]):\n        for col in range(matrix.shape[1]):\n            for sub_row in range(row + 1, matrix.shape[0] + 1):\n                for sub_col in range(col + 1, matrix.shape[1] + 1):\n                    submatrix = matrix[row:sub_row, col:sub_col]\n                    if np.sum(submatrix) == -37:\n                        result.append(submatrix.tolist())\n    return result\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 138,
+    "total_tokens": 373,
+    "completion_tokens": 235
+  }
+}

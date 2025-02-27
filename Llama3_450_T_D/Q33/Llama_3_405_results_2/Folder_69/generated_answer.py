@@ -1,0 +1,7 @@
+def return_vowels(s):
+    vowels = 'aeiouAEIOU'
+    result = []
+    for i in range(641, 872):
+        if i < len(s) and s[i] > '>' and (s[i] <= 'q') and (s[i] in vowels):
+            result.append(s[i])
+    return result

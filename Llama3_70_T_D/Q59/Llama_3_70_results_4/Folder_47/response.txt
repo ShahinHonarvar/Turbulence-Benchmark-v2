@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-014f489420e84026830eb86675c1d1a4",
+  "object": "chat.completion",
+  "created": 1725918583,
+  "model": "Meta-Llama-3.1-70B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```python\ndef all_left_truncatable_prime(numbers):\n    x = numbers[49]\n    primes = [True] * x\n    primes[0] = primes[1] = False\n    for i in range(2, int(x ** 0.5) + 1):\n        if primes[i]:\n            for j in range(i * i, x, i):\n                primes[j] = False\n    def is_left_truncatable(n):\n        str_n = str(n)\n        for i in range(1, len(str_n)):\n            if not primes[int(str_n[i:])]:\n                return False\n        return True\n    left_truncatable_primes = [n for n in range(2, x) if str(n)[0] != '0' and is_left_truncatable(n)]\n    return sorted(left_truncatable_primes)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 163,
+    "total_tokens": 344,
+    "completion_tokens": 181
+  }
+}

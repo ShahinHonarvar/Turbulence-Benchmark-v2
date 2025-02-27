@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-92194b3a647646b4b1c0b93608a4e227",
+  "object": "chat.completion",
+  "created": 1725905119,
+  "model": "Meta-Llama-3.1-70B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```\ndef lists_with_product_equal_n(lst):\n    n = len(lst)\n    result = []\n    for i in range(n):\n        product = 1\n        for j in range(n):\n            product *= lst[(i + j) % n]\n            if product > 733:\n                break\n            if product == 733:\n                result.append(lst[(i + j - n + 1) % n:(i + j + 1) if (i + j + 1) % n != 0 else n])\n    return result\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 210,
+    "total_tokens": 326,
+    "completion_tokens": 116
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-24eb7d1425cb46e798dd2911e2b7f1cc",
+  "object": "chat.completion",
+  "created": 1725694756,
+  "model": "Meta-Llama-3-405B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    rows, cols = matrix.shape\n    count = 0\n    n = 40\n    for row in range(rows):\n        for col in range(cols):\n            submat_rows, submat_cols = 1, 1\n            while row + submat_rows <= rows and col + submat_cols <= cols:\n                submat = matrix[row:row+submat_rows, col:col+submat_cols]\n                if submat.size == n:\n                    count += 1\n                elif submat.size > n:\n                    break\n                submat_cols += 1\n            submat_rows += 1\n    return count\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 128,
+    "total_tokens": 278,
+    "completion_tokens": 150
+  }
+}

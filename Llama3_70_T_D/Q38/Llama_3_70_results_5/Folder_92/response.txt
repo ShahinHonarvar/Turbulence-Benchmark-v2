@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-838414064e1342689f66d26cc5f3290c",
+  "object": "chat.completion",
+  "created": 1725874459,
+  "model": "Meta-Llama-3.1-70B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```python\ndef find_subset_of_length_n(input_set):\n    n = 0\n    count = 0\n    for i in range(2**len(input_set)):\n        subset = [input_set[j] for j in range(len(input_set)) if (i & (1 << j))]\n        if len(subset) == n:\n            count += 1\n    return count\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 100,
+    "total_tokens": 182,
+    "completion_tokens": 82
+  }
+}

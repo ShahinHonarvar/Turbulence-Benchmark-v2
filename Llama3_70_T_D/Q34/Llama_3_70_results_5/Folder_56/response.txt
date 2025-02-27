@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-9d27c9649d054e6dbfa704e8f1295fa7",
+  "object": "chat.completion",
+  "created": 1725869156,
+  "model": "Meta-Llama-3.1-70B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```python\ndef find_original_set(*args):\n    if len(args) != 63:\n        raise ValueError(\"Exactly 63 arguments are required\")\n    if len(set(tuple(sorted(arg)) for arg in args)) != 63:\n        raise ValueError(\"Each argument must be distinct\")\n    if not all(isinstance(arg, set) and all(isinstance(x, int) for x in arg) for arg in args):\n        raise ValueError(\"Each argument must be a set of integers\")\n    result = set()\n    for arg in args:\n        result |= arg\n    return result\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 112,
+    "total_tokens": 230,
+    "completion_tokens": 118
+  }
+}

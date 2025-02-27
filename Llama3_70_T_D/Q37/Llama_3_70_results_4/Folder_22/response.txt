@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-889897b13267454cb45cd3325af18c99",
+  "object": "chat.completion",
+  "created": 1725873127,
+  "model": "Meta-Llama-3.1-70B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```python\ndef filter_chars(s):\n    def is_to_remove(c):\n        return 33 <= ord(c) <= 70 and '7' <= c <= 'k'\n\n    chars_to_remove = {c for c in set(s) if is_to_remove(c)}\n    return ''.join(c for c in s if c not in chars_to_remove)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 155,
+    "total_tokens": 229,
+    "completion_tokens": 74
+  }
+}

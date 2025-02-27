@@ -1,0 +1,3 @@
+def insert_after_index(lst):
+    index = 99
+    return lst[:index + 1] + [99] + lst[index + 1:]

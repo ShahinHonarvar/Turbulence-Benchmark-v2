@@ -1,0 +1,6 @@
+def filter_chars(s):
+    chars_to_remove = set(s[56:86])
+    chars_to_remove = [c for c in chars_to_remove if '+' < c < 'w']
+    for c in chars_to_remove:
+        s = s.replace(c, '')
+    return s

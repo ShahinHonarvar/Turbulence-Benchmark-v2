@@ -1,0 +1,8 @@
+import math
+
+def gcf_three_nums(num_list):
+    num1 = num_list[477]
+    num2 = num_list[696]
+    num3 = num_list[663]
+    gcf_12 = math.gcd(num1, num2)
+    return math.gcd(gcf_12, num3)

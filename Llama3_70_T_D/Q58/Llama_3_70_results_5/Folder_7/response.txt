@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-0ddf5d358d3e4dcab3dfe19bef32fb35",
+  "object": "chat.completion",
+  "created": 1725914367,
+  "model": "Meta-Llama-3.1-70B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```python\nimport numpy as np\nfrom itertools import combinations\n\ndef submatrix_with_n_numbers(matrix):\n    count = 0\n    rows, cols = matrix.shape\n    for row_indices in combinations(range(rows), 121):\n        for col_indices in combinations(range(cols), 121):\n            submatrix = matrix[np.ix_(row_indices, col_indices)]\n            count += 1\n    return count\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 128,
+    "total_tokens": 213,
+    "completion_tokens": 85
+  }
+}

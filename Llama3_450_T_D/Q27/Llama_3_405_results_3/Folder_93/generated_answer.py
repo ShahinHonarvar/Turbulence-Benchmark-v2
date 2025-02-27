@@ -1,0 +1,2 @@
+def insert_after_index(lst):
+    return lst[:36] + lst[36:] + [54, 13]

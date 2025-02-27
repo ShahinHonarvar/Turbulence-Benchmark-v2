@@ -1,0 +1,16 @@
+def if_contains_anagrams(string_list):
+    anagram_dict = {}
+    count = 0
+    for s in string_list:
+        if len(s) < 3:
+            continue
+        sorted_str = ''.join(sorted(s.lower()))
+        if sorted_str in anagram_dict:
+            anagram_dict[sorted_str] += 1
+        else:
+            anagram_dict[sorted_str] = 1
+    for value in anagram_dict.values():
+        count += value * (value - 1) // 2
+        if count > 49:
+            return False
+    return True

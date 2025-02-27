@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-ca6102b5cc074b278b5fb86cf65cd7d8",
+  "object": "chat.completion",
+  "created": 1725913007,
+  "model": "Meta-Llama-3.1-70B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```python\nimport numpy as np\nimport itertools\n\ndef submatrix_with_n_numbers(matrix):\n    count = 0\n    rows, cols = matrix.shape\n    for row_start, row_end in itertools.product(range(rows), range(rows)):\n        for col_start, col_end in itertools.product(range(cols), range(cols)):\n            if row_end - row_start + 1 > 0 and col_end - col_start + 1 > 0 and (row_end - row_start + 1) * (col_end - col_start + 1) == 21:\n                submatrix = matrix[row_start:row_end+1, col_start:col_end+1]\n                if submatrix.size == 21:\n                    count += 1\n    return count\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 128,
+    "total_tokens": 286,
+    "completion_tokens": 158
+  }
+}

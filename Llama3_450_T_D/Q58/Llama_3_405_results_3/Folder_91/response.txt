@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-e1b67245c16943bc8ff1cf1598c7814d",
+  "object": "chat.completion",
+  "created": 1725694197,
+  "model": "Meta-Llama-3-405B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    count = 0\n    rows = matrix.shape[0]\n    cols = matrix.shape[1]\n\n    for row in range(rows):\n        for col in range(cols):\n            for sub_row in range(row, rows):\n                for sub_col in range(col, cols):\n                    submatrix = matrix[row:sub_row+1, col:sub_col+1]\n                    if np.count_nonzero(~np.isnan(submatrix)) == 5:\n                        count += 1\n    return count\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 128,
+    "total_tokens": 246,
+    "completion_tokens": 118
+  }
+}

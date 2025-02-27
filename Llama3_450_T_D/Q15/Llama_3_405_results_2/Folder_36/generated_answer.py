@@ -1,0 +1,2 @@
+def sum_odd_ints_inclusive(integers):
+    return sum((i for i in integers[246:751] if i % 2 != 0))

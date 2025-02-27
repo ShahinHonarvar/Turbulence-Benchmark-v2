@@ -1,0 +1,7 @@
+def gcf_two_nums(lst):
+
+    def get_gcf(a, b):
+        while b:
+            a, b = (b, a % b)
+        return a
+    return get_gcf(lst[64], lst[28])

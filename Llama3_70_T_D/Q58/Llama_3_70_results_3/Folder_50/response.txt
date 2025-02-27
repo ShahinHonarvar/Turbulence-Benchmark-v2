@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-6f6feab8c6924903abf95c64eae52907",
+  "object": "chat.completion",
+  "created": 1725913141,
+  "model": "Meta-Llama-3.1-70B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```python\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    count = 0\n    rows, cols = matrix.shape\n    for row in range(rows):\n        for col in range(cols):\n            for offset_row in range(rows - row):\n                for offset_col in range(cols - col):\n                    submatrix = matrix[row:row + offset_row + 1, col:col + offset_col + 1]\n                    if submatrix.size == 40:\n                        count += 1\n    return count\n```\n\nThis function uses four nested loops to generate all possible submatrices of the input matrix. The outer two loops (`row` and `col`) iterate over the starting positions of the submatrix, while the inner two loops (`offset_row` and `offset_col`) iterate over the sizes of the submatrix. The `submatrix` is then extracted from the original matrix using NumPy's slicing syntax. Finally, the function checks if the size of the submatrix is equal to 40 and increments the count if so.",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 128,
+    "total_tokens": 344,
+    "completion_tokens": 216
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-4d95410185bc45d68e739cf3359fd848",
+  "object": "chat.completion",
+  "created": 1725636594,
+  "model": "Meta-Llama-3-405B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```\ndef all_substring_of_size_n(s):\n    from collections import defaultdict\n    result = set()\n    char_count = defaultdict(int)\n    for i in range(len(s)):\n        char_count = defaultdict(int)\n        for j in range(i, len(s)):\n            char_count[s[j]] += 1\n            if j - i + 1 == 26:\n                if all(count == 1 for count in char_count.values()):\n                    result.add(s[i:j+1])\n    return list(result)\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 143,
+    "total_tokens": 249,
+    "completion_tokens": 106
+  }
+}

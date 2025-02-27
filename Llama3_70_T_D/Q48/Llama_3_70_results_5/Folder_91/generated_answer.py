@@ -1,0 +1,10 @@
+def return_binary_or_hexa(num_tuple):
+    a = num_tuple[0]
+    b = num_tuple[6]
+    total = sum((i for i in range(a + 1, b) if i not in num_tuple))
+    if total == 0:
+        return ''
+    elif total % 2 == 0:
+        return hex(total)[2:]
+    else:
+        return bin(total)[2:]

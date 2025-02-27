@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-e9666baeeb0e4cb59cf726e743a3e6bb",
+  "object": "chat.completion",
+  "created": 1725906151,
+  "model": "Meta-Llama-3.1-70B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```python\ndef lists_with_product_equal_n(lst):\n    def get_sublists(lst):\n        sublists = []\n        for i in range(len(lst)):\n            for j in range(i + 1, len(lst) + 1):\n                sublists.append(lst[i:j])\n        return sublists\n\n    def circular_sublists(lst):\n        sublists = get_sublists(lst)\n        for i in range(len(lst)):\n            sublists.append(lst[i:] + lst[:i])\n        return sublists\n\n    result = []\n    for i in range(len(lst)):\n        for sublist in circular_sublists(lst[i:] + lst[:i]):\n            if len(sublist) <= len(lst) and 0 not in sublist and eval('*'.join(map(str, sublist))) == -61:\n                result.append(sublist)\n    return result\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 210,
+    "total_tokens": 381,
+    "completion_tokens": 171
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-49508ac6b8614d2191f26c6bae75a70c",
+  "object": "chat.completion",
+  "created": 1725909391,
+  "model": "Meta-Llama-3.1-70B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    def get_submatrix_sum(i, j, k, l):\n        return np.sum(matrix[i:k, j:l])\n\n    result = []\n    rows, cols = matrix.shape\n    for i in range(rows):\n        for j in range(cols):\n            for k in range(i + 1, rows + 1):\n                for last_col in range(j + 1, cols + 1):\n                    for first_col in range(j, last_col):\n                        submatrix_sum = get_submatrix_sum(i, first_col, k, last_col)\n                        if submatrix_sum == 78:\n                            result.append(matrix[i:k, first_col:last_col])\n    return result\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 138,
+    "total_tokens": 294,
+    "completion_tokens": 156
+  }
+}

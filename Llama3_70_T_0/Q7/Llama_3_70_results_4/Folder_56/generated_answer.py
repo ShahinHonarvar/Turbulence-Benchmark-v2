@@ -1,0 +1,2 @@
+def all_even_ints_inclusive(lst):
+    return [lst[i] for i in range(len(lst)) if i >= 0 and i <= 0 and (lst[i] % 2 == 0)]

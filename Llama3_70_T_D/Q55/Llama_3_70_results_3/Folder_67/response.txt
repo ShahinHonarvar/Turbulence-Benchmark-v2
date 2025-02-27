@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-0a0e2303f8ea40fb83cf73acadc40733",
+  "object": "chat.completion",
+  "created": 1725905661,
+  "model": "Meta-Llama-3.1-70B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```\ndef lists_with_product_equal_n(lst):\n    def product(sublist):\n        result = 1\n        for num in sublist:\n            result *= num\n        return result\n\n    result = []\n    n = len(lst)\n    for i in range(n):\n        for j in range(i, n + i):\n            sublist = lst[j % n:] + lst[:j % n]\n            for k in range(len(sublist)):\n                if product(sublist[:k+1]) == 33 and sublist[:k+1] not in result:\n                    result.append(sublist[:k+1])\n    return result\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 210,
+    "total_tokens": 339,
+    "completion_tokens": 129
+  }
+}

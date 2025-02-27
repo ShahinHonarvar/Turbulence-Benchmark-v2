@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-3635435dd0f5440cbb911b54930b0d0f",
+  "object": "chat.completion",
+  "created": 1725912378,
+  "model": "Meta-Llama-3.1-70B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    count = 0\n    n = matrix.shape[0] * matrix.shape[1] // 56\n    if n == 0:\n        return 0\n    for i in range(matrix.shape[0] - int(np.sqrt(n)) + 1):\n        for j in range(matrix.shape[1] - int(np.sqrt(n)) + 1):\n            for k in range(i + int(np.sqrt(n)), matrix.shape[0] + 1):\n                for l in range(j + int(np.sqrt(n)), matrix.shape[1] + 1):\n                    submatrix = matrix[i:k, j:l]\n                    if submatrix.size == 56:\n                        count += 1\n    return count\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 128,
+    "total_tokens": 293,
+    "completion_tokens": 165
+  }
+}

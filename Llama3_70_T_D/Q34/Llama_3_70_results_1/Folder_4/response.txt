@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-c2ee289def94480d80f8cb37f88766f2",
+  "object": "chat.completion",
+  "created": 1725867891,
+  "model": "Meta-Llama-3.1-70B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```\ndef find_original_set(*args):\n    if len(args) != 40:\n        raise ValueError(\"Exactly 40 arguments are required\")\n\n    if len(set(map(frozenset, args))) != 40:\n        raise ValueError(\"All arguments must be distinct\")\n\n    result = set()\n    for s in args:\n        result.update(s)\n    return result\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 112,
+    "total_tokens": 189,
+    "completion_tokens": 77
+  }
+}

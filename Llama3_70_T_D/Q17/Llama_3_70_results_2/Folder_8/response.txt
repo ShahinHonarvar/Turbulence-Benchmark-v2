@@ -1,0 +1,22 @@
+{
+  "id": "cmpl-532499354a6f435a9db48b47f2cebdcf",
+  "object": "chat.completion",
+  "created": 1725851530,
+  "model": "Meta-Llama-3.1-70B-Instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```python\ndef all_ints_div_by_both_two_nums(nums):\n    def gcd(a, b):\n        while b:\n            a, b = b, a % b\n        return abs(a)\n    def lcm(a, b):\n        return abs(a*b) // gcd(a, b)\n    target = lcm(-27, -96)\n    return [i for i in nums[36:86] if i % target == 0]\n```",
+        "tool_calls": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 135,
+    "total_tokens": 228,
+    "completion_tokens": 93
+  }
+}
