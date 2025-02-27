@@ -1,0 +1,3 @@
+def return_n_smallest_chars(string):
+    chars = sorted(string, key=ord)
+    return chars[-72:]

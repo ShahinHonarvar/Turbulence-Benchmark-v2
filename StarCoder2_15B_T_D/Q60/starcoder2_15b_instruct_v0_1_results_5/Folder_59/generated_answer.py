@@ -1,0 +1,2 @@
+def all_left_right_truncatable_prime(x):
+    return sorted((p for p in x if p > 9 and all((int(str(p)[i:]) in (2, 3, 5, 7) and int(str(p)[:i + 1]) in (2, 3, 5, 7) for i in range(len(str(p)) - 1)))), reverse=True)

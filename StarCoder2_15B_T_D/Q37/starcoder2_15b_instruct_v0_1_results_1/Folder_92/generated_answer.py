@@ -1,0 +1,2 @@
+def filter_chars(string):
+    return ''.join([c for c in string if c < '7' or c > 'o' or (c >= '7' and c <= 'o' and (not 4 <= string.index(c) <= 4))])

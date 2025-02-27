@@ -1,0 +1,3 @@
+def all_left_right_truncatable_prime(tuple_of_positive_integers):
+    x = tuple_of_positive_integers[24]
+    return [p for p in [n for n in range(2, x + 1) if all((n % d for d in range(2, int(n ** 0.5) + 1)))] if not any((c == '0' for c in str(p))) and all((int(str(p)[i:j]) in [n for n in range(2, x + 1) if all((n % d for d in range(2, int(n ** 0.5) + 1)))] for i in range(1, len(str(p))) for j in range(i + 1, len(str(p)) + 1)))]

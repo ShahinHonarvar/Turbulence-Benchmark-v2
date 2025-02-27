@@ -1,0 +1,16 @@
+def all_even_ints_inclusive(lst):
+    """
+    Returns the list of all even integers from index 0 to index 0, both inclusive.
+    If no even integers exist in the specified range, an empty list is returned.
+
+    Args:
+        lst (list): A list of integers.
+
+    Returns:
+        list: The list of all even integers from index 0 to index 0, both inclusive.
+    """
+    even_ints = []
+    for i in range(len(lst)):
+        if i % 2 == 0:
+            even_ints.append(lst[i])
+    return even_ints

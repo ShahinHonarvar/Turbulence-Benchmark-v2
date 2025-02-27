@@ -1,0 +1,9 @@
+def if_decimal_is_divisible(binary_string):
+    decimal_int = int(binary_string, 2)
+    fibonacci_sequence = [0, 1]
+    for i in range(2, 100):
+        fibonacci_sequence.append(fibonacci_sequence[i - 1] + fibonacci_sequence[i - 2])
+    for i in range(len(fibonacci_sequence)):
+        if decimal_int % fibonacci_sequence[i] == 0:
+            return True
+    return False

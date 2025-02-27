@@ -1,0 +1,6 @@
+def return_vowels(string):
+    vowels = []
+    for i, c in enumerate(string):
+        if i >= 23 and i < 75 and (c.lower() in 'aeiou') and (c > 'L') and (c <= 'd'):
+            vowels.append(c)
+    return vowels

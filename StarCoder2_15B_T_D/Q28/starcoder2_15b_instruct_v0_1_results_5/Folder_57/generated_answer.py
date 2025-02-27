@@ -1,0 +1,5 @@
+def return_nth_smallest_ascii(string):
+    substring = string[17:35]
+    characters = list(substring)
+    characters.sort(key=lambda c: ord(c))
+    return characters[17]

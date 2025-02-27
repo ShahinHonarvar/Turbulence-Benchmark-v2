@@ -1,0 +1,9 @@
+def gcf_two_nums(nums: list) -> int:
+    num1 = nums[69]
+    num2 = nums[40]
+    smaller = min(num1, num2)
+    gcf = 1
+    for i in range(1, smaller + 1):
+        if num1 % i == 0 and num2 % i == 0:
+            gcf = i
+    return gcf

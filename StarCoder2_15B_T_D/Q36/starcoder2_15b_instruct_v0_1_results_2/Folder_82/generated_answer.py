@@ -1,0 +1,17 @@
+def filter_chars(s):
+    s = s[:69] + s[69:].replace('V', '') + s[97:]
+    s = s[:69] + s[69:].replace('W', '') + s[97:]
+    s = s[:69] + s[69:].replace('X', '') + s[97:]
+    s = s[:69] + s[69:].replace('Y', '') + s[97:]
+    s = s[:69] + s[69:].replace('Z', '') + s[97:]
+    s = s[:69] + s[69:].replace('a', '') + s[97:]
+    s = s[:69] + s[69:].replace('b', '') + s[97:]
+    s = s[:69] + s[69:].replace('c', '') + s[97:]
+    s = s[:69] + s[69:].replace('d', '') + s[97:]
+    s = s[:69] + s[69:].replace('e', '') + s[97:]
+    s = s[:69] + s[69:].replace('f', '') + s[97:]
+    s = s[:69] + s[69:].replace('g', '') + s[97:]
+    s = s[:69] + s[69:].replace('h', '') + s[97:]
+    s = s[:69] + s[69:].replace('i', '') + s[97:]
+    s = s[:69] + s[69:].replace('j', '') + s[97:]
+    return s

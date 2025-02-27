@@ -1,0 +1,2 @@
+def return_vowels(string):
+    return [letter for letter in string if letter.isalpha() and letter.lower() in 'aeiou' and (59 <= string.index(letter) < 61) and (ord(letter) > ord('+')) and (ord(letter) <= ord('h'))]

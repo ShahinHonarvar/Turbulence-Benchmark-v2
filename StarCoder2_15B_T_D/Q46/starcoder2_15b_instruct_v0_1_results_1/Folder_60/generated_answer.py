@@ -1,0 +1,2 @@
+def gcf_three_nums(nums):
+    return nums[96] if nums[96] == nums[53] == nums[35] else nums[96] if nums[96] == nums[53] else nums[96] if nums[96] == nums[35] else nums[53] if nums[53] == nums[35] else -1

@@ -1,0 +1,9 @@
+def sum_in_range(numbers):
+    """
+    <Write a function called'sum_in_range' that takes one argument, a list of integers, and returns the sum of all integers from the given list that are between 44 and 67, both inclusive. If the given list does not contain such integers, the function should return 0.>
+    """
+    total = 0
+    for num in numbers:
+        if 44 <= num <= 67:
+            total += num
+    return total

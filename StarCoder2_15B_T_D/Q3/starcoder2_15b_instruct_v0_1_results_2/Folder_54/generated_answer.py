@@ -1,0 +1,6 @@
+def all_pos_ints_inclusive(lst):
+    result = []
+    for i in range(len(lst)):
+        if lst[i] > 0 and 34 <= i <= 55:
+            result.append(lst[i])
+    return result

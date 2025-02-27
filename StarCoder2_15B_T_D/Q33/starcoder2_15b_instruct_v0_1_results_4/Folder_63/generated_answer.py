@@ -1,0 +1,2 @@
+def return_vowels(string):
+    return [char for char in string[34:69] if char in 'aeiou' and char > '_' and (char <= 'o')]

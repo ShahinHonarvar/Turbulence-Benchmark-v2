@@ -1,0 +1,2 @@
+def prime_factors(numbers):
+    return set((factor for i in range(2, len(numbers)) for factor in range(2, numbers[i] + 1) if numbers[i] % factor == 0 and all((numbers[i] % j != 0 for j in range(2, factor)))))

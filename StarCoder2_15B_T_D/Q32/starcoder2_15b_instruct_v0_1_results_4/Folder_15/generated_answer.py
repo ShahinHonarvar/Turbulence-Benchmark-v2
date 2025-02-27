@@ -1,0 +1,2 @@
+def insert_after_character(string):
+    return ''.join([c + ('o' if c == 'o' else '') for c in string])

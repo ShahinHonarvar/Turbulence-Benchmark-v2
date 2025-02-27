@@ -1,0 +1,6 @@
+def return_vowels(string):
+    vowels = []
+    for i in range(142, 145):
+        if string[i] > '4' and string[i] <= 'o':
+            vowels.append(string[i])
+    return vowels

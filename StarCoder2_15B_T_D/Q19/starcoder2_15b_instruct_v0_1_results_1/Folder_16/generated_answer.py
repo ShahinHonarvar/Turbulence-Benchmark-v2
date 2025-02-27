@@ -1,0 +1,3 @@
+def all_ints_not_div_by_num(ints):
+    result = [i for i in ints[24:32] if i % 35 != 0]
+    return result

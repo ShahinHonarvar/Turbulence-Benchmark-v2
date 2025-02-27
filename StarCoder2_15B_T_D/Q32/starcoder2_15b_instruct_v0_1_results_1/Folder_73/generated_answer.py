@@ -1,0 +1,7 @@
+def insert_after_character(string):
+    new_string = ''
+    for index, character in enumerate(string):
+        new_string += character
+        if character == 'R':
+            new_string += 'V'
+    return new_string

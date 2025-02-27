@@ -1,0 +1,10 @@
+import re
+
+def remove_repeat_chars(s):
+    counts = {}
+    for c in s:
+        counts[c] = counts.get(c, 0) + 1
+    for c in counts:
+        if counts[c] > 1 and 90 < ord(c) < 97:
+            s = re.sub(c, '', s)
+    return s

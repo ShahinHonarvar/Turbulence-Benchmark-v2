@@ -1,0 +1,2 @@
+def all_left_right_truncatable_prime(nums):
+    return sorted([num for num in nums if num <= nums[89] if not str(num).startswith('0') if all((int(str(num)[i:i + 2]) in (2, 3, 5, 7) for i in range(len(str(num)) - 1)))], reverse=True)

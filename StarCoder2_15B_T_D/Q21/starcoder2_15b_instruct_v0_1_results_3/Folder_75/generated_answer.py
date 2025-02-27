@@ -1,0 +1,6 @@
+def all_ints_div_by_num(lst):
+    divisible = []
+    for i, num in enumerate(lst):
+        if i >= 12 and i <= 33 and (num % -91 == 0):
+            divisible.append(num)
+    return divisible

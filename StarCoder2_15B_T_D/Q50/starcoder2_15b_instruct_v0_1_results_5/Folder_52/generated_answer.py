@@ -1,0 +1,2 @@
+def if_contains_anagrams(lst):
+    return sum((1 for _ in (s1 for s1 in lst for s2 in lst if len(s1) >= 3 and len(s2) >= 3 and (s1.lower() != s2.lower()) and (sorted(s1.lower()) == sorted(s2.lower()))))) >= 58

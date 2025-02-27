@@ -1,0 +1,8 @@
+def return_binary_or_hexa(tup: tuple) -> str:
+    text_specification = "<Write a function called'return_binary_or_hexa' that takes one argument, a tuple of distinct nonnegative integers sorted in ascending order. Let 'a' denote the integer stored at index 13, and 'b' the integer stored at index 35. The function should calculate the sum of all integers from a + 1 to b - 1 (both inclusive) that are not present in the tuple between indices 13 and 35. If the sum is an odd number, the function should return the binary representation string of the sum; otherwise, it should return the hexadecimal representation string of the sum. The binary representation should not be prefixed with '0b'. The hexadecimal representation should not be prefixed with '0x'. The binary and hexadecimal representations should start with the most significant digit and have no leading zeros. The letters in hexadecimal representation can be either in lowercase or uppercase. If all integers from a + 1 to b - 1 (both inclusive) are present in the specified range in the tuple, the function should return an empty string.>"
+    text_specification = text_specification[1:-1]
+    lines = text_specification.split('\n')
+    lines = [line.strip() for line in lines]
+    lines = [line for line in lines if line]
+    _code = '\n'.join(lines)
+    return _code

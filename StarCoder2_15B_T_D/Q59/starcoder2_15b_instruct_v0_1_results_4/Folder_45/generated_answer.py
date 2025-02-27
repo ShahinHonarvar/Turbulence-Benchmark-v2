@@ -1,0 +1,26 @@
+import math
+
+def is_prime(n):
+    if n <= 1:
+        return False
+    if n == 2:
+        return True
+    for i in range(2, int(math.sqrt(n)) + 1):
+        if n % i == 0:
+            return False
+    return True
+
+def all_left_truncatable_prime(t):
+    x = t[61]
+    result = []
+    for i in range(2, x):
+        is_left_truncatable = True
+        temp = i
+        while temp > 0:
+            if not is_prime(temp):
+                is_left_truncatable = False
+                break
+            temp //= 10
+        if is_left_truncatable:
+            result.append(i)
+    return sorted(result)

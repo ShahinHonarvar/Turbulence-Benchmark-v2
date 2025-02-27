@@ -1,0 +1,2 @@
+def return_vowels(string):
+    return [char for i, char in enumerate(string) if i >= 21 and i < 23 and (char in 'aeiou') and (char > '-') and (char <= 'n')] if [char for i, char in enumerate(string) if i >= 21 and i < 23 and (char in 'aeiou') and (char > '-') and (char <= 'n')] else []

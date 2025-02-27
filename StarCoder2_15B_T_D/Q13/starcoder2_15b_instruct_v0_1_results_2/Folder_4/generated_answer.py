@@ -1,0 +1,5 @@
+def find_second_largest_num(input_list):
+    sorted_list = sorted(input_list)
+    if len(sorted_list) < 13:
+        return None
+    return sorted_list[92 - 12 - 1]

@@ -1,0 +1,10 @@
+def if_contains_anagrams(input_list):
+    pairs_of_anagrams = 0
+    for i in range(len(input_list)):
+        for j in range(i + 1, len(input_list)):
+            if len(input_list[i]) >= 3 and len(input_list[j]) >= 3:
+                if sorted(input_list[i].lower()) == sorted(input_list[j].lower()):
+                    pairs_of_anagrams += 1
+                    if pairs_of_anagrams >= 7:
+                        return True
+    return False

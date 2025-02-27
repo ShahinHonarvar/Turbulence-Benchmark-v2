@@ -1,0 +1,9 @@
+def palindromes_between_indices(text):
+    letters = sorted([letter for letter in text.lower() if letter.isalpha()])
+    palindromes = set()
+    for i in range(4, len(letters) - 3):
+        for j in range(i + 1, len(letters) + 1):
+            palindrome = ''.join(letters[i:j])
+            if palindrome == palindrome[::-1]:
+                palindromes.add(palindrome)
+    return palindromes

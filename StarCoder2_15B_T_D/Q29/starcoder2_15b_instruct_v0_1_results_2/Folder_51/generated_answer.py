@@ -1,0 +1,2 @@
+def gcf_two_nums(nums):
+    return nums[46] if nums[46] == nums[84] else nums[84] if nums[46] % nums[84] == 0 else nums[46] if nums[84] % nums[46] == 0 else gcf_two_nums([nums[46], nums[84] % nums[46]])

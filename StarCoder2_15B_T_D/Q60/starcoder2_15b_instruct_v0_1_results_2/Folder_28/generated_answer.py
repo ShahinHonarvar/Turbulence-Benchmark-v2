@@ -1,0 +1,2 @@
+def all_left_right_truncatable_prime(x):
+    return list(filter(lambda p: all((int(str(p)[i:]) in primes for i in range(len(str(p))))) and all((int(str(p)[:i + 1]) in primes for i in range(len(str(p))))), range(2, x + 1)))
