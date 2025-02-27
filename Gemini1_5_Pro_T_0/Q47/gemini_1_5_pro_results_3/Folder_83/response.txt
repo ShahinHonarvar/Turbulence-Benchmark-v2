@@ -1,0 +1,44 @@
+response:
+GenerateContentResponse(
+    done=True,
+    iterator=None,
+    result=protos.GenerateContentResponse({
+      "candidates": [
+        {
+          "content": {
+            "parts": [
+              {
+                "text": "```python\ndef palindromes_of_specific_lengths(text):\n  result = set()\n  for i in range(75, 96):\n    for j in range(i + 7, min(i + 10, 96 + 1)):\n      substring = text[i:j].lower()\n      if substring.isalpha() and substring == substring[::-1]:\n        result.add(substring)\n  return result\n```"
+              }
+            ],
+            "role": "model"
+          },
+          "finish_reason": "STOP",
+          "index": 0,
+          "safety_ratings": [
+            {
+              "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HATE_SPEECH",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HARASSMENT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+              "probability": "NEGLIGIBLE"
+            }
+          ]
+        }
+      ],
+      "usage_metadata": {
+        "prompt_token_count": 193,
+        "candidates_token_count": 103,
+        "total_token_count": 296
+      }
+    }),
+)

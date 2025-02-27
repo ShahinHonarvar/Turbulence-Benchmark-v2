@@ -1,0 +1,59 @@
+response:
+GenerateContentResponse(
+    done=True,
+    iterator=None,
+    result=protos.GenerateContentResponse({
+      "candidates": [
+        {
+          "content": {
+            "parts": [
+              {
+                "text": "```python\ndef all_left_right_truncatable_prime(numbers):\n    x = numbers[86]\n    def is_prime(n):\n        if n <= 1:\n            return False\n        for i in range(2, int(n**0.5) + 1):\n            if n % i == 0:\n                return False\n        return True\n    def is_left_right_truncatable_prime(n):\n        if n < 10 or '0' in str(n):\n            return False\n        if not is_prime(n):\n            return False\n        n_str = str(n)\n        for i in range(1, len(n_str)):\n            if not is_prime(int(n_str[i:])):\n                return False\n            if not is_prime(int(n_str[:len(n_str)-i])):\n                return False\n        return True\n    result = []\n    for i in range(2, x + 1):\n        if is_left_right_truncatable_prime(i):\n            result.append(i)\n    result.sort(reverse=True)\n    return result\n```\n"
+              },
+              {
+                "executable_code": {
+                  "language": "PYTHON",
+                  "code": "\nprint(all_left_right_truncatable_prime((2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101, 103, 107, 109, 113, 127, 131, 137, 139, 149, 151, 157, 163, 167, 173, 179, 181, 191, 193, 197, 199, 211, 223, 227, 229, 233, 239, 241, 251, 257, 263, 269, 271, 277, 281, 283, 293, 307, 311, 313, 317, 331, 337, 347, 349, 353, 359, 367, 373, 379, 383, 389, 397, 401, 409, 419, 421, 431, 433, 439, 443, 449, 457, 461, 463, 467, 479, 487, 491, 499, 503, 509, 521, 523, 541)))\n"
+                }
+              },
+              {
+                "code_execution_result": {
+                  "outcome": "OUTCOME_OK",
+                  "output": "Traceback (most recent call last):\n  File \"<string>\", line 2, in <module>\nNameError: name 'all_left_right_truncatable_prime' is not defined\n"
+                }
+              },
+              {
+                "text": "The previous response was not completely self-contained. Let's try again. \n\n```python\ndef all_left_right_truncatable_prime(numbers):\n    x = numbers[86]\n    def is_prime(n):\n        if n <= 1:\n            return False\n        for i in range(2, int(n**0.5) + 1):\n            if n % i == 0:\n                return False\n        return True\n    def is_left_right_truncatable_prime(n):\n        if n < 10 or '0' in str(n):\n            return False\n        if not is_prime(n):\n            return False\n        n_str = str(n)\n        for i in range(1, len(n_str)):\n            if not is_prime(int(n_str[i:])):\n                return False\n            if not is_prime(int(n_str[:len(n_str)-i])):\n                return False\n        return True\n    result = []\n    for i in range(2, x + 1):\n        if is_left_right_truncatable_prime(i):\n            result.append(i)\n    result.sort(reverse=True)\n    return result\nprint(all_left_right_truncatable_prime((2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101, 103, 107, 109, 113, 127, 131, 137, 139, 149, 151, 157, 163, 167, 173, 179, 181, 191, 193, 197, 199, 211, 223, 227, 229, 233, 239, 241, 251, 257, 263, 269, 271, 277, 281, 283, 293, 307, 311, 313, 317, 331, 337, 347, 349, 353, 359, 367, 373, 379, 383, 389, 397, 401, 409, 419, 421, 431, 433, 439, 443, 449, 457, 461, 463, 467, 479, 487, 491, 499, 503, 509, 521, 523, 541)))\n```"
+              }
+            ],
+            "role": "model"
+          },
+          "finish_reason": "STOP",
+          "index": 0,
+          "safety_ratings": [
+            {
+              "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HATE_SPEECH",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HARASSMENT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+              "probability": "NEGLIGIBLE"
+            }
+          ]
+        }
+      ],
+      "usage_metadata": {
+        "prompt_token_count": 200,
+        "candidates_token_count": 774,
+        "total_token_count": 974
+      }
+    }),
+)

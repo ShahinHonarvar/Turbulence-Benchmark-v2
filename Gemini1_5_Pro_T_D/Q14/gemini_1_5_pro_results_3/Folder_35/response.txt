@@ -1,0 +1,44 @@
+response:
+GenerateContentResponse(
+    done=True,
+    iterator=None,
+    result=protos.GenerateContentResponse({
+      "candidates": [
+        {
+          "content": {
+            "parts": [
+              {
+                "text": "```python\ndef find_second_smallest_num(numbers):\n    if len(numbers) < 40:\n        return None\n    sliced_list = numbers[15:40]\n    min_num = min(sliced_list)\n    if sliced_list.count(min_num) > 1:\n        return min_num\n    sliced_list.remove(min_num)\n    if len(sliced_list) == 0:\n        return None\n    return min(sliced_list)\n```"
+              }
+            ],
+            "role": "model"
+          },
+          "finish_reason": "STOP",
+          "index": 0,
+          "safety_ratings": [
+            {
+              "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HATE_SPEECH",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HARASSMENT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+              "probability": "NEGLIGIBLE"
+            }
+          ]
+        }
+      ],
+      "usage_metadata": {
+        "prompt_token_count": 114,
+        "candidates_token_count": 119,
+        "total_token_count": 233
+      }
+    }),
+)

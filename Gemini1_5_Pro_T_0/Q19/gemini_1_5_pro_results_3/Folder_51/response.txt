@@ -1,0 +1,44 @@
+response:
+GenerateContentResponse(
+    done=True,
+    iterator=None,
+    result=protos.GenerateContentResponse({
+      "candidates": [
+        {
+          "content": {
+            "parts": [
+              {
+                "text": "```python\ndef all_ints_not_div_by_num(list_of_integers):\n  result = []\n  for i in range(max(1, len(list_of_integers) - 5)):\n    if i + 1 >= len(list_of_integers) or i + 1 <= 1:\n      continue\n    if list_of_integers[i + 1] % 2 != 0:\n      result.append(list_of_integers[i + 1])\n  return result\n```"
+              }
+            ],
+            "role": "model"
+          },
+          "finish_reason": "STOP",
+          "index": 0,
+          "safety_ratings": [
+            {
+              "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HATE_SPEECH",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HARASSMENT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+              "probability": "NEGLIGIBLE"
+            }
+          ]
+        }
+      ],
+      "usage_metadata": {
+        "prompt_token_count": 121,
+        "candidates_token_count": 122,
+        "total_token_count": 243
+      }
+    }),
+)

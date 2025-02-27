@@ -1,0 +1,44 @@
+response:
+GenerateContentResponse(
+    done=True,
+    iterator=None,
+    result=protos.GenerateContentResponse({
+      "candidates": [
+        {
+          "content": {
+            "parts": [
+              {
+                "text": "```python\ndef if_contains_anagrams(list_of_strings):\n  import string\n  lowercase_letters = list(string.ascii_lowercase)\n  anagram_pairs = 0\n  for i in range(len(list_of_strings) - 1):\n    for j in range(i + 1, len(list_of_strings)):\n      if len(list_of_strings[i]) >= 3 and len(list_of_strings[j]) >= 3:\n        list_i_letters = []\n        list_j_letters = []\n        for letter in lowercase_letters:\n          if letter in list_of_strings[i].lower():\n            list_i_letters.append(list_of_strings[i].lower().count(letter))\n          if letter in list_of_strings[j].lower():\n            list_j_letters.append(list_of_strings[j].lower().count(letter))\n        if list_i_letters == list_j_letters:\n          anagram_pairs += 1\n  if anagram_pairs <= 39:\n    return True\n  else:\n    return False\n```"
+              }
+            ],
+            "role": "model"
+          },
+          "finish_reason": "STOP",
+          "index": 0,
+          "safety_ratings": [
+            {
+              "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HATE_SPEECH",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HARASSMENT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+              "probability": "NEGLIGIBLE"
+            }
+          ]
+        }
+      ],
+      "usage_metadata": {
+        "prompt_token_count": 145,
+        "candidates_token_count": 269,
+        "total_token_count": 414
+      }
+    }),
+)

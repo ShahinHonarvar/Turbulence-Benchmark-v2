@@ -1,0 +1,59 @@
+response:
+GenerateContentResponse(
+    done=True,
+    iterator=None,
+    result=protos.GenerateContentResponse({
+      "candidates": [
+        {
+          "content": {
+            "parts": [
+              {
+                "text": "```python\ndef palindromes_between_indices(string):\n  from collections import Counter\n  string = string[0:6].lower()\n  letters = [letter for letter in string if letter.isalpha()]\n  letter_counts = Counter(letters)\n  palindromes = set()\n  if len(letters) < 3:\n    return palindromes\n  def form_palindromes(current_palindrome, letter_counts):\n    if len(current_palindrome) >= 3:\n      palindromes.add(current_palindrome)\n    for letter in letter_counts:\n      if letter_counts[letter] >= 2:\n        letter_counts[letter] -= 2\n        form_palindromes(letter + current_palindrome + letter, letter_counts)\n        letter_counts[letter] += 2\n      if letter_counts[letter] >= 1:\n        letter_counts[letter] -= 1\n        form_palindromes(letter + current_palindrome + letter, letter_counts)\n        letter_counts[letter] += 1\n  form_palindromes(\"\", letter_counts)\n  return palindromes\n```\n"
+              },
+              {
+                "executable_code": {
+                  "language": "PYTHON",
+                  "code": "\nprint(palindromes_between_indices(\"aabaa\"))\n"
+                }
+              },
+              {
+                "code_execution_result": {
+                  "outcome": "OUTCOME_OK",
+                  "output": "Traceback (most recent call last):\n  File \"<string>\", line 2, in <module>\nNameError: name 'palindromes_between_indices' is not defined\n"
+                }
+              },
+              {
+                "text": "```python\ndef palindromes_between_indices(string):\n  from collections import Counter\n  string = string[0:6].lower()\n  letters = [letter for letter in string if letter.isalpha()]\n  letter_counts = Counter(letters)\n  palindromes = set()\n  if len(letters) < 3:\n    return palindromes\n  def form_palindromes(current_palindrome, letter_counts):\n    if len(current_palindrome) >= 3:\n      palindromes.add(current_palindrome)\n    for letter in letter_counts:\n      if letter_counts[letter] >= 2:\n        letter_counts[letter] -= 2\n        form_palindromes(letter + current_palindrome + letter, letter_counts)\n        letter_counts[letter] += 2\n      if letter_counts[letter] >= 1:\n        letter_counts[letter] -= 1\n        form_palindromes(letter + current_palindrome + letter, letter_counts)\n        letter_counts[letter] += 1\n  form_palindromes(\"\", letter_counts)\n  return palindromes\n```"
+              }
+            ],
+            "role": "model"
+          },
+          "finish_reason": "STOP",
+          "index": 0,
+          "safety_ratings": [
+            {
+              "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HATE_SPEECH",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HARASSMENT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+              "probability": "NEGLIGIBLE"
+            }
+          ]
+        }
+      ],
+      "usage_metadata": {
+        "prompt_token_count": 184,
+        "candidates_token_count": 263,
+        "total_token_count": 447
+      }
+    }),
+)

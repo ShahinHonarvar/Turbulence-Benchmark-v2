@@ -1,0 +1,59 @@
+response:
+GenerateContentResponse(
+    done=True,
+    iterator=None,
+    result=protos.GenerateContentResponse({
+      "candidates": [
+        {
+          "content": {
+            "parts": [
+              {
+                "text": "```python\ndef all_ints_div_by_num(list_of_integers):\n  result = []\n  for i in range(22, 64):\n    if i < len(list_of_integers) and list_of_integers[i] % -61 == 0:\n      result.append(list_of_integers[i])\n  return result\n```\n"
+              },
+              {
+                "executable_code": {
+                  "language": "PYTHON",
+                  "code": "\nprint(all_ints_div_by_num([1, 61, 2, -61, 122, -183, 243, 305, 122, 366, -427, -488, 549, 610]))\nprint(all_ints_div_by_num([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]))\n"
+                }
+              },
+              {
+                "code_execution_result": {
+                  "outcome": "OUTCOME_OK",
+                  "output": "Traceback (most recent call last):\n  File \"<string>\", line 2, in <module>\nNameError: name 'all_ints_div_by_num' is not defined\n"
+                }
+              },
+              {
+                "text": "```python\ndef all_ints_div_by_num(list_of_integers):\n  result = []\n  for i in range(22, 64):\n    if i < len(list_of_integers) and list_of_integers[i] % -61 == 0:\n      result.append(list_of_integers[i])\n  return result\n```"
+              }
+            ],
+            "role": "model"
+          },
+          "finish_reason": "STOP",
+          "index": 0,
+          "safety_ratings": [
+            {
+              "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HATE_SPEECH",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HARASSMENT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+              "probability": "NEGLIGIBLE"
+            }
+          ]
+        }
+      ],
+      "usage_metadata": {
+        "prompt_token_count": 121,
+        "candidates_token_count": 89,
+        "total_token_count": 210
+      }
+    }),
+)

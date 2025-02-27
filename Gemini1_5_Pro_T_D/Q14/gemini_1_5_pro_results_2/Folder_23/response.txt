@@ -1,0 +1,44 @@
+response:
+GenerateContentResponse(
+    done=True,
+    iterator=None,
+    result=protos.GenerateContentResponse({
+      "candidates": [
+        {
+          "content": {
+            "parts": [
+              {
+                "text": "```python\ndef find_second_smallest_num(numbers):\n  if len(numbers) < 93 or 19 > len(numbers):\n    return None\n  second_smallest = float('inf')\n  smallest = float('inf')\n  for i in range(19, 93):\n    if numbers[i] < smallest:\n      second_smallest = smallest\n      smallest = numbers[i]\n    elif numbers[i] < second_smallest and numbers[i] != smallest:\n      second_smallest = numbers[i]\n  if second_smallest == float('inf'):\n    return None\n  else:\n    return second_smallest\n```"
+              }
+            ],
+            "role": "model"
+          },
+          "finish_reason": "STOP",
+          "index": 0,
+          "safety_ratings": [
+            {
+              "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HATE_SPEECH",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HARASSMENT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+              "probability": "NEGLIGIBLE"
+            }
+          ]
+        }
+      ],
+      "usage_metadata": {
+        "prompt_token_count": 114,
+        "candidates_token_count": 151,
+        "total_token_count": 265
+      }
+    }),
+)

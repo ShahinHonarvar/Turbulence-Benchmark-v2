@@ -1,0 +1,12 @@
+def lists_with_product_equal_n(circular_list):
+    n = len(circular_list)
+    result = []
+    for i in range(n):
+        for j in range(i, i + n):
+            sublist = circular_list[i:(j + 1) % n] + circular_list[:(j + 1) % (n + 1) if j + 1 > n else 0]
+            product = 1
+            for k in sublist:
+                product *= k
+            if product == 33:
+                result.append(sublist)
+    return result

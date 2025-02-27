@@ -1,0 +1,44 @@
+response:
+GenerateContentResponse(
+    done=True,
+    iterator=None,
+    result=protos.GenerateContentResponse({
+      "candidates": [
+        {
+          "content": {
+            "parts": [
+              {
+                "text": "```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n    matrix = np.array(matrix)\n    row_num, col_num = matrix.shape\n    submatrices = []\n    for i in range(row_num):\n        for j in range(col_num):\n            for k in range(i, row_num):\n                for l in range(j, col_num):\n                    submatrix = matrix[i:k+1, j:l+1]\n                    if np.sum(submatrix) == 66:\n                        submatrices.append(submatrix.tolist())\n    return submatrices\n```"
+              }
+            ],
+            "role": "model"
+          },
+          "finish_reason": "STOP",
+          "index": 0,
+          "safety_ratings": [
+            {
+              "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HATE_SPEECH",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HARASSMENT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+              "probability": "NEGLIGIBLE"
+            }
+          ]
+        }
+      ],
+      "usage_metadata": {
+        "prompt_token_count": 127,
+        "candidates_token_count": 150,
+        "total_token_count": 277
+      }
+    }),
+)

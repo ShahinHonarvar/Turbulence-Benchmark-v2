@@ -1,0 +1,44 @@
+response:
+GenerateContentResponse(
+    done=True,
+    iterator=None,
+    result=protos.GenerateContentResponse({
+      "candidates": [
+        {
+          "content": {
+            "parts": [
+              {
+                "text": "```python\ndef palindromes_between_indices(string):\n  from collections import Counter\n  from itertools import permutations\n  letters = ''.join(c for c in string[3:10] if c.isalpha()).lower()\n  if len(letters) < 7:\n    return set()\n  palindromes = set()\n  for perm in {''.join(p) for p in permutations(letters)}:\n    if len(perm) >= 7 and perm == perm[::-1]:\n      palindromes.add(perm)\n  return palindromes\n```"
+              }
+            ],
+            "role": "model"
+          },
+          "finish_reason": "STOP",
+          "index": 0,
+          "safety_ratings": [
+            {
+              "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HATE_SPEECH",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HARASSMENT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+              "probability": "NEGLIGIBLE"
+            }
+          ]
+        }
+      ],
+      "usage_metadata": {
+        "prompt_token_count": 184,
+        "candidates_token_count": 129,
+        "total_token_count": 313
+      }
+    }),
+)

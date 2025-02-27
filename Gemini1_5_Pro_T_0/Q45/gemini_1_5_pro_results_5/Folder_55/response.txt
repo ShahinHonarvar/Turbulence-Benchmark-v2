@@ -1,0 +1,44 @@
+response:
+GenerateContentResponse(
+    done=True,
+    iterator=None,
+    result=protos.GenerateContentResponse({
+      "candidates": [
+        {
+          "content": {
+            "parts": [
+              {
+                "text": "```python\ndef palindromes_between_indices(string):\n  from collections import Counter\n  letters = set(string[0:3].lower()) & set('abcdefghijklmnopqrstuvwxyz')\n  letters_count = Counter(string[0:3].lower())\n  palindromes = set()\n  if len(letters) < 3:\n    return palindromes\n  for i in letters:\n    for j in letters:\n      if i != j:\n        for k in letters:\n          if k != i and k != j:\n            candidate = i + j + k\n            if letters_count[i] >= candidate.lower().count(i) and letters_count[j] >= candidate.lower().count(j) and letters_count[k] >= candidate.lower().count(k):\n              palindromes.add(candidate)\n  return palindromes\n```"
+              }
+            ],
+            "role": "model"
+          },
+          "finish_reason": "STOP",
+          "index": 0,
+          "safety_ratings": [
+            {
+              "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HATE_SPEECH",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HARASSMENT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+              "probability": "NEGLIGIBLE"
+            }
+          ]
+        }
+      ],
+      "usage_metadata": {
+        "prompt_token_count": 184,
+        "candidates_token_count": 197,
+        "total_token_count": 381
+      }
+    }),
+)

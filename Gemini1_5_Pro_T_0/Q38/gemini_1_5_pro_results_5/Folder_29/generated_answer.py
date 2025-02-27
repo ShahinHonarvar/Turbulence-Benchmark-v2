@@ -1,0 +1,2 @@
+def find_subset_of_length_n(set_of_elements):
+    return len(set((combination for i in range(1, len(set_of_elements) + 1) for combination in itertools.combinations(set_of_elements, i) if len(combination) == 19)))

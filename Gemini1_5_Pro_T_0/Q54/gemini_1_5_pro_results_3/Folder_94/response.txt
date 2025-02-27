@@ -1,0 +1,59 @@
+response:
+GenerateContentResponse(
+    done=True,
+    iterator=None,
+    result=protos.GenerateContentResponse({
+      "candidates": [
+        {
+          "content": {
+            "parts": [
+              {
+                "text": "```python\ndef all_right_truncatable_prime(numbers):\n    x = numbers[43]\n    def is_prime(n):\n        if n <= 1:\n            return False\n        for i in range(2, int(n**0.5) + 1):\n            if n % i == 0:\n                return False\n        return True\n    def is_right_truncatable_prime(n):\n        if not is_prime(n):\n            return False\n        for i in range(len(str(n)) - 1, 0, -1):\n            if not is_prime(int(str(n)[:i])):\n                return False\n        return True\n    result = []\n    for i in range(2, x):\n        if is_right_truncatable_prime(i):\n            result.append(i)\n    result.sort()\n    return result\n```\n"
+              },
+              {
+                "executable_code": {
+                  "language": "PYTHON",
+                  "code": "\nprint(all_right_truncatable_prime((1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 100, 45, 46, 47, 48, 49, 50)))\n"
+                }
+              },
+              {
+                "code_execution_result": {
+                  "outcome": "OUTCOME_OK",
+                  "output": "Traceback (most recent call last):\n  File \"<string>\", line 2, in <module>\nNameError: name 'all_right_truncatable_prime' is not defined\n"
+                }
+              },
+              {
+                "text": "```python\ndef all_right_truncatable_prime(numbers):\n    x = numbers[43]\n    def is_prime(n):\n        if n <= 1:\n            return False\n        for i in range(2, int(n**0.5) + 1):\n            if n % i == 0:\n                return False\n        return True\n    def is_right_truncatable_prime(n):\n        if not is_prime(n):\n            return False\n        for i in range(len(str(n)) - 1, 0, -1):\n            if not is_prime(int(str(n)[:i])):\n                return False\n        return True\n    result = []\n    for i in range(2, x):\n        if is_right_truncatable_prime(i):\n            result.append(i)\n    result.sort()\n    return result\n```"
+              }
+            ],
+            "role": "model"
+          },
+          "finish_reason": "STOP",
+          "index": 0,
+          "safety_ratings": [
+            {
+              "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HATE_SPEECH",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HARASSMENT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+              "probability": "NEGLIGIBLE"
+            }
+          ]
+        }
+      ],
+      "usage_metadata": {
+        "prompt_token_count": 162,
+        "candidates_token_count": 210,
+        "total_token_count": 372
+      }
+    }),
+)

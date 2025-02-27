@@ -1,0 +1,75 @@
+response:
+GenerateContentResponse(
+    done=True,
+    iterator=None,
+    result=protos.GenerateContentResponse({
+      "candidates": [
+        {
+          "content": {
+            "parts": [
+              {
+                "text": "```python\ndef all_left_truncatable_prime(numbers):\n    x = numbers[70]\n    def is_left_truncatable_prime(n):\n        if n < 10 and n > 1:\n            return True\n        s = str(n)\n        if '0' in s:\n            return False\n        for i in range(1, len(s)):\n            if int(s[i:]) % 2 == 0 or int(s[i:]) % 5 == 0:\n                return False\n            if not is_prime(int(s[i:])):\n                return False\n        return True\n    def is_prime(n):\n        if n <= 1:\n            return False\n        if n <= 3:\n            return True\n        if n % 2 == 0 or n % 3 == 0:\n            return False\n        i = 5\n        while i * i <= n:\n            if n % i == 0 or n % (i + 2) == 0:\n                return False\n            i += 6\n        return True\n    result = []\n    for i in range(2, x):\n        if is_left_truncatable_prime(i):\n            result.append(i)\n    result.sort(reverse=True)\n    return result\n```\n"
+              },
+              {
+                "executable_code": {
+                  "language": "PYTHON",
+                  "code": "\nprint(all_left_truncatable_prime((99, 100, 5, 7, 2, 3, 5, 7, 11, 13, 17, 1, 5, 4, 6, 8, 9, 10, 12, 11, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71)))\n"
+                }
+              },
+              {
+                "code_execution_result": {
+                  "outcome": "OUTCOME_OK",
+                  "output": "Traceback (most recent call last):\n  File \"<string>\", line 2, in <module>\nNameError: name 'all_left_truncatable_prime' is not defined\n"
+                }
+              },
+              {
+                "text": "```python\ndef all_left_truncatable_prime(numbers):\n    x = numbers[70]\n    def is_left_truncatable_prime(n):\n        if n < 10 and n > 1:\n            return True\n        s = str(n)\n        if '0' in s:\n            return False\n        for i in range(1, len(s)):\n            if int(s[i:]) % 2 == 0 or int(s[i:]) % 5 == 0:\n                return False\n            if not is_prime(int(s[i:])):\n                return False\n        return True\n    def is_prime(n):\n        if n <= 1:\n            return False\n        if n <= 3:\n            return True\n        if n % 2 == 0 or n % 3 == 0:\n            return False\n        i = 5\n        while i * i <= n:\n            if n % i == 0 or n % (i + 2) == 0:\n                return False\n            i += 6\n        return True\n    result = []\n    for i in range(2, x):\n        if is_left_truncatable_prime(i):\n            result.append(i)\n    result.sort(reverse=True)\n    return result\n```"
+              }
+            ],
+            "role": "model"
+          },
+          "finish_reason": "STOP",
+          "index": 0,
+          "safety_ratings": [
+            {
+              "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HATE_SPEECH",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HARASSMENT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+              "probability": "NEGLIGIBLE"
+            }
+          ],
+          "citation_metadata": {
+            "citation_sources": [
+              {
+                "start_index": 407,
+                "end_index": 684,
+                "uri": "https://github.com/JackDraak/EulerProject",
+                "license_": ""
+              },
+              {
+                "start_index": 513,
+                "end_index": 774,
+                "uri": "",
+                "license_": ""
+              }
+            ]
+          }
+        }
+      ],
+      "usage_metadata": {
+        "prompt_token_count": 151,
+        "candidates_token_count": 307,
+        "total_token_count": 458
+      }
+    }),
+)

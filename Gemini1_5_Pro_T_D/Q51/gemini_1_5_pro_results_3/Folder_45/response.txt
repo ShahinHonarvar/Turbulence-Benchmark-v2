@@ -1,0 +1,59 @@
+response:
+GenerateContentResponse(
+    done=True,
+    iterator=None,
+    result=protos.GenerateContentResponse({
+      "candidates": [
+        {
+          "content": {
+            "parts": [
+              {
+                "text": "```python\ndef if_contains_anagrams(list_of_strings):\n    from collections import Counter\n    def is_anagram(string1, string2):\n        return Counter(string1.lower()) == Counter(string2.lower())\n    number_of_anagrams = 0\n    for i in range(len(list_of_strings)):\n        for j in range(i + 1, len(list_of_strings)):\n            if len(list_of_strings[i]) >= 3 and len(list_of_strings[j]) >= 3 and is_anagram(list_of_strings[i], list_of_strings[j]):\n                number_of_anagrams += 1\n    if number_of_anagrams <= 464:\n        return True\n    else:\n        return False\n```\n"
+              },
+              {
+                "executable_code": {
+                  "language": "PYTHON",
+                  "code": "\nprint(if_contains_anagrams(['a', 'aa', 'aaa', 'aaron']))\nprint(if_contains_anagrams(['a', 'aa', 'aaa', 'aaron', 'AARON']))\nprint(if_contains_anagrams(['Ron', 'nor', 'a', 'aa', 'aaa', 'aaron']))\n"
+                }
+              },
+              {
+                "code_execution_result": {
+                  "outcome": "OUTCOME_OK",
+                  "output": "Traceback (most recent call last):\n  File \"<string>\", line 2, in <module>\nNameError: name 'if_contains_anagrams' is not defined\n"
+                }
+              },
+              {
+                "text": "I see that I missed to include the function definition in the generated code.\n\n```python\ndef if_contains_anagrams(list_of_strings):\n    from collections import Counter\n    def is_anagram(string1, string2):\n        return Counter(string1.lower()) == Counter(string2.lower())\n    number_of_anagrams = 0\n    for i in range(len(list_of_strings)):\n        for j in range(i + 1, len(list_of_strings)):\n            if len(list_of_strings[i]) >= 3 and len(list_of_strings[j]) >= 3 and is_anagram(list_of_strings[i], list_of_strings[j]):\n                number_of_anagrams += 1\n    if number_of_anagrams <= 464:\n        return True\n    else:\n        return False\nprint(if_contains_anagrams(['a', 'aa', 'aaa', 'aaron']))\nprint(if_contains_anagrams(['a', 'aa', 'aaa', 'aaron', 'AARON']))\nprint(if_contains_anagrams(['Ron', 'nor', 'a', 'aa', 'aaa', 'aaron']))\n```"
+              }
+            ],
+            "role": "model"
+          },
+          "finish_reason": "STOP",
+          "index": 0,
+          "safety_ratings": [
+            {
+              "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HATE_SPEECH",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HARASSMENT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+              "probability": "NEGLIGIBLE"
+            }
+          ]
+        }
+      ],
+      "usage_metadata": {
+        "prompt_token_count": 146,
+        "candidates_token_count": 282,
+        "total_token_count": 428
+      }
+    }),
+)

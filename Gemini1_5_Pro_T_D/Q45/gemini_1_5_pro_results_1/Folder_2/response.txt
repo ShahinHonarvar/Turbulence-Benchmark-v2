@@ -1,0 +1,44 @@
+response:
+GenerateContentResponse(
+    done=True,
+    iterator=None,
+    result=protos.GenerateContentResponse({
+      "candidates": [
+        {
+          "content": {
+            "parts": [
+              {
+                "text": "```python\ndef palindromes_between_indices(string):\n    letters = []\n    for i in range(1, 6):\n        if string[i].isalpha():\n            letters.append(string[i].lower())\n    palindromes = set()\n    for i in range(len(letters) - 5):\n        for j in range(i + 1, len(letters) - 4):\n            for k in range(j + 1, len(letters) - 3):\n                for l in range(k + 1, len(letters) - 2):\n                    for m in range(l + 1, len(letters) - 1):\n                        for n in range(m + 1, len(letters)):\n                            for p in range(6):\n                                for q in range(p + 1, 6):\n                                    palindrome = \"\"\n                                    if p == 0:\n                                        palindrome += letters[i]\n                                    if p == 1:\n                                        palindrome += letters[j]\n                                    if p == 2:\n                                        palindrome += letters[k]\n                                    if p == 3:\n                                        palindrome += letters[l]\n                                    if p == 4:\n                                        palindrome += letters[m]\n                                    if p == 5:\n                                        palindrome += letters[n]\n                                    if q == 1:\n                                        palindrome += letters[j]\n                                    if q == 2:\n                                        palindrome += letters[k]\n                                    if q == 3:\n                                        palindrome += letters[l]\n                                    if q == 4:\n                                        palindrome += letters[m]\n                                    if q == 5:\n                                        palindrome += letters[n]\n                                    palindrome += palindrome[q - 1::-1]\n                                    if len(palindrome) >= 6:\n                                        palindromes.add(palindrome)\n    return palindromes\n```"
+              }
+            ],
+            "role": "model"
+          },
+          "finish_reason": "STOP",
+          "index": 0,
+          "safety_ratings": [
+            {
+              "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HATE_SPEECH",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HARASSMENT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+              "probability": "NEGLIGIBLE"
+            }
+          ]
+        }
+      ],
+      "usage_metadata": {
+        "prompt_token_count": 184,
+        "candidates_token_count": 444,
+        "total_token_count": 628
+      }
+    }),
+)

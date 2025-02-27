@@ -1,0 +1,54 @@
+response:
+GenerateContentResponse(
+    done=True,
+    iterator=None,
+    result=protos.GenerateContentResponse({
+      "candidates": [
+        {
+          "content": {
+            "parts": [
+              {
+                "text": "```python\ndef find_second_smallest_num(numbers):\n    if len(numbers) < 2 or len(numbers) > 10:\n        return None\n    smallest = min(numbers[0], numbers[1])\n    second_smallest = max(numbers[0], numbers[1])\n    for i in range(2, len(numbers)):\n        if numbers[i] < smallest:\n            second_smallest = smallest\n            smallest = numbers[i]\n        elif numbers[i] < second_smallest and numbers[i] != smallest:\n            second_smallest = numbers[i]\n    return second_smallest\n```"
+              }
+            ],
+            "role": "model"
+          },
+          "finish_reason": "STOP",
+          "index": 0,
+          "safety_ratings": [
+            {
+              "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HATE_SPEECH",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HARASSMENT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+              "probability": "NEGLIGIBLE"
+            }
+          ],
+          "citation_metadata": {
+            "citation_sources": [
+              {
+                "start_index": 196,
+                "end_index": 394,
+                "uri": "https://github.com/Ace4896/Codewars",
+                "license_": ""
+              }
+            ]
+          }
+        }
+      ],
+      "usage_metadata": {
+        "prompt_token_count": 112,
+        "candidates_token_count": 143,
+        "total_token_count": 255
+      }
+    }),
+)

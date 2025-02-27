@@ -1,0 +1,54 @@
+response:
+GenerateContentResponse(
+    done=True,
+    iterator=None,
+    result=protos.GenerateContentResponse({
+      "candidates": [
+        {
+          "content": {
+            "parts": [
+              {
+                "text": "```python\ndef all_left_truncatable_prime(numbers):\n    x = numbers[6]\n    def is_prime(n):\n        if n <= 1:\n            return False\n        for i in range(2, int(n**0.5) + 1):\n            if n % i == 0:\n                return False\n        return True\n    def is_left_truncatable_prime(n):\n        if n < 10:\n            return False\n        s = str(n)\n        if '0' in s:\n            return False\n        for i in range(1, len(s)):\n            if not is_prime(int(s[i:])):\n                return False\n        return True\n    result = []\n    for i in range(x):\n        if is_prime(i) and is_left_truncatable_prime(i):\n            result.append(i)\n    result.sort(reverse=True)\n    return result\n```"
+              }
+            ],
+            "role": "model"
+          },
+          "finish_reason": "STOP",
+          "index": 0,
+          "safety_ratings": [
+            {
+              "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HATE_SPEECH",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HARASSMENT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+              "probability": "NEGLIGIBLE"
+            }
+          ],
+          "citation_metadata": {
+            "citation_sources": [
+              {
+                "start_index": 74,
+                "end_index": 288,
+                "uri": "https://github.com/zofialuther/CS8395-08-Paper1-updated",
+                "license_": ""
+              }
+            ]
+          }
+        }
+      ],
+      "usage_metadata": {
+        "prompt_token_count": 150,
+        "candidates_token_count": 226,
+        "total_token_count": 376
+      }
+    }),
+)

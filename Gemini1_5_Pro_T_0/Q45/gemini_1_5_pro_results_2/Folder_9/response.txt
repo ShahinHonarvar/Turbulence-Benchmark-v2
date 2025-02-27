@@ -1,0 +1,44 @@
+response:
+GenerateContentResponse(
+    done=True,
+    iterator=None,
+    result=protos.GenerateContentResponse({
+      "candidates": [
+        {
+          "content": {
+            "parts": [
+              {
+                "text": "```python\ndef palindromes_between_indices(string):\n  from collections import Counter\n  letters = Counter(string[i].lower() for i in range(7) if string[i].isalpha())\n  size = sum(letters.values())\n  if size < 7:\n    return set()\n  def generate(combination, count, size):\n    if len(combination) == size // 2:\n      yield ''.join(combination)\n      return\n    if (size % 2 == 0 and len(combination) == size // 2 - 1):\n      for letter in count:\n        if count[letter] >= 2:\n          yield from generate(combination + [letter, letter], {**count, letter: count[letter] - 2}, size)\n      return\n    for letter in count:\n      if count[letter] > 0:\n        yield from generate(combination + [letter], {**count, letter: count[letter] - 1}, size)\n  palindromes = set()\n  for combination in generate([], letters, size):\n    palindrome = ''.join(combination)\n    palindromes.add(palindrome + (palindrome if size % 2 == 0 else palindrome[:-1])[::-1])\n  return palindromes\n```"
+              }
+            ],
+            "role": "model"
+          },
+          "finish_reason": "STOP",
+          "index": 0,
+          "safety_ratings": [
+            {
+              "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HATE_SPEECH",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HARASSMENT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+              "probability": "NEGLIGIBLE"
+            }
+          ]
+        }
+      ],
+      "usage_metadata": {
+        "prompt_token_count": 184,
+        "candidates_token_count": 288,
+        "total_token_count": 472
+      }
+    }),
+)

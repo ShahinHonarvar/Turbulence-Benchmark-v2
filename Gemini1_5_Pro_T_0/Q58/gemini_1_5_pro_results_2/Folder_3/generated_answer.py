@@ -1,0 +1,13 @@
+import numpy as np
+
+def submatrix_with_n_numbers(matrix):
+    rows = len(matrix)
+    cols = len(matrix[0])
+    count = 0
+    for i in range(rows - 53):
+        for j in range(cols - 53):
+            for k in range(i + 54, rows + 1):
+                for l in range(j + 54, cols + 1):
+                    if (k - i) * (l - j) == 54:
+                        count += 1
+    return count

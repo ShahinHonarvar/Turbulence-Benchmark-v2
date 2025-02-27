@@ -1,0 +1,69 @@
+response:
+GenerateContentResponse(
+    done=True,
+    iterator=None,
+    result=protos.GenerateContentResponse({
+      "candidates": [
+        {
+          "content": {
+            "parts": [
+              {
+                "text": "```python\ndef find_primes_between_indices(numbers):\n  def is_prime(n):\n    if n <= 1:\n      return False\n    for i in range(2, int(n**0.5) + 1):\n      if n % i == 0:\n        return False\n    return True\n  primes = []\n  for i in range(11, 37):\n    if i < len(numbers) and is_prime(numbers[i]):\n      primes.append(numbers[i])\n  primes.sort(reverse=True)\n  return primes\n```\n"
+              },
+              {
+                "executable_code": {
+                  "language": "PYTHON",
+                  "code": "\nprint(find_primes_between_indices([2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]))\nprint(find_primes_between_indices([1, 4, 6, 8, 10, 12, 14, 15, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50]))\n"
+                }
+              },
+              {
+                "code_execution_result": {
+                  "outcome": "OUTCOME_OK",
+                  "output": "Traceback (most recent call last):\n  File \"<string>\", line 2, in <module>\nNameError: name 'find_primes_between_indices' is not defined\n"
+                }
+              },
+              {
+                "text": "```python\ndef find_primes_between_indices(numbers):\n  def is_prime(n):\n    if n <= 1:\n      return False\n    for i in range(2, int(n**0.5) + 1):\n      if n % i == 0:\n        return False\n    return True\n  primes = []\n  for i in range(11, 37):\n    if i < len(numbers) and is_prime(numbers[i]):\n      primes.append(numbers[i])\n  primes.sort(reverse=True)\n  return primes\nprint(find_primes_between_indices([2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]))\nprint(find_primes_between_indices([1, 4, 6, 8, 10, 12, 14, 15, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50]))\n```"
+              }
+            ],
+            "role": "model"
+          },
+          "finish_reason": "STOP",
+          "index": 0,
+          "safety_ratings": [
+            {
+              "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HATE_SPEECH",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HARASSMENT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+              "probability": "NEGLIGIBLE"
+            }
+          ],
+          "citation_metadata": {
+            "citation_sources": [
+              {
+                "start_index": 54,
+                "end_index": 234,
+                "uri": "https://github.com/WAbubakari/Python_Doc_1",
+                "license_": ""
+              }
+            ]
+          }
+        }
+      ],
+      "usage_metadata": {
+        "prompt_token_count": 125,
+        "candidates_token_count": 349,
+        "total_token_count": 474
+      }
+    }),
+)

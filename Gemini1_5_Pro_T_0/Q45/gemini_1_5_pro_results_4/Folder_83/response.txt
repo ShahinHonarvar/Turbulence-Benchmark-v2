@@ -1,0 +1,44 @@
+response:
+GenerateContentResponse(
+    done=True,
+    iterator=None,
+    result=protos.GenerateContentResponse({
+      "candidates": [
+        {
+          "content": {
+            "parts": [
+              {
+                "text": "```python\ndef palindromes_between_indices(string):\n  import re\n  from collections import Counter\n  string = string[2:10].lower()\n  string = ''.join(re.findall('[a-z]', string))\n  letters = Counter(string)\n  middles = []\n  palindromes = set()\n  for letter in letters:\n    if letters[letter] >= 2:\n      middles.append(letter * (letters[letter] // 2 * 2))\n  if len(middles) == 0:\n    return set()\n  for i in range(len(middles)):\n    for j in range(i, len(middles)):\n      for k in range(len(middles)):\n        for l in range(len(middles[k])):\n          for m in range(l + 1, len(middles[k]) + 1):\n            palindrome = middles[i] + middles[j] + middles[k][l:m]\n            if len(palindrome) >= 7:\n              palindromes.add(palindrome)\n            palindrome = middles[k][l:m] + middles[i] + middles[j]\n            if len(palindrome) >= 7:\n              palindromes.add(palindrome)\n  return palindromes\n```"
+              }
+            ],
+            "role": "model"
+          },
+          "finish_reason": "STOP",
+          "index": 0,
+          "safety_ratings": [
+            {
+              "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HATE_SPEECH",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HARASSMENT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+              "probability": "NEGLIGIBLE"
+            }
+          ]
+        }
+      ],
+      "usage_metadata": {
+        "prompt_token_count": 184,
+        "candidates_token_count": 307,
+        "total_token_count": 491
+      }
+    }),
+)

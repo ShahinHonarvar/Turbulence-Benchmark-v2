@@ -1,0 +1,9 @@
+from itertools import permutations
+
+def palindromes_between_indices(text):
+    result = set()
+    for item in permutations(text[3:9]):
+        word = ''.join(item)
+        if len(word) >= 6 and word.lower() == word[::-1].lower():
+            result.add(word.lower())
+    return result

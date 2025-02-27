@@ -1,0 +1,60 @@
+response:
+GenerateContentResponse(
+    done=True,
+    iterator=None,
+    result=protos.GenerateContentResponse({
+      "candidates": [
+        {
+          "content": {
+            "parts": [
+              {
+                "text": "```python\ndef is_prime(n):\n    \"\"\"Primality test using 6k+-1 optimization.\"\"\"\n    if n <= 3:\n        return n > 1\n    if n % 2 == 0 or n % 3 == 0:\n        return False\n    i = 5\n    while i * i <= n:\n        if n % i == 0 or n % (i + 2) == 0:\n            return False\n        i += 6\n    return True\n\n\ndef is_left_truncatable_prime(n):\n    \"\"\"Check if a number is a left-truncatable prime.\"\"\"\n    if not is_prime(n):\n        return False\n    if n < 10:\n        return True\n    if '0' in str(n):\n        return False\n    return is_left_truncatable_prime(int(str(n)[1:]))\n\n\ndef all_left_truncatable_prime(numbers):\n    \"\"\"Find all left-truncatable primes less than the number at index 64.\"\"\"\n    x = numbers[64]\n    left_truncatable_primes = []\n    for num in range(2, x):\n        if is_left_truncatable_prime(num):\n            left_truncatable_primes.append(num)\n    left_truncatable_primes.sort(reverse=True)\n    return left_truncatable_primes\n```"
+              }
+            ],
+            "role": "model"
+          },
+          "finish_reason": "STOP",
+          "index": 0,
+          "safety_ratings": [
+            {
+              "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HATE_SPEECH",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HARASSMENT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+              "probability": "NEGLIGIBLE"
+            }
+          ],
+          "citation_metadata": {
+            "citation_sources": [
+              {
+                "start_index": 3,
+                "end_index": 188,
+                "uri": "",
+                "license_": ""
+              },
+              {
+                "start_index": 34,
+                "end_index": 292,
+                "uri": "https://github.com/IQuick143/IQbot",
+                "license_": ""
+              }
+            ]
+          }
+        }
+      ],
+      "usage_metadata": {
+        "prompt_token_count": 151,
+        "candidates_token_count": 320,
+        "total_token_count": 471
+      }
+    }),
+)

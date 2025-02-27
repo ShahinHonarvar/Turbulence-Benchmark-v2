@@ -1,0 +1,44 @@
+response:
+GenerateContentResponse(
+    done=True,
+    iterator=None,
+    result=protos.GenerateContentResponse({
+      "candidates": [
+        {
+          "content": {
+            "parts": [
+              {
+                "text": "```python\ndef palindromes_between_indices(string):\n  from collections import Counter\n  string = string[4:9].lower()\n  letters = [letter for letter in string if letter.isalpha()]\n  cnt = Counter(letters)\n  odd_counts = [letter for letter, count in cnt.items() if count % 2 == 1]\n  if len(odd_counts) > 1 or len(letters) < 4:\n    return set()\n  palindrome_half = ''.join([letter*(count//2) for letter, count in cnt.items()])\n  permutations = set()\n  def generate_permutations(current_permutation):\n    if len(current_permutation) == len(palindrome_half):\n      permutations.add(current_permutation)\n      return\n    for letter in cnt:\n      if cnt[letter] > 0:\n        cnt[letter] -= 1\n        generate_permutations(current_permutation + letter)\n        cnt[letter] += 1\n  generate_permutations('')\n  return set([permutation + permutation[::-1] for permutation in permutations])\n```"
+              }
+            ],
+            "role": "model"
+          },
+          "finish_reason": "STOP",
+          "index": 0,
+          "safety_ratings": [
+            {
+              "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HATE_SPEECH",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HARASSMENT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+              "probability": "NEGLIGIBLE"
+            }
+          ]
+        }
+      ],
+      "usage_metadata": {
+        "prompt_token_count": 184,
+        "candidates_token_count": 254,
+        "total_token_count": 438
+      }
+    }),
+)

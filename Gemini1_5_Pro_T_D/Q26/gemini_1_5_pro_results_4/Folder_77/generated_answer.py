@@ -1,0 +1,6 @@
+def sum_in_range(numbers):
+    sum = 0
+    for number in numbers:
+        if 136 <= number <= 618:
+            sum += number
+    return sum

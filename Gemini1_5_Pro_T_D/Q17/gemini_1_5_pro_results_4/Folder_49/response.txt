@@ -1,0 +1,59 @@
+response:
+GenerateContentResponse(
+    done=True,
+    iterator=None,
+    result=protos.GenerateContentResponse({
+      "candidates": [
+        {
+          "content": {
+            "parts": [
+              {
+                "text": "```python\ndef all_ints_div_by_both_two_nums(list_of_ints):\n  new_list = []\n  for i in range(80, 201):\n    if i >= len(list_of_ints):\n      break\n    if list_of_ints[i] % 10 == 0 and list_of_ints[i] % 1000 == 0:\n      new_list.append(list_of_ints[i])\n  return new_list\n```\n"
+              },
+              {
+                "executable_code": {
+                  "language": "PYTHON",
+                  "code": "\nprint(all_ints_div_by_both_two_nums([1000, 2000, 3000, 10, 20, 30, 4000, 5000, 6000, 7000, 8000, 9000, 10000]))\nprint(all_ints_div_by_both_two_nums([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]))\n"
+                }
+              },
+              {
+                "code_execution_result": {
+                  "outcome": "OUTCOME_OK",
+                  "output": "Traceback (most recent call last):\n  File \"<string>\", line 2, in <module>\nNameError: name 'all_ints_div_by_both_two_nums' is not defined\n"
+                }
+              },
+              {
+                "text": "```python\ndef all_ints_div_by_both_two_nums(list_of_ints):\n  new_list = []\n  for i in range(80, 201):\n    if i >= len(list_of_ints):\n      break\n    if list_of_ints[i] % 10 == 0 and list_of_ints[i] % 1000 == 0:\n      new_list.append(list_of_ints[i])\n  return new_list\n```"
+              }
+            ],
+            "role": "model"
+          },
+          "finish_reason": "STOP",
+          "index": 0,
+          "safety_ratings": [
+            {
+              "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HATE_SPEECH",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HARASSMENT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+              "probability": "NEGLIGIBLE"
+            }
+          ]
+        }
+      ],
+      "usage_metadata": {
+        "prompt_token_count": 133,
+        "candidates_token_count": 123,
+        "total_token_count": 256
+      }
+    }),
+)

@@ -1,0 +1,12 @@
+from collections import Counter
+    from itertools import permutations
+
+def palindromes_between_indices(string):
+    letters = Counter((letter.lower() for letter in string[:7] if letter.isalpha()))
+    palindromes = set()
+    for length in range(5, len(letters) + 1):
+        for combination in permutations(letters.elements(), length):
+            word = ''.join(combination)
+            if word == word[::-1]:
+                palindromes.add(word)
+    return palindromes

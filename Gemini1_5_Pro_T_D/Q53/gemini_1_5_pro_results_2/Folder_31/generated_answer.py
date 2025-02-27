@@ -1,0 +1,8 @@
+def palindrome_of_length_at_least_n(text):
+    palindromes = set()
+    for i in range(len(text) - 33):
+        for j in range(i + 34, len(text) + 1):
+            substring = text[i:j]
+            if len(substring) >= 34 and all((c.isalpha() for c in substring)) and (substring.lower() == substring[::-1].lower()):
+                palindromes.add(substring)
+    return palindromes

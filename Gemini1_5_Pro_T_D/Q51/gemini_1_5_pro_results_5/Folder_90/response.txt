@@ -1,0 +1,44 @@
+response:
+GenerateContentResponse(
+    done=True,
+    iterator=None,
+    result=protos.GenerateContentResponse({
+      "candidates": [
+        {
+          "content": {
+            "parts": [
+              {
+                "text": "```python\ndef if_contains_anagrams(list_of_strings):\n  import itertools\n  counter = 0\n  for first_string_index, second_string_index in itertools.combinations(range(len(list_of_strings)), 2):\n    if len(list_of_strings[first_string_index]) >=3 and len(list_of_strings[second_string_index]) >= 3 and sorted(list_of_strings[first_string_index].lower()) == sorted(list_of_strings[second_string_index].lower()):\n      counter += 1\n  return counter <= 147\n```"
+              }
+            ],
+            "role": "model"
+          },
+          "finish_reason": "STOP",
+          "index": 0,
+          "safety_ratings": [
+            {
+              "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HATE_SPEECH",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HARASSMENT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+              "probability": "NEGLIGIBLE"
+            }
+          ]
+        }
+      ],
+      "usage_metadata": {
+        "prompt_token_count": 146,
+        "candidates_token_count": 147,
+        "total_token_count": 293
+      }
+    }),
+)

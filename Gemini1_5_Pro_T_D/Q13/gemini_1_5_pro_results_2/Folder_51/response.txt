@@ -1,0 +1,69 @@
+response:
+GenerateContentResponse(
+    done=True,
+    iterator=None,
+    result=protos.GenerateContentResponse({
+      "candidates": [
+        {
+          "content": {
+            "parts": [
+              {
+                "text": "```python\ndef find_second_largest_num(numbers):\n  if len(numbers) < 2 or len(numbers[1:9]) < 2:\n    return None\n  largest = numbers[1]\n  second_largest = numbers[2]\n  if second_largest > largest:\n    largest, second_largest = second_largest, largest\n  for i in range(3, 9):\n    if i > len(numbers) - 1:\n      break\n    if numbers[i] > largest:\n      second_largest = largest\n      largest = numbers[i]\n    elif numbers[i] > second_largest and numbers[i] != largest:\n      second_largest = numbers[i]\n  return second_largest\n```\n"
+              },
+              {
+                "executable_code": {
+                  "language": "PYTHON",
+                  "code": "\nprint(find_second_largest_num([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]))\nprint(find_second_largest_num([10, 9, 8, 7, 6, 5, 4, 3, 2, 1]))\nprint(find_second_largest_num([1, 3, 5, 7, 9, 2, 4, 6, 8, 10]))\nprint(find_second_largest_num([1, 1, 1, 1, 1, 1, 1, 1, 1, 1]))\nprint(find_second_largest_num([1]))\nprint(find_second_largest_num([]))\n"
+                }
+              },
+              {
+                "code_execution_result": {
+                  "outcome": "OUTCOME_OK",
+                  "output": "Traceback (most recent call last):\n  File \"<string>\", line 2, in <module>\nNameError: name 'find_second_largest_num' is not defined\n"
+                }
+              },
+              {
+                "text": "```python\ndef find_second_largest_num(numbers):\n  if len(numbers) < 2 or len(numbers[1:9]) < 2:\n    return None\n  largest = numbers[1]\n  second_largest = numbers[2]\n  if second_largest > largest:\n    largest, second_largest = second_largest, largest\n  for i in range(3, 9):\n    if i > len(numbers) - 1:\n      break\n    if numbers[i] > largest:\n      second_largest = largest\n      largest = numbers[i]\n    elif numbers[i] > second_largest and numbers[i] != largest:\n      second_largest = numbers[i]\n  return second_largest\n```"
+              }
+            ],
+            "role": "model"
+          },
+          "finish_reason": "STOP",
+          "index": 0,
+          "safety_ratings": [
+            {
+              "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HATE_SPEECH",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HARASSMENT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+              "probability": "NEGLIGIBLE"
+            }
+          ],
+          "citation_metadata": {
+            "citation_sources": [
+              {
+                "start_index": 319,
+                "end_index": 493,
+                "uri": "https://github.com/bkuriach/Data-Structures-and-Algorithms",
+                "license_": ""
+              }
+            ]
+          }
+        }
+      ],
+      "usage_metadata": {
+        "prompt_token_count": 111,
+        "candidates_token_count": 171,
+        "total_token_count": 282
+      }
+    }),
+)

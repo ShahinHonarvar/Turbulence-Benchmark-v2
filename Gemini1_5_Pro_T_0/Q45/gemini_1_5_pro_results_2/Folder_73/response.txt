@@ -1,0 +1,44 @@
+response:
+GenerateContentResponse(
+    done=True,
+    iterator=None,
+    result=protos.GenerateContentResponse({
+      "candidates": [
+        {
+          "content": {
+            "parts": [
+              {
+                "text": "```python\ndef palindromes_between_indices(string):\n  letters = []\n  for i in range(3, 7):\n    if 97 <= ord(string[i].lower()) <= 122:\n      letters.append(string[i].lower())\n  result = set()\n  if len(letters) >= 3:\n    for i in range(len(letters)):\n      for j in range(i + 1, len(letters)):\n        for k in range(j + 1, len(letters)):\n          temp = letters[i] + letters[j] + letters[k]\n          if temp == temp[::-1]:\n            result.add(temp)\n          temp = letters[i] + letters[k] + letters[j]\n          if temp == temp[::-1]:\n            result.add(temp)\n          temp = letters[j] + letters[i] + letters[k]\n          if temp == temp[::-1]:\n            result.add(temp)\n          temp = letters[j] + letters[k] + letters[i]\n          if temp == temp[::-1]:\n            result.add(temp)\n          temp = letters[k] + letters[i] + letters[j]\n          if temp == temp[::-1]:\n            result.add(temp)\n          temp = letters[k] + letters[j] + letters[i]\n          if temp == temp[::-1]:\n            result.add(temp)\n    for i in range(len(letters)):\n      for j in range(len(letters)):\n        if i != j:\n          temp = letters[i] * 2 + letters[j]\n          if temp == temp[::-1]:\n            result.add(temp)\n          temp = letters[i] + letters[j] * 2\n          if temp == temp[::-1]:\n            result.add(temp)\n    for i in range(len(letters)):\n      temp = letters[i] * 3\n      if temp == temp[::-1]:\n        result.add(temp)\n  return result\n```"
+              }
+            ],
+            "role": "model"
+          },
+          "finish_reason": "STOP",
+          "index": 0,
+          "safety_ratings": [
+            {
+              "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HATE_SPEECH",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HARASSMENT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+              "probability": "NEGLIGIBLE"
+            }
+          ]
+        }
+      ],
+      "usage_metadata": {
+        "prompt_token_count": 184,
+        "candidates_token_count": 474,
+        "total_token_count": 658
+      }
+    }),
+)

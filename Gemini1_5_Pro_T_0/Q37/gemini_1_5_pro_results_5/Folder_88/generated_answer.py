@@ -1,0 +1,10 @@
+def filter_chars(s):
+    filtered_chars = ''
+    for i in range(69, 81):
+        if i < len(s) and s[i] >= '@' and (s[i] <= 'p'):
+            filtered_chars += s[i]
+    result = ''
+    for c in s:
+        if c not in filtered_chars:
+            result += c
+    return result

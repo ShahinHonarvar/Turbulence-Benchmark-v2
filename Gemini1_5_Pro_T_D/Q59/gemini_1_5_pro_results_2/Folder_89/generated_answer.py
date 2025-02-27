@@ -1,0 +1,30 @@
+def all_left_truncatable_prime(numbers):
+    x = numbers[97]
+
+    def is_left_truncatable_prime(n):
+        if n < 10 and n > 0:
+            return n > 1
+        if '0' in str(n):
+            return False
+        s = str(n)
+        for i in range(1, len(s)):
+            if int(s[i:]) % 2 == 0:
+                return False
+            if int(s[i:]) not in primes:
+                return False
+        return True
+    primes = []
+    for i in range(2, x):
+        is_prime = True
+        for j in range(2, int(i ** 0.5) + 1):
+            if i % j == 0:
+                is_prime = False
+                break
+        if is_prime:
+            primes.append(i)
+    left_truncatable_primes = []
+    for prime in primes:
+        if is_left_truncatable_prime(prime):
+            left_truncatable_primes.append(prime)
+    left_truncatable_primes.sort(reverse=True)
+    return left_truncatable_primes

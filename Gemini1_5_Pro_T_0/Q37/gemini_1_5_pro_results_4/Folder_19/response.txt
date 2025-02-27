@@ -1,0 +1,59 @@
+response:
+GenerateContentResponse(
+    done=True,
+    iterator=None,
+    result=protos.GenerateContentResponse({
+      "candidates": [
+        {
+          "content": {
+            "parts": [
+              {
+                "text": "```python\ndef filter_chars(text):\n  chars_to_remove = []\n  for i in range(35, 90):\n    if i <= len(text) - 1:\n      if text[i] >= 'E' and text[i] <= 't':\n        if text[i] not in chars_to_remove:\n          chars_to_remove.append(text[i])\n  for char in chars_to_remove:\n    text = text.replace(char, '')\n  return text\n```\n"
+              },
+              {
+                "executable_code": {
+                  "language": "PYTHON",
+                  "code": "\nprint(filter_chars('This is an example text.'))\nprint(filter_chars('This is another example text, this time it is a bit longer!'))\nprint(filter_chars('EFGHIJKLMNOPQRSTUVWXYZabcde'))\n"
+                }
+              },
+              {
+                "code_execution_result": {
+                  "outcome": "OUTCOME_OK",
+                  "output": "Traceback (most recent call last):\n  File \"<string>\", line 2, in <module>\nNameError: name 'filter_chars' is not defined\n"
+                }
+              },
+              {
+                "text": "```python\ndef filter_chars(text):\n  chars_to_remove = []\n  for i in range(35, 90):\n    if i <= len(text) - 1:\n      if text[i] >= 'E' and text[i] <= 't':\n        if text[i] not in chars_to_remove:\n          chars_to_remove.append(text[i])\n  for char in chars_to_remove:\n    text = text.replace(char, '')\n  return text\n```"
+              }
+            ],
+            "role": "model"
+          },
+          "finish_reason": "STOP",
+          "index": 0,
+          "safety_ratings": [
+            {
+              "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HATE_SPEECH",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HARASSMENT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+              "probability": "NEGLIGIBLE"
+            }
+          ]
+        }
+      ],
+      "usage_metadata": {
+        "prompt_token_count": 144,
+        "candidates_token_count": 123,
+        "total_token_count": 267
+      }
+    }),
+)

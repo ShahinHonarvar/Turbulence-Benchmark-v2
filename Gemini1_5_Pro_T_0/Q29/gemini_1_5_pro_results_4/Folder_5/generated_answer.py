@@ -1,0 +1,6 @@
+def gcf_two_nums(list_of_nums):
+    a = list_of_nums[23]
+    b = list_of_nums[45]
+    while b:
+        a, b = (b, a % b)
+    return a

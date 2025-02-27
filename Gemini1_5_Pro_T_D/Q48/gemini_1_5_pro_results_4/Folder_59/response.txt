@@ -1,0 +1,44 @@
+response:
+GenerateContentResponse(
+    done=True,
+    iterator=None,
+    result=protos.GenerateContentResponse({
+      "candidates": [
+        {
+          "content": {
+            "parts": [
+              {
+                "text": "```python\ndef return_binary_or_hexa(tuple1):\n    a = tuple1[0]\n    b = tuple1[10]\n    sum = 0\n    for i in range(a + 1, b):\n        if i not in tuple1[0:11]:\n            sum += i\n    if sum % 2 == 1:\n        return bin(sum)[2:]\n    elif sum == 0:\n        return ''\n    else:\n        return hex(sum)[2:]\n```"
+              }
+            ],
+            "role": "model"
+          },
+          "finish_reason": "STOP",
+          "index": 0,
+          "safety_ratings": [
+            {
+              "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HATE_SPEECH",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HARASSMENT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+              "probability": "NEGLIGIBLE"
+            }
+          ]
+        }
+      ],
+      "usage_metadata": {
+        "prompt_token_count": 269,
+        "candidates_token_count": 120,
+        "total_token_count": 389
+      }
+    }),
+)

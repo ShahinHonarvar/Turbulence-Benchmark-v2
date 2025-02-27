@@ -1,0 +1,59 @@
+response:
+GenerateContentResponse(
+    done=True,
+    iterator=None,
+    result=protos.GenerateContentResponse({
+      "candidates": [
+        {
+          "content": {
+            "parts": [
+              {
+                "text": "```python\ndef palindromes_between_indices(string):\n  from collections import Counter\n  letters = set(string[0:3].lower()) & set('abcdefghijklmnopqrstuvwxyz')\n  letters_count = Counter(char.lower() for char in string[0:3] if char.lower() in letters)\n  palindromes = set()\n  for letter in letters:\n    if letters_count[letter] >= 3:\n      palindromes.add(letter * 3)\n    if letters_count[letter] >= 2:\n      for other_letter in letters:\n        if other_letter != letter and letters_count[other_letter] > 0:\n          palindromes.add(letter * 2 + other_letter)\n          palindromes.add(letter + other_letter + letter)\n  return palindromes\n```\n"
+              },
+              {
+                "executable_code": {
+                  "language": "PYTHON",
+                  "code": "\nprint(palindromes_between_indices('aabcc'))\n"
+                }
+              },
+              {
+                "code_execution_result": {
+                  "outcome": "OUTCOME_OK",
+                  "output": "Traceback (most recent call last):\n  File \"<string>\", line 2, in <module>\nNameError: name 'palindromes_between_indices' is not defined\n"
+                }
+              },
+              {
+                "text": "```python\ndef palindromes_between_indices(string):\n  from collections import Counter\n  letters = set(string[0:3].lower()) & set('abcdefghijklmnopqrstuvwxyz')\n  letters_count = Counter(char.lower() for char in string[0:3] if char.lower() in letters)\n  palindromes = set()\n  for letter in letters:\n    if letters_count[letter] >= 3:\n      palindromes.add(letter * 3)\n    if letters_count[letter] >= 2:\n      for other_letter in letters:\n        if other_letter != letter and letters_count[other_letter] > 0:\n          palindromes.add(letter * 2 + other_letter)\n          palindromes.add(letter + other_letter + letter)\n  return palindromes\nprint(palindromes_between_indices('aabcc'))\n```"
+              }
+            ],
+            "role": "model"
+          },
+          "finish_reason": "STOP",
+          "index": 0,
+          "safety_ratings": [
+            {
+              "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HATE_SPEECH",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HARASSMENT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+              "probability": "NEGLIGIBLE"
+            }
+          ]
+        }
+      ],
+      "usage_metadata": {
+        "prompt_token_count": 184,
+        "candidates_token_count": 208,
+        "total_token_count": 392
+      }
+    }),
+)

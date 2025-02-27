@@ -1,0 +1,58 @@
+response:
+GenerateContentResponse(
+    done=True,
+    iterator=None,
+    result=protos.GenerateContentResponse({
+      "candidates": [
+        {
+          "content": {
+            "parts": [
+              {
+                "text": "```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n  rows = len(matrix)\n  cols = len(matrix[0])\n  submatrices = []\n  for i1 in range(rows):\n    for i2 in range(i1, rows):\n      for j1 in range(cols):\n        for j2 in range(j1, cols):\n          submatrix = matrix[i1:i2+1, j1:j2+1]\n          if np.sum(submatrix) == 78:\n            submatrices.append(submatrix.tolist())\n  return submatrices\n```\n"
+              },
+              {
+                "executable_code": {
+                  "language": "PYTHON",
+                  "code": "\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n  rows = len(matrix)\n  cols = len(matrix[0])\n  submatrices = []\n  for i1 in range(rows):\n    for i2 in range(i1, rows):\n      for j1 in range(cols):\n        for j2 in range(j1, cols):\n          submatrix = matrix[i1:i2+1, j1:j2+1]\n          if np.sum(submatrix) == 78:\n            submatrices.append(submatrix.tolist())\n  return submatrices\n"
+                }
+              },
+              {
+                "code_execution_result": {
+                  "outcome": "OUTCOME_OK"
+                }
+              },
+              {
+                "text": "```python\nimport numpy as np\n\ndef submatrix_with_particular_sum(matrix):\n  rows = len(matrix)\n  cols = len(matrix[0])\n  submatrices = []\n  for i1 in range(rows):\n    for i2 in range(i1, rows):\n      for j1 in range(cols):\n        for j2 in range(j1, cols):\n          submatrix = matrix[i1:i2+1, j1:j2+1]\n          if np.sum(submatrix) == 78:\n            submatrices.append(submatrix.tolist())\n  return submatrices\n```"
+              }
+            ],
+            "role": "model"
+          },
+          "finish_reason": "STOP",
+          "index": 0,
+          "safety_ratings": [
+            {
+              "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HATE_SPEECH",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HARASSMENT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+              "probability": "NEGLIGIBLE"
+            }
+          ]
+        }
+      ],
+      "usage_metadata": {
+        "prompt_token_count": 127,
+        "candidates_token_count": 147,
+        "total_token_count": 274
+      }
+    }),
+)

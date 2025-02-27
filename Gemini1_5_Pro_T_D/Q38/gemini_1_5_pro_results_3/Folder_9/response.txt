@@ -1,0 +1,44 @@
+response:
+GenerateContentResponse(
+    done=True,
+    iterator=None,
+    result=protos.GenerateContentResponse({
+      "candidates": [
+        {
+          "content": {
+            "parts": [
+              {
+                "text": "```python\ndef find_subset_of_length_n(set_of_elements):\n  n = 24\n  if len(set_of_elements) < n:\n    return 0\n  count = 0\n  def find_subset_recursively(current_index, selected_elements):\n    nonlocal count\n    if len(selected_elements) == n:\n      count += 1\n      return\n    if current_index == len(set_of_elements):\n      return\n    selected_elements.append(set_of_elements[current_index])\n    find_subset_recursively(current_index + 1, selected_elements)\n    selected_elements.pop()\n    find_subset_recursively(current_index + 1, selected_elements)\n  find_subset_recursively(0, [])\n  return count\n```"
+              }
+            ],
+            "role": "model"
+          },
+          "finish_reason": "STOP",
+          "index": 0,
+          "safety_ratings": [
+            {
+              "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HATE_SPEECH",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HARASSMENT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+              "probability": "NEGLIGIBLE"
+            }
+          ]
+        }
+      ],
+      "usage_metadata": {
+        "prompt_token_count": 91,
+        "candidates_token_count": 198,
+        "total_token_count": 289
+      }
+    }),
+)

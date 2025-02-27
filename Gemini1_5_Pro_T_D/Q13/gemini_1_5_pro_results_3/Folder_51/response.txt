@@ -1,0 +1,44 @@
+response:
+GenerateContentResponse(
+    done=True,
+    iterator=None,
+    result=protos.GenerateContentResponse({
+      "candidates": [
+        {
+          "content": {
+            "parts": [
+              {
+                "text": "```python\ndef find_second_largest_num(numbers):\n  if len(numbers) < 2 or len(numbers) > 8:\n    return None\n  largest = numbers[1]\n  second_largest = None\n  for i in range(1, min(len(numbers), 9)):\n    if numbers[i] > largest:\n      second_largest = largest\n      largest = numbers[i]\n    elif numbers[i] != largest and (second_largest is None or numbers[i] > second_largest):\n      second_largest = numbers[i]\n  return second_largest\n```"
+              }
+            ],
+            "role": "model"
+          },
+          "finish_reason": "STOP",
+          "index": 0,
+          "safety_ratings": [
+            {
+              "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HATE_SPEECH",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HARASSMENT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+              "probability": "NEGLIGIBLE"
+            }
+          ]
+        }
+      ],
+      "usage_metadata": {
+        "prompt_token_count": 111,
+        "candidates_token_count": 139,
+        "total_token_count": 250
+      }
+    }),
+)

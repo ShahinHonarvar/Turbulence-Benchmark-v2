@@ -1,0 +1,44 @@
+response:
+GenerateContentResponse(
+    done=True,
+    iterator=None,
+    result=protos.GenerateContentResponse({
+      "candidates": [
+        {
+          "content": {
+            "parts": [
+              {
+                "text": "```python\ndef palindromes_between_indices(string):\n  import re\n  from collections import Counter\n  letters = Counter(re.findall('[a-zA-Z]', string[1:7]))\n  palindromes = set()\n  for letter in letters:\n    if letters[letter] >= 2:\n      for middle in letters:\n        if letters[middle] >= 2 and letter != middle:\n          palindromes.add((letter * 2 + middle * 2).lower())\n        if letters[middle] % 2 != 0 and letters[letter] >= 4 and letter != middle:\n          palindromes.add((letter * 2 + middle + letter * 2).lower())\n      if letters[letter] >= 4:\n        palindromes.add((letter * 4).lower())\n  return palindromes\n```"
+              }
+            ],
+            "role": "model"
+          },
+          "finish_reason": "STOP",
+          "index": 0,
+          "safety_ratings": [
+            {
+              "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HATE_SPEECH",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HARASSMENT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+              "probability": "NEGLIGIBLE"
+            }
+          ]
+        }
+      ],
+      "usage_metadata": {
+        "prompt_token_count": 184,
+        "candidates_token_count": 196,
+        "total_token_count": 380
+      }
+    }),
+)

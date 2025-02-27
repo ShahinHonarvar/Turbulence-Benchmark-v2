@@ -1,0 +1,44 @@
+response:
+GenerateContentResponse(
+    done=True,
+    iterator=None,
+    result=protos.GenerateContentResponse({
+      "candidates": [
+        {
+          "content": {
+            "parts": [
+              {
+                "text": "```python\ndef palindromes_between_indices(string):\n  letters = []\n  for i in range(5):\n    if i < len(string) and string[i].isalpha():\n      letters.append(string[i].lower())\n  result = set()\n  for i in range(len(letters) - 2):\n    for j in range(i + 1, len(letters) - 1):\n      for k in range(j + 1, len(letters)):\n        temp = [letters[i], letters[j], letters[k]]\n        for permutation in get_permutations(temp):\n          word = ''.join(permutation)\n          if word == word[::-1]:\n            result.add(word)\n  return result\n\ndef get_permutations(array):\n  result = []\n  if len(array) == 1:\n    return [array.copy()]\n  for i in range(len(array)):\n    n = array.pop(0)\n    perms = get_permutations(array)\n    for perm in perms:\n      perm.append(n)\n    result.extend(perms)\n    array.append(n)\n  return result\n```"
+              }
+            ],
+            "role": "model"
+          },
+          "finish_reason": "STOP",
+          "index": 0,
+          "safety_ratings": [
+            {
+              "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HATE_SPEECH",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HARASSMENT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+              "probability": "NEGLIGIBLE"
+            }
+          ]
+        }
+      ],
+      "usage_metadata": {
+        "prompt_token_count": 184,
+        "candidates_token_count": 275,
+        "total_token_count": 459
+      }
+    }),
+)

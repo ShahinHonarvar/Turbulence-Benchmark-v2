@@ -1,0 +1,59 @@
+response:
+GenerateContentResponse(
+    done=True,
+    iterator=None,
+    result=protos.GenerateContentResponse({
+      "candidates": [
+        {
+          "content": {
+            "parts": [
+              {
+                "text": "```python\ndef if_contains_anagrams(list_of_strings):\n  counter = 0\n  for i in range(0, len(list_of_strings) - 1):\n    for j in range(i + 1, len(list_of_strings)):\n      if len(list_of_strings[i]) >= 3 and len(list_of_strings[j]) >= 3 and sorted(list_of_strings[i].lower()) == sorted(list_of_strings[j].lower()):\n        counter += 1\n  if counter >= 153:\n    return True\n  else:\n    return False\n```\n"
+              },
+              {
+                "executable_code": {
+                  "language": "PYTHON",
+                  "code": "\nprint(if_contains_anagrams(['Listen', 'silent', 'Triangle', 'integral', 'Apple', 'papel', 'Cat', 'dog']))\nprint(if_contains_anagrams(['Act', 'cat', 'dog', 'God']))\nprint(if_contains_anagrams(['Listen', 'silent', 'Triangle', 'integral', 'Apple', 'papel', 'Cat', 'dog', 'House', 'esuoh', 'dormitory', 'dirtyroom', 'tea', 'eat', 'car', 'arc', 'earth', 'heart', 'flow', 'wolf', 'state', 'taste', 'insect', 'incest', 'acre', 'race', 'care', 'below', 'elbow', 'name', 'mean', 'form', 'from', 'night', 'thing', 'elbow', 'below', 'spare', 'pears', 'silent', 'listen', 'angle', 'glean', 'reatail', 'trailer', 'repaid', 'despair', 'bared', 'bread', 'darb', 'abed', 'bead', 'ads', 'sad', 'das']))\n"
+                }
+              },
+              {
+                "code_execution_result": {
+                  "outcome": "OUTCOME_OK",
+                  "output": "Traceback (most recent call last):\n  File \"<string>\", line 2, in <module>\nNameError: name 'if_contains_anagrams' is not defined\n"
+                }
+              },
+              {
+                "text": "```python\ndef if_contains_anagrams(list_of_strings):\n  counter = 0\n  for i in range(0, len(list_of_strings) - 1):\n    for j in range(i + 1, len(list_of_strings)):\n      if len(list_of_strings[i]) >= 3 and len(list_of_strings[j]) >= 3 and sorted(list_of_strings[i].lower()) == sorted(list_of_strings[j].lower()):\n        counter += 1\n  if counter >= 153:\n    return True\n  else:\n    return False\n```"
+              }
+            ],
+            "role": "model"
+          },
+          "finish_reason": "STOP",
+          "index": 0,
+          "safety_ratings": [
+            {
+              "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HATE_SPEECH",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HARASSMENT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+              "probability": "LOW"
+            }
+          ]
+        }
+      ],
+      "usage_metadata": {
+        "prompt_token_count": 133,
+        "candidates_token_count": 150,
+        "total_token_count": 283
+      }
+    }),
+)

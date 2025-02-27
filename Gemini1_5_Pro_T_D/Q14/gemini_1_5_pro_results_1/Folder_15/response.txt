@@ -1,0 +1,44 @@
+response:
+GenerateContentResponse(
+    done=True,
+    iterator=None,
+    result=protos.GenerateContentResponse({
+      "candidates": [
+        {
+          "content": {
+            "parts": [
+              {
+                "text": "```python\ndef find_second_smallest_num(nums):\n  if len(nums) < 2:\n    return None\n  first_smallest = nums[0]\n  second_smallest = nums[1]\n  if second_smallest < first_smallest:\n    first_smallest, second_smallest = second_smallest, first_smallest\n  for i in range(2, min(4, len(nums))):\n    if nums[i] < first_smallest:\n      first_smallest, second_smallest = nums[i], first_smallest\n    elif nums[i] < second_smallest and nums[i] != first_smallest:\n      second_smallest = nums[i]\n  return second_smallest if second_smallest != first_smallest else None\n```"
+              }
+            ],
+            "role": "model"
+          },
+          "finish_reason": "STOP",
+          "index": 0,
+          "safety_ratings": [
+            {
+              "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HATE_SPEECH",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HARASSMENT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+              "probability": "NEGLIGIBLE"
+            }
+          ]
+        }
+      ],
+      "usage_metadata": {
+        "prompt_token_count": 112,
+        "candidates_token_count": 173,
+        "total_token_count": 285
+      }
+    }),
+)

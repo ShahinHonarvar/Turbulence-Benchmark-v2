@@ -1,0 +1,59 @@
+response:
+GenerateContentResponse(
+    done=True,
+    iterator=None,
+    result=protos.GenerateContentResponse({
+      "candidates": [
+        {
+          "content": {
+            "parts": [
+              {
+                "text": "```python\ndef palindromes_between_indices(string):\n  letters = []\n  for i in range(4, 10):\n    if 97 <= ord(string[i].lower()) <= 122:\n      letters.append(string[i].lower())\n  result = set()\n  for i in range(len(letters) - 4):\n    for j in range(i + 1, len(letters) - 3):\n      for k in range(j + 1, len(letters) - 2):\n        for l in range(k + 1, len(letters) - 1):\n          for m in range(l + 1, len(letters)):\n            s = letters[i] + letters[j] + letters[k] + letters[l] + letters[m]\n            if s == s[::-1]:\n              result.add(s)\n  return result\n```\n"
+              },
+              {
+                "executable_code": {
+                  "language": "PYTHON",
+                  "code": "\nprint(palindromes_between_indices('Anna went to vote on November 8, 2022.'))\nprint(palindromes_between_indices('Madam, I\\'m Adam.'))\nprint(palindromes_between_indices('A man, a plan, a canal: Panama!'))\n"
+                }
+              },
+              {
+                "code_execution_result": {
+                  "outcome": "OUTCOME_OK",
+                  "output": "Traceback (most recent call last):\n  File \"<string>\", line 2, in <module>\nNameError: name 'palindromes_between_indices' is not defined\n"
+                }
+              },
+              {
+                "text": "```python\ndef palindromes_between_indices(string):\n  letters = []\n  for i in range(4, 10):\n    if 97 <= ord(string[i].lower()) <= 122:\n      letters.append(string[i].lower())\n  result = set()\n  for i in range(len(letters) - 4):\n    for j in range(i + 1, len(letters) - 3):\n      for k in range(j + 1, len(letters) - 2):\n        for l in range(k + 1, len(letters) - 1):\n          for m in range(l + 1, len(letters)):\n            s = letters[i] + letters[j] + letters[k] + letters[l] + letters[m]\n            if s == s[::-1]:\n              result.add(s)\n  return result\nprint(palindromes_between_indices('Anna went to vote on November 8, 2022.'))\nprint(palindromes_between_indices('Madam, I\\'m Adam.'))\nprint(palindromes_between_indices('A man, a plan, a canal: Panama!'))\n```"
+              }
+            ],
+            "role": "model"
+          },
+          "finish_reason": "STOP",
+          "index": 0,
+          "safety_ratings": [
+            {
+              "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HATE_SPEECH",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HARASSMENT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+              "probability": "NEGLIGIBLE"
+            }
+          ]
+        }
+      ],
+      "usage_metadata": {
+        "prompt_token_count": 184,
+        "candidates_token_count": 282,
+        "total_token_count": 466
+      }
+    }),
+)

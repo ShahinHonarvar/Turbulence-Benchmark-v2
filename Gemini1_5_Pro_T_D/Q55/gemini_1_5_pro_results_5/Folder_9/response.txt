@@ -1,0 +1,74 @@
+response:
+GenerateContentResponse(
+    done=True,
+    iterator=None,
+    result=protos.GenerateContentResponse({
+      "candidates": [
+        {
+          "content": {
+            "parts": [
+              {
+                "text": "```python\ndef lists_with_product_equal_n(circular_list):\n    n = -36\n    result = []\n    for i in range(len(circular_list)):\n        for j in range(i, len(circular_list)):\n            sublist = circular_list[i:j + 1]\n            if i + len(sublist) > len(circular_list):\n                sublist += circular_list[:i + len(sublist) - len(circular_list)]\n            product = 1\n            for x in sublist:\n                product *= x\n            if product == n:\n                result.append(sublist)\n    return result\n```\n"
+              },
+              {
+                "executable_code": {
+                  "language": "PYTHON",
+                  "code": "\nprint(lists_with_product_equal_n([2, 3, 4, -3, -3, 2]))\nprint(lists_with_product_equal_n([2, 4, 6, 8]))\n"
+                }
+              },
+              {
+                "code_execution_result": {
+                  "outcome": "OUTCOME_OK",
+                  "output": "Traceback (most recent call last):\n  File \"<string>\", line 2, in <module>\nNameError: name 'lists_with_product_equal_n' is not defined\n"
+                }
+              },
+              {
+                "text": "The function is not defined, adding function definition to the `tool_code`.\n\n"
+              },
+              {
+                "executable_code": {
+                  "language": "PYTHON",
+                  "code": "\ndef lists_with_product_equal_n(circular_list):\n    n = -36\n    result = []\n    for i in range(len(circular_list)):\n        for j in range(i, len(circular_list)):\n            sublist = circular_list[i:j + 1]\n            if i + len(sublist) > len(circular_list):\n                sublist += circular_list[:i + len(sublist) - len(circular_list)]\n            product = 1\n            for x in sublist:\n                product *= x\n            if product == n:\n                result.append(sublist)\n    return result\nprint(lists_with_product_equal_n([2, 3, 4, -3, -3, 2]))\nprint(lists_with_product_equal_n([2, 4, 6, 8]))\n"
+                }
+              },
+              {
+                "code_execution_result": {
+                  "outcome": "OUTCOME_OK",
+                  "output": "[[3, 4, -3]]\n[]\n"
+                }
+              },
+              {
+                "text": "The above output is correct. \n\nThe list `[3, 4, -3]` is the only sublist of the list `[2, 3, 4, -3, -3, 2]` such that the product of its elements equals -36. There is no sublist of the list `[2, 4, 6, 8]` such that the product of its elements equals -36.\n"
+              }
+            ],
+            "role": "model"
+          },
+          "finish_reason": "STOP",
+          "index": 0,
+          "safety_ratings": [
+            {
+              "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HATE_SPEECH",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HARASSMENT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+              "probability": "NEGLIGIBLE"
+            }
+          ]
+        }
+      ],
+      "usage_metadata": {
+        "prompt_token_count": 204,
+        "candidates_token_count": 92,
+        "total_token_count": 296
+      }
+    }),
+)

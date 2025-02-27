@@ -1,0 +1,6 @@
+def all_even_ints_exclusive(ints):
+    even_ints = []
+    for i in range(39, 77):
+        if i < len(ints) and ints[i] % 2 == 0:
+            even_ints.append(ints[i])
+    return even_ints

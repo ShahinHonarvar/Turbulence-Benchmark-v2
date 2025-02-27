@@ -1,0 +1,2 @@
+def return_nth_smallest_ascii(text):
+    return sorted(list(set([ord(text[i]) for i in range(25, 65) if i < len(text)])))[5] if len(set([ord(text[i]) for i in range(25, 65) if i < len(text)])) > 5 else None

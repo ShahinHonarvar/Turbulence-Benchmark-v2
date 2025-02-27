@@ -1,0 +1,44 @@
+response:
+GenerateContentResponse(
+    done=True,
+    iterator=None,
+    result=protos.GenerateContentResponse({
+      "candidates": [
+        {
+          "content": {
+            "parts": [
+              {
+                "text": "```python\ndef all_right_truncatable_prime(numbers):\n    x = numbers[41]\n    right_truncatable_primes = []\n    for num in range(2, x):\n        if is_right_truncatable_prime(num):\n            right_truncatable_primes.append(num)\n    return sorted(right_truncatable_primes, reverse=True)\n\ndef is_right_truncatable_prime(num):\n    if num <= 1:\n        return False\n    if num <= 3:\n        return True\n    if num % 2 == 0 or num % 3 == 0:\n        return False\n    i = 5\n    while i * i <= num:\n        if num % i == 0 or num % (i + 2) == 0:\n            return False\n        i += 6\n    while num > 0:\n        if num < 10 and num != 2 and num != 3 and num != 5 and num != 7:\n            return False\n        if num >= 10 and (num % 2 == 0 or num % 5 == 0):\n            return False\n        if num > 10:\n            num = int(str(num)[:-1])\n        else:\n            return True\n```"
+              }
+            ],
+            "role": "model"
+          },
+          "finish_reason": "STOP",
+          "index": 0,
+          "safety_ratings": [
+            {
+              "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HATE_SPEECH",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HARASSMENT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+              "probability": "NEGLIGIBLE"
+            }
+          ]
+        }
+      ],
+      "usage_metadata": {
+        "prompt_token_count": 162,
+        "candidates_token_count": 298,
+        "total_token_count": 460
+      }
+    }),
+)

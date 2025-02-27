@@ -1,0 +1,59 @@
+response:
+GenerateContentResponse(
+    done=True,
+    iterator=None,
+    result=protos.GenerateContentResponse({
+      "candidates": [
+        {
+          "content": {
+            "parts": [
+              {
+                "text": "```python\ndef find_second_largest_num(numbers):\n  if len(numbers) < 21:\n    return None\n  sub_list = numbers[20:201]\n  if len(sub_list) == 1:\n    return None\n  largest = max(sub_list[0], sub_list[1])\n  second_largest = min(sub_list[0], sub_list[1])\n  for i in range(2, len(sub_list)):\n    if sub_list[i] > largest:\n      second_largest = largest\n      largest = sub_list[i]\n    elif sub_list[i] > second_largest and sub_list[i] != largest:\n      second_largest = sub_list[i]\n  return second_largest\n```\n"
+              },
+              {
+                "executable_code": {
+                  "language": "PYTHON",
+                  "code": "\nprint(find_second_largest_num([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,5,22,23,21,25,26]))\nprint(find_second_largest_num([1,2,3]))\nprint(find_second_largest_num([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21]))\nprint(find_second_largest_num([3,2,1,4,6,5,8,7]))\n"
+                }
+              },
+              {
+                "code_execution_result": {
+                  "outcome": "OUTCOME_OK",
+                  "output": "Traceback (most recent call last):\n  File \"<string>\", line 2, in <module>\nNameError: name 'find_second_largest_num' is not defined\n"
+                }
+              },
+              {
+                "text": "```python\ndef find_second_largest_num(numbers):\n  if len(numbers) < 21:\n    return None\n  sub_list = numbers[20:201]\n  if len(sub_list) == 1:\n    return None\n  largest = max(sub_list[0], sub_list[1])\n  second_largest = min(sub_list[0], sub_list[1])\n  for i in range(2, len(sub_list)):\n    if sub_list[i] > largest:\n      second_largest = largest\n      largest = sub_list[i]\n    elif sub_list[i] > second_largest and sub_list[i] != largest:\n      second_largest = sub_list[i]\n  return second_largest\nprint(find_second_largest_num([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,5,22,23,21,25,26]))\nprint(find_second_largest_num([1,2,3]))\nprint(find_second_largest_num([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21]))\nprint(find_second_largest_num([3,2,1,4,6,5,8,7]))\n```"
+              }
+            ],
+            "role": "model"
+          },
+          "finish_reason": "STOP",
+          "index": 0,
+          "safety_ratings": [
+            {
+              "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HATE_SPEECH",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HARASSMENT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+              "probability": "NEGLIGIBLE"
+            }
+          ]
+        }
+      ],
+      "usage_metadata": {
+        "prompt_token_count": 114,
+        "candidates_token_count": 375,
+        "total_token_count": 489
+      }
+    }),
+)

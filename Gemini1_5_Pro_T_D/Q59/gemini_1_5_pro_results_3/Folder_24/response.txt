@@ -1,0 +1,44 @@
+response:
+GenerateContentResponse(
+    done=True,
+    iterator=None,
+    result=protos.GenerateContentResponse({
+      "candidates": [
+        {
+          "content": {
+            "parts": [
+              {
+                "text": "```python\ndef all_left_truncatable_prime(numbers):\n  x = numbers[65]\n  def is_left_truncatable_prime(n):\n    if n < 10:\n      return n in [2,3,5,7]\n    s = str(n)\n    if '0' in s:\n      return False\n    for i in range(len(s)):\n      if int(s[i:]) not in prime_numbers:\n        return False\n    return True\n  prime_numbers = [2]\n  for i in range(3,x):\n    is_prime = True\n    for j in prime_numbers:\n      if i % j == 0:\n        is_prime = False\n        break\n    if is_prime:\n      prime_numbers.append(i)\n  left_truncatable_primes = []\n  for p in prime_numbers:\n    if is_left_truncatable_prime(p):\n      left_truncatable_primes.append(p)\n  left_truncatable_primes.sort(reverse=True)\n  return left_truncatable_primes\n```"
+              }
+            ],
+            "role": "model"
+          },
+          "finish_reason": "STOP",
+          "index": 0,
+          "safety_ratings": [
+            {
+              "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HATE_SPEECH",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HARASSMENT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+              "probability": "NEGLIGIBLE"
+            }
+          ]
+        }
+      ],
+      "usage_metadata": {
+        "prompt_token_count": 151,
+        "candidates_token_count": 261,
+        "total_token_count": 412
+      }
+    }),
+)

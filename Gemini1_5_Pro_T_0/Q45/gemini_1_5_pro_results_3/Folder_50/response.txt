@@ -1,0 +1,44 @@
+response:
+GenerateContentResponse(
+    done=True,
+    iterator=None,
+    result=protos.GenerateContentResponse({
+      "candidates": [
+        {
+          "content": {
+            "parts": [
+              {
+                "text": "```python\ndef palindromes_between_indices(string):\n  from collections import Counter\n  string = string[4:9].lower()\n  letters = [letter for letter in string if letter.isalpha()]\n  letters_count = Counter(letters)\n  palindromes = set()\n  if len(letters) >= 5:\n    for letter in letters_count:\n      if letters_count[letter] >= 2:\n        remaining_letters = letters_count.copy()\n        remaining_letters[letter] -= 2\n        palindromes.update(create_palindromes(letter, remaining_letters))\n  return palindromes\n\ndef create_palindromes(palindrome, remaining_letters):\n  if sum(remaining_letters.values()) == 0:\n    return {palindrome + palindrome[::-1]}\n  found_palindromes = set()\n  for letter in remaining_letters:\n    if remaining_letters[letter] >= 2:\n      new_palindrome = palindrome + letter\n      new_remaining_letters = remaining_letters.copy()\n      new_remaining_letters[letter] -= 2\n      found_palindromes.update(create_palindromes(new_palindrome, new_remaining_letters))\n  if sum(remaining_letters.values()) >= 1:\n    for letter in remaining_letters:\n      if remaining_letters[letter] == 1:\n        new_palindrome = palindrome + letter\n        new_remaining_letters = remaining_letters.copy()\n        new_remaining_letters[letter] -= 1\n        found_palindromes.update(create_palindromes(new_palindrome, new_remaining_letters))\n  return found_palindromes\n```"
+              }
+            ],
+            "role": "model"
+          },
+          "finish_reason": "STOP",
+          "index": 0,
+          "safety_ratings": [
+            {
+              "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HATE_SPEECH",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HARASSMENT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+              "probability": "NEGLIGIBLE"
+            }
+          ]
+        }
+      ],
+      "usage_metadata": {
+        "prompt_token_count": 184,
+        "candidates_token_count": 389,
+        "total_token_count": 573
+      }
+    }),
+)

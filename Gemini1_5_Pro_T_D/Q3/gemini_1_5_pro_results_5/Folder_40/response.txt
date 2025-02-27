@@ -1,0 +1,74 @@
+response:
+GenerateContentResponse(
+    done=True,
+    iterator=None,
+    result=protos.GenerateContentResponse({
+      "candidates": [
+        {
+          "content": {
+            "parts": [
+              {
+                "text": "```python\ndef all_pos_ints_inclusive(list_of_integers):\n  positive_integers = []\n  for i in range(min(len(list_of_integers), 3)):\n    if list_of_integers[i] > 0:\n      positive_integers.append(list_of_integers[i])\n  return positive_integers\n```\n"
+              },
+              {
+                "executable_code": {
+                  "language": "PYTHON",
+                  "code": "\nprint(all_pos_ints_inclusive([1, 2, 3]))\nprint(all_pos_ints_inclusive([1, 2, 3, 4]))\nprint(all_pos_ints_inclusive([1, -2, 3]))\nprint(all_pos_ints_inclusive([-1, -2, 3]))\nprint(all_pos_ints_inclusive([-1, -2, -3]))\n"
+                }
+              },
+              {
+                "code_execution_result": {
+                  "outcome": "OUTCOME_OK",
+                  "output": "Traceback (most recent call last):\n  File \"<string>\", line 2, in <module>\nNameError: name 'all_pos_ints_inclusive' is not defined\n"
+                }
+              },
+              {
+                "text": "```python\ndef all_pos_ints_inclusive(list_of_integers):\n  positive_integers = []\n  for i in range(min(len(list_of_integers), 3)):\n    if list_of_integers[i] > 0:\n      positive_integers.append(list_of_integers[i])\n  return positive_integers\n```\n"
+              },
+              {
+                "executable_code": {
+                  "language": "PYTHON",
+                  "code": "\nprint(all_pos_ints_inclusive([1, 2, 3]))\nprint(all_pos_ints_inclusive([1, 2, 3, 4]))\nprint(all_pos_ints_inclusive([1, -2, 3]))\nprint(all_pos_ints_inclusive([-1, -2, 3]))\nprint(all_pos_ints_inclusive([-1, -2, -3]))\n"
+                }
+              },
+              {
+                "code_execution_result": {
+                  "outcome": "OUTCOME_OK",
+                  "output": "Traceback (most recent call last):\n  File \"<string>\", line 2, in <module>\nNameError: name 'all_pos_ints_inclusive' is not defined\n"
+                }
+              },
+              {
+                "text": "It seems I forgot to define the function in the code block that I used to test. I will fix this in the next response! \n"
+              }
+            ],
+            "role": "model"
+          },
+          "finish_reason": "STOP",
+          "index": 0,
+          "safety_ratings": [
+            {
+              "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HATE_SPEECH",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HARASSMENT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+              "probability": "NEGLIGIBLE"
+            }
+          ]
+        }
+      ],
+      "usage_metadata": {
+        "prompt_token_count": 113,
+        "candidates_token_count": 27,
+        "total_token_count": 140
+      }
+    }),
+)

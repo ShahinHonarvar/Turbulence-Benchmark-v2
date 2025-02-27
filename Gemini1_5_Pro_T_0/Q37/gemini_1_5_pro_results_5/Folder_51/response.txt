@@ -1,0 +1,44 @@
+response:
+GenerateContentResponse(
+    done=True,
+    iterator=None,
+    result=protos.GenerateContentResponse({
+      "candidates": [
+        {
+          "content": {
+            "parts": [
+              {
+                "text": "```python\ndef filter_chars(s):\n  t = ''\n  for i in range(len(s)):\n    if i >= 36 and i <= 40 and s[i] >= 'H' and s[i] <= 'e':\n      if s[i] not in t:\n        t += s[i]\n    else:\n      t += s[i]\n  r = ''\n  for c in t:\n    if c not in s[36:41] or c < 'H' or c > 'e':\n      r += c\n  for i in range(len(s)):\n    if s[i] in r:\n      r = r.replace(s[i], '', 1)\n  for c in t:\n    if c in s[36:41] and c >= 'H' and c <= 'e':\n      r += c\n  return r\n```"
+              }
+            ],
+            "role": "model"
+          },
+          "finish_reason": "STOP",
+          "index": 0,
+          "safety_ratings": [
+            {
+              "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HATE_SPEECH",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HARASSMENT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+              "probability": "NEGLIGIBLE"
+            }
+          ]
+        }
+      ],
+      "usage_metadata": {
+        "prompt_token_count": 144,
+        "candidates_token_count": 212,
+        "total_token_count": 356
+      }
+    }),
+)

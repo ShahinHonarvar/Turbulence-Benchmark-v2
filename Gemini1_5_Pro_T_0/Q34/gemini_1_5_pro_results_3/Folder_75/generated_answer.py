@@ -1,0 +1,18 @@
+def find_original_set(set1, set2, set3, set4, set5, set6, set7, set8, set9, set10, set11, set12, set13, set14, set15):
+    original_set = set()
+    original_set.update(set1)
+    original_set.update(set2)
+    original_set.update(set3)
+    original_set.update(set4)
+    original_set.update(set5)
+    original_set.update(set6)
+    original_set.update(set7)
+    original_set.update(set8)
+    original_set.update(set9)
+    original_set.update(set10)
+    original_set.update(set11)
+    original_set.update(set12)
+    original_set.update(set13)
+    original_set.update(set14)
+    original_set.update(set15)
+    return original_set

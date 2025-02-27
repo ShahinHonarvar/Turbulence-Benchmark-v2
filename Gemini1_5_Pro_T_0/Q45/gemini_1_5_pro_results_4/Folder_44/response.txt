@@ -1,0 +1,44 @@
+response:
+GenerateContentResponse(
+    done=True,
+    iterator=None,
+    result=protos.GenerateContentResponse({
+      "candidates": [
+        {
+          "content": {
+            "parts": [
+              {
+                "text": "```python\ndef palindromes_between_indices(string):\n  letters = []\n  for i in range(2, 8):\n    if 97 <= ord(string[i].lower()) <= 122:\n      letters.append(string[i].lower())\n  result = set()\n  for s in letters:\n    for i in range(len(letters)):\n      for j in range(i + 1, len(letters)):\n        temp = letters[i:j + 1]\n        temp.insert(len(temp) // 2, s)\n        word = ''.join(temp)\n        if len(word) >= 3 and word == word[::-1]:\n          result.add(word)\n  return result\n```"
+              }
+            ],
+            "role": "model"
+          },
+          "finish_reason": "STOP",
+          "index": 0,
+          "safety_ratings": [
+            {
+              "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HATE_SPEECH",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HARASSMENT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+              "probability": "NEGLIGIBLE"
+            }
+          ]
+        }
+      ],
+      "usage_metadata": {
+        "prompt_token_count": 184,
+        "candidates_token_count": 173,
+        "total_token_count": 357
+      }
+    }),
+)

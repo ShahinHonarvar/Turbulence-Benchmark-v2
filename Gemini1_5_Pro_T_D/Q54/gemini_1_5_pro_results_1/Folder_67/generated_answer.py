@@ -1,0 +1,32 @@
+def all_right_truncatable_prime(numbers):
+    x = numbers[71]
+    right_truncatable_primes = []
+    for num in range(2, x):
+        if is_right_truncatable_prime(num):
+            right_truncatable_primes.append(num)
+    right_truncatable_primes.sort(reverse=True)
+    return right_truncatable_primes
+
+def is_right_truncatable_prime(n):
+    if n < 2:
+        return False
+    if n == 2:
+        return True
+    if n % 2 == 0:
+        return False
+    for i in range(3, int(n ** 0.5) + 1, 2):
+        if n % i == 0:
+            return False
+    while n > 0:
+        if not is_prime(n):
+            return False
+        n //= 10
+    return True
+
+def is_prime(num):
+    if num <= 1:
+        return False
+    for i in range(2, int(num ** 0.5) + 1):
+        if num % i == 0:
+            return False
+    return True

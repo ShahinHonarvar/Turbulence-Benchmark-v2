@@ -1,0 +1,7 @@
+def all_substring_of_size_n(s):
+    substrings = []
+    for i in range(len(s) - 143):
+        substring = s[i:i + 144]
+        if len(set(substring)) == 144 and substring not in substrings:
+            substrings.append(substring)
+    return substrings

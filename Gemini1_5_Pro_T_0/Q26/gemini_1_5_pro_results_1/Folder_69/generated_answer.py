@@ -1,0 +1,6 @@
+def sum_in_range(nums):
+    sum = 0
+    for x in nums:
+        if 739 <= x <= 928:
+            sum += x
+    return sum

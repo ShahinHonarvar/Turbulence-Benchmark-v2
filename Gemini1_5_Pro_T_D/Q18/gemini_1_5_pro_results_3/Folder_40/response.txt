@@ -1,0 +1,59 @@
+response:
+GenerateContentResponse(
+    done=True,
+    iterator=None,
+    result=protos.GenerateContentResponse({
+      "candidates": [
+        {
+          "content": {
+            "parts": [
+              {
+                "text": "```python\ndef sum_ints_div_by_either_nums(list_of_ints):\n  sum = 0\n  for i in range(0, min(2, len(list_of_ints))):\n    if list_of_ints[i] % 2 == 0 or list_of_ints[i] % 1 == 0:\n      sum += list_of_ints[i]\n  return sum\n```\n"
+              },
+              {
+                "executable_code": {
+                  "language": "PYTHON",
+                  "code": "\nprint(sum_ints_div_by_either_nums([1, 2, 3, 4, 5]))\nprint(sum_ints_div_by_either_nums([1]))\nprint(sum_ints_div_by_either_nums([]))\n"
+                }
+              },
+              {
+                "code_execution_result": {
+                  "outcome": "OUTCOME_OK",
+                  "output": "Traceback (most recent call last):\n  File \"<string>\", line 2, in <module>\nNameError: name 'sum_ints_div_by_either_nums' is not defined\n"
+                }
+              },
+              {
+                "text": "```python\ndef sum_ints_div_by_either_nums(list_of_ints):\n  sum = 0\n  for i in range(0, min(2, len(list_of_ints))):\n    if list_of_ints[i] % 2 == 0 or list_of_ints[i] % 1 == 0:\n      sum += list_of_ints[i]\n  return sum\n```"
+              }
+            ],
+            "role": "model"
+          },
+          "finish_reason": "STOP",
+          "index": 0,
+          "safety_ratings": [
+            {
+              "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HATE_SPEECH",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HARASSMENT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+              "probability": "NEGLIGIBLE"
+            }
+          ]
+        }
+      ],
+      "usage_metadata": {
+        "prompt_token_count": 123,
+        "candidates_token_count": 101,
+        "total_token_count": 224
+      }
+    }),
+)

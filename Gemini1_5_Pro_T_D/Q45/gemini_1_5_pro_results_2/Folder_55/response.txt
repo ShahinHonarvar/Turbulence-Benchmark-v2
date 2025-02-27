@@ -1,0 +1,58 @@
+response:
+GenerateContentResponse(
+    done=True,
+    iterator=None,
+    result=protos.GenerateContentResponse({
+      "candidates": [
+        {
+          "content": {
+            "parts": [
+              {
+                "text": "```python\ndef palindromes_between_indices(string):\n  from collections import Counter\n  letters = set(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'])\n  relevant_letters = []\n  for i in range(3):\n    if string[i].lower() in letters:\n      relevant_letters.append(string[i].lower())\n  if len(relevant_letters) == 0:\n    return set()\n  letter_counts = Counter(relevant_letters)\n  palindromes = set()\n  for letter in letter_counts:\n    if letter_counts[letter] >= 3:\n      palindromes.add(letter * 3)\n    for other_letter in letter_counts:\n      if letter != other_letter and letter_counts[letter] >= 2 and letter_counts[other_letter] >= 1:\n        palindromes.add(letter * 2 + other_letter)\n        palindromes.add(letter + other_letter + letter)\n  return palindromes\n```\n"
+              },
+              {
+                "executable_code": {
+                  "language": "PYTHON",
+                  "code": "\n\n"
+                }
+              },
+              {
+                "code_execution_result": {
+                  "outcome": "OUTCOME_OK"
+                }
+              },
+              {
+                "text": "```python\ndef palindromes_between_indices(string):\n  from collections import Counter\n  letters = set(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'])\n  relevant_letters = []\n  for i in range(min(3, len(string))):\n    if string[i].lower() in letters:\n      relevant_letters.append(string[i].lower())\n  if len(relevant_letters) == 0:\n    return set()\n  letter_counts = Counter(relevant_letters)\n  palindromes = set()\n  for letter in letter_counts:\n    if letter_counts[letter] >= 3:\n      palindromes.add(letter * 3)\n    for other_letter in letter_counts:\n      if letter != other_letter and letter_counts[letter] >= 2 and letter_counts[other_letter] >= 1:\n        palindromes.add(letter * 2 + other_letter)\n        palindromes.add(letter + other_letter + letter)\n  return palindromes\n```"
+              }
+            ],
+            "role": "model"
+          },
+          "finish_reason": "STOP",
+          "index": 0,
+          "safety_ratings": [
+            {
+              "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HATE_SPEECH",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HARASSMENT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+              "probability": "NEGLIGIBLE"
+            }
+          ]
+        }
+      ],
+      "usage_metadata": {
+        "prompt_token_count": 184,
+        "candidates_token_count": 308,
+        "total_token_count": 492
+      }
+    }),
+)

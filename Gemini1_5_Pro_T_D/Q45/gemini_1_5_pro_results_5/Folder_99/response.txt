@@ -1,0 +1,44 @@
+response:
+GenerateContentResponse(
+    done=True,
+    iterator=None,
+    result=protos.GenerateContentResponse({
+      "candidates": [
+        {
+          "content": {
+            "parts": [
+              {
+                "text": "```python\ndef palindromes_between_indices(text):\n  import string\n  letters = set(text[4:9].lower())\n  palindrome_set = set()\n  for letter1 in letters.intersection(string.ascii_lowercase):\n    for letter2 in letters.intersection(string.ascii_lowercase):\n      for letter3 in letters.intersection(string.ascii_lowercase):\n        word = letter1 + letter2 + letter3\n        if len(word) >= 3 and word == word[::-1]:\n          palindrome_set.add(word)\n  return palindrome_set\n```"
+              }
+            ],
+            "role": "model"
+          },
+          "finish_reason": "STOP",
+          "index": 0,
+          "safety_ratings": [
+            {
+              "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HATE_SPEECH",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HARASSMENT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+              "probability": "NEGLIGIBLE"
+            }
+          ]
+        }
+      ],
+      "usage_metadata": {
+        "prompt_token_count": 184,
+        "candidates_token_count": 135,
+        "total_token_count": 319
+      }
+    }),
+)

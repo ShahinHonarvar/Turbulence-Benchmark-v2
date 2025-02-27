@@ -1,0 +1,69 @@
+response:
+GenerateContentResponse(
+    done=True,
+    iterator=None,
+    result=protos.GenerateContentResponse({
+      "candidates": [
+        {
+          "content": {
+            "parts": [
+              {
+                "text": "```python\ndef all_left_right_truncatable_prime(numbers):\n    x = numbers[78]\n    def is_prime(n):\n        if n <= 1:\n            return False\n        for i in range(2, int(n**0.5) + 1):\n            if n % i == 0:\n                return False\n        return True\n    def is_truncatable_prime(n):\n        if not is_prime(n):\n            return False\n        if '0' in str(n):\n            return False\n        n_str = str(n)\n        for i in range(1, len(n_str)):\n            if not is_prime(int(n_str[i:])) or not is_prime(int(n_str[:-i])):\n                return False\n        return True\n    truncatable_primes = []\n    for i in range(2, x + 1):\n        if is_truncatable_prime(i):\n            truncatable_primes.append(i)\n    truncatable_primes.sort(reverse=True)\n    return truncatable_primes\n```\n"
+              },
+              {
+                "executable_code": {
+                  "language": "PYTHON",
+                  "code": "\nprint('This is a test of the tool code block, this should not be in the response')\n"
+                }
+              },
+              {
+                "code_execution_result": {
+                  "outcome": "OUTCOME_OK",
+                  "output": "This is a test of the tool code block, this should not be in the response\n"
+                }
+              },
+              {
+                "text": "```python\ndef all_left_right_truncatable_prime(numbers):\n  x = numbers[78]\n  def is_prime(n):\n    if n <= 1:\n      return False\n    for i in range(2, int(n**0.5) + 1):\n      if n % i == 0:\n        return False\n    return True\n  def is_truncatable_prime(n):\n    if not is_prime(n):\n      return False\n    if '0' in str(n):\n      return False\n    n_str = str(n)\n    for i in range(1, len(n_str)):\n      if not is_prime(int(n_str[i:])) or not is_prime(int(n_str[:-i])):\n        return False\n    return True\n  truncatable_primes = []\n  for i in range(2, x + 1):\n    if is_truncatable_prime(i):\n      truncatable_primes.append(i)\n  truncatable_primes.sort(reverse=True)\n  return truncatable_primes\n```"
+              }
+            ],
+            "role": "model"
+          },
+          "finish_reason": "STOP",
+          "index": 0,
+          "safety_ratings": [
+            {
+              "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HATE_SPEECH",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HARASSMENT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+              "probability": "NEGLIGIBLE"
+            }
+          ],
+          "citation_metadata": {
+            "citation_sources": [
+              {
+                "start_index": 77,
+                "end_index": 254,
+                "uri": "https://github.com/14mthalvorson/project-euler",
+                "license_": ""
+              }
+            ]
+          }
+        }
+      ],
+      "usage_metadata": {
+        "prompt_token_count": 200,
+        "candidates_token_count": 258,
+        "total_token_count": 458
+      }
+    }),
+)

@@ -1,0 +1,74 @@
+response:
+GenerateContentResponse(
+    done=True,
+    iterator=None,
+    result=protos.GenerateContentResponse({
+      "candidates": [
+        {
+          "content": {
+            "parts": [
+              {
+                "text": "```python\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    rows = len(matrix)\n    cols = len(matrix[0])\n    count = 0\n    for i in range(rows - 26):\n        for j in range(cols - 26):\n            submatrix = matrix[i:i+27, j:j+27]\n            if submatrix.size == 27 * 27:\n                count += 1\n    return count\n```\n"
+              },
+              {
+                "executable_code": {
+                  "language": "PYTHON",
+                  "code": "\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    rows = len(matrix)\n    cols = len(matrix[0])\n    count = 0\n    for i in range(rows - 26):\n        for j in range(cols - 26):\n            submatrix = matrix[i:i+27, j:j+27]\n            if submatrix.size == 27 * 27:\n                count += 1\n    return count\n\ntest_matrix = np.arange(1,10000).reshape((100,100))\nprint(submatrix_with_n_numbers(test_matrix))\n"
+                }
+              },
+              {
+                "code_execution_result": {
+                  "outcome": "OUTCOME_OK",
+                  "output": "Traceback (most recent call last):\n  File \"<string>\", line 15, in <module>\nValueError: cannot reshape array of size 9999 into shape (100,100)\n"
+                }
+              },
+              {
+                "text": "I apologize for the error in the previous response. The issue was in the test code, not the function itself. Here is the corrected code:\n\n```python\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    rows = len(matrix)\n    cols = len(matrix[0])\n    count = 0\n    for i in range(rows - 26):\n        for j in range(cols - 26):\n            submatrix = matrix[i:i+27, j:j+27]\n            if submatrix.size == 27 * 27:\n                count += 1\n    return count\n```\n"
+              },
+              {
+                "executable_code": {
+                  "language": "PYTHON",
+                  "code": "\nimport numpy as np\n\ndef submatrix_with_n_numbers(matrix):\n    rows = len(matrix)\n    cols = len(matrix[0])\n    count = 0\n    for i in range(rows - 26):\n        for j in range(cols - 26):\n            submatrix = matrix[i:i+27, j:j+27]\n            if submatrix.size == 27 * 27:\n                count += 1\n    return count\n\ntest_matrix = np.arange(1,10001).reshape((100,100))\nprint(submatrix_with_n_numbers(test_matrix))\n"
+                }
+              },
+              {
+                "code_execution_result": {
+                  "outcome": "OUTCOME_OK",
+                  "output": "5476\n"
+                }
+              },
+              {
+                "text": "The function appears to be working correctly now. It returns the expected output for the given test case. \n"
+              }
+            ],
+            "role": "model"
+          },
+          "finish_reason": "STOP",
+          "index": 0,
+          "safety_ratings": [
+            {
+              "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HATE_SPEECH",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HARASSMENT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+              "probability": "NEGLIGIBLE"
+            }
+          ]
+        }
+      ],
+      "usage_metadata": {
+        "prompt_token_count": 118,
+        "candidates_token_count": 20,
+        "total_token_count": 138
+      }
+    }),
+)

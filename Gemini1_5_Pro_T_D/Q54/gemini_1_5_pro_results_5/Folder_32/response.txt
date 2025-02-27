@@ -1,0 +1,44 @@
+response:
+GenerateContentResponse(
+    done=True,
+    iterator=None,
+    result=protos.GenerateContentResponse({
+      "candidates": [
+        {
+          "content": {
+            "parts": [
+              {
+                "text": "```python\ndef all_right_truncatable_prime(numbers):\n    x = numbers[42]\n    def is_right_truncatable_prime(n):\n        if n < 2:\n            return False\n        for i in range(len(str(n))):\n            if int(str(n)[:len(str(n))-i]) % 2 == 0 and int(str(n)[:len(str(n))-i]) != 2:\n                return False\n            if not all([int(str(n)[:len(str(n))-i]) % j for j in range(3, int(int(str(n)[:len(str(n))-i]) ** 0.5) + 1, 2)]):\n                return False\n        return True\n    result = []\n    for i in range(2, x):\n        if is_right_truncatable_prime(i):\n            result.append(i)\n    result.sort()\n    return result\n```"
+              }
+            ],
+            "role": "model"
+          },
+          "finish_reason": "STOP",
+          "index": 0,
+          "safety_ratings": [
+            {
+              "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HATE_SPEECH",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HARASSMENT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+              "probability": "NEGLIGIBLE"
+            }
+          ]
+        }
+      ],
+      "usage_metadata": {
+        "prompt_token_count": 162,
+        "candidates_token_count": 231,
+        "total_token_count": 393
+      }
+    }),
+)

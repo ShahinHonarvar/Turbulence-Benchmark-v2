@@ -1,0 +1,54 @@
+response:
+GenerateContentResponse(
+    done=True,
+    iterator=None,
+    result=protos.GenerateContentResponse({
+      "candidates": [
+        {
+          "content": {
+            "parts": [
+              {
+                "text": "```python\ndef all_left_truncatable_prime(numbers):\n    x = numbers[23]\n    def is_prime(n):\n        if n <= 1:\n            return False\n        for i in range(2, int(n**0.5) + 1):\n            if n % i == 0:\n                return False\n        return True\n    def is_left_truncatable_prime(n):\n        if n < 10:\n            return is_prime(n)\n        if str(n).count('0') > 0 or not is_prime(n):\n            return False\n        return is_left_truncatable_prime(int(str(n)[1:]))\n    result = []\n    for i in range(2, x):\n        if is_left_truncatable_prime(i):\n            result.append(i)\n    return result\n```"
+              }
+            ],
+            "role": "model"
+          },
+          "finish_reason": "STOP",
+          "index": 0,
+          "safety_ratings": [
+            {
+              "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HATE_SPEECH",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HARASSMENT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+              "probability": "NEGLIGIBLE"
+            }
+          ],
+          "citation_metadata": {
+            "citation_sources": [
+              {
+                "start_index": 75,
+                "end_index": 289,
+                "uri": "https://github.com/zofialuther/CS8395-08-Paper1-updated",
+                "license_": ""
+              }
+            ]
+          }
+        }
+      ],
+      "usage_metadata": {
+        "prompt_token_count": 151,
+        "candidates_token_count": 207,
+        "total_token_count": 358
+      }
+    }),
+)

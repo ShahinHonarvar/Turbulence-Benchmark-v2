@@ -1,0 +1,9 @@
+def insert_after_index(input_list):
+    output_list = []
+    for i in range(len(input_list)):
+        if input_list[i] == 90:
+            output_list.append(input_list[i])
+            output_list.append(80)
+        else:
+            output_list.append(input_list[i])
+    return output_list

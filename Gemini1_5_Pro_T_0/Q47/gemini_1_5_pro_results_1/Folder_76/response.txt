@@ -1,0 +1,44 @@
+response:
+GenerateContentResponse(
+    done=True,
+    iterator=None,
+    result=protos.GenerateContentResponse({
+      "candidates": [
+        {
+          "content": {
+            "parts": [
+              {
+                "text": "```python\ndef palindromes_of_specific_lengths(text):\n  palindromes = set()\n  for i in range(101, 292 - 154 + 2):\n    for j in range(i + 154 - 1, min(292 + 1, i + 182)):\n      substring = text[i:j + 1]\n      if len(substring) >= 154 and len(substring) <= 182 and substring.isalpha() and substring.lower() == substring.lower()[::-1]:\n        palindromes.add(substring)\n  return palindromes\n```"
+              }
+            ],
+            "role": "model"
+          },
+          "finish_reason": "STOP",
+          "index": 0,
+          "safety_ratings": [
+            {
+              "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HATE_SPEECH",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HARASSMENT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+              "probability": "NEGLIGIBLE"
+            }
+          ]
+        }
+      ],
+      "usage_metadata": {
+        "prompt_token_count": 199,
+        "candidates_token_count": 152,
+        "total_token_count": 351
+      }
+    }),
+)

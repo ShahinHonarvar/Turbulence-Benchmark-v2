@@ -1,0 +1,44 @@
+response:
+GenerateContentResponse(
+    done=True,
+    iterator=None,
+    result=protos.GenerateContentResponse({
+      "candidates": [
+        {
+          "content": {
+            "parts": [
+              {
+                "text": "```python\ndef palindromes_between_indices(s):\n    from collections import Counter\n    s = s.lower()\n    letters = ''.join(c for c in s[5:10] if c.isalpha())\n    letters_count = Counter(letters)\n    palindromes = set()\n    for length in range(4, len(letters) + 1):\n        half_length = length // 2\n        for chars in letters_count.combinations(half_length):\n            if length % 2 == 0:\n                palindrome = ''.join(chars) + ''.join(reversed(chars))\n                if len(palindrome) >= 4:\n                    palindromes.add(palindrome)\n            else:\n                for middle_char in letters_count:\n                    if letters_count[middle_char] >= 1:\n                        palindrome = ''.join(chars) + middle_char + ''.join(reversed(chars))\n                        if len(palindrome) >= 4:\n                            palindromes.add(palindrome)\n    return palindromes\n```\n"
+              }
+            ],
+            "role": "model"
+          },
+          "finish_reason": "STOP",
+          "index": 0,
+          "safety_ratings": [
+            {
+              "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HATE_SPEECH",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HARASSMENT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+              "probability": "NEGLIGIBLE"
+            }
+          ]
+        }
+      ],
+      "usage_metadata": {
+        "prompt_token_count": 184,
+        "candidates_token_count": 240,
+        "total_token_count": 424
+      }
+    }),
+)

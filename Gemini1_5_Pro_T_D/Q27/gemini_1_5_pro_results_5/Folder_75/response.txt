@@ -1,0 +1,44 @@
+response:
+GenerateContentResponse(
+    done=True,
+    iterator=None,
+    result=protos.GenerateContentResponse({
+      "candidates": [
+        {
+          "content": {
+            "parts": [
+              {
+                "text": "```python\ndef insert_after_index(input_list):\n  output_list = []\n  index_of_interest = None\n  for i, element in enumerate(input_list):\n    if element == 99:\n      index_of_interest = i\n  if index_of_interest is not None:\n    for i in range(index_of_interest + 1):\n      output_list.append(input_list[i])\n    output_list.append(99)\n    for i in range(index_of_interest + 1, len(input_list)):\n      output_list.append(input_list[i])\n    return output_list\n  else:\n    return input_list\n```"
+              }
+            ],
+            "role": "model"
+          },
+          "finish_reason": "STOP",
+          "index": 0,
+          "safety_ratings": [
+            {
+              "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HATE_SPEECH",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HARASSMENT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+              "probability": "NEGLIGIBLE"
+            }
+          ]
+        }
+      ],
+      "usage_metadata": {
+        "prompt_token_count": 114,
+        "candidates_token_count": 168,
+        "total_token_count": 282
+      }
+    }),
+)

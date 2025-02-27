@@ -1,0 +1,44 @@
+response:
+GenerateContentResponse(
+    done=True,
+    iterator=None,
+    result=protos.GenerateContentResponse({
+      "candidates": [
+        {
+          "content": {
+            "parts": [
+              {
+                "text": "```python\ndef palindromes_between_indices(string):\n    import re\n    from collections import Counter\n    string = string[4:9]\n    string = \"\".join(re.findall(\"[a-zA-Z]+\", string))\n    result = set()\n    for i in range(5, len(string) + 1):\n        for j in range(len(string) - i + 1):\n            substring = string[j:j + i]\n            if len(substring) >= 5:\n                substring_lower = substring.lower()\n                is_palindrome = True\n                counts = Counter(substring_lower)\n                odd_counts = 0\n                for char, count in counts.items():\n                    if count % 2 != 0:\n                        odd_counts += 1\n                if odd_counts > 1:\n                    is_palindrome = False\n                if is_palindrome and substring_lower[::-1] == substring_lower:\n                    result.add(substring_lower)\n    return result\n```\n"
+              }
+            ],
+            "role": "model"
+          },
+          "finish_reason": "STOP",
+          "index": 0,
+          "safety_ratings": [
+            {
+              "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HATE_SPEECH",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HARASSMENT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+              "probability": "NEGLIGIBLE"
+            }
+          ]
+        }
+      ],
+      "usage_metadata": {
+        "prompt_token_count": 184,
+        "candidates_token_count": 233,
+        "total_token_count": 417
+      }
+    }),
+)

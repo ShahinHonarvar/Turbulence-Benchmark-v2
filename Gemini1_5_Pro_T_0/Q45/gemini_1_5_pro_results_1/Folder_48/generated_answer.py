@@ -1,0 +1,13 @@
+import re
+    from itertools import permutations
+
+def palindromes_between_indices(string):
+    letters = ''.join(sorted(set(re.sub('[^a-zA-Z]+', '', string[6:9]).lower())))
+    palindromes = set()
+    if len(letters) >= 4:
+        for i in range(4, len(letters) + 1):
+            for p in permutations(letters, i):
+                word = ''.join(p)
+                if word == word[::-1]:
+                    palindromes.add(word)
+    return palindromes

@@ -1,0 +1,44 @@
+response:
+GenerateContentResponse(
+    done=True,
+    iterator=None,
+    result=protos.GenerateContentResponse({
+      "candidates": [
+        {
+          "content": {
+            "parts": [
+              {
+                "text": "```python\ndef palindromes_between_indices(string):\n  from collections import Counter\n  string = string.lower()\n  letters = Counter(string[0:7])\n  output = set()\n  for i in letters.keys():\n    if i in 'abcdefghijklmnopqrstuvwxyz':\n      for j in letters.keys():\n        if j in 'abcdefghijklmnopqrstuvwxyz':\n          for k in letters.keys():\n            if k in 'abcdefghijklmnopqrstuvwxyz':\n              test = i + j + k + k + j + i\n              if len(test) >= 6 and test not in output:\n                is_palindrome = True\n                for index in range(len(test) // 2):\n                  if test[index] != test[len(test) - index - 1]:\n                    is_palindrome = False\n                if is_palindrome and not (i == j and j == k) and Counter(test) == letters:\n                  output.add(test)\n              test = i + j + k + j + i\n              if len(test) >= 6 and test not in output:\n                is_palindrome = True\n                for index in range(len(test) // 2):\n                  if test[index] != test[len(test) - index - 1]:\n                    is_palindrome = False\n                if is_palindrome and not (i == j) and Counter(test) == letters:\n                  output.add(test)\n  return output\n```"
+              }
+            ],
+            "role": "model"
+          },
+          "finish_reason": "STOP",
+          "index": 0,
+          "safety_ratings": [
+            {
+              "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HATE_SPEECH",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HARASSMENT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+              "probability": "NEGLIGIBLE"
+            }
+          ]
+        }
+      ],
+      "usage_metadata": {
+        "prompt_token_count": 184,
+        "candidates_token_count": 326,
+        "total_token_count": 510
+      }
+    }),
+)

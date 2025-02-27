@@ -1,0 +1,8 @@
+def all_ints_div_by_both_two_nums(list_of_ints):
+    new_list = []
+    for i in range(14, 94):
+        if i >= len(list_of_ints):
+            break
+        if list_of_ints[i] % 71 == 0 and list_of_ints[i] % 81 == 0:
+            new_list.append(list_of_ints[i])
+    return new_list

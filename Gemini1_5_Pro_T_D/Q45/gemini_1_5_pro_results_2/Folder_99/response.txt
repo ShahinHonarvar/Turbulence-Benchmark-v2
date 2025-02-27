@@ -1,0 +1,44 @@
+response:
+GenerateContentResponse(
+    done=True,
+    iterator=None,
+    result=protos.GenerateContentResponse({
+      "candidates": [
+        {
+          "content": {
+            "parts": [
+              {
+                "text": "```python\ndef palindromes_between_indices(string):\n  import re\n  from collections import Counter\n  letters = re.sub(r'[^a-zA-Z]', '', string[4:9])\n  letters_count = Counter(letters.lower())\n  odd_counts = [l for l in letters_count if letters_count[l] % 2 != 0]\n  palindromes = set()\n  if len(letters) >= 3 and len(odd_counts) <= 1:\n    middle = max(odd_counts, key = lambda item: letters_count[item], default = '')\n    half_palindrome = ''\n    for letter in letters_count:\n      if letter != middle:\n        half_palindrome += letter * (letters_count[letter] // 2)\n    perm_set = set()\n    permutation_helper(list(half_palindrome), 0, len(half_palindrome) - 1, perm_set)\n    for item in perm_set:\n      palindromes.add(item + middle + item[::-1])\n  return palindromes\n\ndef permutation_helper(string, left, right, perm_set):\n    if left == right:\n      perm_set.add(\"\".join(string))\n    else:\n      for i in range(left, right + 1):\n        string[left], string[i] = string[i], string[left]\n        permutation_helper(string, left + 1, right, perm_set)\n        string[left], string[i] = string[i], string[left]\n```"
+              }
+            ],
+            "role": "model"
+          },
+          "finish_reason": "STOP",
+          "index": 0,
+          "safety_ratings": [
+            {
+              "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HATE_SPEECH",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HARASSMENT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+              "probability": "NEGLIGIBLE"
+            }
+          ]
+        }
+      ],
+      "usage_metadata": {
+        "prompt_token_count": 184,
+        "candidates_token_count": 364,
+        "total_token_count": 548
+      }
+    }),
+)

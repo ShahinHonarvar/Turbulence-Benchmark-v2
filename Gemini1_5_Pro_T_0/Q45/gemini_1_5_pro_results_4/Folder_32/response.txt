@@ -1,0 +1,44 @@
+response:
+GenerateContentResponse(
+    done=True,
+    iterator=None,
+    result=protos.GenerateContentResponse({
+      "candidates": [
+        {
+          "content": {
+            "parts": [
+              {
+                "text": "```python\ndef palindromes_between_indices(string):\n  from collections import Counter\n  string = string[1:8].lower()\n  letters = [letter for letter in string if letter.isalpha()]\n  palindrome_set = set()\n  if len(letters) < 5:\n    return palindrome_set\n  letter_counts = Counter(letters)\n  odd_counts = [letter for letter, count in letter_counts.items() if count % 2 == 1]\n  if len(odd_counts) > 1:\n    return palindrome_set\n  middle_letter = ''\n  if len(odd_counts) == 1:\n    middle_letter = odd_counts[0]\n    letter_counts[middle_letter] -= 1\n  half_palindrome = ''\n  for letter, count in letter_counts.items():\n    half_palindrome += letter * (count // 2)\n  from itertools import permutations\n  for permutation in permutations(half_palindrome):\n    palindrome = ''.join(permutation) + middle_letter + ''.join(permutation[::-1])\n    palindrome_set.add(palindrome)\n  return palindrome_set\n```"
+              }
+            ],
+            "role": "model"
+          },
+          "finish_reason": "STOP",
+          "index": 0,
+          "safety_ratings": [
+            {
+              "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HATE_SPEECH",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HARASSMENT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+              "probability": "NEGLIGIBLE"
+            }
+          ]
+        }
+      ],
+      "usage_metadata": {
+        "prompt_token_count": 184,
+        "candidates_token_count": 264,
+        "total_token_count": 448
+      }
+    }),
+)
