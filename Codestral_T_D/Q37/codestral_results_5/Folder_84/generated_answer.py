@@ -1,0 +1,5 @@
+def filter_chars(s):
+    for c in s[138:921]:
+        if '6' <= c <= 'A':
+            s = s.replace(c, '')
+    return s

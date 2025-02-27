@@ -1,0 +1,4 @@
+def return_nth_smallest_ascii(string):
+    substring = string[40:61]
+    sorted_substring = sorted(substring, key=ord)
+    return sorted_substring[18]

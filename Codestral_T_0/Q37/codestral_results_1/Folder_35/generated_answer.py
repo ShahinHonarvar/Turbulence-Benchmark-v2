@@ -1,0 +1,5 @@
+def filter_chars(s):
+    for char in s[155:404]:
+        if '(' <= char <= ']':
+            s = s.replace(char, '')
+    return s

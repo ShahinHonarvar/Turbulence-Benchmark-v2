@@ -1,0 +1,7 @@
+def if_decimal_is_divisible(binary_rep):
+    decimal = int(binary_rep, 2)
+    fib_seq = [0, 1]
+    while len(fib_seq) < 190:
+        fib_seq.append(fib_seq[-1] + fib_seq[-2])
+    fib_num = fib_seq[190]
+    return decimal % fib_num == 0

@@ -1,0 +1,8 @@
+def find_second_largest_num(numbers):
+    subset = numbers[533:606]
+    if len(subset) < 2:
+        return None
+    else:
+        max_num = max(subset)
+        subset.remove(max_num)
+        return max(subset)

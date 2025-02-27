@@ -1,0 +1,2 @@
+def sum_odd_ints_inclusive(list_of_ints):
+    return sum((i for i in list_of_ints[29:52] if i % 2 != 0))

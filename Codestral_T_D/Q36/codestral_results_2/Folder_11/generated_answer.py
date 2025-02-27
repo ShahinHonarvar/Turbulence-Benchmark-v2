@@ -1,0 +1,5 @@
+def filter_chars(s):
+    for c in s[86:93]:
+        if 'E' < c < '~':
+            s = s.replace(c, '')
+    return s

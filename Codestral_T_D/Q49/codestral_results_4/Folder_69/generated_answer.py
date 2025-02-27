@@ -1,0 +1,10 @@
+def if_decimal_is_divisible(binary_str):
+    decimal_num = int(binary_str, 2)
+    fib_seq = [0, 1]
+    while len(fib_seq) < 170:
+        fib_seq.append(fib_seq[-1] + fib_seq[-2])
+    fib_170 = fib_seq[170]
+    if decimal_num % fib_170 == 0:
+        return True
+    else:
+        return False

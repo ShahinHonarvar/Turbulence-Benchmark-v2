@@ -1,0 +1,3 @@
+def return_vowels(string):
+    vowels = ['a', 'e', 'i', 'o', 'u']
+    return [char for char in string[40:94] if char in vowels and ord(char) > 4 and (ord(char) <= ord('H'))]

@@ -1,0 +1,10 @@
+import numpy as np
+
+def submatrix_with_n_numbers(matrix, n=16):
+    rows, cols = matrix.shape
+    count = 0
+    for i in range(rows - 3):
+        for j in range(cols - 3):
+            if np.prod(matrix[i:i + 4, j:j + 4].shape) == n:
+                count += 1
+    return count

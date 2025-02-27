@@ -1,0 +1,12 @@
+from sympy import isprime
+
+def all_left_truncatable_prime(t):
+    x = t[61]
+    left_truncatable_primes = []
+    for i in range(2, x):
+        if '0' in str(i):
+            continue
+        if all((isprime(int(str(i)[j:])) for j in range(1, len(str(i))))):
+            left_truncatable_primes.append(i)
+    left_truncatable_primes.sort()
+    return left_truncatable_primes

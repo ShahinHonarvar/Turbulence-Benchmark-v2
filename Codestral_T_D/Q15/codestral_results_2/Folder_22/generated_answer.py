@@ -1,0 +1,2 @@
+def sum_odd_ints_inclusive(lst):
+    return sum((num for num in lst[40:42] if num % 2 != 0)) if 40 < len(lst) else 0

@@ -1,0 +1,7 @@
+def insert_after_index(lst):
+    try:
+        index = lst.index(21)
+        lst.insert(index + 1, [83, 14])
+    except ValueError:
+        pass
+    return lst

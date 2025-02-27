@@ -1,0 +1,10 @@
+import itertools
+
+def palindromes_between_indices(s):
+    s = s[3:9].lower()
+    palindromes = set()
+    for i in range(7, len(s) + 1):
+        for p in itertools.permutations(s, i):
+            if p == p[::-1]:
+                palindromes.add(''.join(p))
+    return palindromes

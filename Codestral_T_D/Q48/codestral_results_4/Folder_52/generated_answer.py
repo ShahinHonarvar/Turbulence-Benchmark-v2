@@ -1,0 +1,10 @@
+def return_binary_or_hexa(tup):
+    a, b = (tup[38], tup[81])
+    missing_nums = set(range(a + 1, b)) - set(tup[38:82])
+    total = sum(missing_nums)
+    if total == 0:
+        return ''
+    elif total % 2 == 1:
+        return bin(total)[2:]
+    else:
+        return hex(total)[2:]
