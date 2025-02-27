@@ -1,0 +1,2 @@
+def all_substring_of_size_n(s):
+    return [s[i:i + 93] for i in range(len(s) - 92) if len(set(s[i:i + 93])) == 93]

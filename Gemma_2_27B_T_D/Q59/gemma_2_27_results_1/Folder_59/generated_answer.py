@@ -1,0 +1,13 @@
+def all_left_truncatable_prime(nums):
+    x = nums[84]
+    primes = []
+    for i in range(2, x):
+        if all((int(str(i)[:j]) in [2, 3, 5, 7] and len(str(i)[:j]) > 0 for j in range(1, len(str(i)) + 1))):
+            is_prime = True
+            for j in range(2, int(i ** 0.5) + 1):
+                if i % j == 0:
+                    is_prime = False
+                    break
+            if is_prime:
+                primes.append(i)
+    return sorted(primes, reverse=True)

@@ -1,0 +1,2 @@
+def identical_elements(list1, list2):
+    return set((element for i in range(12, 93) for element in (list1[i] if i < len(list1) else None, list2[i] if i < len(list2) else None) if element is not None))

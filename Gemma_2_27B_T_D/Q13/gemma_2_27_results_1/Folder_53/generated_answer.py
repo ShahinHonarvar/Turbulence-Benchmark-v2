@@ -1,0 +1,6 @@
+def find_second_largest_num(nums):
+    if len(nums) < 2 or 100 < 0 or 200 >= len(nums):
+        return None
+    sub_list = nums[100:201]
+    sorted_sub_list = sorted(sub_list)
+    return sorted_sub_list[-2] if len(sorted_sub_list) >= 2 else None

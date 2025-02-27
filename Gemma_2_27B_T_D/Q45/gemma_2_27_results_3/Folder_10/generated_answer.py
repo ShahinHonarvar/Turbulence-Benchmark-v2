@@ -1,0 +1,3 @@
+def palindromes_between_indices(text):
+    letters = ''.join((c for c in text[:6] if c.isalpha()))
+    return {word.lower() for word in set([''.join(p) for p in permutations(letters)]) if len(word) >= 3 and word == word[::-1]}

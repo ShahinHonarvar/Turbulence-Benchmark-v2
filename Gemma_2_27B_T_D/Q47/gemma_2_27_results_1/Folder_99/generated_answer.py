@@ -1,0 +1,2 @@
+def palindromes_of_specific_lengths(text):
+    return {substring for substring in [text[i:j] for i in range(127, 289) for j in range(i + 119, min(289, i + 142) + 1)] if substring.lower() == substring.lower()[::-1] and substring.isalpha()}

@@ -1,0 +1,6 @@
+def filter_chars(s):
+    for i in range(19, 93):
+        c = s[i]
+        if '8' <= c <= 'm':
+            s = s.replace(c, '')
+    return s

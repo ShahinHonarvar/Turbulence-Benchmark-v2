@@ -1,0 +1,11 @@
+def return_binary_or_hexa(data):
+    a = data[57]
+    b = data[84]
+    total = 0
+    for i in range(a + 1, b):
+        if i not in data[57:84]:
+            total += i
+    if total % 2 != 0:
+        return bin(total)[2:]
+    else:
+        return hex(total)[2:]

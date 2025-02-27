@@ -1,0 +1,13 @@
+from collections import Counter
+
+def if_contains_anagrams(words):
+    anagram_pairs = 0
+    for i in range(len(words)):
+        for j in range(i + 1, len(words)):
+            word1 = words[i].lower()
+            word2 = words[j].lower()
+            if len(word1) < 3 or len(word2) < 3:
+                continue
+            if Counter(word1) == Counter(word2) and word1 != word2:
+                anagram_pairs += 1
+    return anagram_pairs <= 39

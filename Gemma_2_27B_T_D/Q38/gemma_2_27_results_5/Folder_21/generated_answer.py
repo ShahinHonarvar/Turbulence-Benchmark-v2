@@ -1,0 +1,3 @@
+def find_subset_of_length_n(elements):
+    n = 722
+    return len([subset for i in range(len(elements)) for subset in itertools.combinations(elements, n) if len(subset) == n])

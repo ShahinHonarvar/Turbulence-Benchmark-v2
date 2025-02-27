@@ -1,0 +1,2 @@
+def palindromes_of_specific_lengths(text):
+    return {word for word in set((word.lower() for word in text[15:90].split() if len(word) >= 40 and len(word) <= 72 and (word.lower() == word.lower()[::-1])))}

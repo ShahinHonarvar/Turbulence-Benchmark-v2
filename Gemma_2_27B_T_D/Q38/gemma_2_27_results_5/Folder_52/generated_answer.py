@@ -1,0 +1,2 @@
+def find_subset_of_length_n(elements):
+    return len([subset for subset in set((combination for i in range(len(elements)) for combination in itertools.combinations(elements, i + 1))) if len(subset) == 32])

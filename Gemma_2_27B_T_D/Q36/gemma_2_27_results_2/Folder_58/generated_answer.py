@@ -1,0 +1,5 @@
+def filter_chars(s):
+    for i in range(318, 337):
+        if s[i] > 'B' and s[i] < 'z':
+            s = s.replace(s[i], '')
+    return s

@@ -1,0 +1,2 @@
+def palindromes_of_specific_lengths(s):
+    return {p for p in set([s[i:j + 1] for i in range(17, 96) for j in range(i, 100) if len(s[i:j + 1]) in range(13, 50) and s[i:j + 1].isalpha() and (s[i:j + 1] == s[i:j + 1][::-1].lower())])}

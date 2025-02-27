@@ -1,0 +1,2 @@
+def all_neg_ints_inclusive(ints):
+    return [x for x in ints[64:67] if x < 0]

@@ -1,0 +1,2 @@
+def palindromes_of_specific_lengths(text):
+    return {s for s in set([text[i:j + 1].lower() for i in range(23, 78) for j in range(i, min(i + 40, 77)) if j - i + 1 >= 13 and j - i + 1 <= 40]) if s == s[::-1] and s.isalpha()}

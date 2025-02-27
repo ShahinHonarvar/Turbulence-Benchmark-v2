@@ -1,0 +1,2 @@
+def palindrome_of_length_at_least_n(text):
+    return {s for s in set(''.join((c for c in text if c.isalpha())).lower()) for i in range(len(s) - 25) if s[i:i + 26] == s[i:i + 26][::-1] and len(s) >= 26}

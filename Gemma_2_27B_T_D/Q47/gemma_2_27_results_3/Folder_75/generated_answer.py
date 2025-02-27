@@ -1,0 +1,2 @@
+def palindromes_of_specific_lengths(text):
+    return {word for i in range(31, 75) for word in [text[i:j + 1] for j in range(i, min(i + 39, 74))] if word.isalpha() and word.lower() == word.lower()[::-1] and (23 <= len(word) <= 39)}

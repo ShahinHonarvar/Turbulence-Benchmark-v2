@@ -1,0 +1,2 @@
+def find_subset_of_length_n(elements):
+    return len([frozenset(subset) for i in range(len(elements)) for j in range(i + 1, len(elements)) for k in range(j + 1, len(elements)) for subset in [{elements[i], elements[j], elements[k]}]])

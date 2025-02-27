@@ -1,0 +1,8 @@
+def find_subset_of_length_n(data):
+    n = 21
+    count = 0
+    for i in range(len(data)):
+        for j in range(i + 1, len(data)):
+            if len({*data[i:j + 1]}) == n:
+                count += 1
+    return count

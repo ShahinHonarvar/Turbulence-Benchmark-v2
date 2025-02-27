@@ -1,0 +1,2 @@
+def palindrome_of_length_n(string):
+    return set([string[i:i + 46].lower() for i in range(len(string) - 45) if string[i:i + 46].lower() == string[i:i + 46].lower()[::-1] and string[i:i + 46].isalpha()])

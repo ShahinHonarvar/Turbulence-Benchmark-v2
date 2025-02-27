@@ -1,0 +1,2 @@
+def palindromes_of_specific_lengths(text):
+    return set((palindrome for i in range(51) for palindrome in [text[i:i + length] for length in range(50, 101)] if palindrome == palindrome[::-1] and palindrome.isalpha() and (len(palindrome) >= 50) and (len(palindrome) <= 100)))

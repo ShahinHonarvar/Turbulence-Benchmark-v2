@@ -1,0 +1,2 @@
+def palindromes_of_specific_lengths(text):
+    return {p for i in range(7) for j in range(i, 7) for p in {text[i:j + 1].lower() for p in set(text[i:j + 1].lower()) if p == p[::-1] and 3 <= len(p) <= 6 and p.isalpha()}}

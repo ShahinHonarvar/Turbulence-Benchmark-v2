@@ -1,0 +1,2 @@
+def palindrome_of_length_at_least_n(text):
+    return {palindrome for palindrome in set([text[i:j + 1] for i in range(len(text)) for j in range(i, len(text))]) if palindrome.lower() == palindrome.lower()[::-1] and len(palindrome) >= 93 and palindrome.isalpha()}

@@ -1,0 +1,2 @@
+def palindrome_of_length_n(text):
+    return {text[i:i + 206].lower() for i in range(len(text) - 205) if text[i:i + 206].lower() == text[i:i + 206].lower()[::-1] and all((char.isalpha() for char in text[i:i + 206]))}

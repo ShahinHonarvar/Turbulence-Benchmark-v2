@@ -1,0 +1,2 @@
+def palindromes_of_specific_lengths(text):
+    return set([substring for i in range(17, 73) for substring in [text[i:j + 1] for j in range(i, 72)] if i + 50 <= j <= i + 51 and substring == substring[::-1] and all([c.isalpha() for c in substring])])

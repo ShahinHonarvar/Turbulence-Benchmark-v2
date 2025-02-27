@@ -1,0 +1,2 @@
+def palindrome_of_length_at_least_n(s):
+    return {p for p in set((''.join((c for c in s if c.isalpha())).lower() for i in range(len(s) - 25) for j in range(i + 26, len(s) + 1) if ''.join((c for c in s[i:j])).lower() == ''.join((c for c in s[i:j]))[::-1].lower())) if len(p) >= 26}

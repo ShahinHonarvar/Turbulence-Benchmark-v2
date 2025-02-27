@@ -1,0 +1,2 @@
+def palindromes_of_specific_lengths(text):
+    return {word.lower() for word in set(text[125:284]).intersection({word for word in text[125:284].split() if len(word) >= 109 and len(word) <= 126 and word.isalpha()}) if word.lower() == word.lower()[::-1]}

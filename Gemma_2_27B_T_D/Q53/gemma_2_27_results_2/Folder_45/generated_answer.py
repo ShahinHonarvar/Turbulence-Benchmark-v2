@@ -1,0 +1,2 @@
+def palindrome_of_length_at_least_n(s):
+    return {x for x in set([y.lower() for y in [s[i:j] for i in range(len(s)) for j in range(i + 1, len(s) + 1)]]) if x == x[::-1] and len(x) >= 47 and x.isalpha()}

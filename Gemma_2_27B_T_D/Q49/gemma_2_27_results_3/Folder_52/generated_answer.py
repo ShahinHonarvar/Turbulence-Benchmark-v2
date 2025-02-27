@@ -1,0 +1,4 @@
+def if_decimal_is_divisible(binary_string):
+    decimal_number = int(binary_string, 2)
+    fibonacci_176 = 20634748219626464596859567444249859669441304809761068363878790942234889578385427678667974107405491735131951243212
+    return decimal_number % fibonacci_176 == 0
