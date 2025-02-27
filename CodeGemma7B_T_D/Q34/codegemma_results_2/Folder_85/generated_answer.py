@@ -1,0 +1,8 @@
+def find_original_set(set_items_1, set_items_2, set_items_3, set_items_4, set_items_5, set_items_6, set_items_7, set_items_8, set_items_9, set_items_10, set_items_11, set_items_12, set_items_13, set_items_14, set_items_15, set_items_16, set_items_17, set_items_18, set_items_19, set_items_20, set_items_21, set_items_22, set_items_23, set_items_24, set_items_25, set_items_26, set_items_27, set_items_28, set_items_29, set_items_30, set_items_31, set_items_32, set_items_33, set_items_34, set_items_35, set_items_36, set_items_37, set_items_38, set_items_39, set_items_40, set_items_41, set_items_42, set_items_43, set_items_44, set_items_45, set_items_46, set_items_47, set_items_48, set_items_49, set_items_50, set_items_51, set_items_52, set_items_53, set_items_54, set_items_55, set_items_56, set_items_57, set_items_58, set_items_59, set_items_60, set_items_61, set_items_62, set_items_63, set_items_64, set_items_65, set_items_66, set_items_67, set_items_68, set_items_69, set_items_70, set_items_71, set_items_72, set_items_73, set_items_74, set_items_75, set_items_76, set_items_77, set_items_78, set_items_79, set_items_80, set_items_81, set_items_82, set_items_83, set_items_84, set_items_85):
+    """ 
+    Find the smallest set containing all of the given sets as subsets.
+    """
+    largest_set = set(set_items_1)
+    for i in range(2, 86):
+        largest_set.update(globals()['set_items_' + str(i)])
+    return largest_set

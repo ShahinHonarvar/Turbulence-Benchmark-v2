@@ -1,0 +1,7 @@
+predictions {
+  string_value: "Prompt:\nSystem: You are an expert in Python programming. You are given a text specification surrounded by angle brackets. Create Python code according to the text specification. The Python code should not contain any comments. The Python code should be delimited only by triple backticks.\n        User: <Write a function called \'all_left_truncatable_prime\' that takes an argument which is a tuple of positive integers. Let x be the integer at index 975. The function should return the list of all left-truncatable prime numbers less than x. The return list should be sorted in descending order. A left-truncatable prime number is a prime number that contains no 0 and if the leading leftmost digit is successively removed, then all resulting numbers are prime.>\nOutput:\nSystem:```python\ndef all_left_truncatable_prime(number):\n    list=[]\n    if number[975] < 2 or number[975]%2 == 0:\n        return list\n    elif number[975]%3 == 0:\n        return list\n    elif len(str(number[975]))%2 == 0:\n        return list\n    else:\n        for i in range(len(str(number[975]))):\n            n=str(number[975])[i:]\n            if n==\"2\" or n==\"3\" or n==\"5\" or n==\"7\":\n                list.append(int(n))\n    list.sort(reverse=True)\n    return list\n```"
+}
+deployed_model_id: "1558232276930658304"
+model: "projects/901665225437/locations/us-east1/models/google_codegemma-7b-it-1725717676032"
+model_version_id: "1"
+model_display_name: "google_codegemma-7b-it-1725717676032"

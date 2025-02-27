@@ -1,0 +1,12 @@
+from collections import defaultdict
+
+def if_contains_anagrams(str_list):
+    str_dict = defaultdict(list)
+    for string in str_list:
+        sorted_str = ''.join(sorted(string.lower()))
+        str_dict[sorted_str].append(string)
+    anagram_count = 0
+    for anagram_list in str_dict.values():
+        if len(anagram_list) >= 3:
+            anagram_count += len(anagram_list) - 2
+    return anagram_count >= 47

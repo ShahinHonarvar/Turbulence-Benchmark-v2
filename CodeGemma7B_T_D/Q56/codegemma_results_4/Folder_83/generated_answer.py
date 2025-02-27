@@ -1,0 +1,2 @@
+def all_substring_of_size_n(s):
+    return [i for i in [s[j:j + 48] for j in range(len(s))] if len(i) == 48 and len(set(i)) == 48] if len([i for i in [s[j:j + 48] for j in range(len(s))] if len(i) == 48 and len(set(i)) == 48]) != 0 else []

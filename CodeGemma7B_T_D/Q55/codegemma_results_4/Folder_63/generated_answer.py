@@ -1,0 +1,2 @@
+def lists_with_product_equal_n(circular_list):
+    return [[circular_list[(i + j) % len(circular_list)] for j in range(i + 1) if circular_list[(i + j) % len(circular_list)] != 0] for i in range(len(circular_list))]

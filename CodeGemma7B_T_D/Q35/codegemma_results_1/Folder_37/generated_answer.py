@@ -1,0 +1,5 @@
+def remove_repeat_chars(text):
+    for i in range(2, 7):
+        if text[i] in text[i + 1:7]:
+            text = text[:i] + text[i + 1:]
+    return text

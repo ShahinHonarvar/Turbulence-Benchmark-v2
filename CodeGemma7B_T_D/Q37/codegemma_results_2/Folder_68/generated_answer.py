@@ -1,0 +1,2 @@
+def filter_chars(text):
+    return ''.join([char for char in text if char not in '6789:;<=>?@abcdefghijklmnopqrstuvwxyz' or (text.index(char) < 7 or text.index(char) > 9 or char < '6' or (char > 'w'))])

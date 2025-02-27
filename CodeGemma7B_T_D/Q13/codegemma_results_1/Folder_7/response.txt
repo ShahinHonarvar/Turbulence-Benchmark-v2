@@ -1,0 +1,7 @@
+predictions {
+  string_value: "Prompt:\nSystem: You are an expert in Python programming. You are given a text specification surrounded by angle brackets. Create Python code according to the text specification. The Python code should not contain any comments. The Python code should be delimited only by triple backticks.\n        User: <Write a function called \'find_second_largest_num\' that takes one argument, a list of distinct numbers, as input and returns the second largest element from index 661 to index 924, both inclusive. If there is no such element, the function should return \'None\'.>\nOutput:\nSystem: ```python\ndef find_second_largest_num(nums):\n  if not nums:\n    return None\n\n  nums = sorted(nums)\n\n  # Check if there is at least two elements in the list\n  if len(nums) <= 1:\n    return None\n\n  # Starting index is 661\n  start_index = 661\n\n  # Ending index is 924\n  end_index = 924\n\n  # Find the second largest element within the specified range\n  for i in range(start_index, end_index + 1):\n    if i >= len(nums):\n      return None  # Index out of bounds\n    if nums[i] > nums[-2]:\n      return nums[-2]\n\n  # No second largest element found within range\n  return None\n```"
+}
+deployed_model_id: "1558232276930658304"
+model: "projects/901665225437/locations/us-east1/models/google_codegemma-7b-it-1725717676032"
+model_version_id: "1"
+model_display_name: "google_codegemma-7b-it-1725717676032"

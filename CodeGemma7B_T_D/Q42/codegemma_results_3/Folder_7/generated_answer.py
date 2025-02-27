@@ -1,0 +1,10 @@
+def prime_factors(nums):
+    return set((factor for num in nums for factor in get_prime_factors(num) if num == nums[851]))
+
+def get_prime_factors(num):
+    factors = set()
+    for i in range(2, num + 1):
+        while num % i == 0:
+            factors.add(i)
+            num //= i
+    return factors

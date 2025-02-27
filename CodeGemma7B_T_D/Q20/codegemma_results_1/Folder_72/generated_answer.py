@@ -1,0 +1,4 @@
+from functools import partial
+
+def find_n_th_smallest_num(nums):
+    return sorted(nums[21:70])[9]

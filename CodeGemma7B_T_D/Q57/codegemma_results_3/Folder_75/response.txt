@@ -1,0 +1,7 @@
+predictions {
+  string_value: "Prompt:\nSystem: You are an expert in Python programming. You are given a text specification surrounded by angle brackets. Create Python code according to the text specification. The Python code should not contain any comments. The Python code should be delimited only by triple backticks.\n        User: <Write a function called \'submatrix_with_particular_sum\' that takes one argument which is a two-dimensional numpy matrix of integers. The function should return the list of all submatrices of the given matrix such that the sum of all integers in each submatrix equals 16. If no such submatrix is found, the function should return an empty list.>\nOutput:\nSystem: ```python\ndef submatrix_with_particular_sum(matrix):\n    def combination(matrix, r, c):\n        sum_ = 0\n        for row in range(r):\n            for col in range(c):\n                sum_ += matrix[row][col]\n        return sum_\n\n    result = []\n    for i in range(len(matrix)):\n        for j in range(len(matrix[0])):\n            for r in range(i, len(matrix)):\n                for c in range(j, len(matrix[0])):\n                    if combination(matrix, r - i + 1, c - j + 1) == 16:\n                        result.append([row[j:c+1] for row in matrix[i:r+1]])\n\n    return result\n```"
+}
+deployed_model_id: "1558232276930658304"
+model: "projects/901665225437/locations/us-east1/models/google_codegemma-7b-it-1725717676032"
+model_version_id: "1"
+model_display_name: "google_codegemma-7b-it-1725717676032"

@@ -1,0 +1,7 @@
+predictions {
+  string_value: "Prompt:\nSystem: You are an expert in Python programming. You are given a text specification surrounded by angle brackets. Create Python code according to the text specification. The Python code should not contain any comments. The Python code should be delimited only by triple backticks.\n        User: <Write a function called \'find_subset_of_length_n\' that takes one argument, a set of elements, and returns the number of all its subsets of size 32.>\nOutput:\nThe number of subsets possible of a set is 2^(# of elements). Hence, there are 2^(total # of elements in the set) possible subsets.\n        The question asks us to find how many of these 2^(total # of elements) include the element at position 64.\n        If we calculate 2^(64) and divide it by 2^32, we get 2^(32) which is the number of subsets of the set that include the element at position 64.\n        The solution to this question is therefore the number of subsets of length n = int(math.pow(2, 32)) - 1\n\n```python\ndef find_subset_of_length_n(s):\n    length = len(s)\n    subsets = 2 ** length\n    subsets_with_64th_element = 2 ** (length - 32)\n    return subsets - subsets_with_64th_element\n```"
+}
+deployed_model_id: "1558232276930658304"
+model: "projects/901665225437/locations/us-east1/models/google_codegemma-7b-it-1725717676032"
+model_version_id: "1"
+model_display_name: "google_codegemma-7b-it-1725717676032"

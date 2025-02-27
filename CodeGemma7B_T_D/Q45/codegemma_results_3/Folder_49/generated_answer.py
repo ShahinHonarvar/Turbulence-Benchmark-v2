@@ -1,0 +1,16 @@
+import itertools
+
+def palindromes_between_indices(text):
+    """
+    Write a function called 'palindromes_between_indices' that takes one argument, which is a string.
+    The given string may consist of any character.
+    The function should return the set of all palindromes of the length of at least 3 such that each palindrome is created from any possible arrangement of the English letters in the given string that occur between index 5 to index 7, both inclusive.
+    If no such palindromes of the specified length can be created from the English letters of the given string that occur in the specified range, the function should return an empty set.
+    The function should form each palindrome in a case-insensitive manner.
+    """
+    candidates = ''.join(sorted(text[5:8].lower()))
+    palindromes = set()
+    for permutation in itertools.permutations(candidates):
+        if ''.join(permutation) == ''.join(permutation[::-1]):
+            palindromes.add(''.join(permutation))
+    return palindromes

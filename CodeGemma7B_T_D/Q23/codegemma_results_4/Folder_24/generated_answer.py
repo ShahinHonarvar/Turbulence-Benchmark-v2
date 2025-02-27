@@ -1,0 +1,8 @@
+import math
+
+def find_divisors_in_range(num):
+    divisors = []
+    for i in range(43, 96):
+        if num % i == 0:
+            divisors.append(i)
+    return divisors

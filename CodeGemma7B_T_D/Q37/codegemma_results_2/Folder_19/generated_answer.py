@@ -1,0 +1,2 @@
+def filter_chars(text):
+    return ''.join([char for char in text if text.index(char) >= 35 and text.index(char) <= 89 and (char not in ['E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T'])])

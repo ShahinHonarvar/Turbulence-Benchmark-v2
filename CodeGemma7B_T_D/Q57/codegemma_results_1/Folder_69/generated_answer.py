@@ -1,0 +1,10 @@
+def submatrix_with_particular_sum(matrix):
+    result = []
+    for r1 in range(len(matrix)):
+        for r2 in range(r1, len(matrix)):
+            for c1 in range(len(matrix[0])):
+                for c2 in range(c1, len(matrix[0])):
+                    submatrix = [[row[c] for c in range(c1, c2 + 1)] for row in matrix[r1:r2 + 1]]
+                    if sum((sum(row) for row in submatrix)) == 752:
+                        result.append(submatrix)
+    return result

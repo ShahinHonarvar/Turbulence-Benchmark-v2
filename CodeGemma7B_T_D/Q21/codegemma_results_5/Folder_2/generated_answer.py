@@ -1,0 +1,6 @@
+def all_ints_div_by_num(num_list):
+    result = []
+    for num in num_list[62:71]:
+        if num % 58 == 0:
+            result.append(num)
+    return result

@@ -1,0 +1,3 @@
+def insert_at_index(lst):
+    new_lst = lst[:500] + [912, 170] + lst[500:]
+    return new_lst

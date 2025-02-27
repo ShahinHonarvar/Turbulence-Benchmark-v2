@@ -1,0 +1,2 @@
+def find_original_set(x, y, z, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, k, l, z, k, m, n, o, p, q, r, s, t, u, v, w, x, y, z, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z):
+    return max()

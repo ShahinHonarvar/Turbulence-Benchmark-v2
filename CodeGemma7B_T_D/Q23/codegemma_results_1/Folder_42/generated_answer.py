@@ -1,0 +1,6 @@
+def find_divisors_in_range(n):
+    """
+        :type n: int
+        :rtype: list
+        """
+    return [x for x in range(14, 94) if n % x == 0]

@@ -1,0 +1,7 @@
+predictions {
+  string_value: "Prompt:\nSystem: You are an expert in Python programming. You are given a text specification surrounded by angle brackets. Create Python code according to the text specification. The Python code should not contain any comments. The Python code should be delimited only by triple backticks.\n        User: <Write a function called \'find_subset_of_length_n\' that takes one argument, a set of elements, and returns the number of all its subsets of size 801.>\nOutput:\nSystem: ```python\n        def find_subsets_of_length_n(set):\n            def generate_subsets(current_subset, remaining_elements):\n                if len(current_subset) == 801:\n                    return 1  # Base case: subset of size 801 is found\n                total_subsets = 0\n                for element in remaining_elements:\n                    new_subset = current_subset | {element}\n                    new_remaining_elements = remaining_elements - {element}\n                    total_subsets += generate_subsets(new_subset, new_remaining_elements)\n                return total_subsets\n            return generate_subsets(set, set)\n        ```"
+}
+deployed_model_id: "1558232276930658304"
+model: "projects/901665225437/locations/us-east1/models/google_codegemma-7b-it-1725717676032"
+model_version_id: "1"
+model_display_name: "google_codegemma-7b-it-1725717676032"

@@ -1,0 +1,2 @@
+def identical_elements(list_A, list_B):
+    return set((element for n, element in enumerate(list_A) for m, elem in enumerate(list_B) if n >= 64 and n <= 66 and (m >= 64) and (m <= 66) and (element == elem)))

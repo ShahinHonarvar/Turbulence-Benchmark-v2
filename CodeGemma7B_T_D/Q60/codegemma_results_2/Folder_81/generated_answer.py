@@ -1,0 +1,2 @@
+def all_left_right_truncatable_prime(n):
+    """This function returns a list of all left-and-right-truncatable prime numbers less than or equal to n. The return list should be sorted in ascending order. If no left-and-right-truncatable prime number exists in the specified range, the function should return an empty list."""

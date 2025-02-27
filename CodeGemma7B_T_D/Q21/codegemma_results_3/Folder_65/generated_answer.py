@@ -1,0 +1,8 @@
+def all_ints_div_by_num(lst):
+    if not lst:
+        return []
+    result = []
+    for i in range(14, 57):
+        if lst[i] % -59 == 0:
+            result.append(lst[i])
+    return result

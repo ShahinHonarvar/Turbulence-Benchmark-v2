@@ -1,0 +1,36 @@
+{
+  "parameter(s)": [
+    91,
+    99
+  ],
+  "test_zero_range": [
+    "passed",
+    "",
+    0.00013
+  ],
+  "test_range_size": [
+    "passed",
+    "",
+    0.0001
+  ],
+  "test_range_sum": [
+    "passed",
+    "",
+    7e-05
+  ],
+  "test_large_range": [
+    "failed",
+    "assert [91, 92, 93, 94, 95, 96, ...] == [92, 93, 94, 95, 96, 97, ...]\n  At index 0 diff: 91 != 92\n  Full diff:\n  - [92, 93, 94, 95, 96, 97, 98, 99, 100]\n  ?                                -----\n  + [91, 92, 93, 94, 95, 96, 97, 98, 99]\n  ?  ++++",
+    0.0005
+  ],
+  "test_even_range": [
+    "failed",
+    "assert [92, 94, 96, 98] == [184, 186, 18...192, 194, ...]\n  At index 0 diff: 92 != 184\n  Right contains 5 more items, first extra item: 192\n  Full diff:\n  - [184, 186, 188, 190, 192, 194, 196, 198, 200]\n  + [92, 94, 96, 98]",
+    0.00052
+  ],
+  "test_ones_range_sum": [
+    "failed",
+    "assert 0 == ((99 - 91) + 1)\n +  where 0 = sum([])\n +    where [] = all_pos_ints_inclusive([1, 1, 1, 1, 1, 1, ...])",
+    0.00022
+  ]
+}

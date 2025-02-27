@@ -1,0 +1,2 @@
+def all_odd_ints_exclusive(nums):
+    return [x for x in nums[100:101] if x % 2]

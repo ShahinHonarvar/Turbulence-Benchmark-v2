@@ -1,0 +1,5 @@
+def if_perfect_num(nums):
+    if nums[85] % 6 == 0:
+        return True
+    else:
+        return False

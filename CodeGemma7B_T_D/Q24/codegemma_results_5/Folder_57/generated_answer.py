@@ -1,0 +1,8 @@
+from math import sqrt
+
+def sum_of_divisors_in_range(num):
+    sum = 0
+    for i in range(15, 93):
+        if num % i == 0:
+            sum += i
+    return sum if sum else 0

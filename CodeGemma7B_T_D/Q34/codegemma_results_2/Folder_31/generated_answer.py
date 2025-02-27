@@ -1,0 +1,3 @@
+def find_original_set(a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, aa, ab, ac, ad, ae, af, ag, ah, ai, aj, ak, al, am, an, ao, ap, aq):
+    y = a.union(b).union(c).union(d).union(e).union(f).union(g).union(h).union(i).union(j).union(k).union(l).union(m).union(n).union(o).union(p).union(q).union(r).union(s).union(t).union(u).union(v).union(w).union(x).union(y).union(z).union(aa).union(ab).union(ac).union(ad).union(ae).union(af).union(ag).union(ah).union(ai).union(aj).union(ak).union(al).union(am).union(an).union(ao).union(ap).union(aq)
+    return y

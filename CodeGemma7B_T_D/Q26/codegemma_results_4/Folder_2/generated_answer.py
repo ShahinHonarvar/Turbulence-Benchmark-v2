@@ -1,0 +1,2 @@
+def sum_in_range(lst):
+    return sum([num for num in lst if 266 <= num <= 586]) or 0

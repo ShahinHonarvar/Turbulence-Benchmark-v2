@@ -1,0 +1,7 @@
+predictions {
+  string_value: "Prompt:\nSystem: You are an expert in Python programming. You are given a text specification surrounded by angle brackets. Create Python code according to the text specification. The Python code should not contain any comments. The Python code should be delimited only by triple backticks.\n        User: <Write a function called \'palindromes_between_indices\' that takes one argument, which is a string. The given string may consist of any character. The function should return the set of all palindromes of the length of at least 3 such that each palindrome is created from any possible arrangement of the English letters in the given string that occur between index 4 to index 9, both inclusive. If no such palindromes of the specified length can be created from the English letters of the given string that occur in the specified range, the function should return an empty set. The function should form each palindrome in a case-insensitive manner.>\nOutput:\nSystem: Here is the requested Python code with no comments:\n```python\ndef palindromes_between_indices(text):\n    st = sorted(text[4:10].lower())\n    result = set()\n    for i in range(len(st) - 2):\n        for j in range(i + 2, len(st)):\n            result.add(\'\'.join(st[i:j + 1][::-1]))\n    return result or {\'None\'}\n```"
+}
+deployed_model_id: "1558232276930658304"
+model: "projects/901665225437/locations/us-east1/models/google_codegemma-7b-it-1725717676032"
+model_version_id: "1"
+model_display_name: "google_codegemma-7b-it-1725717676032"

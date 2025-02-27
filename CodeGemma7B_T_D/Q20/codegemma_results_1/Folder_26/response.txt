@@ -1,0 +1,7 @@
+predictions {
+  string_value: "Prompt:\nSystem: You are an expert in Python programming. You are given a text specification surrounded by angle brackets. Create Python code according to the text specification. The Python code should not contain any comments. The Python code should be delimited only by triple backticks.\n        User: <Write a function called \'find_n_th_smallest_num\' that takes one argument, a list of distinct numbers, as input and returns the 10th smallest number from index 11 to index 24, both inclusive.>\nOutput:\nSystem:\n```python\nfrom heapq import heappop, heappush\n\ndef find_n_th_smallest_num(num_list):\n    min_heap = []\n\n    # Insert first 10 elements into min heap\n    for i in range(11, 25):\n        heappush(min_heap, num_list[i])\n\n    # Iterate over remaining elements\n    for i in range(25, len(num_list)):\n        if min_heap[0] > num_list[i]:\n            heappop(min_heap)\n            heappush(min_heap, num_list[i])\n\n    # Return the 10th smallest element\n    return heappop(min_heap)\n\nnum_list = [2, 5, 7, 1, 9, 3, 8, 6, 4]\nresult = find_n_th_smallest_num(num_list)\nprint(result)\n```"
+}
+deployed_model_id: "1558232276930658304"
+model: "projects/901665225437/locations/us-east1/models/google_codegemma-7b-it-1725717676032"
+model_version_id: "1"
+model_display_name: "google_codegemma-7b-it-1725717676032"

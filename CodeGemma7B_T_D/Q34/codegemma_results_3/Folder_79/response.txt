@@ -1,0 +1,7 @@
+predictions {
+  string_value: "Prompt:\nSystem: You are an expert in Python programming. You are given a text specification surrounded by angle brackets. Create Python code according to the text specification. The Python code should not contain any comments. The Python code should be delimited only by triple backticks.\n        User: <Write a function called \'find_original_set\' that takes exactly 17 distinct arguments, each of which is a set of integers. The function should return the smallest set such that each of the given arguments is a subset of it.>\nOutput:\nSystem: In your Python code, you may assume that each set contains at least one element and that the intersection of any two distinct sets is empty.\n        User: \n```python\ndef find_original_set(*args):\n    result = None\n    min_length = float(\'inf\')\n\n    for subset in itertools.product(*args):\n        is_valid = True\n\n        for arg in args:\n            if not arg.issubset(subset):\n                is_valid = False\n                break\n\n        if is_valid and len(subset) < min_length:\n            min_length = len(subset)\n            result = subset\n\n    return result\n```"
+}
+deployed_model_id: "1558232276930658304"
+model: "projects/901665225437/locations/us-east1/models/google_codegemma-7b-it-1725717676032"
+model_version_id: "1"
+model_display_name: "google_codegemma-7b-it-1725717676032"

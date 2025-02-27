@@ -1,0 +1,2 @@
+def return_nth_smallest_ascii(txt):
+    return sorted(txt[0:16])[15]

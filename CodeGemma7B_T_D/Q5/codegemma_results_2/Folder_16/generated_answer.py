@@ -1,0 +1,2 @@
+def all_neg_ints_inclusive(num_list):
+    return [i for i in num_list[33:37] if i < 0]

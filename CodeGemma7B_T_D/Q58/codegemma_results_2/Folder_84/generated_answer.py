@@ -1,0 +1,8 @@
+def submatrix_with_n_numbers(matrix):
+    count = 0
+    for i in range(len(matrix)):
+        for j in range(i + 1, len(matrix)):
+            submatrix = matrix[i:j + 1, :]
+            if (submatrix == 127).all():
+                count += 1
+    return count

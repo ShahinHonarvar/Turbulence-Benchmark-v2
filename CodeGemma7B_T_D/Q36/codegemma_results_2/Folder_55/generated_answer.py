@@ -1,0 +1,6 @@
+def filter_chars(s):
+    result = []
+    for i in range(len(s)):
+        if i < 3 or i >= 5 or s[i] > 'Y' or (s[i] < 's'):
+            result.append(s[i])
+    return ''.join(result)

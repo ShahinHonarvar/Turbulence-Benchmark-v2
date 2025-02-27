@@ -1,0 +1,9 @@
+def submatrix_with_n_numbers(matrix):
+    size = len(matrix)
+    count = 0
+    for i in range(size - 53):
+        for j in range(size - 53):
+            if matrix[i][j] == 54:
+                if matrix[i][j + 1] == 54 and matrix[i][j + 2] == 54 and (matrix[i][j + 3] == 54) and (matrix[i][j + 4] == 54) and (matrix[i][j + 5] == 54) and (matrix[i][j + 6] == 54) and (matrix[i][j + 7] == 54) and (matrix[i][j + 8] == 54) and (matrix[i][j + 9] == 54) and (matrix[i][j + 10] == 54) and (matrix[i][j + 11] == 54) and (matrix[i][j + 12] == 54) and (matrix[i][j + 13] == 54) and (matrix[i][j + 14] == 54) and (matrix[i][j + 15] == 54) and (matrix[i][j + 16] == 54) and (matrix[i][j + 17] == 54) and (matrix[i][j + 18] == 54) and (matrix[i][j + 19] == 54) and (matrix[i][j + 20] == 54) and (matrix[i][j + 21] == 54) and (matrix[i][j + 22] == 54) and (matrix[i][j + 23] == 54) and (matrix[i][j + 24] == 54) and (matrix[i][j + 25] == 54) and (matrix[i][j + 26] == 54) and (matrix[i][j + 27] == 54) and (matrix[i][j + 28] == 54) and (matrix[i][j + 29] == 54) and (matrix[i][j + 30] == 54) and (matrix[i][j + 31] == 54) and (matrix[i][j + 32] == 54) and (matrix[i][j + 33] == 54) and (matrix[i][j + 34] == 54) and (matrix[i][j + 35] == 54) and (matrix[i][j + 36] == 54) and (matrix[i][j + 37] == 54) and (matrix[i][j + 38] == 54) and (matrix[i][j + 39] == 54) and (matrix[i][j + 40] == 54) and (matrix[i][j + 41] == 54) and (matrix[i][j + 42] == 54) and (matrix[i][j + 43] == 54) and (matrix[i][j + 44] == 54) and (matrix[i][j + 45] == 54) and (matrix[i][j + 46] == 54) and (matrix[i][j + 47] == 54) and (matrix[i][j + 48] == 54) and (matrix[i][j + 49] == 54) and (matrix[i][j + 50] == 54) and (matrix[i][j + 51] == 54) and (matrix[i][j + 52] == 54) and (matrix[i][j + 53] == 54):
+                    count += 1
+    return count

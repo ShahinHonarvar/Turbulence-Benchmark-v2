@@ -1,0 +1,11 @@
+def submatrix_with_particular_sum(matrix):
+    rows, cols = matrix.shape
+    submatrices = []
+    for i in range(rows):
+        for j in range(cols):
+            for k in range(i + 1, rows):
+                for l in range(j + 1, cols):
+                    submatrix = matrix[i:k + 1, j:l + 1]
+                    if submatrix.sum() == 100:
+                        submatrices.append(submatrix)
+    return submatrices

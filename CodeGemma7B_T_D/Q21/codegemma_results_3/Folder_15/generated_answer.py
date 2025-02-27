@@ -1,0 +1,5 @@
+def all_ints_div_by_num(nums):
+    """
+        Write a function called 'all_ints_div_by_num' that takes one argument, a list of integers, and returns the list of all integers divisible by 3 from index 0 to index 0, both inclusive. If no such integers exist in the specified range, the function should return an empty list.
+        """
+    pass

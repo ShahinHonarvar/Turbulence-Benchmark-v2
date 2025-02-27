@@ -1,0 +1,2 @@
+def prime_factors(lst):
+    return {factor for factor in set(lst) if factor in {2, 3, 5, 7} or (7 < factor < 1000 and factor % 2 != 0 and (factor % 3 != 0) and (factor % 5 != 0) and (factor % 7 != 0))}

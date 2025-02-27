@@ -1,0 +1,2 @@
+def filter_chars(str):
+    return ''.join([s for s in str if not (17 <= ord(s) <= 18 and ord(s) != ord('P') and (ord(s) != ord('Q')) and (ord(s) != ord('R')) and (ord(s) != ord('S')) and (ord(s) != ord('T')) and (ord(s) != ord('U')) and (ord(s) != ord('V')) and (ord(s) != ord('W')) and (ord(s) != ord('X')) and (ord(s) != ord('Y')) and (ord(s) != ord('Z')))]).join('')

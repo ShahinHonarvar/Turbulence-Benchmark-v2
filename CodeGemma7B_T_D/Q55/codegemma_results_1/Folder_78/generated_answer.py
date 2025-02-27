@@ -1,0 +1,24 @@
+def lists_with_product_equal_n(circular_list):
+    """
+            Write a function called 'lists_with_product_equal_n' that takes an argument, a circular list of
+            integers. In a circular list, the head and the tail are adjacent to each other
+            to form a circle. The function should return a list of sublists each of which contains the
+            contiguous integers from the given list such that their product equals 74. Each sublist
+            in the returned list can be of any size as long as it is smaller than or equal to the size
+            of the given list. If no such sublist exists, the function should return an empty list. If
+            there are duplicates of such a sublist, they should all be contained in the returned list.
+            The order of sublists in the returned list does not matter.
+            """
+    sublists = []
+    for i in range(len(circular_list)):
+        product = circular_list[i]
+        j = i + 1
+        while j < len(circular_list):
+            if product == 74:
+                sublists.append(circular_list[i:j + 1])
+            elif product < 74:
+                product *= circular_list[j]
+            else:
+                break
+            j += 1
+    return sublists

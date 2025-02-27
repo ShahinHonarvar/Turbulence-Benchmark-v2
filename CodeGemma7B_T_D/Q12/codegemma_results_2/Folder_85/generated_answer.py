@@ -1,0 +1,4 @@
+from math import *
+
+def find_smallest_num(lst):
+    return min(lst[2:7])

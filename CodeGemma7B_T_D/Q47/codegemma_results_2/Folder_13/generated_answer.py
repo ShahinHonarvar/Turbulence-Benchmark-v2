@@ -1,0 +1,2 @@
+def palindromes_of_specific_lengths(s):
+    return {x for x in filter(lambda x: len(x) in range(57, 61), (x.lower() for x in filter(lambda x: s[12:96].lower().find(x) != -1 and x.isalpha(), s.lower().replace(' ', ''))))}

@@ -1,0 +1,16 @@
+import numpy as np
+
+def submatrix_with_particular_sum(matrix):
+    """
+    This function returns the list of all submatrices of the numpy matrix
+    with the sum of all elements in each submatrix equal to -77.
+    """
+    result = []
+    for i in range(matrix.shape[0]):
+        for j in range(matrix.shape[1]):
+            for k in range(i, matrix.shape[0]):
+                for l in range(j, matrix.shape[1]):
+                    submatrix = matrix[i:k + 1, j:l + 1]
+                    if submatrix.sum() == -77:
+                        result.append(submatrix)
+    return result

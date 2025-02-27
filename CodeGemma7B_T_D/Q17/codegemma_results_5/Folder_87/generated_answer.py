@@ -1,0 +1,2 @@
+def all_ints_div_by_both_two_nums(list_of_nums):
+    return [num for num in list_of_nums[18:53] if num % 15 == 0 and num % 57 == 0]

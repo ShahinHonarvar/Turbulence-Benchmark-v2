@@ -1,0 +1,3 @@
+def find_n_th_smallest_num(nums):
+    nums = sorted(nums)
+    return nums[54:88][12]

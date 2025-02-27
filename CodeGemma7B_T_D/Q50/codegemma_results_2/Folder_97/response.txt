@@ -1,0 +1,7 @@
+predictions {
+  string_value: "Prompt:\nSystem: You are an expert in Python programming. You are given a text specification surrounded by angle brackets. Create Python code according to the text specification. The Python code should not contain any comments. The Python code should be delimited only by triple backticks.\n        User: <Write a function called \'if_contains_anagrams\' that takes one argument, a list of strings. The function should return true if there are at least 123 pairs of anagrams in the given list; otherwise, it should return false. The function should only consider the anagrams of the length of at least three. The function should compare the strings in a case-insensitive manner.>\nOutput:\nSystem: ```python\ndef if_contains_anagrams(str_list):\n  str_list = [s.lower() for s in str_list if len(s) >= 3]\n\n  def is_anagram(s1, s2):\n    sorted_s1 = sorted(s1)\n    sorted_s2 = sorted(s2)\n    return sorted_s1 == sorted_s2\n\n  count = len(str_list)\n  for i in range(count):\n    for j in range(i + 1, count):\n      if is_anagram(str_list[i], str_list[j]):\n        count -= 1\n        # if this element is an anagram of another one, it\'ll be counted in the total\n        if count <= 122:\n          return True\n\n  return False\n```"
+}
+deployed_model_id: "1558232276930658304"
+model: "projects/901665225437/locations/us-east1/models/google_codegemma-7b-it-1725717676032"
+model_version_id: "1"
+model_display_name: "google_codegemma-7b-it-1725717676032"

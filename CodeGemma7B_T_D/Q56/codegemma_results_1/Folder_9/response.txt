@@ -1,0 +1,7 @@
+predictions {
+  string_value: "Prompt:\nSystem: You are an expert in Python programming. You are given a text specification surrounded by angle brackets. Create Python code according to the text specification. The Python code should not contain any comments. The Python code should be delimited only by triple backticks.\n        User: <Write a function called \'all_substring_of_size_n\' that takes one argument which is a string. The function should return the list of all distinct substrings of the length equal to 34 with no duplicate characters. If no such substrings exist in the given string, the function should return an empty list. The order of the substrings in the returned list does not matter.>\nOutput:\nSystem: ```python\n        def all_substring_of_size_n(the_str):\n            if len(the_str) < 34:\n                return []\n            else:\n                substring_lst = set()\n                for i in range(len(the_str) - 33):\n                    for j in range(i + 1, len(the_str) - 32):\n                        for k in range(j + 1, len(the_str) - 31):\n                            substring_lst.add(the_str[i:j+1])\n                            substring_lst.add(the_str[j:k+1])\n                            substring_lst.add(the_str[k:j+34])\n    \n                return list(substring_lst)\n        ```"
+}
+deployed_model_id: "1558232276930658304"
+model: "projects/901665225437/locations/us-east1/models/google_codegemma-7b-it-1725717676032"
+model_version_id: "1"
+model_display_name: "google_codegemma-7b-it-1725717676032"

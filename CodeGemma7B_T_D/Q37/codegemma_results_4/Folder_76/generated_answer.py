@@ -1,0 +1,7 @@
+def filter_chars(string):
+    filtered_string = ''
+    for i, char in enumerate(string):
+        if i >= 379 and i <= 898 and (char >= 'M') and (char <= 'v'):
+            continue
+        filtered_string += char
+    return filtered_string

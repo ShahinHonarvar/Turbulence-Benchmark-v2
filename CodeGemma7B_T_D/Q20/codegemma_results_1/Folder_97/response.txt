@@ -1,0 +1,7 @@
+predictions {
+  string_value: "Prompt:\nSystem: You are an expert in Python programming. You are given a text specification surrounded by angle brackets. Create Python code according to the text specification. The Python code should not contain any comments. The Python code should be delimited only by triple backticks.\n        User: <Write a function called \'find_n_th_smallest_num\' that takes one argument, a list of distinct numbers, as input and returns the 15th smallest number from index 60 to index 83, both inclusive.>\nOutput:\nSystem: ```python\ndef find_nth_smallest_num(nums, n=15, start=60, end=83):\n    \"\"\"\n    Finds the nth smallest number from index start to index end, both inclusive.\n\n    Args:\n      nums: A list of distinct numbers.\n      n: The index of the smallest number to return.\n      start: The starting index.\n      end: The ending index.\n\n    Returns:\n      The nth smallest number from index start to index end, both inclusive.\n    \"\"\"\n\n    nums = nums[start:end+1]\n    nums.sort()\n\n    if start < 0 or end >= len(nums):\n        raise IndexError(\"Invalid indices\")\n\n    if n > len(nums):\n        raise IndexError(\"Index out of range\")\n\n    return nums[n-1]\n```"
+}
+deployed_model_id: "1558232276930658304"
+model: "projects/901665225437/locations/us-east1/models/google_codegemma-7b-it-1725717676032"
+model_version_id: "1"
+model_display_name: "google_codegemma-7b-it-1725717676032"

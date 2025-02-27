@@ -1,0 +1,3 @@
+def find_second_largest_num(nums):
+    nums = sorted(nums[74:96], reverse=True)
+    return nums[0] if len(nums) > 1 else 'None'

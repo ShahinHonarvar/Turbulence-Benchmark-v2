@@ -1,0 +1,2 @@
+def palindrome_of_length_at_least_n(s):
+    return {i[0]: i[1] for i in filter(lambda x: len(x) >= 41 and x[0].lower() == x[-1].lower(), sorted([list(strj) for strj in zip(*[iter(s)] * 41)], key=len, reverse=True))}

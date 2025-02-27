@@ -1,0 +1,5 @@
+def gcf_two_nums(num_list):
+    num1, num2 = (num_list[85], num_list[51])
+    while num2 != 0:
+        num1, num2 = (num2, num1 % num2)
+    return num1

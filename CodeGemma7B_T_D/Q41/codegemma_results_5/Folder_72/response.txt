@@ -1,0 +1,7 @@
+predictions {
+  string_value: "Prompt:\nSystem: You are an expert in Python programming. You are given a text specification surrounded by angle brackets. Create Python code according to the text specification. The Python code should not contain any comments. The Python code should be delimited only by triple backticks.\n        User: <Write a function called \'identical_elements\' that takes two arguments, two lists of the same size, and returns the set of all elements that occur at least once in both lists anywhere between index 29 and index 51, both inclusive. If no such elements exist in the given lists, the function should return an empty set.>\nOutput:\nSystem:\n```python\nfrom collections import defaultdict\ndef identical_elements(list_a, list_b):\n    if len(list_a) != len(list_b) or len(list_a) < 51 or len(list_b) < 51:\n        raise ValueError(\"Lists must be of equal length and contain at least 51 elements.\")\n\n    seen_elements = defaultdict(set)\n    result = set()\n\n    for i in range(29, 52):\n        seen_elements[list_a[i]].add(list_b[i])\n        if list_b[i] in seen_elements[list_a[i]]:\n            result.add(list_a[i])\n\n    return result\n```"
+}
+deployed_model_id: "1558232276930658304"
+model: "projects/901665225437/locations/us-east1/models/google_codegemma-7b-it-1725717676032"
+model_version_id: "1"
+model_display_name: "google_codegemma-7b-it-1725717676032"

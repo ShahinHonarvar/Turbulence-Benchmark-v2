@@ -1,0 +1,5 @@
+def all_pos_ints_exclusive(lst):
+    for i in range(43, 99):
+        if lst[i] > 0:
+            res.append(lst[i])
+    return res

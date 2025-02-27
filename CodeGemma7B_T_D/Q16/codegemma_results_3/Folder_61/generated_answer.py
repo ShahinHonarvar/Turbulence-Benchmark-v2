@@ -1,0 +1,6 @@
+def sum_even_ints_inclusive(lst):
+    result = 0
+    for i in range(len(lst)):
+        if i in range(8) and lst[i] % 2 == 0:
+            result += lst[i]
+    return result if result != 0 else 0

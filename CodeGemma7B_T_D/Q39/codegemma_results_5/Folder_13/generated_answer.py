@@ -1,0 +1,3 @@
+def return_n_greatest_chars(str1):
+    str2 = sorted(str1, key=ord, reverse=True)
+    return str2[:31]

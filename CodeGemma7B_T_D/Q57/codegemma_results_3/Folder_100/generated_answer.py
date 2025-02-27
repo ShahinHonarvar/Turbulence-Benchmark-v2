@@ -1,0 +1,15 @@
+def submatrix_with_particular_sum(matrix):
+    """
+    Write a function called 'submatrix_with_particular_sum' that takes one argument which is a two-dimensional numpy matrix of integers. The function should return the list of all submatrices of the given matrix such that the sum of all integers in each submatrix equals 28. If no such submatrix is found, the function should return an empty list.
+    """
+    rows, cols = matrix.shape
+    submatrices = []
+    for row in range(rows):
+        for col in range(cols):
+            for end_row in range(row, rows):
+                for end_col in range(col, cols):
+                    submatrix = matrix[row:end_row + 1, col:end_col + 1]
+                    sum_of_submatrix = submatrix.sum()
+                    if sum_of_submatrix == 28:
+                        submatrices.append(submatrix)
+    return submatrices

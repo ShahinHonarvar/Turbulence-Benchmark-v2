@@ -1,0 +1,16 @@
+def palindrome_of_length_n(str):
+    """
+    Write a function called 'palindrome_of_length_n' that takes one argument, a string, and returns the set of all palindromes of the length equal to 18, where each palindrome is a substring of the given string. Each palindrome should only consist of English letters. If there is no palindrome of the specified length as a substring of the given string, the function should return an empty set. The function should find the palindromes in a case-insensitive manner.
+    """
+    str = str.lower()
+    palindromes = set()
+    for i in range(len(str) - 18 + 1):
+        window = str[i:i + 18]
+        is_palindrome = True
+        for j in range(9):
+            if window[j] != window[17 - j]:
+                is_palindrome = False
+                break
+        if is_palindrome:
+            palindromes.add(window)
+    return palindromes

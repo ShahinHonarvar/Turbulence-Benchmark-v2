@@ -1,0 +1,2 @@
+def palindrome_of_length_n(input_str):
+    return {palindrome for palindrome in input_str.lower() for start in range(len(input_str) - 187) for end in range(start + 188) if palindrome == input_str[start:end][::-1]}

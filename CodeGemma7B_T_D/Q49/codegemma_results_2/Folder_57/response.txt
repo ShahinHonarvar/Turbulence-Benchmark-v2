@@ -1,0 +1,7 @@
+predictions {
+  string_value: "Prompt:\nSystem: You are an expert in Python programming. You are given a text specification surrounded by angle brackets. Create Python code according to the text specification. The Python code should not contain any comments. The Python code should be delimited only by triple backticks.\n        User: <Write a function called \'if_decimal_is_divisible\' that takes one argument, a binary representation string of a non-negative decimal integer. In the given binary representation the most significant digit appears first. The function should return true if the decimal integer corresponding to the given string is divisible by the 80th number that occurs in the Fibonacci sequence; otherwise, it should return false. The first number that occurs in the Fibonacci sequence is 0.>\nOutput:\nSystem: ```python\ndef if_decimal_is_divisible(binary_string):\n    fib = [0]\n    dec, max_d = 0, len(binary_string) - 1\n    for d in range(max_d + 1):\n        if binary_string[d] == \'1\': dec += 2 ** d\n        fib.append(fib[d] + fib[d+1])\n    for i in range(2, len(fib)):\n        if fib[i] >= 80 * dec: return i - 1 == max_d\n    return 0\n```"
+}
+deployed_model_id: "1558232276930658304"
+model: "projects/901665225437/locations/us-east1/models/google_codegemma-7b-it-1725717676032"
+model_version_id: "1"
+model_display_name: "google_codegemma-7b-it-1725717676032"

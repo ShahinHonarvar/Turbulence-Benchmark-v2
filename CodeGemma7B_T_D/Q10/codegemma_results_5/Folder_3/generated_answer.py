@@ -1,0 +1,3 @@
+def all_odd_ints_exclusive(int_list):
+    result = [i for i in int_list[78:93] if i % 2]
+    return result or []

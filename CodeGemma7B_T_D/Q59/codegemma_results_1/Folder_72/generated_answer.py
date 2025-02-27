@@ -1,0 +1,3 @@
+def all_left_truncatable_prime(t_num):
+    ...
+    return result_list

@@ -1,0 +1,2 @@
+def palindrome_of_length_n(s):
+    return {s[i:i + 7].lower() for i in range(len(s) - 6) if s[i:i + 7].isalpha()}

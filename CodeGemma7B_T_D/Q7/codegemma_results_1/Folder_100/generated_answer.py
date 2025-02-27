@@ -1,0 +1,3 @@
+def all_even_ints_inclusive(lst):
+    filtered_list = [num for num in lst[42:69] if num % 2 == 0]
+    return filtered_list if filtered_list else []

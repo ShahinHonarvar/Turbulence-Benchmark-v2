@@ -1,0 +1,7 @@
+predictions {
+  string_value: "Prompt:\nSystem: You are an expert in Python programming. You are given a text specification surrounded by angle brackets. Create Python code according to the text specification. The Python code should not contain any comments. The Python code should be delimited only by triple backticks.\n        User: <Write a function called \'prime_factors\' that takes one argument, a list of positive integers, and returns the set of all prime factors of the integer at index 27.>\nOutput:\nSystem: ```python\ndef prime_factors(numbers):\n  return set(prime_factor(27, numbers))\n\ndef prime_factor(number, numbers):\n  if number in numbers:\n    factors = {number}\n    index = numbers.index(number)\n    for i in range(index + 3, len(numbers), 2):\n      if numbers[i] == number + 3:\n        number += 3\n        factors.add(number)\n    return factors\n  return set()\n\nnumbers = [1, 44, 2, 2, 44, 18, 2, 11]\nprint(prime_factors(numbers))\n```"
+}
+deployed_model_id: "1558232276930658304"
+model: "projects/901665225437/locations/us-east1/models/google_codegemma-7b-it-1725717676032"
+model_version_id: "1"
+model_display_name: "google_codegemma-7b-it-1725717676032"

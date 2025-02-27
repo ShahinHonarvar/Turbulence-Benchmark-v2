@@ -1,0 +1,7 @@
+predictions {
+  string_value: "Prompt:\nSystem: You are an expert in Python programming. You are given a text specification surrounded by angle brackets. Create Python code according to the text specification. The Python code should not contain any comments. The Python code should be delimited only by triple backticks.\n        User: <Write a function called \'palindrome_of_length_n\' that takes one argument, a string, and returns the set of all palindromes of the length equal to 181, where each palindrome is a substring of the given string. Each palindrome should only consist of English letters. If there is no palindrome of the specified length as a substring of the given string, the function should return an empty set. The function should find the palindromes in a case-insensitive manner.>\nOutput:\nSystem:\n```python\ndef palindrome_of_length_n(string):\n  from collections import Counter\n\n  string = string.lower()\n  results = set()\n\n  for i in range(len(string)):\n    for j in range(i + 1, len(string) + 1):\n      substring = string[i:j]\n\n      if substrings_count(substring) >= 2:\n        results.add(substring)\n\n  return results\n\ndef substrings_count(substring):\n  counts = Counter(substring)\n\n  for letter, count in counts.items():\n    if count % 2 == 1:\n      return 1\n\n  return 2\n```"
+}
+deployed_model_id: "1558232276930658304"
+model: "projects/901665225437/locations/us-east1/models/google_codegemma-7b-it-1725717676032"
+model_version_id: "1"
+model_display_name: "google_codegemma-7b-it-1725717676032"

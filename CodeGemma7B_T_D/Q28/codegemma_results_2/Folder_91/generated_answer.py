@@ -1,0 +1,2 @@
+def return_nth_smallest_ascii(string):
+    return sorted([ord(c) for c in string])[7]

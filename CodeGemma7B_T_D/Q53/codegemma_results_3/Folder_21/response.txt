@@ -1,0 +1,7 @@
+predictions {
+  string_value: "Prompt:\nSystem: You are an expert in Python programming. You are given a text specification surrounded by angle brackets. Create Python code according to the text specification. The Python code should not contain any comments. The Python code should be delimited only by triple backticks.\n        User: <Write a function called \'palindrome_of_length_at_least_n\' that takes one argument, a string, and returns the set of all palindromes of the length greater than or equal to 112 that exist in the given string. Each palindrome should only consist of English letters. If no such palindromes exist in the given string, the function should return an empty set. The function should find the palindromes in a case-insensitive manner.>\nOutput:\nSystem: ```python\ndef palindrome_of_length_at_least_n(txt):\n  import re\n  all_found=[]\n  for i in re.findall(\'[a-zA-Z]{112,}\',txt):\n    i=i.lower() #make to lowercase to find palindrome of any case\n    a=i\n    b=i[::-1]\n    if a==b:\n      all_found.append(i)\n    if a!=b:\n      a=list(a)\n      for k in range(26):\n        a.insert(k, chr(ord(\'a\')+k))\n        b=a[::-1]\n        if a==b: all_found.append(\'\'.join(a))\n        a.pop(k)\n  return set(all_found)\n```"
+}
+deployed_model_id: "1558232276930658304"
+model: "projects/901665225437/locations/us-east1/models/google_codegemma-7b-it-1725717676032"
+model_version_id: "1"
+model_display_name: "google_codegemma-7b-it-1725717676032"

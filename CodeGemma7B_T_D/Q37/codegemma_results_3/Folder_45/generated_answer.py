@@ -1,0 +1,2 @@
+def filter_chars(s):
+    return ''.join((c for c in s if c not in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' and c not in range(72, 95) or (c not in 'abcdefghijklmnopqrstuvwxyz' and c not in range(72, 95) and (c <= '.')) or c >= 'b'))

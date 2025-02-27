@@ -1,0 +1,11 @@
+from itertools import product
+
+def palindrome_of_length_at_least_n(string):
+    string = string.lower()
+    result = set()
+    for length in range(140, len(string) + 1):
+        for start in range(len(string) - length + 1):
+            substring = string[start:start + length]
+            if substring == substring[::-1]:
+                result.add(substring)
+    return result

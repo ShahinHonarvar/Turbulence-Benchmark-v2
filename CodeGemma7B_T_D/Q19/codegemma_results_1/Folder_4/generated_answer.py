@@ -1,0 +1,2 @@
+def all_ints_not_div_by_num(numbers):
+    return [x for x in numbers[19:49] if x % -36 != 0]

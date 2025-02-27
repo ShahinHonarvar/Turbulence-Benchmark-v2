@@ -1,0 +1,12 @@
+import numpy as np
+
+def submatrix_with_n_numbers(matrix):
+    count = 0
+    for i in range(len(matrix)):
+        for j in range(i, len(matrix)):
+            for k in range(len(matrix[0])):
+                for l in range(k, len(matrix[0])):
+                    submatrix = matrix[i:j + 1, k:l + 1]
+                    if np.count_nonzero(submatrix == 23) == 23:
+                        count += 1
+    return count

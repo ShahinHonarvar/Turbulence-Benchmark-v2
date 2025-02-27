@@ -1,0 +1,15 @@
+def return_binary_or_hexa(tuples):
+    """
+    Write a function called 'return_binary_or_hexa' that takes one argument, a tuple of distinct nonnegative integers sorted in ascending order. Let 'a' denote the integer stored at index 50, and 'b' the integer stored at index 92. The function should calculate the sum of all integers from a + 1 to b - 1 (both inclusive) that are not present in the tuple between indices 50 and 92. If the sum is an odd number, the function should return the binary representation string of the sum; otherwise, it should return the hexadecimal representation string of the sum. The binary representation should not be prefixed with '0b'. The hexadecimal representation should not be prefixed with '0x'. The binary and hexadecimal representations should start with the most significant digit and have no leading zeros. The letters in hexadecimal representation can be either in lowercase or uppercase. If all integers from a + 1 to b - 1 (both inclusive) are present in the specified range in the tuple, the function should return an empty string.
+    """
+    tuples.sort()
+    a = tuples[50]
+    b = tuples[92]
+    summ = 0
+    for i in range(a + 1, b):
+        if i not in tuples[50:93]:
+            summ += i
+    if summ % 2 == 1:
+        return bin(summ)[2:]
+    else:
+        return hex(summ)[2:]

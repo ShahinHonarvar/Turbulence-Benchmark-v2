@@ -1,0 +1,2 @@
+def palindrome_of_length_n(string):
+    return {text[i:i + 85] for i in range(len(text)) for text in [string.lower(), string] for text in [text.replace(' ', '') for text in [text]]} - {text[::-1] for text in {text[i:i + 85] for i in range(len(text)) for text in [string.lower(), string] for text in [text.replace(' ', '') for text in [text]]}}
