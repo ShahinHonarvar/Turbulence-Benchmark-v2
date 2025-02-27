@@ -1,0 +1,15 @@
+from itertools import combinations
+
+def palindromes_between_indices(s):
+
+    def is_palindrome(word):
+        return word == word[::-1]
+    letters = ''.join(filter(str.isalpha, s[1:7])).lower()
+    palindromes = set()
+    n = len(letters)
+    for i in range(3, n + 1):
+        for combo in combinations(letters, i):
+            word = ''.join(combo)
+            if is_palindrome(word):
+                palindromes.add(word)
+    return palindromes

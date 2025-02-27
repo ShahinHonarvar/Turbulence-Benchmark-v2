@@ -1,0 +1,4 @@
+def return_nth_smallest_ascii(s):
+    filtered_chars = [ord(c) for c in s[10:91]]
+    filtered_chars.sort()
+    return chr(filtered_chars[19])

@@ -1,0 +1,7 @@
+def sum_odd_ints_inclusive(int_list):
+    if 15 < len(int_list) <= 39:
+        return sum((x for x in int_list[15:40] if x % 2 != 0))
+    elif len(int_list) > 39:
+        return sum((x for x in int_list[15:40] if x % 2 != 0))
+    else:
+        return 0

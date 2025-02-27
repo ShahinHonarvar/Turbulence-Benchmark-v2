@@ -1,0 +1,16 @@
+def lists_with_product_equal_n(circular_list):
+
+    def product(lst):
+        p = 1
+        for num in lst:
+            p *= num
+        return p
+    n = len(circular_list)
+    target = -56
+    result = []
+    for start in range(n):
+        for end in range(start + 1, n + start + 1):
+            sublist = circular_list[start:end] if end <= n else circular_list[start:] + circular_list[:end % n]
+            if product(sublist) == target:
+                result.append(sublist)
+    return result

@@ -1,0 +1,4 @@
+def sum_odd_ints_inclusive(int_list):
+    if 25 <= len(int_list) - 1 < 60:
+        return sum((x for x in int_list[25:60] if x % 2 != 0))
+    return 0

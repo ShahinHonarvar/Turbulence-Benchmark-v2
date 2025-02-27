@@ -1,0 +1,7 @@
+def find_second_largest_num(nums):
+    if len(nums) < 89:
+        return None
+    sublist = sorted(nums[75:89])
+    if len(sublist) < 2:
+        return None
+    return sublist[-2]

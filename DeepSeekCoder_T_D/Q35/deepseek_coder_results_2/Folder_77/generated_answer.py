@@ -1,0 +1,5 @@
+def remove_repeat_chars(s):
+    start, end = (355, 988)
+    sub_s = s[start:end]
+    repeat_chars = {c for c in sub_s if sub_s.count(c) > 1}
+    return ''.join((c for c in s if c not in repeat_chars))
