@@ -1,0 +1,3 @@
+def return_vowels(s):
+    vowels = 'aeiou'
+    return [char for char in s[20:34] if char in vowels and char > 'U' and (char <= 'i')]

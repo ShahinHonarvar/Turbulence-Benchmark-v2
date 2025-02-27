@@ -1,0 +1,2 @@
+def sum_even_ints_inclusive(lst):
+    return sum((x for i, x in enumerate(lst) if 10 <= i <= 66 and x % 2 == 0)) if len(lst) > 66 else sum((x for i, x in enumerate(lst) if 10 <= i < len(lst) and x % 2 == 0))

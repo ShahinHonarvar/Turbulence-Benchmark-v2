@@ -1,0 +1,6 @@
+def if_perfect_num(numbers):
+    if len(numbers) > 4:
+        num = numbers[4]
+        sum_of_factors = sum((i for i in range(1, num) if num % i == 0))
+        return sum_of_factors == num
+    return False

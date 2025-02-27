@@ -1,0 +1,2 @@
+def all_odd_ints_exclusive(numbers):
+    return [num for i, num in enumerate(numbers[2:8]) if num % 2 != 0]

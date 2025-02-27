@@ -1,0 +1,12 @@
+import math
+
+def composite_nums_between_indices(lst):
+
+    def is_composite(n):
+        if n < 4:
+            return False
+        for i in range(2, int(math.sqrt(n)) + 1):
+            if n % i == 0:
+                return True
+        return False
+    return {x for x in lst[31:73] if is_composite(x)}

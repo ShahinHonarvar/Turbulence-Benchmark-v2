@@ -1,0 +1,15 @@
+from sympy import isprime
+
+def all_right_truncatable_prime(numbers):
+    x = numbers[33]
+    right_truncatable_primes = []
+    for num in range(2, x):
+        str_num = str(num)
+        if isprime(num):
+            while str_num:
+                if not isprime(int(str_num)):
+                    break
+                str_num = str_num[:-1]
+            else:
+                right_truncatable_primes.append(num)
+    return sorted(right_truncatable_primes)

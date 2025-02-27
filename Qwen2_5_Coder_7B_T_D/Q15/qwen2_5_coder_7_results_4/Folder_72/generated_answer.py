@@ -1,0 +1,2 @@
+def sum_odd_ints_inclusive(lst):
+    return sum((x for i, x in enumerate(lst[29:52]) if i % 2 == 1 and x % 2 != 0))

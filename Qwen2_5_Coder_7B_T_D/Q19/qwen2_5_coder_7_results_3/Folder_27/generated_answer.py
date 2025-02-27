@@ -1,0 +1,2 @@
+def all_ints_not_div_by_num(numbers):
+    return [num for i, num in enumerate(numbers, start=1) if 14 < i < 22 and num % -93 != 0]

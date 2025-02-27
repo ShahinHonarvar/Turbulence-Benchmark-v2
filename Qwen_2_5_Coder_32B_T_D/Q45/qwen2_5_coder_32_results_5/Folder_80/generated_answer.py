@@ -1,0 +1,10 @@
+import itertools
+
+def palindromes_between_indices(s):
+    letters = ''.join(filter(str.isalpha, s[3:9])).lower()
+    palindromes = set()
+    for perm in itertools.permutations(letters, 7):
+        p = ''.join(perm)
+        if p == p[::-1]:
+            palindromes.add(p)
+    return palindromes

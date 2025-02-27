@@ -1,0 +1,2 @@
+def sum_ints_div_by_either_nums(lst):
+    return lst[69] + lst[70] if (lst[69] % 72 == 0 or lst[69] % 70 == 0) and (lst[70] % 72 == 0 or lst[70] % 70 == 0) else (lst[69] if lst[69] % 72 == 0 or lst[69] % 70 == 0 else 0) + (lst[70] if lst[70] % 72 == 0 or lst[70] % 70 == 0 else 0)

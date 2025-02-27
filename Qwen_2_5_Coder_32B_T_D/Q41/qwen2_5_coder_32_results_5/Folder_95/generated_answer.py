@@ -1,0 +1,3 @@
+def identical_elements(list1, list2):
+    set1 = set(list1[82:87]) & set(list2[82:87])
+    return set1

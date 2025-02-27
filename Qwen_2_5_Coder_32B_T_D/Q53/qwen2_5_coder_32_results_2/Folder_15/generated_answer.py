@@ -1,0 +1,10 @@
+def palindrome_of_length_at_least_n(s):
+    s = s.lower()
+    n = len(s)
+    result = set()
+    for i in range(n):
+        for j in range(i + 4, n + 1):
+            subs = s[i:j]
+            if subs == subs[::-1] and subs.isalpha():
+                result.add(subs)
+    return result

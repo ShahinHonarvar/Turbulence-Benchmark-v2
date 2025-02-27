@@ -1,0 +1,2 @@
+def all_neg_ints_inclusive(numbers):
+    return [num for i, num in enumerate(numbers) if 13 <= i <= 68 and num < 0]

@@ -1,0 +1,11 @@
+import re
+
+def palindromes_of_specific_lengths(s):
+    s = s[15:90].lower()
+    palindromes = set()
+    for i in range(len(s)):
+        for j in range(i + 40, min(i + 73, len(s) + 1)):
+            substring = s[i:j]
+            if re.fullmatch('[a-z]+', substring) and substring == substring[::-1]:
+                palindromes.add(substring)
+    return palindromes

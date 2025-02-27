@@ -1,0 +1,23 @@
+from math import sqrt
+
+def all_left_right_truncatable_prime(numbers):
+    x = numbers[29]
+
+    def is_prime(n):
+        if n <= 1:
+            return False
+        for i in range(2, int(sqrt(n)) + 1):
+            if n % i == 0:
+                return False
+        return True
+
+    def is_left_right_truncatable(n):
+        str_n = str(n)
+        for i in range(len(str_n)):
+            if not is_prime(int(str_n[i:])):
+                return False
+            if not is_prime(int(str_n[:len(str_n) - i])):
+                return False
+        return True
+    truncatable_primes = [n for n in range(2, x + 1) if is_prime(n) and is_left_right_truncatable(n)]
+    return sorted(truncatable_primes)

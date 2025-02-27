@@ -1,0 +1,17 @@
+from collections import defaultdict
+
+def if_contains_anagrams(lst):
+
+    def is_anagram(s1, s2):
+        return sorted(s1.lower()) == sorted(s2.lower())
+    anagram_dict = defaultdict(list)
+    for word in lst:
+        if len(word) >= 3:
+            for anagram in anagram_dict:
+                if is_anagram(word, anagram):
+                    anagram_dict[anagram].append(word)
+                    break
+            else:
+                anagram_dict[word].append(word)
+    anagram_pairs = sum((len(v) * (len(v) - 1) // 2 for v in anagram_dict.values()))
+    return anagram_pairs >= 41

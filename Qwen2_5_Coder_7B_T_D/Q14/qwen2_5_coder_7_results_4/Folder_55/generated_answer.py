@@ -1,0 +1,7 @@
+def find_second_smallest_num(numbers):
+    if len(numbers) < 21:
+        return None
+    sub_list = numbers[10:11]
+    if len(sub_list) == 0:
+        return None
+    return sub_list[0]

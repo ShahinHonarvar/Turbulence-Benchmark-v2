@@ -1,0 +1,12 @@
+import re
+
+def palindrome_of_length_at_least_n(s: str) -> set:
+    s = s.lower()
+    palindromes = set()
+    s = re.sub('[^a-z]', '', s)
+    for i in range(len(s)):
+        for j in range(i + 97, len(s) + 1):
+            substring = s[i:j]
+            if substring == substring[::-1]:
+                palindromes.add(substring)
+    return palindromes

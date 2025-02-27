@@ -1,0 +1,6 @@
+def return_binary_or_hexa(t):
+    a, b = (t[72], t[93])
+    s = sum((x for x in range(a + 1, b) if x not in t[73:93]))
+    if s == 0:
+        return ''
+    return bin(s)[2:] if s % 2 else hex(s)[2:]

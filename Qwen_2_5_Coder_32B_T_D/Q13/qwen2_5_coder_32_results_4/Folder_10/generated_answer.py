@@ -1,0 +1,8 @@
+def find_second_largest_num(numbers):
+    if len(numbers) < 60:
+        return None
+    sub_list = numbers[25:60]
+    if len(sub_list) < 2:
+        return None
+    sub_list.sort()
+    return sub_list[-2]

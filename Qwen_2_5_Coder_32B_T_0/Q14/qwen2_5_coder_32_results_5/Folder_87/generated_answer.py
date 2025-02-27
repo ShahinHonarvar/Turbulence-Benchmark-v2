@@ -1,0 +1,8 @@
+def find_second_smallest_num(lst):
+    if len(lst) < 89:
+        return None
+    sub_lst = lst[22:89]
+    if len(sub_lst) < 2:
+        return None
+    sub_lst.sort()
+    return sub_lst[1]

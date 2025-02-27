@@ -1,0 +1,20 @@
+def all_right_truncatable_prime(nums):
+    x = nums[50]
+
+    def is_prime(n):
+        if n <= 1:
+            return False
+        for i in range(2, int(n ** 0.5) + 1):
+            if n % i == 0:
+                return False
+        return True
+
+    def is_right_truncatable_prime(n):
+        m = n
+        while m > 0:
+            if not is_prime(m):
+                return False
+            m //= 10
+        return True
+    primes = [i for i in range(2, x) if is_prime(i) and is_right_truncatable_prime(i)]
+    return sorted(primes, reverse=True)
