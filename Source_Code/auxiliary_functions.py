@@ -2,7 +2,6 @@ import os
 import re
 import ast
 import sys
-import math
 import time
 import json
 import psutil
@@ -91,13 +90,50 @@ class Auxiliary():
         return counter_examples
 
 
-    def calculate_deviation(self, lst):
-        sum_result = 0
-        mean = sum(lst) / len(lst)
-        for i in lst:
-            sum_result += pow(i - mean, 2)
+    def prepare_data(self, data, m=100, r=5):
+        list_of_hundreds = []
+        while data:
+            list_of_hundreds.append(data[:m])
+            data = data[m:]
+        final_list = []
+        for i in range(m):
+            list_of_fives = []
+            for j in range(r):
+                list_of_fives.append(list_of_hundreds[j][i])
+            final_list.append(list_of_fives)
+        
+        return final_list
 
-        return math.sqrt(sum_result / len(lst))
+
+    def calculate_accuracy(data, R, M):
+        s = 0
+        for lst in data:
+            s += sum(lst)
+        
+        R = len(data[0])
+        M = len(data)
+        return s / (R * M)
+
+
+    def calculate_correctness_potential(data, M):
+        s = 0
+        for lst in data:
+            if sum(lst) >= 1:
+                s += 1
+        
+        M = len(data)
+        return s / M
+
+
+    def calculate_consistent_correctness(data, R, M):
+        s = 0
+        R = len(data[0])
+        for lst in data:
+            if sum(lst) == R:
+                s += 1
+
+        M = len(data)
+        return s / M
 
 
     def checker(self, q_no, c, api_name, no):
@@ -251,9 +287,11 @@ class Auxiliary():
         if txt_string.count("```") < 2:
             import_lines = []
             other_lines = []
-            txt_string = txt_string.replace('\\n', '\n').replace('\\"', '"').replace('\\t', '    ').replace("\\'",
-                                                                                                            "'").replace(
-                "``", "").replace("```", "").replace("python", "").strip("\n")
+            txt_string = txt_string.encode().decode('unicode_escape')
+            txt_string = txt_string.replace("python", "").replace("Python", "")
+            # txt_string = txt_string.replace('\\n', '\n').replace('\\"', '"').replace('\\t', '    ').replace("\\'",
+            #                                                                                                 "'").replace(
+            #     "``", "").replace("```", "").replace("python", "").strip("\n")
             if not txt_string:
                 return "No function", ""
 
@@ -316,9 +354,11 @@ class Auxiliary():
                     first_idx = indices[k]
                     second_idx = indices[j]
                     sliced_txt = txt_string[first_idx + 3: second_idx]
-                    generated_code = sliced_txt.replace('\\n', '\n').replace('\\"', '"').replace("\\'", "'").replace('\\t',
-                                                                                                                    '    ').replace(
-                        "python", "").replace("``", "").replace("```", "").strip("\n")
+                    sliced_txt = sliced_txt.encode().decode('unicode_escape')
+                    generated_code = sliced_txt.replace("python", "").replace("Python", "")
+                    # generated_code = sliced_txt.replace('\\n', '\n').replace('\\"', '"').replace("\\'", "'").replace('\\t',
+                    #                                                                                                 '    ').replace(
+                    #     "python", "").replace("``", "").replace("```", "").strip("\n")
                     if not generated_code:
                         break
                     else:
@@ -457,6 +497,8 @@ class Auxiliary():
                         seperator_idx = example.index("1000000000000000000001")
                         f.write(f"Input 1: {list(example[:seperator_idx])}\n")
                         f.write(f"Input 2: {list(example[seperator_idx + 1:])}\n\n")
+                    elif q_no == 57 or q_no == 58:
+                        f.write(f"({c}) With the following counter example:\n{example}\n\n")
                     else:
                         f.write(f"({c}) With the following counter example:\n{list(example)}\n\n")
                     
@@ -984,7 +1026,7 @@ class Auxiliary():
         elif api_name == "Qwen/Qwen2.5-Coder-32B-Instruct":
             return "qwen2_5_coder_32"
         elif api_name == "starcoder2-15b-instruct-v0.1":
-            return "starcoder2_15B" 
+            return "starcoder2_15b_instruct_v0_1" 
         else:
             chars = ["-", ".", ":", "/"]
             for char in chars:

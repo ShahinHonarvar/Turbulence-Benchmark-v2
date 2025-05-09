@@ -3,7 +3,7 @@ import json
 import time
 from benchmark_test import run_test
 from auxiliary_functions import Auxiliary
-from send_recieve import send_prompt_recieve_response
+from send_receive import send_prompt_recieve_response
 
 
 
@@ -18,6 +18,7 @@ if __name__ == "__main__":
     seed = config["seed"]
     path = config["path"]
     num_of_processes = config["num_of_processes"]
+    confidence_level = float(config["confidence_level"])
     questions_req = aux.extract_questions_params_inputs(config["questions"])
     number_of_rounds = aux.extract_result_folder_numbers(config["number_of_rounds"])
 
@@ -50,14 +51,19 @@ if __name__ == "__main__":
                 number_of_parameters,
                 test_durations
             )
-            number_of_all_trials =  number_of_parameters * len(number_of_rounds)
-            corr_sc = sum(binary_correctness) / number_of_all_trials
+            prepared_data = aux.prepare_data(binary_correctness, len(number_of_rounds))
+            AS = aux.calculate_accuracy(prepared_data, len(number_of_rounds), number_of_parameters)
+            CPS = aux.calculate_correctness_potential(prepared_data, number_of_parameters)
+            CCS = aux.calculate_consistent_correctness(prepared_data, len(number_of_rounds), number_of_parameters)
+            number_of_all_trails = number_of_parameters * len(number_of_rounds)
+            
             all_runs_q_test_end = time.time()
             report_content = {
                 "Question": q,
-                "RCS": corr_sc,
-                "Distribution": binary_correctness,
-                "Time": all_runs_q_test_end - all_runs_q_test_start,
+                "AS": CCS,
+                "CPS": CPS,
+                "CCS": CCS,
+                "Distribution": prepared_data,
             }
 
             with open(f"Q{q}/Q{q}_stats.json", "w") as f:
