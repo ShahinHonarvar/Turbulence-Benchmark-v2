@@ -120,8 +120,8 @@ In addition to the **Source_Code** folder, there are **44 folders**, each servin
 
 ## 📂 Inside Each Question Subfolder (Qn) <a id="inside-qn"></a>
 
-Within each subfolder labelled `Q<n>` (where `n` is a question number between 1 and 60), there are five subfolders and multiple files. The pair of (*question template*, *test oracle*) for each question is available here. The `question.txt.template` file contains the question in English. `genparams.py` contains a function for generating unique random parameter values to replace placeholders in the template. With some question templates, we manually wrote **20 parameter values representing the edge cases**...
-When such hand-chosen parameter values were used, they are documented in a file called `manually_chosen_params.txt`.
+Within each subfolder labelled `Q<n>` (where `n` is a question number between 1 and 60), there are five subfolders and multiple files. The pair of (*question template*, *test oracle*) for each question is available here. The `question.txt.template` file contains the question in English. `genparams.py` contains a function for generating unique random parameter values to replace placeholders in the template. With some question templates, we manually wrote **20 parameter values representing the edge cases**.
+**When such hand-chosen parameter values were used, they are documented in a file called `manually_chosen_params.txt`**.
 
 Other files include:  
 - `test.py.template` → template test cases.  
